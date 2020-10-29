@@ -1,1 +1,3 @@
 rootProject.name = 'WineNot'
+
+includeFlat 'JPAWineNot'
