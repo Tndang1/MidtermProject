@@ -47,9 +47,15 @@ class PaymentInfoTest {
 	void test1() {
 		assertNotNull(payInfo);
 		assertEquals(1, payInfo.getId());
-		assertEquals(1, payInfo.getAddressId());
 		assertEquals(12345678, payInfo.getCardNumber());
 		LocalDateTime ed = payInfo.getExprDate();
 		assertEquals(1870, ed.getYear());
+	}
+	
+	@Test
+	void paymentInfo_to_address_relationship() {
+		assertNotNull(payInfo);
+		assertNotNull(payInfo.getAddress());
+		assertEquals("800 Victor St", payInfo.getAddress().getStreet());
 	}
 }
