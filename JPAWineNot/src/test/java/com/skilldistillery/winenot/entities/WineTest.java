@@ -68,5 +68,21 @@ class WineTest {
 		assertEquals(1, wine.getWineType().getId());
 		
 	}
-
+	@Test
+	void test_wine_to_customer_join() {
+		assertNotNull(wine);
+		assertEquals(1, wine.getCustomers().size());
+	}
+	@Test
+	void test_wine_customerorder_relationship() {
+		assertNotNull(wine);
+		assertEquals(1, wine.getCustomerOrders().size());
+	}
+	@Test
+	void test_wine_review_relationship() {
+		assertNotNull(wine);
+		assertEquals(1, wine.getReviews().size());
+	}
+	
+	
 }

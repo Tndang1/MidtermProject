@@ -1,12 +1,16 @@
 package com.skilldistillery.winenot.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Wine {
@@ -39,6 +43,15 @@ public class Wine {
 	@JoinColumn(name = "wine_color_id")
 	private WineColor wineColor;
 
+	@ManyToMany(mappedBy = "wines")
+	private List<Customer> customers;
+	
+	@ManyToMany(mappedBy = "wines")
+	private List<CustomerOrder> customerOrders;
+	
+	@OneToMany(mappedBy = "wine")
+	private List<Review> reviews;
+	
 	
 	
 	public Wine() {
@@ -152,6 +165,42 @@ public class Wine {
 
 
 
+
+
+
+	public List<Customer> getCustomers() {
+		return customers;
+	}
+
+
+
+	public void setCustomers(List<Customer> customers) {
+		this.customers = customers;
+	}
+
+
+
+	public List<CustomerOrder> getCustomerOrders() {
+		return customerOrders;
+	}
+
+
+
+	public void setCustomerOrders(List<CustomerOrder> customerOrders) {
+		this.customerOrders = customerOrders;
+	}
+
+
+
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
+
+
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
+	}
 
 
 

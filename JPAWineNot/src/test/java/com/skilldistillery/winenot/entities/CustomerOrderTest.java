@@ -47,9 +47,19 @@ class CustomerOrderTest {
 	void test_Order_entity_fields() {
 		assertNotNull(order);
 		assertEquals(1, order.getId());
-		assertEquals(1, order.getCustomerId());
 		LocalDateTime od = order.getOrderDate();
 		assertEquals(2020, od.getYear());
 		assertEquals(129.99, order.getAmount());
+	}
+	@Test
+	void test_customer_customerOrder_relationship() {
+		assertNotNull(order);
+		assertEquals("Charles", order.getCustomer().getfName());
+		
+	}
+	@Test
+	void test_customerorder_orderwine_relationship() {
+		assertNotNull(order);
+		assertEquals(6, order.getWines().size());
 	}
 }

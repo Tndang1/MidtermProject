@@ -47,10 +47,14 @@ class PaymentTest {
 		LocalDateTime pd = payment.getPaymentDate();
 		assertNotNull(payment);
 		assertEquals(1, payment.getComplete());
-		assertEquals(1, payment.getOrderId());
 		assertEquals(2020, pd.getYear());
 		assertEquals(01, pd.getMonthValue());
 		assertEquals(01, pd.getDayOfMonth());
+	}
+	@Test
+	void test_payment_customerorder_relationship() {
+		assertNotNull(payment);
+		assertEquals(129.99, payment.getCustomerOrder().getAmount());
 	}
 
 }

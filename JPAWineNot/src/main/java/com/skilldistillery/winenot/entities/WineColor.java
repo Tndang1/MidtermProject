@@ -15,6 +15,8 @@ public class WineColor {
 	private int id;
 	@Column(name = "wine_color")
 	private String wineColor;
+	
+	
 	public int getId() {
 		return id;
 	}

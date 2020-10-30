@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Payment {
@@ -16,12 +18,13 @@ public class Payment {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private int complete;
-	@Column(name="order_id")
-	private int orderId;
 	@Column(name="payment_date")
 	private LocalDateTime paymentDate;
+	@OneToOne
+	@JoinColumn(name="order_id")
+	private CustomerOrder customerOrder;
 
-	//	GETTERS AND SETTERS=================================
+//	GETTERS AND SETTERS=================================
 
 	public int getId() {
 		return id;
@@ -36,12 +39,7 @@ public class Payment {
 		this.complete = complete;
 	}
 	
-	public int getOrderId() {
-		return orderId;
-	}
-	public void setOrderId(int orderId) {
-		this.orderId = orderId;
-	}
+	
 	public LocalDateTime getPaymentDate() {
 		return paymentDate;
 	}
@@ -52,6 +50,12 @@ public class Payment {
 	
 //	CONTRUCTORS===================================
 	
+	public CustomerOrder getCustomerOrder() {
+		return customerOrder;
+	}
+	public void setCustomerOrder(CustomerOrder customerOrder) {
+		this.customerOrder = customerOrder;
+	}
 	public Payment() {
 		super();
 	}
@@ -67,7 +71,6 @@ public class Payment {
 		int result = 1;
 		result = prime * result + complete;
 		result = prime * result + id;
-		result = prime * result + orderId;
 		result = prime * result + ((paymentDate == null) ? 0 : paymentDate.hashCode());
 		return result;
 	}
@@ -83,8 +86,6 @@ public class Payment {
 		if (complete != other.complete)
 			return false;
 		if (id != other.id)
-			return false;
-		if (orderId != other.orderId)
 			return false;
 		if (paymentDate == null) {
 			if (other.paymentDate != null)

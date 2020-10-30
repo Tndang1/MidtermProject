@@ -1,13 +1,18 @@
 package com.skilldistillery.winenot.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -34,6 +39,14 @@ public class Customer {
 	@OneToOne
 	@JoinColumn(name="address_id")
 	private Address address;
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	@JoinTable(name="favorites", joinColumns = @JoinColumn(name="customer_id"), inverseJoinColumns = @JoinColumn(name="wine_id"))
+	private List<Wine> wines;
+	@OneToMany(mappedBy = "customer")
+	private List<CustomerOrder> customerOrders;
+	@OneToMany(mappedBy="customer")
+	private List<Review> reviews;
+	
 	
 	public int getId() {
 		return id;
@@ -83,6 +96,18 @@ public class Customer {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	public List<Wine> getWines() {
+		return wines;
+	}
+	public void setWines(List<Wine> wines) {
+		this.wines = wines;
+	}
+	public List<CustomerOrder> getCustomerOrders() {
+		return customerOrders;
+	}
+	public void setCustomerOrders(List<CustomerOrder> customerOrders) {
+		this.customerOrders = customerOrders;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -114,6 +139,12 @@ public class Customer {
 	}
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+	public List<Review> getReviews() {
+		return reviews;
+	}
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
 	}
 
 }

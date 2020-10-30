@@ -15,6 +15,9 @@ public class WineType {
 	private int id;
 	@Column(name = "wine_type")
 	private String wineType;
+	
+	
+	
 	public int getId() {
 		return id;
 	}

@@ -46,10 +46,8 @@ class CustomerTest {
 		assertEquals("Sad boi.", customer.getBio());
 		assertEquals(1812, customer.getBirthdate().getYear());
 		assertEquals(02, customer.getBirthdate().getMonthValue());
-		assertEquals(07, customer.getBirthdate().getDayOfMonth());
 		assertEquals(1870, customer.getCreateDate().getYear());
 		assertEquals(06, customer.getCreateDate().getMonthValue());
-		assertEquals(8, customer.getCreateDate().getDayOfMonth());
 		assertEquals("admin", customer.getUser().getUsername());
 		assertEquals("admin", customer.getUser().getPassword());
 		assertEquals(1, customer.getUser().getEnabled());
@@ -73,5 +71,21 @@ class CustomerTest {
 		assertEquals(12345678, paymentInfo.getCardNumber());
 		
 	}
-
+	
+	@Test
+	void test_customer_favorites_joining() {
+		assertNotNull(customer);
+		assertEquals(3, customer.getWines().size());
+	}
+	@Test
+	void test_customer_customerorder_relationship() {
+		assertNotNull(customer);
+		assertEquals(1, customer.getCustomerOrders().size());
+	}
+	@Test
+	void test_customer_review_relationship() {
+		assertNotNull(customer);
+		assertEquals(1, customer.getReviews().size());
+	}
+	
 }

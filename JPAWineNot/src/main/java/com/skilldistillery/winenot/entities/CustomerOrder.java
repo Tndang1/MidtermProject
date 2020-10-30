@@ -1,24 +1,32 @@
 package com.skilldistillery.winenot.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="customer_order")
 public class CustomerOrder {
-
+// FIELDS========================================
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name="customer_id")
-	private int customerId;
+	@ManyToOne
+	@JoinColumn(name="customer_id")
+	private Customer customer;
 	
 	@Column(name="order_date")
 	private LocalDateTime orderDate;
@@ -26,6 +34,15 @@ public class CustomerOrder {
 	private double amount;
 	
 	private int size;
+	
+	
+//	private WineColor wineColor;
+	
+	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	@JoinTable(name="order_wine", joinColumns = @JoinColumn(name="order_id"), inverseJoinColumns = @JoinColumn(name="wine_id"))
+	private List<Wine> wines;
+	
+//	GETTERS AND SETTERS ============================================
 
 	public int getId() {
 		return id;
@@ -35,13 +52,6 @@ public class CustomerOrder {
 		this.id = id;
 	}
 
-	public int getCustomerId() {
-		return customerId;
-	}
-
-	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
-	}
 
 	public LocalDateTime getOrderDate() {
 		return orderDate;
@@ -71,13 +81,35 @@ public class CustomerOrder {
 		super();
 	}
 
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+//	public WineColor getWineColor() {
+//		return wineColor;
+//	}
+//
+//	public void setWineColor(WineColor wineColor) {
+//		this.wineColor = wineColor;
+//	}
+
+	public List<Wine> getWines() {
+		return wines;
+	}
+
+	public void setWines(List<Wine> wines) {
+		this.wines = wines;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Order [id=");
 		builder.append(id);
-		builder.append(", customerId=");
-		builder.append(customerId);
 		builder.append(", orderDate=");
 		builder.append(orderDate);
 		builder.append(", amount=");
