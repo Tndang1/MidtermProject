@@ -205,6 +205,7 @@ DROP TABLE IF EXISTS `order_wine` ;
 CREATE TABLE IF NOT EXISTS `order_wine` (
   `order_id` INT NOT NULL,
   `wine_id` INT NOT NULL,
+  `quantity` INT NOT NULL DEFAULT 1,
   PRIMARY KEY (`order_id`, `wine_id`),
   INDEX `fk_order_wine1_idx` (`wine_id` ASC),
   CONSTRAINT `fk_order_subscription1`
@@ -417,18 +418,18 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `winenotdb`;
-INSERT INTO `order_wine` (`order_id`, `wine_id`) VALUES (1, 1);
-INSERT INTO `order_wine` (`order_id`, `wine_id`) VALUES (1, 2);
-INSERT INTO `order_wine` (`order_id`, `wine_id`) VALUES (1, 3);
-INSERT INTO `order_wine` (`order_id`, `wine_id`) VALUES (1, 4);
-INSERT INTO `order_wine` (`order_id`, `wine_id`) VALUES (1, 5);
-INSERT INTO `order_wine` (`order_id`, `wine_id`) VALUES (1, 6);
-INSERT INTO `order_wine` (`order_id`, `wine_id`) VALUES (2, 2);
-INSERT INTO `order_wine` (`order_id`, `wine_id`) VALUES (2, 11);
-INSERT INTO `order_wine` (`order_id`, `wine_id`) VALUES (2, 3);
-INSERT INTO `order_wine` (`order_id`, `wine_id`) VALUES (2, 9);
-INSERT INTO `order_wine` (`order_id`, `wine_id`) VALUES (2, 4);
-INSERT INTO `order_wine` (`order_id`, `wine_id`) VALUES (2, 5);
+INSERT INTO `order_wine` (`order_id`, `wine_id`, `quantity`) VALUES (1, 1, DEFAULT);
+INSERT INTO `order_wine` (`order_id`, `wine_id`, `quantity`) VALUES (1, 2, DEFAULT);
+INSERT INTO `order_wine` (`order_id`, `wine_id`, `quantity`) VALUES (1, 3, DEFAULT);
+INSERT INTO `order_wine` (`order_id`, `wine_id`, `quantity`) VALUES (1, 4, DEFAULT);
+INSERT INTO `order_wine` (`order_id`, `wine_id`, `quantity`) VALUES (1, 5, DEFAULT);
+INSERT INTO `order_wine` (`order_id`, `wine_id`, `quantity`) VALUES (1, 6, DEFAULT);
+INSERT INTO `order_wine` (`order_id`, `wine_id`, `quantity`) VALUES (2, 2, DEFAULT);
+INSERT INTO `order_wine` (`order_id`, `wine_id`, `quantity`) VALUES (2, 11, DEFAULT);
+INSERT INTO `order_wine` (`order_id`, `wine_id`, `quantity`) VALUES (2, 3, DEFAULT);
+INSERT INTO `order_wine` (`order_id`, `wine_id`, `quantity`) VALUES (2, 9, DEFAULT);
+INSERT INTO `order_wine` (`order_id`, `wine_id`, `quantity`) VALUES (2, 4, DEFAULT);
+INSERT INTO `order_wine` (`order_id`, `wine_id`, `quantity`) VALUES (2, 5, DEFAULT);
 
 COMMIT;
 
