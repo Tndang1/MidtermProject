@@ -28,6 +28,13 @@ public class Customer {
 	@OneToOne
 	@JoinColumn(name="user_id")
 	private User user;
+	@OneToOne
+	@JoinColumn(name="payment_info_id")
+	private PaymentInfo paymentInfo;
+	@OneToOne
+	@JoinColumn(name="address_id")
+	private Address address;
+	
 	public int getId() {
 		return id;
 	}
@@ -95,6 +102,18 @@ public class Customer {
 		if (id != other.id)
 			return false;
 		return true;
+	}
+	public PaymentInfo getPaymentInfo() {
+		return paymentInfo;
+	}
+	public void setPaymentInfo(PaymentInfo paymentInfo) {
+		this.paymentInfo = paymentInfo;
+	}
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 }
