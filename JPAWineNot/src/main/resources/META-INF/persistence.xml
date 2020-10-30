@@ -10,6 +10,9 @@
     
     <!--List Entities Here  -->
 <class>com.skilldistillery.winenot.entities.User</class>
+<class>com.skilldistillery.winenot.entities.Wine</class>
+<class>com.skilldistillery.winenot.entities.WineColor</class>
+<class>com.skilldistillery.winenot.entities.WineType</class>
 
 
 
