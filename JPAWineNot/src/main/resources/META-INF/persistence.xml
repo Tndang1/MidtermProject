@@ -9,8 +9,14 @@
     </provider>
     
     <!--List Entities Here  -->
-<class>com.skilldistillery.winenot.entities.User</class>
 <class>com.skilldistillery.winenot.entities.Address</class>
+<class>com.skilldistillery.winenot.entities.Customer</class>
+<class>com.skilldistillery.winenot.entities.Payment</class>
+<class>com.skilldistillery.winenot.entities.PaymentInfo</class>
+<class>com.skilldistillery.winenot.entities.User</class>
+<class>com.skilldistillery.winenot.entities.Wine</class>
+<class>com.skilldistillery.winenot.entities.WineColor</class>
+<class>com.skilldistillery.winenot.entities.WineType</class>
 
 
 
