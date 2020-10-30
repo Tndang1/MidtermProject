@@ -42,6 +42,9 @@ class UserTest {
 	void test_user_get_username() {
 		assertNotNull(user);
 		assertEquals("admin", user.getUsername());
+		assertEquals("admin", user.getPassword());
+		assertEquals(1, user.getEnabled());
+		assertEquals("admin", user.getRole());
 	}
 
 }
