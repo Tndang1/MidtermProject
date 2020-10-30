@@ -39,9 +39,20 @@ class WineTest {
 	}
 
 	@Test
-	void test_user_get_username() {
+	void test_wine_entity_fields_id_labelName_VintageYear() {
+		
+//		+----+-----------------------------------+---------------------------------+--------------+----------------------+---------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------+----------------------+--------------+---------------+
+//		| id | label_name                        | vineyard                        | vintage_year | flavor               | dietary | description                                 | image                                                                                                            | pairs                | wine_type_id | wine_color_id |
+//		+----+-----------------------------------+---------------------------------+--------------+----------------------+---------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------+----------------------+--------------+---------------+
+//		|  1 | Kendall-Jackson Vintner's Reserve | Kendall-Jackson, California USA |         2018 | Semi-dry, refreshing | NULL    | Refreshing. Hint of toasted oak and butter. | https://www.kj.com/sites/default/files/styles/bottle_desktop/public/bottle-shots/kjvr-chard-nv.png?itok=gQhUHaDa | Fish, chicken, pasta |            1 |             2 |
+//		+----+-----------------------------------+---------------------------------+--------------+----------------------+---------+---------------------------------------------+------------------------------------------------------------------------------------------------------------------+----------------------+--------------+---------------+
+		
+
 		assertNotNull(wine);
-//		assertEquals("admin", wine.getUsername());
+		assertEquals(1, wine.getId());
+		assertEquals(2018, wine.getVintageYear());
+		assertEquals("Kendall-Jackson Vintner's Reserve", wine.getLabelName());
+		
 	}
 
 }
