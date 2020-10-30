@@ -11,23 +11,16 @@
     <!--List Entities Here  -->
 <class>com.skilldistillery.winenot.entities.Address</class>
 <class>com.skilldistillery.winenot.entities.Customer</class>
-<<<<<<< HEAD
 <class>com.skilldistillery.winenot.entities.OrderWine</class>
 <class>com.skilldistillery.winenot.entities.OrderWineId</class>
-=======
 <class>com.skilldistillery.winenot.entities.CustomerOrder</class>
 <class>com.skilldistillery.winenot.entities.Payment</class>
->>>>>>> 4c0221d626fc67c9b268992855b8c69cc82e5140
 <class>com.skilldistillery.winenot.entities.PaymentInfo</class>
 <class>com.skilldistillery.winenot.entities.User</class>
 <class>com.skilldistillery.winenot.entities.Wine</class>
 <class>com.skilldistillery.winenot.entities.WineColor</class>
 <class>com.skilldistillery.winenot.entities.WineType</class>
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 4c0221d626fc67c9b268992855b8c69cc82e5140
 
 
 
