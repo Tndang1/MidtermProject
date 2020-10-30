@@ -130,6 +130,13 @@ public class Address {
 		return true;
 	}
 	
+//	TO STRING+++++++++++++++++++++++++++++++++++++++++++++++++++
+	
+	@Override
+	public String toString() {
+		return "Address [id=" + id + "]";
+	}
+	
 
 	
 	
