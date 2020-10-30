@@ -23,7 +23,6 @@
 <class>com.skilldistillery.winenot.entities.WineColor</class>
 <class>com.skilldistillery.winenot.entities.WineType</class>
 
-
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/winenotdb?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=US/Mountain" />
       <property name="javax.persistence.jdbc.user" value="winenotuser"/>

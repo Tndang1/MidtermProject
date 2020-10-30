@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,14 +19,15 @@ public class PaymentInfo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name="address_id")
-	private int addressId;
-	
 	@Column(name="card_number")
 	private int cardNumber;
 	
 	@Column(name="expr_date")
 	LocalDateTime exprDate;
+	
+	@OneToOne
+	@JoinColumn(name="address_id")
+	private Address address;
 
 	public int getId() {
 		return id;
@@ -34,13 +37,6 @@ public class PaymentInfo {
 		this.id = id;
 	}
 
-	public int getAddressId() {
-		return addressId;
-	}
-
-	public void setAddressId(int addressId) {
-		this.addressId = addressId;
-	}
 
 	public int getCardNumber() {
 		return cardNumber;
@@ -58,6 +54,14 @@ public class PaymentInfo {
 		this.exprDate = exprDate;
 	}
 
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 	public PaymentInfo() {
 		super();
 	}
@@ -67,8 +71,6 @@ public class PaymentInfo {
 		StringBuilder builder = new StringBuilder();
 		builder.append("PaymentInfo [id=");
 		builder.append(id);
-		builder.append(", addressId=");
-		builder.append(addressId);
 		builder.append(", cardNumber=");
 		builder.append(cardNumber);
 		builder.append(", exprDate=");

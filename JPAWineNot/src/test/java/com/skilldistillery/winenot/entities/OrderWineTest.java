@@ -1,6 +1,7 @@
 package com.skilldistillery.winenot.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -42,8 +43,13 @@ class OrderWineTest {
 	}
 
 	@Test
-	void test() {
+	void test_orderwine_mapping() {
+		String jpql = "SELECT order FROM OrderWine order "
+				+ "WHERE order_id = 1 AND wine_id = 1";
+		order = em.createQuery(jpql, OrderWine.class)
+				.getSingleResult();
 		assertNotNull(order);
+		assertEquals(1, order.getQuantity());
 		
 		
 	}
