@@ -10,13 +10,10 @@
     
     <!--List Entities Here  -->
 <class>com.skilldistillery.winenot.entities.User</class>
-<<<<<<< HEAD
 <class>com.skilldistillery.winenot.entities.Wine</class>
 <class>com.skilldistillery.winenot.entities.WineColor</class>
 <class>com.skilldistillery.winenot.entities.WineType</class>
-=======
 <class>com.skilldistillery.winenot.entities.Address</class>
->>>>>>> f201e653c788128867dfe08efc9c53a771704d87
 
 
 

@@ -32,7 +32,12 @@ class ReviewTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		customer = em.find(Customer.class, 1);
+		
+		ReviewId rid = new ReviewId();
+		rid.setCustomerId(1);
+		rid.setWineId(1);
+		
+		review = em.find(Review.class, rid);
 	}
 
 	@AfterEach
