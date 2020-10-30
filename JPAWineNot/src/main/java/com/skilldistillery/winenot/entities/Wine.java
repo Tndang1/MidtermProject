@@ -12,7 +12,7 @@ public class Wine {
 	@GeneratedValue( strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	private String vineyeard;
+	private String vineyard;
 	@Column(name = "vintage_year")
 	private Integer vintageYear;
 	
@@ -34,7 +34,7 @@ public class Wine {
 			String image, String pairs) {
 		super();
 		this.id = id;
-		this.vineyeard = vineyeard;
+		this.vineyard = vineyeard;
 		this.vintageYear = vintageYear;
 		this.flavor = flavor;
 		this.dietary = dietary;
@@ -53,11 +53,11 @@ public class Wine {
 	}
 
 	public String getVineyeard() {
-		return vineyeard;
+		return vineyard;
 	}
 
 	public void setVineyeard(String vineyeard) {
-		this.vineyeard = vineyeard;
+		this.vineyard = vineyeard;
 	}
 
 	public Integer getVintageYear() {
@@ -110,7 +110,7 @@ public class Wine {
 
 	@Override
 	public String toString() {
-		return "Wine [id=" + id + ", vineyeard=" + vineyeard + ", vintageYear=" + vintageYear + ", flavor=" + flavor
+		return "Wine [id=" + id + ", vineyard=" + vineyard + ", vintageYear=" + vintageYear + ", flavor=" + flavor
 				+ ", dietary=" + dietary + ", description=" + description + ", image=" + image + ", pairs=" + pairs
 				+ "]";
 	}
