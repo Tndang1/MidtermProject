@@ -12,10 +12,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
+class WineTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private User user;
+	private Wine wine;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -30,7 +30,7 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 1);
+		wine = em.find(Wine.class, 1);
 	}
 
 	@AfterEach
@@ -40,11 +40,8 @@ class UserTest {
 
 	@Test
 	void test_user_get_username() {
-		assertNotNull(user);
-		assertEquals("admin", user.getUsername());
-		assertEquals("admin", user.getPassword());
-		assertEquals(1, user.getEnabled());
-		assertEquals("admin", user.getRole());
+		assertNotNull(wine);
+//		assertEquals("admin", wine.getUsername());
 	}
 
 }
