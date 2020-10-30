@@ -1,22 +1,28 @@
 package com.skilldistillery.winenot.entities;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 
 @Entity
 public class Review {
+	@EmbeddedId
+	private ReviewId id;
 	private String image;
 	private int rating;
 	private String review;
-	@Id
 	@ManyToOne
 	@JoinColumn(name="customer_id")
+	@MapsId(value = "customerId")
 	private Customer customer;
 	@ManyToOne
 	@JoinColumn(name="wine_id")
+	@MapsId(value = "wineId")
 	private Wine wine;
+	
 	public String getImage() {
 		return image;
 	}
@@ -47,6 +53,12 @@ public class Review {
 	public void setWine(Wine wine) {
 		this.wine = wine;
 	}
+	public ReviewId getId() {
+		return id;
+	}
+	public void setId(ReviewId id) {
+		this.id = id;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -76,5 +88,5 @@ public class Review {
 			return false;
 		return true;
 	}
-
+	
 }
