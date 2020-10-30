@@ -12,10 +12,12 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class CustomerTest {
+class ReviewTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
+	private Review review;
 	private Customer customer;
+	private Wine wine;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -39,22 +41,15 @@ class CustomerTest {
 	}
 	
 	@Test
-	void test_customer_mapping() {
-		assertNotNull(customer);
+	void test_review_mapping() {
+		String jpql = "SELECT review FROM Review review WHERE customer_id = 1 AND wine_id = 1";
+		review = em.createQuery(jpql, Review.class).getSingleResult();
+		assertNotNull(review);
+		assertEquals(5, review.getRating());
+		assertEquals("Tasty and great.", review.getReview());
+		wine = review.getWine();
+		assertEquals("Kendall-Jackson Vintner's Reserve", wine.getLabelName());
+		customer = review.getCustomer();
 		assertEquals("Charles", customer.getfName());
-		assertEquals("Dickens", customer.getlName());
-		assertEquals("Sad boi.", customer.getBio());
-		assertEquals(1812, customer.getBirthdate().getYear());
-		assertEquals(02, customer.getBirthdate().getMonthValue());
-		assertEquals(06, customer.getBirthdate().getDayOfMonth());
-		assertEquals(1870, customer.getCreateDate().getYear());
-		assertEquals(06, customer.getCreateDate().getMonthValue());
-		assertEquals(7, customer.getCreateDate().getDayOfMonth());
-		assertEquals("admin", customer.getUser().getUsername());
-		assertEquals("admin", customer.getUser().getPassword());
-		assertEquals(1, customer.getUser().getEnabled());
-		assertEquals("admin", customer.getUser().getRole());
-		
 	}
-
 }

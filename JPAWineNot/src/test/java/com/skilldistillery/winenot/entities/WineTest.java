@@ -1,6 +1,8 @@
 package com.skilldistillery.winenot.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -52,6 +54,18 @@ class WineTest {
 		assertEquals(1, wine.getId());
 		assertEquals(2018, wine.getVintageYear());
 		assertEquals("Kendall-Jackson Vintner's Reserve", wine.getLabelName());
+		
+	}
+	@Test
+	void test_wine_entity_fields_wine_color_id() {
+		assertNotNull(wine);
+		assertEquals(2, wine.getWineColor().getId());
+		
+	}
+	@Test
+	void test_wine_entity_fields_wine_type_id() {
+		assertNotNull(wine);
+		assertEquals(1, wine.getWineType().getId());
 		
 	}
 
