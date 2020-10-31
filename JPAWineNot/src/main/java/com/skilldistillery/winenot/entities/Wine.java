@@ -18,22 +18,15 @@ public class Wine {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-
 	@Column(name = "label_name")
 	private String labelName;
-
 	private String vineyard;
 	@Column(name = "vintage_year")
 	private Integer vintageYear;
-
 	private String flavor;
-
 	private String dietary;
-
 	private String description;
-
 	private String image;
-
 	private String pairs;
 
 	@ManyToOne
@@ -53,189 +46,119 @@ public class Wine {
 	@OneToMany(mappedBy = "wine")
 	private List<Review> reviews;
 	
-	
-	//add & remove methods
-		public void addCustomer(Customer customer) {
-			if (customers == null) {
-				customers = new ArrayList<>();
-			}
-			if (! customers.contains(customer)) {
-				customers.add(customer);
-				customer.addWine(this);
-			}
-		}
-		public void removeCustomer(Customer customer) {
-			if (customers != null && customers.contains(customer)) {
-				customers.remove(customer);
-				customer.removeWine(this);
-			}
-		}
 	public Wine() {
 		super();
 	}
-
-
-
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
 	public String getLabelName() {
 		return labelName;
 	}
-
 	public void setLabelName(String labelName) {
 		this.labelName = labelName;
 	}
-
 	public String getVineyard() {
 		return vineyard;
 	}
-
 	public void setVineyard(String vineyard) {
 		this.vineyard = vineyard;
 	}
-
 	public Integer getVintageYear() {
 		return vintageYear;
 	}
-
 	public void setVintageYear(Integer vintageYear) {
 		this.vintageYear = vintageYear;
 	}
-
 	public String getFlavor() {
 		return flavor;
 	}
-
 	public void setFlavor(String flavor) {
 		this.flavor = flavor;
 	}
-
 	public String getDietary() {
 		return dietary;
 	}
-
 	public void setDietary(String dietary) {
 		this.dietary = dietary;
 	}
-
 	public String getDescription() {
 		return description;
 	}
-
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
 	public String getImage() {
 		return image;
 	}
-
 	public void setImage(String image) {
 		this.image = image;
 	}
-
 	public String getPairs() {
 		return pairs;
 	}
-
 	public void setPairs(String pairs) {
 		this.pairs = pairs;
 	}
-
-
-
 	public WineType getWineType() {
 		return wineType;
 	}
-
-
-
 	public void setWineType(WineType wineType) {
 		this.wineType = wineType;
 	}
-
-
-
-
-	
-
 	public WineColor getWineColor() {
 		return wineColor;
 	}
-
-
-
 	public void setWineColor(WineColor wineColor) {
 		this.wineColor = wineColor;
 	}
-
-
-
-
-
-
-
-
-
-
 	public List<Customer> getCustomers() {
 		return customers;
 	}
-
-
-
 	public void setCustomers(List<Customer> customers) {
 		this.customers = customers;
 	}
-
-
-
 	public List<CustomerOrder> getCustomerOrders() {
 		return customerOrders;
 	}
-
-
-
 	public void setCustomerOrders(List<CustomerOrder> customerOrders) {
 		this.customerOrders = customerOrders;
 	}
-
-
-
 	public List<Review> getReviews() {
 		return reviews;
 	}
-
-
-
 	public void setReviews(List<Review> reviews) {
 		this.reviews = reviews;
 	}
 
-
-	
 	//ADD/REMOVE methods:
+	public void addCustomer(Customer customer) {
+		if (customers == null) {
+			customers = new ArrayList<>();
+		}
+		if (! customers.contains(customer)) {
+			customers.add(customer);
+			customer.addWine(this);
+		}
+	}
+	public void removeCustomer(Customer customer) {
+		if (customers != null && customers.contains(customer)) {
+			customers.remove(customer);
+			customer.removeWine(this);
+		}
+	}
 	public void addReview(Review review) {
 		if (reviews == null) {
 			reviews = new ArrayList<>();
 		}
 		if (! reviews.contains(review)) {
 			review.setWine(this);
-			
-			
-//			if(review.getReview() != null) {
-////				review.getCustomer().getReviews().remove(review);
-//			}
 			reviews.add(review);
 		}
 	}
-	
 	public void removeReview(Review review) {
 		review.setWine(null);
 		if (reviews != null) {
@@ -249,9 +172,6 @@ public class Wine {
 				+ ", flavor=" + flavor + ", dietary=" + dietary + ", description=" + description + ", image=" + image
 				+ ", pairs=" + pairs + "]";
 	}
-
-
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;

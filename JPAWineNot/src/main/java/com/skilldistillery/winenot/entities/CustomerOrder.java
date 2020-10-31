@@ -35,9 +35,6 @@ public class CustomerOrder {
 	
 	private int size;
 	
-	
-//	private WineColor wineColor;
-	
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinTable(name="order_wine", joinColumns = @JoinColumn(name="order_id"), inverseJoinColumns = @JoinColumn(name="wine_id"))
 	private List<Wine> wines;
@@ -88,14 +85,6 @@ public class CustomerOrder {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
-
-//	public WineColor getWineColor() {
-//		return wineColor;
-//	}
-//
-//	public void setWineColor(WineColor wineColor) {
-//		this.wineColor = wineColor;
-//	}
 
 	public List<Wine> getWines() {
 		return wines;

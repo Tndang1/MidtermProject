@@ -112,6 +112,24 @@ public class Customer {
 	public void setCustomerOrders(List<CustomerOrder> customerOrders) {
 		this.customerOrders = customerOrders;
 	}
+	public PaymentInfo getPaymentInfo() {
+		return paymentInfo;
+	}
+	public void setPaymentInfo(PaymentInfo paymentInfo) {
+		this.paymentInfo = paymentInfo;
+	}
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	public List<Review> getReviews() {
+		return reviews;
+	}
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
+	}
 	
 	//ADD/REMOVE methods:
 	public void addReview(Review review) {
@@ -121,22 +139,15 @@ public class Customer {
 		if (! reviews.contains(review)) {
 			review.setCustomer(this);
 			review.getWine().addReview(review);
-			
-//			if(review.getReview() != null) {
-////				review.getCustomer().getReviews().remove(review);
-//			}
 			reviews.add(review);
 		}
 	}
-	
 	public void removeReview(Review review) {
 		review.setCustomer(null);
 		if (reviews != null) {
 			reviews.remove(review);
 		}
 	}
-	
-	//add & remove methods
 	public void addWine(Wine wine) {
 		if (wines == null) {
 			wines = new ArrayList<>();
@@ -144,7 +155,6 @@ public class Customer {
 		if (! wines.contains(wine)) {
 			wines.add(wine);
 			wine.addCustomer(this);
-			
 		}
 	}
 	public void removeWine(Wine wine) {
@@ -153,10 +163,6 @@ public class Customer {
 			wine.removeCustomer(this);
 		}
 	}
-	
-
-	
-	
 	
 	@Override
 	public int hashCode() {
@@ -178,23 +184,6 @@ public class Customer {
 			return false;
 		return true;
 	}
-	public PaymentInfo getPaymentInfo() {
-		return paymentInfo;
-	}
-	public void setPaymentInfo(PaymentInfo paymentInfo) {
-		this.paymentInfo = paymentInfo;
-	}
-	public Address getAddress() {
-		return address;
-	}
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-	public List<Review> getReviews() {
-		return reviews;
-	}
-	public void setReviews(List<Review> reviews) {
-		this.reviews = reviews;
-	}
+
 
 }
