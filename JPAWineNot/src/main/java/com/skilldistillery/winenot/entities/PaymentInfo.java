@@ -20,7 +20,7 @@ public class PaymentInfo {
 	private int id;
 	
 	@Column(name="card_number")
-	private int cardNumber;
+	private String cardNumber;
 	
 	@Column(name="expr_date")
 	LocalDateTime exprDate;
@@ -38,11 +38,11 @@ public class PaymentInfo {
 	}
 
 
-	public int getCardNumber() {
+	public String getCardNumber() {
 		return cardNumber;
 	}
 
-	public void setCardNumber(int cardNumber) {
+	public void setCardNumber(String cardNumber) {
 		this.cardNumber = cardNumber;
 	}
 

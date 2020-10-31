@@ -42,7 +42,7 @@ class WineTypeTest {
 	@Test
 	void test_user_get_username() {
 		assertNotNull(wineType);
-		assertEquals("Chardonnay", wineType.getWineType());
+		assertEquals("Bordeaux", wineType.getWineType());
 	}
 
 }
