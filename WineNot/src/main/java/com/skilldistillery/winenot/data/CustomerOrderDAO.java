@@ -19,4 +19,6 @@ public interface CustomerOrderDAO {
 	
 	public Wine addWineToOrder(int id, Wine wine);
 	
+	public boolean removeWineFromOrder(int id, Wine wine);
+	
 }

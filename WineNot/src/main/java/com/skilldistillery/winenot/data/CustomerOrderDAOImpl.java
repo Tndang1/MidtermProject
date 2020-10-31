@@ -3,8 +3,8 @@ package com.skilldistillery.winenot.data;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+//import javax.persistence.EntityManagerFactory;
+//import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
@@ -17,7 +17,7 @@ import com.skilldistillery.winenot.entities.Wine;
 @Transactional
 public class CustomerOrderDAOImpl implements CustomerOrderDAO {
 
-	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("WineNotPU");
+//	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("WineNotPU");
 
 	@PersistenceContext
 	private EntityManager em;
@@ -70,7 +70,17 @@ public class CustomerOrderDAOImpl implements CustomerOrderDAO {
 		dbOrder.addWine(wine);
 		em.flush();
 		em.close();
-		return null;
+		return wine;
+	}
+
+	@Override
+	public boolean removeWineFromOrder(int id, Wine wine) {
+		CustomerOrder dbOrder = em.find(CustomerOrder.class, id);
+		dbOrder.removeWine(wine);
+		em.flush();
+		boolean removed = !dbOrder.getWines().contains(wine);
+		em.close();
+		return removed;
 	}
 
 }
