@@ -141,13 +141,13 @@ public class Wine {
 		}
 		if (! customers.contains(customer)) {
 			customers.add(customer);
-			customer.addWine(this);
+			customer.addWineToFavorites(this);
 		}
 	}
 	public void removeCustomer(Customer customer) {
 		if (customers != null && customers.contains(customer)) {
 			customers.remove(customer);
-			customer.removeWine(this);
+			customer.removeWineToFavorites(this);
 		}
 	}
 	public void addReview(Review review) {
