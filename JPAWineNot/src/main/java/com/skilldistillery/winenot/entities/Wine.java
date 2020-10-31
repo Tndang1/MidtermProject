@@ -61,13 +61,13 @@ public class Wine {
 			}
 			if (! customers.contains(customer)) {
 				customers.add(customer);
-//				customer.addWine(this);
+				customer.addWine(this);
 			}
 		}
 		public void removeCustomer(Customer customer) {
 			if (customers != null && customers.contains(customer)) {
 				customers.remove(customer);
-//				customer.removeWine(this);
+				customer.removeWine(this);
 			}
 		}
 	public Wine() {
@@ -219,6 +219,29 @@ public class Wine {
 	}
 
 
+	
+	//ADD/REMOVE methods:
+	public void addReview(Review review) {
+		if (reviews == null) {
+			reviews = new ArrayList<>();
+		}
+		if (! reviews.contains(review)) {
+			review.setWine(this);
+			
+			
+//			if(review.getReview() != null) {
+////				review.getCustomer().getReviews().remove(review);
+//			}
+			reviews.add(review);
+		}
+	}
+	
+	public void removeReview(Review review) {
+		review.setWine(null);
+		if (reviews != null) {
+			reviews.remove(review);
+		}
+	}
 
 	@Override
 	public String toString() {

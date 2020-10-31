@@ -119,13 +119,13 @@ public class Customer {
 			reviews = new ArrayList<>();
 		}
 		if (! reviews.contains(review)) {
-			reviews.add(review);
-			
-			
-			if(review.getCustomer() != null) {
-				review.getCustomer().getCustomerOrders().remove(review);
-			}
 			review.setCustomer(this);
+			review.getWine().addReview(review);
+			
+//			if(review.getReview() != null) {
+////				review.getCustomer().getReviews().remove(review);
+//			}
+			reviews.add(review);
 		}
 	}
 	
@@ -137,21 +137,24 @@ public class Customer {
 	}
 	
 	//add & remove methods
-//	public void addWine(Wine wine) {
-//		if (wines == null) {
-//			wines = new ArrayList<>();
-//		}
-//		if (! wines.contains(wine)) {
-//			wines.add(wine);
-////			wine.(this);
-//		}
-//	}
-//	public void removeWine(Wine wine) {
-//		if (wines != null && wines.contains(wine)) {
-//			wines.remove(wine);
-////			wine.remove(this);
-//		}
-//	}
+	public void addWine(Wine wine) {
+		if (wines == null) {
+			wines = new ArrayList<>();
+		}
+		if (! wines.contains(wine)) {
+			wines.add(wine);
+			wine.addCustomer(this);
+			
+		}
+	}
+	public void removeWine(Wine wine) {
+		if (wines != null && wines.contains(wine)) {
+			wines.remove(wine);
+			wine.removeCustomer(this);
+		}
+	}
+	
+
 	
 	
 	
