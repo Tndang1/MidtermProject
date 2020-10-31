@@ -4,8 +4,7 @@ import java.util.List;
 
 import com.skilldistillery.winenot.entities.Review;
 import com.skilldistillery.winenot.entities.Wine;
-import com.skilldistillery.winenot.entities.WineColor;
-import com.skilldistillery.winenot.entities.WineType;
+
 
 public interface WineDAO {
 	
