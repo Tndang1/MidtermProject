@@ -165,6 +165,21 @@ public class Wine {
 			reviews.remove(review);
 		}
 	}
+	public void addCustomerOrder(CustomerOrder customerOrder) {
+		if (customerOrders == null) {
+			customerOrders = new ArrayList<>();
+		}
+		if (! customerOrders.contains(customerOrder)) {
+			customerOrders.add(customerOrder);
+			customerOrder.addWine(this);
+		}
+	}
+	public void removeCustomerOrder(CustomerOrder customerOrder) {
+		if (customerOrders != null && customerOrders.contains(customerOrder)) {
+			customerOrders.remove(customerOrder);
+			customerOrder.removeWine(this);
+		}
+	}
 
 	@Override
 	public String toString() {
