@@ -10,7 +10,7 @@ import com.skilldistillery.winenot.entities.User;
 
 @Service
 @Transactional
-public class TestDAOJpalImpl implements TestDAO{
+public class TestDAOJpaImpl implements TestDAO{
 
 	
 	@PersistenceContext
