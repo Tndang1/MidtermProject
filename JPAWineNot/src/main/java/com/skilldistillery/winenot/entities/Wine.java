@@ -1,5 +1,6 @@
 package com.skilldistillery.winenot.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -53,7 +54,22 @@ public class Wine {
 	private List<Review> reviews;
 	
 	
-	
+	//add & remove methods
+		public void addCustomer(Customer customer) {
+			if (customers == null) {
+				customers = new ArrayList<>();
+			}
+			if (! customers.contains(customer)) {
+				customers.add(customer);
+//				customer.addWine(this);
+			}
+		}
+		public void removeCustomer(Customer customer) {
+			if (customers != null && customers.contains(customer)) {
+				customers.remove(customer);
+//				customer.removeWine(this);
+			}
+		}
 	public Wine() {
 		super();
 	}

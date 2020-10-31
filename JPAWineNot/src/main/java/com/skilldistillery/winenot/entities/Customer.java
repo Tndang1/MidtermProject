@@ -1,6 +1,7 @@
 package com.skilldistillery.winenot.entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -39,11 +40,14 @@ public class Customer {
 	@OneToOne
 	@JoinColumn(name="address_id")
 	private Address address;
+	
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinTable(name="favorites", joinColumns = @JoinColumn(name="customer_id"), inverseJoinColumns = @JoinColumn(name="wine_id"))
 	private List<Wine> wines;
+	
 	@OneToMany(mappedBy = "customer")
 	private List<CustomerOrder> customerOrders;
+	
 	@OneToMany(mappedBy="customer")
 	private List<Review> reviews;
 	
@@ -108,6 +112,49 @@ public class Customer {
 	public void setCustomerOrders(List<CustomerOrder> customerOrders) {
 		this.customerOrders = customerOrders;
 	}
+	
+	//ADD/REMOVE methods:
+	public void addReview(Review review) {
+		if (reviews == null) {
+			reviews = new ArrayList<>();
+		}
+		if (! reviews.contains(review)) {
+			reviews.add(review);
+			
+			
+			if(review.getCustomer() != null) {
+				review.getCustomer().getCustomerOrders().remove(review);
+			}
+			review.setCustomer(this);
+		}
+	}
+	
+	public void removeReview(Review review) {
+		review.setCustomer(null);
+		if (reviews != null) {
+			reviews.remove(review);
+		}
+	}
+	
+	//add & remove methods
+//	public void addWine(Wine wine) {
+//		if (wines == null) {
+//			wines = new ArrayList<>();
+//		}
+//		if (! wines.contains(wine)) {
+//			wines.add(wine);
+////			wine.(this);
+//		}
+//	}
+//	public void removeWine(Wine wine) {
+//		if (wines != null && wines.contains(wine)) {
+//			wines.remove(wine);
+////			wine.remove(this);
+//		}
+//	}
+	
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
