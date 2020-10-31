@@ -15,6 +15,8 @@ public class User {
 	
 	private String password;
 	
+	private String email;
+	
 	private int enabled;
 	
 	private String role;
@@ -50,6 +52,12 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public User() {
 		super();
 	}
@@ -62,6 +70,8 @@ public class User {
 		builder.append(username);
 		builder.append(", password=");
 		builder.append(password);
+		builder.append(", email=");
+		builder.append(email);
 		builder.append(", enabled=");
 		builder.append(enabled);
 		builder.append(", role=");
