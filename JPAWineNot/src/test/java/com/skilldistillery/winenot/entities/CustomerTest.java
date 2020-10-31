@@ -87,5 +87,53 @@ class CustomerTest {
 		assertNotNull(customer);
 		assertEquals(3, customer.getReviews().size());
 	}
-	
+//	@Test
+//	void test_add_review() {
+//		Wine wine = em.find(Wine.class, 7);
+//		assertNotNull(customer);
+//		Review review = new Review();
+//		review.setCustomer(customer);
+//		review.setImage("url");
+//		review.setRating(1);
+//		review.setReview("test");
+//		review.setWine(wine);
+//		ReviewId rid = new ReviewId();
+//		rid.setCustomerId(customer.getId());
+//		rid.setWineId(wine.getId());
+//		review.setId(rid);
+//		customer.addReview(review);
+//		em.getTransaction().begin();
+//		em.persist(review);
+//		em.flush();
+//		em.getTransaction().commit();
+//		boolean test = em.contains(review);
+//		em.close();
+//		assertEquals(true, test);
+//		assertEquals(true, customer.getReviews().contains(review));
+//		assertEquals(true, wine.getReviews().contains(review));
+//	}
+//	@Test
+//	void test_remove_review() {
+//		Review review = customer.getReviews().get(1);
+//		Wine wine = review.getWine();
+//		customer.removeReview(review);
+//		em.getTransaction().begin();
+//		em.remove(review);
+//		em.flush();
+//		em.getTransaction().commit();
+//		assertFalse(em.contains(review));
+//		assertFalse(customer.getReviews().contains(review));
+//		assertFalse(wine.getReviews().contains(review));
+//		em.close();
+//	}
+//	@Test
+//	void test_add_wine() {
+//		em.getTransaction().begin();
+//		Wine wine = em.find(Wine.class, 12);
+//		customer.addWine(wine);
+//		em.flush();
+//		em.getTransaction().commit();
+//		em.close();
+//		assertTrue(customer.getWines().contains(wine));
+//	}
 }
