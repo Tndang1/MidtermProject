@@ -1,6 +1,7 @@
 package com.skilldistillery.winenot.entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -39,11 +40,14 @@ public class Customer {
 	@OneToOne
 	@JoinColumn(name="address_id")
 	private Address address;
+	
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinTable(name="favorites", joinColumns = @JoinColumn(name="customer_id"), inverseJoinColumns = @JoinColumn(name="wine_id"))
 	private List<Wine> wines;
+	
 	@OneToMany(mappedBy = "customer")
 	private List<CustomerOrder> customerOrders;
+	
 	@OneToMany(mappedBy="customer")
 	private List<Review> reviews;
 	
@@ -108,6 +112,58 @@ public class Customer {
 	public void setCustomerOrders(List<CustomerOrder> customerOrders) {
 		this.customerOrders = customerOrders;
 	}
+	public PaymentInfo getPaymentInfo() {
+		return paymentInfo;
+	}
+	public void setPaymentInfo(PaymentInfo paymentInfo) {
+		this.paymentInfo = paymentInfo;
+	}
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	public List<Review> getReviews() {
+		return reviews;
+	}
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
+	}
+	
+	//ADD/REMOVE methods:
+	public void addReview(Review review) {
+		if (reviews == null) {
+			reviews = new ArrayList<>();
+		}
+		if (! reviews.contains(review)) {
+			review.setCustomer(this);
+			review.getWine().addReview(review);
+			reviews.add(review);
+		}
+	}
+	public void removeReview(Review review) {
+		review.setCustomer(null);
+		if (reviews != null) {
+			reviews.remove(review);
+		}
+	}
+	public void addWineToFavorites(Wine wine) {
+		if (wines == null) {
+			wines = new ArrayList<>();
+		}
+		if (! wines.contains(wine)) {
+			wines.add(wine);
+			wine.addCustomer(this);
+		}
+	}
+	public void removeWineToFavorites(Wine wine) {
+		if (wines != null && wines.contains(wine)) {
+			wines.remove(wine);
+			wine.removeCustomer(this);
+		}
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -128,23 +184,6 @@ public class Customer {
 			return false;
 		return true;
 	}
-	public PaymentInfo getPaymentInfo() {
-		return paymentInfo;
-	}
-	public void setPaymentInfo(PaymentInfo paymentInfo) {
-		this.paymentInfo = paymentInfo;
-	}
-	public Address getAddress() {
-		return address;
-	}
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-	public List<Review> getReviews() {
-		return reviews;
-	}
-	public void setReviews(List<Review> reviews) {
-		this.reviews = reviews;
-	}
+
 
 }

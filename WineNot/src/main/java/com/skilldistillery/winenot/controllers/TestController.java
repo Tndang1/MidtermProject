@@ -13,6 +13,7 @@ public class TestController {
 	
 	@Autowired
 	private TestDAO dao;
+	
 	@RequestMapping(path="test.do")
 	public String home(Model model) {
 		model.addAttribute("user", dao.getTestUser());

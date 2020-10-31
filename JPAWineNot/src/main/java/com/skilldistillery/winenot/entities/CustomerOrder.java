@@ -1,6 +1,7 @@
 package com.skilldistillery.winenot.entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -34,9 +35,6 @@ public class CustomerOrder {
 	private double amount;
 	
 	private int size;
-	
-	
-//	private WineColor wineColor;
 	
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinTable(name="order_wine", joinColumns = @JoinColumn(name="order_id"), inverseJoinColumns = @JoinColumn(name="wine_id"))
@@ -89,14 +87,6 @@ public class CustomerOrder {
 		this.customer = customer;
 	}
 
-//	public WineColor getWineColor() {
-//		return wineColor;
-//	}
-//
-//	public void setWineColor(WineColor wineColor) {
-//		this.wineColor = wineColor;
-//	}
-
 	public List<Wine> getWines() {
 		return wines;
 	}
@@ -142,6 +132,37 @@ public class CustomerOrder {
 		return true;
 	}
 	
+// ADD AND REMOVE
+	public void addWine(Wine wine) {
+		if (wines == null) {
+			wines = new ArrayList<Wine>();
+		}
+		if (!wines.contains(wine)) {
+			wines.add(wine);
+			wine.addCustomerOrder(this);
+		}
+	}
+	public void removeWine(Wine wine) {
+		if (wines != null && wines.contains(wine)) {
+			wines.remove(wine);
+			wine.removeCustomerOrder(this);
+		}
+	}
 	
-	
+//	public void addFilm(Film film) {
+//		if (films == null) {
+//			films = new ArrayList<Film>();
+//		}
+//		if (!films.contains(film)) {
+//			films.add(film);
+//			film.addActor(this);
+//		}
+//	}
+//	
+//	public void removeFilm(Film film) {
+//		if (films != null && films.contains(film)) {
+//			films.remove(film);
+//			film.removeFilm(this);
+//		}
+//	}
 }
