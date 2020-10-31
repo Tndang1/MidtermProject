@@ -68,7 +68,7 @@ class CustomerTest {
 		assertNotNull(customer);
 		PaymentInfo paymentInfo = customer.getPaymentInfo();
 		assertNotNull(paymentInfo);
-		assertEquals(12345678, paymentInfo.getCardNumber());
+		assertEquals("12345678", paymentInfo.getCardNumber());
 		
 	}
 	
@@ -85,7 +85,7 @@ class CustomerTest {
 	@Test
 	void test_customer_review_relationship() {
 		assertNotNull(customer);
-		assertEquals(1, customer.getReviews().size());
+		assertEquals(3, customer.getReviews().size());
 	}
 	
 }
