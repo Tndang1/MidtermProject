@@ -11,6 +11,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.winenot.entities.CustomerOrder;
+import com.skilldistillery.winenot.entities.Wine;
 
 @Service
 @Transactional
@@ -61,6 +62,15 @@ public class CustomerOrderDAOImpl implements CustomerOrderDAO {
 	public List<CustomerOrder> findAll() {
 		String jpql = "Select c FROM CustomerOrder c";
 		return em.createQuery(jpql, CustomerOrder.class).getResultList();
+	}
+
+	@Override
+	public Wine addWineToOrder(int id, Wine wine) {
+		CustomerOrder dbOrder = em.find(CustomerOrder.class, id);
+		dbOrder.addWine(wine);
+		em.flush();
+		em.close();
+		return null;
 	}
 
 }

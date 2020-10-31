@@ -3,6 +3,7 @@ package com.skilldistillery.winenot.data;
 import java.util.List;
 
 import com.skilldistillery.winenot.entities.CustomerOrder;
+import com.skilldistillery.winenot.entities.Wine;
 
 public interface CustomerOrderDAO {
 
@@ -15,5 +16,7 @@ public interface CustomerOrderDAO {
 	public boolean deleteCustomerOrder(int id);
 	
 	List<CustomerOrder> findAll();
+	
+	public Wine addWineToOrder(int id, Wine wine);
 	
 }

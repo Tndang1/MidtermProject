@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` VARCHAR(200) NOT NULL,
   `enabled` TINYINT NOT NULL DEFAULT 1,
   `role` VARCHAR(45) NULL,
+  `email` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -306,9 +307,9 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `winenotdb`;
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`) VALUES (1, 'admin', 'admin', 1, 'admin');
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`) VALUES (2, 'fscott', 'password', 1, NULL);
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`) VALUES (3, 'dpark', '123', 1, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `email`) VALUES (1, 'admin', 'admin', 1, 'admin', 'admin@admin.org');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `email`) VALUES (2, 'fscott', 'password', 1, NULL, 'fscott@email.com');
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `email`) VALUES (3, 'dpark', '123', 1, NULL, 'dpark@email.com');
 
 COMMIT;
 

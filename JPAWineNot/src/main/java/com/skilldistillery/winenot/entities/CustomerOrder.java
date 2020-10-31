@@ -1,6 +1,7 @@
 package com.skilldistillery.winenot.entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -131,6 +132,37 @@ public class CustomerOrder {
 		return true;
 	}
 	
+// ADD AND REMOVE
+	public void addWine(Wine wine) {
+		if (wines == null) {
+			wines = new ArrayList<Wine>();
+		}
+		if (!wines.contains(wine)) {
+			wines.add(wine);
+			wine.addCustomerOrder(this);
+		}
+	}
+	public void removeWine(Wine wine) {
+		if (wines != null && wines.contains(wine)) {
+			wines.remove(wine);
+			wine.removeCustomerOrder(this);
+		}
+	}
 	
-	
+//	public void addFilm(Film film) {
+//		if (films == null) {
+//			films = new ArrayList<Film>();
+//		}
+//		if (!films.contains(film)) {
+//			films.add(film);
+//			film.addActor(this);
+//		}
+//	}
+//	
+//	public void removeFilm(Film film) {
+//		if (films != null && films.contains(film)) {
+//			films.remove(film);
+//			film.removeFilm(this);
+//		}
+//	}
 }
