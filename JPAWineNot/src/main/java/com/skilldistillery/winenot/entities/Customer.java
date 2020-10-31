@@ -148,7 +148,7 @@ public class Customer {
 			reviews.remove(review);
 		}
 	}
-	public void addWine(Wine wine) {
+	public void addWineToFavorites(Wine wine) {
 		if (wines == null) {
 			wines = new ArrayList<>();
 		}
@@ -157,7 +157,7 @@ public class Customer {
 			wine.addCustomer(this);
 		}
 	}
-	public void removeWine(Wine wine) {
+	public void removeWineToFavorites(Wine wine) {
 		if (wines != null && wines.contains(wine)) {
 			wines.remove(wine);
 			wine.removeCustomer(this);
