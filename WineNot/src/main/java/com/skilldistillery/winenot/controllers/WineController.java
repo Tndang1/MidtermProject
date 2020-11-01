@@ -29,7 +29,7 @@ public class WineController {
 	//
 	@RequestMapping(path = "/")
 	public String index() {
-		return "index";
+		return "homePage";
 	}
 	//search by Wine ID
 	@RequestMapping(path = "getWine.do", method = RequestMethod.GET)
@@ -131,8 +131,8 @@ public class WineController {
 	
 	
 	//home page
-	@RequestMapping(path = "index.do")
+	@RequestMapping(path = "homePage.do")
 	public String backHome() {
-		return "index";
+		return "homePage";
 	}
 }

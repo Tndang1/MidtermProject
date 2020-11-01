@@ -1,20 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+    pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
-<head>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
 <meta charset="UTF-8">
-<title>Confirm Order and Checkout</title>
+<title>Home Page</title>
 </head>
 <body>
-
-    <hr>
+ <hr>
     <div class ="container">
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -49,61 +46,24 @@
 						<a class="nav-link disabled" href="#">Disabled</a>
 					</li>
 				</ul>
-				<form class="form-inline my-2 my-lg-0">
+				<form action="findWineName.do" method="GET" class="form-inline my-2 my-lg-0">
 					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 				</form>
 			</div>
 		</nav>
     <hr>
-	Items in cart
-	<ul>
-		<c:forEach items="${wines}" var="wine">
-			<li>
-			<form action="removeWineFromCheckout.do" method="GET">
-			${wine.labelName}, ${wine.vineyard }. ${wine.vintageYear}
-				<input type="hidden" name="customerOrderId" value="${custOrder.id}"/>
-				<input type="hidden" name="wineId" value="${wine.id}"/>
-				<button type="submit">Remove From Cart</button>
-			</form>
-			</li>
-		</c:forEach>
-	</ul>
-	<p>
-	<table>
-	<tr>
-	<th>Shipping Details</th>
-	<th>Billing Address</th>
-	</tr>
-	<tr>
-	<td>${customerAddress.street} ${customerAddress.street2}</td>
-	<td>${paymentInfo.address.street} ${paymentInfo.address.street2}</td>
-	</tr>
-	<tr>
-	<td>${customerAddress.city}, ${customerAddress.state}</td>
-	<td>${paymentInfo.address.city}, ${paymentInfo.address.state}</td>
-	</tr>
-	<tr>
-	<td>${customerAddress.zip}</td>
-	<td>${paymentInfo.address.zip}</td>
-	</tr>
-	<tr>
-	<td>${customerAddress.country}</td>
-	<td>${paymentInfo.address.country}</td>
-	</tr>
-	</table>
-	</p>
-	<p>
-	Payment Info<br>
-	${paymentInfo.cardNumber}<br>
-	Expiration Date: ${paymentInfo.exprDate.month} ${paymentInfo.exprDate.year}
-	<br>
-	Total: ${custOrder.amount}
-	</p>
-	
+    <h1>WineNot </h1>
+    <hr>
+    <p>
+    "This is where we will have the description of our website."
+    </p>
+    
+    
+    
+
 	  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-	
 </body>
 </html>
