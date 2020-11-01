@@ -36,7 +36,9 @@ public class WineController {
 	public String showWineId(Integer wid, Model model) {
 		Wine wine = wineDao.findWineById(wid);
 		List<Review> reviews = wine.getReviews();
+		if(reviews.size() > 0) {
 		model.addAttribute("review", reviews.get((int)(Math.random() * (reviews.size()-1))));
+		}
 		model.addAttribute("wine", wine);
 		return "show";
 	}
