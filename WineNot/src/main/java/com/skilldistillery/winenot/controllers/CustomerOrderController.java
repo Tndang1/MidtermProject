@@ -45,15 +45,13 @@ public class CustomerOrderController {
 	private String removeWineFromCheckout(Model model, Integer customerOrderId, Integer wineId) {
 		CustomerOrder customerOrder = custOrderDAO.findById(customerOrderId);
 		custOrderDAO.removeWineFromOrder(customerOrderId, wineId);
-		List<Wine> wines = customerOrder.getWines();
 		Customer customer = customerOrder.getCustomer();
 		Address address = customer.getAddress();
+		List<Wine> wines = customerOrder.getWines();
 		PaymentInfo paymentInfo = customer.getPaymentInfo();
-		Address billingAddress = paymentInfo.getAddress();
 		model.addAttribute("custOrder", customerOrder);
 		model.addAttribute("customer", customer);
 		model.addAttribute("customerAddress", address);
-		model.addAttribute("bilingAddress", billingAddress);
 		model.addAttribute("paymentInfo", paymentInfo);
 		model.addAttribute("wines", wines);
 		return "checkout";
