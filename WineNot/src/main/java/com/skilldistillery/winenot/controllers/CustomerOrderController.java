@@ -3,6 +3,7 @@ package com.skilldistillery.winenot.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,23 +17,18 @@ import com.skilldistillery.winenot.entities.CustomerOrder;
 import com.skilldistillery.winenot.entities.PaymentInfo;
 import com.skilldistillery.winenot.entities.Wine;
 
+@Controller
 public class CustomerOrderController {
 
 //	Order DAO==============================================
 	@Autowired
 	private CustomerOrderDAO custOrderDAO;
 
-//  Return to home page ======================================================
-	
-	@RequestMapping(path = "/")
-	public String index() {
-		return "index";
-	}
-	
 // Checkout page
 	@RequestMapping(path = "checkout.do", method = RequestMethod.GET)
-	private String checkoutInfo(Model model, int customerOrderId, int customerId) {
+	private String checkoutInfo(Model model, Integer customerOrderId) {
 		CustomerOrder customerOrder = custOrderDAO.findById(customerOrderId);
+		List<Wine> wines = customerOrder.getWines();
 		Customer customer = customerOrder.getCustomer();
 		Address address = customer.getAddress();
 		PaymentInfo paymentInfo = customer.getPaymentInfo();
@@ -41,6 +37,25 @@ public class CustomerOrderController {
 		model.addAttribute("customer", customer);
 		model.addAttribute("customerAddress", address);
 		model.addAttribute("bilingAddress", billingAddress);
+		model.addAttribute("paymentInfo", paymentInfo);
+		model.addAttribute("wines", wines);
+		return "checkout";
+	}
+	@RequestMapping(path = "removeWineFromCheckout.do", method = RequestMethod.GET)
+	private String removeWineFromCheckout(Model model, Integer customerOrderId, Integer wineId) {
+		CustomerOrder customerOrder = custOrderDAO.findById(customerOrderId);
+		custOrderDAO.removeWineFromOrder(customerOrderId, wineId);
+		List<Wine> wines = customerOrder.getWines();
+		Customer customer = customerOrder.getCustomer();
+		Address address = customer.getAddress();
+		PaymentInfo paymentInfo = customer.getPaymentInfo();
+		Address billingAddress = paymentInfo.getAddress();
+		model.addAttribute("custOrder", customerOrder);
+		model.addAttribute("customer", customer);
+		model.addAttribute("customerAddress", address);
+		model.addAttribute("bilingAddress", billingAddress);
+		model.addAttribute("paymentInfo", paymentInfo);
+		model.addAttribute("wines", wines);
 		return "checkout";
 	}
 	
@@ -65,7 +80,7 @@ public class CustomerOrderController {
 		CustomerOrder custOrderId = custOrderDAO.findById(id);
 		List<Wine> wines = custOrderId.getWines();
 		for (Wine wine : wines) {
-			custOrderDAO.removeWineFromOrder(id, wine);
+			custOrderDAO.removeWineFromOrder(id, wine.getId());
 			
 		}
 		return "allWineGone";
@@ -129,8 +144,8 @@ public class CustomerOrderController {
 
 //	delete wineFromOrder ================================================================
 	@RequestMapping(path = "removeWineFromOrder.do", method = RequestMethod.GET)
-	public ModelAndView showDeletedOrder(Integer id, Wine wine) {
-		custOrderDAO.removeWineFromOrder(id, wine);
+	public ModelAndView showDeletedOrder(Integer id, int wineId) {
+		custOrderDAO.removeWineFromOrder(id, wineId);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("deleteWineFromOrder");
 		return mv;
