@@ -10,7 +10,10 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.winenot.data.CustomerOrderDAO;
+import com.skilldistillery.winenot.entities.Address;
+import com.skilldistillery.winenot.entities.Customer;
 import com.skilldistillery.winenot.entities.CustomerOrder;
+import com.skilldistillery.winenot.entities.PaymentInfo;
 import com.skilldistillery.winenot.entities.Wine;
 
 public class CustomerOrderController {
@@ -26,6 +29,21 @@ public class CustomerOrderController {
 		return "index";
 	}
 	
+// Checkout page
+	@RequestMapping(path = "checkout.do", method = RequestMethod.GET)
+	private String checkoutInfo(Model model, int customerOrderId, int customerId) {
+		CustomerOrder customerOrder = custOrderDAO.findById(customerOrderId);
+		Customer customer = customerOrder.getCustomer();
+		Address address = customer.getAddress();
+		PaymentInfo paymentInfo = customer.getPaymentInfo();
+		Address billingAddress = paymentInfo.getAddress();
+		model.addAttribute("custOrder", customerOrder);
+		model.addAttribute("customer", customer);
+		model.addAttribute("customerAddress", address);
+		model.addAttribute("bilingAddress", billingAddress);
+		return "checkout";
+	}
+	
 //	Find orders by id=====================================================
 	@RequestMapping(path = "findById.do", method = RequestMethod.GET)
 	private String findOrdersById(Model model, int id) {
@@ -33,7 +51,6 @@ public class CustomerOrderController {
 		model.addAttribute("custOrder", custOrderId);
 		return "custOrderById";
 	}
-	
 
 //	list of orders=======================================================
 	@RequestMapping(path = "orderList.do", method = RequestMethod.GET)
