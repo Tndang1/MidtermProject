@@ -52,6 +52,7 @@
 		</nav>
     <hr>
     <img src="${wine.image}" alt="${wine.labelName} ${wine.vineyard} ${wine.vintageYear}" style="width:128px;height:256px;">
+	<!-- Replace style size limits with CSS -->
 	<p>
 	<ul>
 		<li>${wine.labelName}</li>
@@ -64,6 +65,18 @@
 		<li>${wine.description}</li>
 		<li>${wine.pairs}</li>
 		<li>${review.review}</li>
+		<p>
+		<form action="addWineToOrder.do" method="GET">
+			<input type="hidden" name="id" value="${custOrder.id}"/>
+			<input type="hidden" name="wine" value="${wine}"/>
+			<button type="submit">Add To Cart</button>
+		</form>
+		<form action="addWineToFavorites.do" method="GET">
+			<input type="hidden" name="customerId" value="${customer.id}"/>
+			<input type="hidden" name="wine" value="${wine}"/>
+			<button type="submit">Add To Favorites!</button>
+		</form>
+		</p>
 	</ul>
 </body>
 </html>
