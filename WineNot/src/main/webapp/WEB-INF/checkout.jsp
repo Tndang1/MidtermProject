@@ -16,8 +16,9 @@
 	Items in cart
 	<ul>
 		<c:forEach items="${wines}" var="wine">
-			<li>${wine.labelName}, ${wine.vineyard }. ${wine.vintageYear}
+			<li>
 			<form action="removeWineFromCheckout.do" method="GET">
+			${wine.labelName}, ${wine.vineyard }. ${wine.vintageYear}
 				<input type="hidden" name="customerOrderId" value="${custOrder.id}"/>
 				<input type="hidden" name="wineId" value="${wine.id}"/>
 				<button type="submit">Remove From Cart</button>
@@ -25,11 +26,29 @@
 			</li>
 		</c:forEach>
 	</ul>
-	<p>Shipping Details<br>
-	${customerAddress.street} ${customerAddress.street2}<br>
-	${customerAddress.city}, ${customerAddress.state}<br>
-	${customerAddress.zip}<br>
-	${customerAddress.country}<br>
+	<p>
+	<table>
+	<tr>
+	<th>Shipping Details</th>
+	<th>Billing Address</th>
+	</tr>
+	<tr>
+	<td>${customerAddress.street} ${customerAddress.street2}</td>
+	<td>${paymentInfo.address.street} ${paymentInfo.address.street2}</td>
+	</tr>
+	<tr>
+	<td>${customerAddress.city}, ${customerAddress.state}</td>
+	<td>${paymentInfo.address.city}, ${paymentInfo.address.state}</td>
+	</tr>
+	<tr>
+	<td>${customerAddress.zip}</td>
+	<td>${paymentInfo.address.zip}</td>
+	</tr>
+	<tr>
+	<td>${customerAddress.country}</td>
+	<td>${paymentInfo.address.country}</td>
+	</tr>
+	</table>
 	</p>
 	<p>
 	Payment Info<br>
