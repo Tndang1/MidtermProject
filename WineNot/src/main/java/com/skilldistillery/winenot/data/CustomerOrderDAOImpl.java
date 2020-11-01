@@ -74,8 +74,9 @@ public class CustomerOrderDAOImpl implements CustomerOrderDAO {
 	}
 
 	@Override
-	public boolean removeWineFromOrder(int id, Wine wine) {
+	public boolean removeWineFromOrder(int id, int wineId) {
 		CustomerOrder dbOrder = em.find(CustomerOrder.class, id);
+		Wine wine = em.find(Wine.class, wineId);
 		dbOrder.removeWine(wine);
 		em.flush();
 		boolean removed = !dbOrder.getWines().contains(wine);
