@@ -1,5 +1,7 @@
 package com.skilldistillery.winenot.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,8 @@ import com.skilldistillery.winenot.data.PaymentInfoDAO;
 import com.skilldistillery.winenot.data.ReviewDAO;
 import com.skilldistillery.winenot.data.UserDAO;
 import com.skilldistillery.winenot.entities.Address;
+import com.skilldistillery.winenot.entities.Customer;
+import com.skilldistillery.winenot.entities.CustomerOrder;
 import com.skilldistillery.winenot.entities.PaymentInfo;
 import com.skilldistillery.winenot.entities.Review;
 import com.skilldistillery.winenot.entities.User;
@@ -51,8 +55,8 @@ public class CustomerController {
 
 	@RequestMapping(path = "createUserForm.do", method = RequestMethod.GET)
 	public String createUserForm(User user) {
-
-		return "folder/newUserForm";
+		return "LogIn";
+//		return "folder/newUserForm";
 	}
 
 	@RequestMapping(path = "createUser.do", method = RequestMethod.POST)
@@ -149,5 +153,14 @@ public class CustomerController {
 	}
 
 	// FAVORITES FORMS ===================
+	
+	//ORDER FORMS ========================
+	@RequestMapping(path ="listAllCustomerOrders.do", method = RequestMethod.GET)
+	public String listAllCustomerOrders(Model model, int id) {
+		Customer customer = custDAO.getCustomerById(id);
+		List<CustomerOrder> orders = customer.getCustomerOrders();
+		model.addAttribute("orders", orders);
+		return "orderhistory";
+	}
 
 }

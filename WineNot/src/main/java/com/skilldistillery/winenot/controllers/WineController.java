@@ -29,12 +29,16 @@ public class WineController {
 	//
 	@RequestMapping(path = "/")
 	public String index() {
-		return "index";
+		return "homePage";
 	}
 	//search by Wine ID
 	@RequestMapping(path = "getWine.do", method = RequestMethod.GET)
 	public String showWineId(Integer wid, Model model) {
 		Wine wine = wineDao.findWineById(wid);
+		List<Review> reviews = wine.getReviews();
+		if(reviews.size() > 0) {
+		model.addAttribute("review", reviews.get((int)(Math.random() * (reviews.size()-1))));
+		}
 		model.addAttribute("wine", wine);
 		return "show";
 	}
@@ -131,8 +135,8 @@ public class WineController {
 	
 	
 	//home page
-	@RequestMapping(path = "index.do")
+	@RequestMapping(path = "homePage.do")
 	public String backHome() {
-		return "index";
+		return "homePage";
 	}
 }
