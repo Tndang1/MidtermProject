@@ -38,6 +38,9 @@
 					<li class="nav-item">
 						<a class="nav-link" href="updateUserForm.do?id=1#">Account Profile</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="favoritesList.do?id=1#">Favorites List</a>
+					</li>
 			
 				<!-- 	<li class="nav-item">
 						<a class="nav-link disabled" href="#">Disabled</a>
