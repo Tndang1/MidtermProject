@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +29,7 @@
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active"><a href="homePage.do" href="#">Home
 							<span class="sr-only">(current)</span>
-					</a></li>&nbsp;&nbsp;&nbsp;
+					</a></li>
 					<li class="nav-item"><a href="ContactPage.jsp"> Contact us
 					</a></li>
 				</ul>
@@ -52,16 +53,52 @@
 
 		<div class="container-fluid">
 			<table>
-				<c:forEach items="${reviewId }" var="reviews">
+				<c:forEach items="${reviews}" var="review">
 					<tr>
-						<td>${reviews.id }</td>
-						<td><a href="getReviewId.do?wid=${reviews.id }">${reviews.rating } ${reviews.review }</a></td>
+					<c:choose>
+					<c:when test="${review.image != null}">
+						<td><img src="${review.image}" alt="${review.wine.labelName}" style="width:50%;height:50%;">
+					</c:when>
+					<c:otherwise>
+						<td>No image uploaded! Link an image from imgur or similar!</td>
+					</c:otherwise>
+					</c:choose>
+						<td><a href="getWine.do?wid=${review.wine.id}">${review.wine.labelName}, ${review.wine.vineyard}, ${review.wine.vintageYear}</a></td>
+						<td>${review.rating}</td>
+						<td>${review.review}</td>
+						<td>
+						<form action = "updateReviewReview.do">
+						<input type="hidden" name="custId" value="${review.id.customerId}"/>
+						<input type="hidden" name="wineId" value="${review.id.wineId}"/>
+						<input type="text" name ="reviewUpdate">
+						<button type="submit">Update Review Content</button>
+						</form>
+						<form action = "updateReviewRating.do">
+						<input type="hidden" name="custId" value="${review.id.customerId}"/>
+						<input type="hidden" name="wineId" value="${review.id.wineId}"/>
+						<input type="number" name ="rating">
+						<button type="submit">Update Review Rating</button>
+						</form>
+						<form action = "updateReviewImage.do">
+						<input type="hidden" name="custId" value="${review.id.customerId}"/>
+						<input type="hidden" name="wineId" value="${review.id.wineId}"/>
+						<input type="text" name ="image">
+						<button type="submit">Update Review Image</button>
+						</form>
+						</td>
+						<td><form action="removeReview.do">
+						<input type="hidden" name="custId" value="${review.id.customerId}"/>
+						<input type="hidden" name="wineId" value="${review.id.wineId}"/>
+						<button type="submit">Delete Review</button>
+						</form>
+						</td>
 					</tr>
 				</c:forEach>
 			</table>
-			</form>
 		</div>
-		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>
 	<script
