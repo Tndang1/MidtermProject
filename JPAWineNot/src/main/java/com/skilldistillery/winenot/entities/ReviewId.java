@@ -13,6 +13,16 @@ public class ReviewId implements Serializable{
 	private int customerId;
 	@Column(name="wine_id")
 	private int wineId;
+	
+	public ReviewId(int custId, int wineId) {
+		this.customerId = custId;
+		this.wineId = wineId;
+	}
+	
+	public ReviewId() {
+		
+	}
+	
 	public int getCustomerId() {
 		return customerId;
 	}
