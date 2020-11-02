@@ -68,7 +68,8 @@ public class CustomerController {
 		updateUser.setUsername(username);
 		userDAO.updateUser(id, updateUser);
 		model.addAttribute("user", updateUser);
-		return "folder/userProfilePage";
+//		return "folder/userProfilePage";
+		return "userProfilePage";
 	}
 
 	@RequestMapping(path = "updatePasswordForm.do")
@@ -77,7 +78,7 @@ public class CustomerController {
 		updateUser.setPassword(pass);
 		userDAO.updateUser(id, updateUser);
 		model.addAttribute("user", updateUser);
-		return "folder/userProfilePage";
+		return "userProfilePage";
 	}
 
 	@RequestMapping(path = "updateEmailForm.do")
@@ -86,7 +87,7 @@ public class CustomerController {
 		updateUser.setEmail(email);
 		userDAO.updateUser(id, updateUser);
 		model.addAttribute("user", updateUser);
-		return "folder/userProfilePage";
+		return "userProfilePage";
 	}
 
 	@RequestMapping(path = "deleteUser.do")
