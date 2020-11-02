@@ -54,12 +54,12 @@
 			</div>
 		</nav>
     <hr>
-    <form action="findWineByName.do" method="GET" class="form-inline my-2 my-lg-0">
+<!--     <form action="findWineByName.do" method="GET" class="form-inline my-2 my-lg-0">
 					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 				</form>
-				<hr>
-<h1>Wine Searched By Color:</h1>
+				<hr> -->
+<h1>Wine Searched By Name:</h1>
 
 <div class="container-fluid">
 <table>
