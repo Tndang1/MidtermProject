@@ -150,7 +150,10 @@ public class WineController {
 	public String addAReview(Model model, Integer custId, Integer wineId) {
 		model.addAttribute("custId", custId);
 		model.addAttribute("wineId", wineId);
+		Wine wine = wineDao.findWineById(wineId);
+		model.addAttribute("wine", wine);
 		return "addReview";
+		
 	}
 	
 	@RequestMapping(path = "addWineReview.do")
