@@ -14,50 +14,168 @@
 </head>
 <body>
 
-    <hr>
-    <div class ="container">
+	<hr>
+	<div class="container">
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<a class="navbar-brand" href="#">Navigation Bar</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active">
-						<a class="nav-link" href="homePage.do">Home <span class="sr-only">(current)</span></a>
+					<li class="nav-item active"><a class="nav-link"
+						href="homePage.do">Home <span class="sr-only">(current)</span></a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="checkout.do">Order Wine</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="wineList.do">Wine Cellar</a>
-					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Contact me at
-						</a>
+					<li class="nav-item"><a class="nav-link" href="checkout.do">Order
+							Wine</a></li>
+					<li class="nav-item"><a class="nav-link" href="wineList.do">Wine
+							Cellar</a></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false"> Contact me at </a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="https://www.linkedin.com/in/jourdan-rentschler-b16b4a13b" target="_blank">LinkedIn Profile</a>
-							<a class="dropdown-item" href="JOURDAN RENTSCHLER - Resume_PersonalPortfolio.pdf" target="_blank">Resume</a>
+							<a class="dropdown-item"
+								href="https://www.linkedin.com/in/jourdan-rentschler-b16b4a13b"
+								target="_blank">LinkedIn Profile</a> <a class="dropdown-item"
+								href="JOURDAN RENTSCHLER - Resume_PersonalPortfolio.pdf"
+								target="_blank">Resume</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="#">Something else here</a>
-						</div>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link disabled" href="#">Disabled</a>
+						</div></li>
+					<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a>
 					</li>
 				</ul>
 				<form class="form-inline my-2 my-lg-0">
-					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+					<input class="form-control mr-sm-2" type="search"
+						placeholder="Search" aria-label="Search">
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 				</form>
 			</div>
 		</nav>
-    <hr>
-	Items in cart
-	<ul>
+		<hr>
+
+		<!-- ===================== End of Navbar =================== -->
+
+		<strong>Wine Order</strong>
+
+		<form action="findWineColor.do" method="GET">
+			<div class="form-check"> Flavor of Wine: <br> 
+				<input class="form-check-input" type="checkbox" value="1" id="id"> 
+				<label class="form-check-label" for="id"> Red </label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="2" id="id">
+				<label class="form-check-label" for="id"> White </label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="3" id="id">
+				<label class="form-check-label" for="id"> Rose </label>
+			</div>
+			<br>
+			<!-- End of Flavors of wine -->
+			
+
+				<div class="form-check">
+					Type of Wine: <br> <input class="form-check-input"
+						type="checkbox" value="1" id="id"> <label
+						class="form-check-label" for="id"> Bordeaux </label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="2" id="id">
+					<label class="form-check-label" for="id"> Cabernet </label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="3" id="id">
+					<label class="form-check-label" for="id"> Chardonnay </label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="4" id="id">
+					<label class="form-check-label" for="id"> Malbec </label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="5" id="id">
+					<label class="form-check-label" for="id"> Merlot </label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="6" id="id">
+					<label class="form-check-label" for="id"> Moscato </label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="7" id="id">
+					<label class="form-check-label" for="id"> Pinot Grigio </label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="8" id="id">
+					<label class="form-check-label" for="id"> Pinot Noir </label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="9" id="id">
+					<label class="form-check-label" for="id"> Port </label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="10" id="id">
+					<label class="form-check-label" for="id"> Red Blend </label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="11" id="id">
+					<label class="form-check-label" for="id"> Riesling </label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="12" id="id">
+					<label class="form-check-label" for="id"> Rose </label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="13" id="id">
+					<label class="form-check-label" for="id"> Rosso </label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="14" id="id">
+					<label class="form-check-label" for="id"> Sangria </label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="15" id="id">
+					<label class="form-check-label" for="id"> Sauvignon Blanc </label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="16" id="id">
+					<label class="form-check-label" for="id"> Sparkling </label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="17" id="id">
+					<label class="form-check-label" for="id"> Syrah </label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="18" id="id">
+					<label class="form-check-label" for="id"> Zinfandel </label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="19" id="id">
+					<label class="form-check-label" for="id"> Sangiovese </label>
+				</div> <br>
+	
+			<!-- End of checkboxes for type of wine -->
+			
+			<div class="form-check">Quantity: <br> 
+				<input class="form-check-input" type="checkbox" value="1" id="id"> 
+				<label class="form-check-label" for="id"> 6 </label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="2" id="id">
+				<label class="form-check-label" for="id"> 12 </label>
+			</div>
+
+			<input class="btn btn-primary" type="submit" value="Submit">
+		</form>
+
+
+		<!-- Old code for list of wines in cart. -->
+		<%-- 	<ul> 
 		<c:forEach items="${wines}" var="wine">
 			<li>
 			<form action="removeWineFromCheckout.do" method="GET">
@@ -68,81 +186,95 @@
 			</form>
 			</li>
 		</c:forEach>
-	</ul>
-	<p>
-	<table>
-	<tr>
-	<th>Shipping Details</th>
-	<th>Billing Address</th>
-	</tr>
-	<tr>
-	<td>${customerAddress.street} ${customerAddress.street2}</td>
-	<td>${paymentInfo.address.street} ${paymentInfo.address.street2}</td>
-	</tr>
-	<tr>
-	<td>${customerAddress.city}, ${customerAddress.state}</td>
-	<td>${paymentInfo.address.city}, ${paymentInfo.address.state}</td>
-	</tr>
-	<tr>
-	<td>${customerAddress.zip}</td>
-	<td>${paymentInfo.address.zip}</td>
-	</tr>
-	<tr>
-	<td>${customerAddress.country}</td>
-	<td>${paymentInfo.address.country}</td>
-	</tr>
-	</table>
-	</p>
-	<p>
-	Payment Info<br>
-	${paymentInfo.cardNumber}<br>
-	Expiration Date: ${paymentInfo.exprDate.month} ${paymentInfo.exprDate.year}
-	<br>
-	Total: ${custOrder.amount}
-	</p>
-	
-<form action="orderMade.do">
-<!--   <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="inputPassword4">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputAddress">Address</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-  </div>
-  <div class="form-group">
-    <label for="inputAddress2">Address 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputCity">City</label>
-      <input type="text" class="form-control" id="inputCity">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputZip">Zip</label>
-      <input type="text" class="form-control" id="inputZip">
-    </div>
-  </div> -->
-  <button type="submit" class="btn btn-primary">Check me out!</button>
-</form>
-	
-	  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-	
+	</ul> --%>
+		<p>
+		<table>
+			<tr>
+				<th>Shipping Details</th>
+				<th>Billing Address</th>
+			</tr>
+			<tr>
+				<td>${customerAddress.street}${customerAddress.street2}</td>
+				<td>${paymentInfo.address.street}
+					${paymentInfo.address.street2}</td>
+			</tr>
+			<tr>
+				<td>${customerAddress.city},${customerAddress.state}</td>
+				<td>${paymentInfo.address.city},${paymentInfo.address.state}</td>
+			</tr>
+			<tr>
+				<td>${customerAddress.zip}</td>
+				<td>${paymentInfo.address.zip}</td>
+			</tr>
+			<tr>
+				<td>${customerAddress.country}</td>
+				<td>${paymentInfo.address.country}</td>
+			</tr>
+		</table>
+		</p>
+		<p>
+			Payment Info<br> ${paymentInfo.cardNumber}<br> Expiration
+			Date: ${paymentInfo.exprDate.month} ${paymentInfo.exprDate.year} <br>
+			Total: ${custOrder.amount}
+		</p>
+
+		<form>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="inputEmail4">Email</label> <input type="email"
+						class="form-control" id="inputEmail4">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="inputPassword4">Password</label> <input type="password"
+						class="form-control" id="inputPassword4">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputAddress">Address</label> <input type="text"
+					class="form-control" id="inputAddress" placeholder="1234 Main St">
+			</div>
+			<div class="form-group">
+				<label for="inputAddress2">Address 2</label> <input type="text"
+					class="form-control" id="inputAddress2"
+					placeholder="Apartment, studio, or floor">
+			</div>
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="inputCity">City</label> <input type="text"
+						class="form-control" id="inputCity">
+				</div>
+				<div class="form-group col-md-4">
+					<label for="inputState">State</label> <select id="inputState"
+						class="form-control">
+						<option selected>Choose...</option>
+						<option>...</option>
+					</select>
+				</div>
+				<div class="form-group col-md-2">
+					<label for="inputZip">Zip</label> <input type="text"
+						class="form-control" id="inputZip">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" id="gridCheck">
+					<label class="form-check-label" for="gridCheck"> Check me
+						out </label>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-primary">Sign in</button>
+		</form>
+
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+			integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+			integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+			crossorigin="anonymous"></script>
 </body>
 </html>

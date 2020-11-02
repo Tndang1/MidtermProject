@@ -17,7 +17,7 @@ h3 {text-align: center;}
 </head>
 <body>
 
-	<hr>
+<!-- 	<hr>
 	<div class="container">
 
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -43,7 +43,44 @@ h3 {text-align: center;}
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 				</form>
 			</div>
+		</nav> -->
+		
+		<hr>
+    <div class ="container">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="#">Navigation Bar</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="homePage.do">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="createUserForm.do">Log In</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="checkout.do?customerOrderId=1#">Order Wine</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="wineList.do">Wine Cellar</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="updateUserForm.do?id=1#">Account Profile</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="favoritesList.do?id=1#">Favorites List</a>
+					</li>
+			
+				</ul>
+			
+			</div>
 		</nav>
+		<hr>
 		<div class="text-center">
 			<img src="https://content.codecademy.com/courses/freelance-1/unit-2/explorer.jpeg" />
 			<!-- #Imageid img{
@@ -58,12 +95,12 @@ h3 {text-align: center;}
 			<tr>Username: <td>${user.username }</td> <form action= "updateUsernameForm.do">
 			${user.username }
 			<input type= "text" name="username" value="${user.username }"/>
-			<button type= "submit">Change Username</button>
+			<button type= "submit">Change Username</button><br>
 			</form></tr>
 			<tr>Email: <td>${user.email }</td> <form action= "updateEmailForm.do">
 			${user.username }
 			<input type= "text" name="email" value="${user.email }"/>
-			<button type= "submit">Change Email</button>
+			<button type= "submit">Change Email</button><br>
 			</form></tr>
 			<tr>Password: <td>${user.password }</td> <form action= "updatePasswordForm.do">
 			${user.password }
