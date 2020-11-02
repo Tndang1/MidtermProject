@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-
+import com.skilldistillery.winenot.data.CustomerDAO;
+import com.skilldistillery.winenot.data.ReviewDAO;
 import com.skilldistillery.winenot.data.WineDAO;
 import com.skilldistillery.winenot.entities.Review;
+import com.skilldistillery.winenot.entities.ReviewId;
 import com.skilldistillery.winenot.entities.Wine;
 
 
@@ -23,7 +25,10 @@ public class WineController {
 	private WineDAO wineDao;
 //	private WineTypeDAO wineTypeDao;
 //	private WineColorDAO wineColorDao;
-//	private ReviewDAO reviewDao;
+	@Autowired
+	private ReviewDAO reviewDao;
+	@Autowired
+	private CustomerDAO customerDao;
 	
 	
 	//
@@ -138,5 +143,27 @@ public class WineController {
 	@RequestMapping(path = "homePage.do")
 	public String backHome() {
 		return "homePage";
+	}
+	
+	//add review
+	@RequestMapping(path = "addAReview.do")
+	public String addAReview(Model model, Integer custId, Integer wineId) {
+		model.addAttribute("custId", custId);
+		model.addAttribute("wineId", wineId);
+		return "addReview";
+	}
+	
+	@RequestMapping(path = "addWineReview.do")
+	public String submitWineReview(Model model, Integer custId, Integer wineId, String review, Integer rating, String image) {
+		ReviewId id = new ReviewId(custId, wineId);
+		Review newReview = new Review();
+		newReview.setId(id);
+		newReview.setCustomer(customerDao.getCustomerById(custId));
+		newReview.setWine(wineDao.findWineById(wineId));
+		newReview.setReview(review);
+		newReview.setRating(rating);
+		newReview.setImage(image);
+		reviewDao.createReview(newReview);
+		return "myReviews";
 	}
 }
