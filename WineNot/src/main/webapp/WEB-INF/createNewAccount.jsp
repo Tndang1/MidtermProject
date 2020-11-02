@@ -54,7 +54,7 @@
 		<h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
-    <table>
+    <%-- <table>
 			<tr>Username: <td>${user.fName }</td> <form action= "createUsernameForm.do">
 			${user.fName }
 			<input type= "text" name="username" value="${user.username }"/>
@@ -69,7 +69,7 @@
 			${user.password }
 			<input type= "text" name="pass" value="${user.password }"/>
 			<button type= "submit">Create Password</button>
-			</form></tr><br><br>
+			</form></tr><br><br> --%>
 			
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -90,12 +90,12 @@
     
     
     <div class="form-group col-md-6">
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email">
     </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="inputPassword4">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password">
       <label for="psw-repeat"><b>Repeat Password</b></label>
     <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
     </div>

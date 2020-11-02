@@ -69,36 +69,14 @@ public class CustomerController {
 		return "userProfilePage";
 	}
 	@RequestMapping(path = "createNewAccount.do", method = RequestMethod.GET)
-	public String createNewAccount(User user, Model model) {
+	public String createNewAccount(Customer customer, User user, Model model) {
 		User newUser = userDAO.createUser(user);
+		customer.setUser(newUser);
+		customer = custDAO.createCustomer(customer);
 		model.addAttribute("newAccount", newUser);
 		
 		return "createNewAccount";
 	}
-//	@RequestMapping(path = "createUsernameForm.do")
-//	public String createUsername(Model model, int id, String username) {
-//		User createNewUser = userDAO.getUserById(id);
-//		createNewUser.setUsername(username);
-//		userDAO.createUser(createNewUser);
-//		model.addAttribute("user", createNewUser);
-//		return "createNewAccount";
-//	}
-//	@RequestMapping(path = "createPasswordForm.do")
-//	public String createPass(Model model, int id, String pass) {
-//		User createPass = userDAO.getUserById(id);
-//		createPass.setPassword(pass);
-//		userDAO.updateUser(id, createPass);
-//		model.addAttribute("user", createPass);
-//		return "createNewAccount";
-//	}
-//	@RequestMapping(path = "createEmailForm.do")
-//	public String createEmail(Model model, int id, String email) {
-//		User createUser = userDAO.getUserById(id);
-//		createUser.setEmail(email);
-//		userDAO.updateUser(id, createUser);
-//		model.addAttribute("user", createUser);
-//		return "createNewAccount";
-//	}
 
 	@RequestMapping(path = "updateUserForm.do")
 	public String updateUsernameById(Model model, int id) {
