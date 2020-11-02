@@ -55,8 +55,8 @@ public class CustomerController {
 
 	@RequestMapping(path = "createUserForm.do", method = RequestMethod.GET)
 	public String createUserForm(User user) {
-
-		return "folder/newUserForm";
+		return "LogIn";
+//		return "folder/newUserForm";
 	}
 
 	@RequestMapping(path = "createUser.do", method = RequestMethod.POST)
