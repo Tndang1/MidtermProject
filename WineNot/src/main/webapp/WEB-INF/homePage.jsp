@@ -36,19 +36,19 @@
 					</li>
 					
 					<li class="nav-item">
-						<a class="nav-link" href="updateUsernameForm.do">Account Profile</a>
+						<a class="nav-link" href="updateUserForm.do?id=1#">Account Profile</a>
 					</li>
 			
-					<li class="nav-item">
+				<!-- 	<li class="nav-item">
 						<a class="nav-link disabled" href="#">Disabled</a>
-					</li>
+					</li> -->
 				</ul>
-				<form action="findWineName.do" method="GET">Search By Wine Name: <input type="text" name="labelName"/>
+			<!-- 	<form action="findWineName.do" method="GET">Search By Wine Name: <input type="text" name="labelName"/>
 					<input type = "submit" value="Wine Name"/>
+				</form> -->
 				<!--  class="form-inline my-2 my-lg-0">
 					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
-				</form>
 			</div>
 		</nav>
 		<form class="form-inline">
@@ -63,8 +63,13 @@
   <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
 </form>
     <hr>
-    <h1>WineNot </h1>
+    <h1>WineNot </h1>   <form action="findWineName.do" method="GET">Search By Wine Name: <input type="text" name="labelName"/>
+					<input type = "submit" value="Wine Name"/>
+				
+				</form>
     <hr>
+  
+				
     <div class="jumbotron">
   <h1 class="display-4">Hello, Wine Lovers!</h1>
   <p class="lead">This is where we will have the description of our website!</p>
