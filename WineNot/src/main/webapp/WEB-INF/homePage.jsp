@@ -34,6 +34,10 @@
 					<li class="nav-item">
 						<a class="nav-link" href="createUserForm.do">Log In</a>
 					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="updateUsernameForm.do">Account Profile</a>
+					</li>
 			
 					<li class="nav-item">
 						<a class="nav-link disabled" href="#">Disabled</a>

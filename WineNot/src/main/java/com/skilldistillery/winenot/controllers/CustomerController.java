@@ -63,7 +63,8 @@ public class CustomerController {
 	public String createUser(User user, Model model) {
 		model.addAttribute("newUser", userDAO.createUser(user));
 
-		return "folder/userProfilePage";
+//		return "folder/userProfilePage";
+		return "userProfilePage";
 	}
 
 	@RequestMapping(path = "updateUserForm.do")
