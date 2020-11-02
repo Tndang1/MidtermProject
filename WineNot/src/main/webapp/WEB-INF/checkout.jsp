@@ -163,12 +163,14 @@
 			<!-- End of checkboxes for type of wine -->
 			
 			<div class="form-check">Quantity: <br> 
+				<input type ="hidden" value="129.99" name ="amount"> 
 				<input class="form-check-input" type="checkbox" value="6" id="id" name = "size"> 
-				<label class="form-check-label" for="id"> 6 </label>
+				
+				<label class="form-check-label" for="id"> 6 <strong>Amount: $129.99</strong> </label> 
 			</div>
 			<div class="form-check">
 				<input class="form-check-input" type="checkbox" value="12" id="id" name = "size">
-				<label class="form-check-label" for="id"> 12 </label>
+				<label class="form-check-label" for="id"> 12 <strong>Amount: $220.99</strong> </label>
 			</div>
 
 		

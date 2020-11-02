@@ -98,6 +98,9 @@ public class CustomerOrderController {
 	public ModelAndView createCustomerOrder(CustomerOrder order, Integer custId, RedirectAttributes ra) {
 		Customer customer = custDAO.getCustomerById(custId);
 		LocalDateTime now = LocalDateTime.now();
+		if (order.getSize() == 12) {
+			order.setAmount(220.99);
+		}
 		order.setCustomer(customer);
 		order.setOrderDate(now);
 		CustomerOrder addOrder = custOrderDAO.create(order);
