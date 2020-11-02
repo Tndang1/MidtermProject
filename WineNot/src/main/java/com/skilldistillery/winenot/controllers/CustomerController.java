@@ -68,6 +68,13 @@ public class CustomerController {
 //		return "folder/userProfilePage";
 		return "userProfilePage";
 	}
+	@RequestMapping(path = "createNewAccount.do", method = RequestMethod.GET)
+	public String createNewAccount(User user, Model model) {
+		User newUser = userDAO.createUser(user);
+		model.addAttribute("newAccount", newUser);
+		
+		return "createNewAccount";
+	}
 
 	@RequestMapping(path = "updateUserForm.do")
 	public String updateUsernameById(Model model, int id) {
@@ -160,19 +167,15 @@ public class CustomerController {
 		return "folder/userProfilePage";
 	}
 	
-	@RequestMapping(path = "getAllReviews.do", method = RequestMethod.GET)
-	public String getAllReviews(Model model, ReviewId id) {
-		model.addAttribute("reviewId", rviewDAO.getAllReviews(id));
+	@RequestMapping(path = "getCustomerReviews.do", method = RequestMethod.GET)
+	public String getAllReviews(Model model, int id) {
+		Customer customer = custDAO.getCustomerById(id); 
+		List<Review> listReviews = customer.getReviews();
+		model.addAttribute("reviews", listReviews);
 		
 		return "myReviews";
 	}
-	//List of all wines
-//		@RequestMapping(path = "wineList.do", method = RequestMethod.GET)
-//		public String listedWines(Model model) {
-//			List<Wine> listOfWines = wineDao.findAllWine();
-//			model.addAttribute("wine", listOfWines);
-//			return "listOfWines";
-//		}
+	
 
 	// FAVORITES FORMS ===================
 	

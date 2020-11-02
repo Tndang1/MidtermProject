@@ -52,14 +52,13 @@
 
 		<div class="container-fluid">
 			<table>
-				<c:forEach items="${reviewId }" var="reviews">
-					<tr>
-						<td>${reviews.id }</td>
-						<td><a href="getReviewId.do?wid=${reviews.id }">${reviews.rating } ${reviews.review }</a></td>
-					</tr>
+			<ul>
+				<c:forEach items="${reviews}" var="reviews">
+					<li>
+						${reviews.id } ${reviews.rating } ${reviews.review}
+					</li>
 				</c:forEach>
 			</table>
-			</form>
 		</div>
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
