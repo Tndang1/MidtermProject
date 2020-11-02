@@ -68,7 +68,7 @@
 </tr>
 </c:forEach>
 </table>
-
+<br>
 	<p>
 			<a href="homePage.do" class="btn btn-primary" role="button">Back
 				to Home</a>
