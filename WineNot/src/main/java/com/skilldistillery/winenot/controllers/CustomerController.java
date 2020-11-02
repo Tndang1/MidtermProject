@@ -167,12 +167,48 @@ public class CustomerController {
 		return "folder/userProfilePage";
 	}
 	
+<<<<<<< HEAD
 	@RequestMapping(path = "getCustomerReviews.do", method = RequestMethod.GET)
 	public String getAllReviews(Model model, int id) {
 		Customer customer = custDAO.getCustomerById(id); 
 		List<Review> listReviews = customer.getReviews();
 		model.addAttribute("reviews", listReviews);
 		
+=======
+	@RequestMapping(path = "getAllReviews.do", method = RequestMethod.GET)
+	public String getAllReviews(Model model, int id) {
+		List<Review> reviews = custDAO.getCustomerReviews(id);
+		model.addAttribute("reviews", reviews);
+		return "myReviews";
+	}
+	
+	@RequestMapping(path = "removeReview.do", method = RequestMethod.GET)
+	public String removeReview(Model model, int custId, int wineId) {
+		Boolean deleted = rviewDAO.deleteReview(custId, wineId);
+		model.addAttribute("deleted", deleted);
+		return "myReviews";
+	}
+	
+	@RequestMapping(path = "updateReviewReview.do", method = RequestMethod.GET)
+	public String updateReviewReview(Model model, int custId, int wineId, String reviewUpdate) {
+		Review review = rviewDAO.getReviewByCustomerAndWineId(custId, wineId);
+		review.setReview(reviewUpdate);
+		rviewDAO.updateReview(custId, wineId, review);
+		return "myReviews";
+	}
+	@RequestMapping(path = "updateReviewRating.do", method = RequestMethod.GET)
+	public String updateReviewRating(Model model, int custId, int wineId, int rating) {
+		Review review = rviewDAO.getReviewByCustomerAndWineId(custId, wineId);
+		review.setRating(rating);
+		rviewDAO.updateReview(custId, wineId, review);
+		return "myReviews";
+	}
+	@RequestMapping(path = "updateReviewImage.do", method = RequestMethod.GET)
+	public String updateReviewImage(Model model, int custId, int wineId, String image) {
+		Review review = rviewDAO.getReviewByCustomerAndWineId(custId, wineId);
+		review.setImage(image);
+		rviewDAO.updateReview(custId, wineId, review);
+>>>>>>> 074812c19600c50c99bc56025edfdd326aff308f
 		return "myReviews";
 	}
 	

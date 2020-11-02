@@ -68,7 +68,7 @@ public List<Wine> findWineTypeId(int id) {
 
 @Override
 public List<Wine> findWineByWineColorId(int id) {
-		String jpql = "SELECT w FROM Wine w WHERE wc.wineColor.id = :wineColor";
+		String jpql = "SELECT w FROM Wine w WHERE w.wineColor.id = :wineColor";
 		List<Wine> wineColors = em.createQuery(jpql, Wine.class)
 				.setParameter("wineColor", id)
 				.getResultList();
