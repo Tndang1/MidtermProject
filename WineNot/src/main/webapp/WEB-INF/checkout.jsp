@@ -187,6 +187,7 @@
 			</li>
 		</c:forEach>
 <<<<<<< HEAD
+<<<<<<< HEAD
 	</ul>
 	<p>
 	<table>
@@ -264,6 +265,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 	
 =======
+=======
+>>>>>>> 074812c19600c50c99bc56025edfdd326aff308f
 	</ul> --%>
 		<p>
 		<table>
@@ -354,6 +357,9 @@
 			src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
 			integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
 			crossorigin="anonymous"></script>
+<<<<<<< HEAD
 >>>>>>> d11fda15c8dfed930d4b6c55924745f24726a7a0
+=======
+>>>>>>> 074812c19600c50c99bc56025edfdd326aff308f
 </body>
 </html>
