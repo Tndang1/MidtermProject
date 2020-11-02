@@ -22,6 +22,13 @@ public class ReviewDAOImpl implements ReviewDAO {
 		Review review =	em.find(Review.class, id);
 		return review;
 	}
+	
+	@Override
+	public Review getReviewByCustomerAndWineId(int custId, int wineId) {
+		String jpql = "SELECT r from Review r where r.id.customerId = :custId AND r.id.wineId = :wineId";
+		Review review = em.createQuery(jpql, Review.class).setParameter("custId", custId).setParameter("wineId", wineId).getSingleResult();
+		return review;
+	}
 
 	@Override
 	public List<Review> getAllReviews(ReviewId id) {
@@ -39,8 +46,9 @@ public class ReviewDAOImpl implements ReviewDAO {
 	}
 	
 	@Override
-	public Review updateReview(ReviewId id, Review review) {
-		Review dbReview = em.find(Review.class, id);
+	public Review updateReview(int custId, int wineId, Review review) {
+		String jpql = "SELECT r from Review r where r.id.customerId = :custId AND r.id.wineId = :wineId";
+		Review dbReview = em.createQuery(jpql, Review.class).setParameter("custId", custId).setParameter("wineId", wineId).getSingleResult();
 		dbReview.setImage(review.getImage());
 		dbReview.setRating(review.getRating());
 		dbReview.setReview(review.getReview());
@@ -48,8 +56,11 @@ public class ReviewDAOImpl implements ReviewDAO {
 	}
 
 	@Override
-	public boolean deleteReview(ReviewId id) {
-		Review reviewToDelete = em.find(Review.class, id);
+	public boolean deleteReview(int custId, int wineId) {
+		System.out.println(custId);
+		System.out.println(wineId);
+		String jpql = "SELECT r from Review r where r.id.customerId = :custId AND r.id.wineId = :wineId";
+		Review reviewToDelete = em.createQuery(jpql, Review.class).setParameter("custId", custId).setParameter("wineId", wineId).getSingleResult();
 		em.remove(reviewToDelete);
 		boolean deleted = !em.contains(reviewToDelete);
 		return deleted;

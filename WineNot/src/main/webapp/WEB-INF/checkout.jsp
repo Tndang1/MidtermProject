@@ -101,8 +101,8 @@
 	Total: ${custOrder.amount}
 	</p>
 	
-	<form>
-  <div class="form-row">
+<form action="orderMade.do">
+<!--   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Email</label>
       <input type="email" class="form-control" id="inputEmail4">
@@ -136,16 +136,8 @@
       <label for="inputZip">Zip</label>
       <input type="text" class="form-control" id="inputZip">
     </div>
-  </div>
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        Check me out
-      </label>
-    </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
+  </div> -->
+  <button type="submit" class="btn btn-primary">Check me out!</button>
 </form>
 	
 	  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
