@@ -153,7 +153,7 @@ h3 {text-align: center;}
 		<a class="nav-link" href="listAllCustomerOrders.do?id=1#">Order History</a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link" href="createReviewForm.do?id=1#">Past Reviews</a> <!-- Unsure of this -->
+		<a class="nav-link" href="getAllReviews.do?id=1#">Past Reviews</a> <!-- Unsure of this -->
 	</li>
 
 </ul>

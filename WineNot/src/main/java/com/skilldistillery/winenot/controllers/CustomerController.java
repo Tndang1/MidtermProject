@@ -19,6 +19,7 @@ import com.skilldistillery.winenot.entities.Customer;
 import com.skilldistillery.winenot.entities.CustomerOrder;
 import com.skilldistillery.winenot.entities.PaymentInfo;
 import com.skilldistillery.winenot.entities.Review;
+import com.skilldistillery.winenot.entities.ReviewId;
 import com.skilldistillery.winenot.entities.User;
 import com.skilldistillery.winenot.entities.Wine;
 
@@ -158,6 +159,20 @@ public class CustomerController {
 
 		return "folder/userProfilePage";
 	}
+	
+	@RequestMapping(path = "getAllReviews.do", method = RequestMethod.GET)
+	public String getAllReviews(Model model, ReviewId id) {
+		model.addAttribute("reviewId", rviewDAO.getAllReviews(id));
+		
+		return "myReviews";
+	}
+	//List of all wines
+//		@RequestMapping(path = "wineList.do", method = RequestMethod.GET)
+//		public String listedWines(Model model) {
+//			List<Wine> listOfWines = wineDao.findAllWine();
+//			model.addAttribute("wine", listOfWines);
+//			return "listOfWines";
+//		}
 
 	// FAVORITES FORMS ===================
 	
