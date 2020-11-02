@@ -64,24 +64,25 @@
 
 		<strong>Wine Order</strong>
 
-		<form action="findWineColor.do" method="GET">
+		<form action="create.do" method="POST">
 			<div class="form-check"> Flavor of Wine: <br> 
-				<input class="form-check-input" type="checkbox" value="1" id="id"> 
+				<input type="hidden" value="1" name="custId">
+				<input class="form-check-input" type="checkbox" value="1" id="id" name = "wine_color_id"> 
 				<label class="form-check-label" for="id"> Red </label>
 			</div>
 			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value="2" id="id">
+				<input class="form-check-input" type="checkbox" value="2" id="id" name = "wine_color_id">
 				<label class="form-check-label" for="id"> White </label>
 			</div>
 			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value="3" id="id">
+				<input class="form-check-input" type="checkbox" value="3" id="id" name = "wine_color_id">
 				<label class="form-check-label" for="id"> Rose </label>
 			</div>
 			<br>
 			<!-- End of Flavors of wine -->
 			
 
-				<div class="form-check">
+				<!-- <div class="form-check">
 					Type of Wine: <br> <input class="form-check-input"
 						type="checkbox" value="1" id="id"> <label
 						class="form-check-label" for="id"> Bordeaux </label>
@@ -158,20 +159,20 @@
 					<input class="form-check-input" type="checkbox" value="19" id="id">
 					<label class="form-check-label" for="id"> Sangiovese </label>
 				</div> <br>
-	
+	 -->
 			<!-- End of checkboxes for type of wine -->
 			
 			<div class="form-check">Quantity: <br> 
-				<input class="form-check-input" type="checkbox" value="1" id="id"> 
+				<input class="form-check-input" type="checkbox" value="6" id="id" name = "size"> 
 				<label class="form-check-label" for="id"> 6 </label>
 			</div>
 			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value="2" id="id">
+				<input class="form-check-input" type="checkbox" value="12" id="id" name = "size">
 				<label class="form-check-label" for="id"> 12 </label>
 			</div>
 
-			<input class="btn btn-primary" type="submit" value="Submit">
-		</form>
+		
+	
 
 
 		<!-- Old code for list of wines in cart. -->
@@ -186,89 +187,8 @@
 			</form>
 			</li>
 		</c:forEach>
-<<<<<<< HEAD
-<<<<<<< HEAD
-	</ul>
-	<p>
-	<table>
-	<tr>
-	<th>Shipping Details</th>
-	<th>Billing Address</th>
-	</tr>
-	<tr>
-	<td>${customerAddress.street} ${customerAddress.street2}</td>
-	<td>${paymentInfo.address.street} ${paymentInfo.address.street2}</td>
-	</tr>
-	<tr>
-	<td>${customerAddress.city}, ${customerAddress.state}</td>
-	<td>${paymentInfo.address.city}, ${paymentInfo.address.state}</td>
-	</tr>
-	<tr>
-	<td>${customerAddress.zip}</td>
-	<td>${paymentInfo.address.zip}</td>
-	</tr>
-	<tr>
-	<td>${customerAddress.country}</td>
-	<td>${paymentInfo.address.country}</td>
-	</tr>
-	</table>
-	</p>
-	<p>
-	Payment Info<br>
-	${paymentInfo.cardNumber}<br>
-	Expiration Date: ${paymentInfo.exprDate.month} ${paymentInfo.exprDate.year}
-	<br>
-	Total: ${custOrder.amount}
-	</p>
-	
-<form action="orderMade.do">
-<!--   <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="inputPassword4">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputAddress">Address</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-  </div>
-  <div class="form-group">
-    <label for="inputAddress2">Address 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputCity">City</label>
-      <input type="text" class="form-control" id="inputCity">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputZip">Zip</label>
-      <input type="text" class="form-control" id="inputZip">
-    </div>
-  </div> -->
-  <button type="submit" class="btn btn-primary">Check me out!</button>
-</form>
-	
-	  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-	
-=======
-=======
->>>>>>> 074812c19600c50c99bc56025edfdd326aff308f
-	</ul> --%>
-		<p>
+--%>
+		<%-- <p>
 		<table>
 			<tr>
 				<th>Shipping Details</th>
@@ -344,6 +264,9 @@
 				</div>
 			</div>
 			<button type="submit" class="btn btn-primary">Sign in</button>
+			 --%>
+			 <br>
+				<input class="btn btn-primary" type="submit" value="Add to Cart">
 		</form>
 
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -357,9 +280,6 @@
 			src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
 			integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
 			crossorigin="anonymous"></script>
-<<<<<<< HEAD
->>>>>>> d11fda15c8dfed930d4b6c55924745f24726a7a0
-=======
->>>>>>> 074812c19600c50c99bc56025edfdd326aff308f
+
 </body>
 </html>
