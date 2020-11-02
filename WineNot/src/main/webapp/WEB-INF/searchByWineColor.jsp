@@ -59,7 +59,7 @@
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 				</form>
 				<hr>
-<h1>Wine Searched By Name:</h1>
+<h1>Wine Searched By Color:</h1>
 
 <div class="container-fluid">
 <table>

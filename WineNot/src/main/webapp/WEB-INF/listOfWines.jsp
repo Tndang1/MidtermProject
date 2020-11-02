@@ -58,12 +58,50 @@
 					Wine Name: <input type="text" name="labelName"class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 				</form>
+   <!--  <form action="findWineType.do" method="GET" class="form-inline my-2 my-lg-0">
+					 <input type="text" name="id"class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
     <form action="findWineType.do" method="GET" class="form-inline my-2 my-lg-0">
-					Wine Type: <input type="text" name="wineType"class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+				<label for="id">Wine Type:</label>
+				<select name="id" id="id">
+				<option value="1" id="id">1. Bordeaux</option>
+				<option value="2">2. Cabernet</option>
+				<option value="3">3. Chardonnay</option>
+				<option value="4">4. Malbec</option>
+				<option value="5">5. Merlot</option>
+				<option value="6">6. Moscato</option>
+				<option value="7">7. Pinot Grigio</option>
+				<option value="8">8. Pinot Noir</option>
+				<option value="9">9. Port</option>
+				<option value="10">10. Red Blend</option>
+				<option value="11">11. Riesling</option>
+				<option value="12">12. Rose</option>
+				<option value="13">13. Rosso</option>
+				<option value="14">14. Sangria</option>
+				<option value="15">15. Sauvignon Blanc</option>
+				<option value="16">16. Sparkling</option>
+				<option value="17">17. Syrah</option>
+				<option value="18">18. Zinfandel</option>
+				<option value="19">19. Sangiovese</option>
+				</select>
+			<!-- <input type="text" name="id"class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">  -->
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 				</form>
-    <form action="findWineColors.do?wineColor=white" method="GET" class="form-inline my-2 my-lg-0">
-					Wine Color: <input type="text" name="wineColor"class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    
+    
+   <!--  <form action="findWineColor.do" method="GET" class="form-inline my-2 my-lg-0">
+					Wine Color: <input type="text" name="id"class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				</form> -->
+				
+    <form action="findWineColor.do" method="GET" class="form-inline my-2 my-lg-0">
+    	<label for="id">Wine Color:</label>
+				<select name="id" id="id">
+				<option value="1">1. Red</option>
+				<option value="2">2. White</option>
+				<option value="3">3. Rose</option>
+				</select>
+					<!-- Wine Color: <input type="text" name="id"class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 				</form>
 				 
