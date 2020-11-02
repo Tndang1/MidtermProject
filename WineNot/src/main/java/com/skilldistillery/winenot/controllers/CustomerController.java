@@ -66,13 +66,18 @@ public class CustomerController {
 		return "folder/userProfilePage";
 	}
 
+	@RequestMapping(path = "updateUserForm.do")
+	public String updateUsernameById(Model model, int id) {
+		User updateUser = userDAO.getUserById(id);
+		model.addAttribute("user", updateUser);
+		return "userProfilePage";
+	}
 	@RequestMapping(path = "updateUsernameForm.do")
 	public String updateUsername(Model model, int id, String username) {
 		User updateUser = userDAO.getUserById(id);
 		updateUser.setUsername(username);
 		userDAO.updateUser(id, updateUser);
 		model.addAttribute("user", updateUser);
-//		return "folder/userProfilePage";
 		return "userProfilePage";
 	}
 
