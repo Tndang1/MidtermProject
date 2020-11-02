@@ -231,5 +231,18 @@ public class CustomerController {
 		model.addAttribute("orders", orders);
 		return "orderhistory";
 	}
+	
+	//Login in
+	@RequestMapping(path="checkCredentials.do", method = RequestMethod.GET)
+	public String checkCredentials(Model model, String email, String password) {
+		Customer customer = custDAO.verifyLogin(email, password);
+		if (customer == null) {
+			String failure = "Invalid login credentials, try again or create and account.";
+			model.addAttribute("failure", failure);
+			return "LogIn";
+		}
+		model.addAttribute(customer);
+		return "homePage";
+	}
 
 }

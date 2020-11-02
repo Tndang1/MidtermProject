@@ -52,20 +52,18 @@
 			<hr>
 			<h1>User Log In:</h1>
 			<hr>
-
-
-<form action="homePage.do">
+<c:if test = "${failure != null}">${failure}</c:if>
+<form action="checkCredentials.do">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4">
+      <input type="email" class="form-control" name="email">
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="inputPassword4">
+      <input type="password" class="form-control" name="password">
     </div>
   </div>
-
   <button type="submit" class="btn btn-primary">Sign in</button>
 </form>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

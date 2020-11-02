@@ -90,4 +90,16 @@ public class CustomerDAOImpl implements CustomerDAO {
 		return reviews;
 	}
 	
+	@Override
+	public Customer verifyLogin(String email, String password) {
+		Customer customer = null;
+		String jpql = "SELECT c from Customer c where c.user.email = :email AND c.user.password = :password";
+		try {
+			customer = em.createQuery(jpql, Customer.class).setParameter("email", email).setParameter("password", password).getSingleResult();
+		} catch (Exception e) {
+			return null;
+		}
+		return customer;
+	}
+	
 }
