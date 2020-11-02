@@ -42,16 +42,8 @@
 						<a class="nav-link" href="favoritesList.do?id=1#">Favorites List</a>
 					</li>
 			
-				<!-- 	<li class="nav-item">
-						<a class="nav-link disabled" href="#">Disabled</a>
-					</li> -->
 				</ul>
-			<!-- 	<form action="findWineName.do" method="GET">Search By Wine Name: <input type="text" name="labelName"/>
-					<input type = "submit" value="Wine Name"/>
-				</form> -->
-				<!--  class="form-inline my-2 my-lg-0">
-					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+			
 			</div>
 		</nav>
 		<hr>
@@ -59,10 +51,7 @@
     <a class="btn btn-primary btn-lg" href="wineList.do" role="button">Sign Up</a>
     </div>
     <hr>
-    <h1>WineNot </h1>  <!--  <form action="findWineName.do" method="GET">Search By Wine Name: <input type="text" name="labelName"/>
-					<input type = "submit" value="Wine Name"/>
-				
-				</form> -->
+    <h1>WineNot </h1> 
     <hr>
   
 				
