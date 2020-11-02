@@ -12,11 +12,11 @@
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-<title>Create User</title>
+<title>Create A New Account</title>
 </head>
 <body>
 <hr>
-    <div class ="container">
+  <div class ="container">
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<a class="navbar-brand" href="homePage.do"style="color:DarkRed"><strong>WineNot</strong> <i class='fas fa-wine-glass' style='font-size:24px'></i></a>
@@ -51,24 +51,88 @@
 			
 			</div>
 		</nav>
-		<hr>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		
+		<form>
+		<div class="container">
+		<h1>Sign Up</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+      <table>
+			<tr>Username: <td>${customer.fName }</td> <form action= "createCustomer.do">
+			${customer.fName }
+			<input type= "text" name="firstName" value="${customer.fName }"/>
+			<button type= "submit">First Name</button>
+			</form></tr>
+			<tr>Email: <td>${customer.email }</td> <form action= "createCustomer.do">
+			${customer.username }
+			<input type= "text" name="email" value="${customer.email }"/>
+			<button type= "submit">Enter Email</button>
+			</form></tr>
+			<tr>Password: <td>${customer.password }</td> <form action= "createCustomer.do">
+			${customer.password }
+			<input type= "text" name="pass" value="${customer.password }"/>
+			<button type= "submit">Create Password</button>
+			</form></tr><br><br>  
+			
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputFirstName4">First Name</label>
+      <input type="firstName" class="form-control" id="inputFirstName4" placeholder="FirstName">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputLastName4">Last Name</label>
+      <input type="lastName" class="form-control" id="inputLastName4" placeholder="LastName">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputbirthdate4">Date of Birth</label>
+      <input type="birthdate" class="form-control" id="birthdate" placeholder="MM/DD/YYYY">
+    
+    </div>
+    
+    
+    
+    
+    <div class="form-group col-md-6">
+      <label for="inputEmail">Email</label>
+      <input type="email" class="form-control" id="inputEmail">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password">
+      <label for="psw-repeat"><b>Repeat Password</b></label>
+    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+    </div>
+    <div class="form-group">
+    <label for="inputAddress">Address</label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+  </div>
+  <div class="form-group">
+    <label for="inputAddress2">Address 2</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputCity">City</label>
+      <input type="text" class="form-control" id="inputCity">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">State</label>
+      <select id="inputState" class="form-control">
+        <option selected>Choose...</option>
+        <option>...</option>
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputZip">Zip</label>
+      <input type="text" class="form-control" id="inputZip">
+    </div>
+    <div class="clearfix">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <button type="submit" class="signupbtn">Sign Up</button>
+    </div>
+  </div>
+  
+</form>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>

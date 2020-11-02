@@ -21,7 +21,7 @@
      <div class ="container">
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="#"style="color:DarkRed"><strong>WineNot</strong> <i class='fas fa-wine-glass' style='font-size:24px'></i></a>
+			<a class="navbar-brand" href="homePage.do"style="color:DarkRed"><strong>WineNot</strong> <i class='fas fa-wine-glass' style='font-size:24px'></i></a>
 			<img src="https://www.wvv.com/assets/client/Image/WVV-Estate-VistiUsPage.jpg" style="width:200px;height:200px;">
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
