@@ -50,13 +50,24 @@
 						<a class="nav-link disabled" href="#">Disabled</a>
 					</li>
 				</ul>
-				<form action="findWineName.do" method="GET" class="form-inline my-2 my-lg-0">
-					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-				</form>
+				
 			</div>
 		</nav>
     <hr>
+    <form action="findWineName.do" method="GET" class="form-inline my-2 my-lg-0">  
+					Wine Name: <input type="text" name="labelName"class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				</form>
+    <form action="findWineType.do" method="GET" class="form-inline my-2 my-lg-0">
+					Wine Type: <input type="text" name="wineType"class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				</form>
+    <form action="findWineColors.do?wineColor=white" method="GET" class="form-inline my-2 my-lg-0">
+					Wine Color: <input type="text" name="wineColor"class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				</form>
+				 
+				<hr>
 <h1>Wine Searched:</h1>
 
 <div class="container-fluid">
