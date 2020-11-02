@@ -83,15 +83,18 @@
 		
 		<h3>Confirmation Details</h3>
 		<c:choose>
-			<c:when test="">
+			<c:when test="${! empty showOrder}">
 				<ul>
-				<li>Customer Order Id</li>
-				<li>Customer Order Date</li>
-				<li>Customer Order Amount</li>
-				<li>Customer Order Size</li>
-				<li>Customer Payment Date</li>
+				<li><strong>Customer Order Id:</strong>${showOrder.orderId}</li>
+				<li><strong>Customer Order Date</strong>${showOrder.orderDate}</li>
+				<li><strong>Customer Order Amount</strong>${showOrder.amount}</li>
+				<li><strong>Customer Order Size</strong>${showOrder.size}</li>
+				<li><strong>Customer Payment Date</strong>${showOrder.paymentDate}</li>
 				</ul>
-			</c:when>		
+			</c:when>
+			<c:otherwise>
+			<p> No order found </p>
+			</c:otherwise>		
 		</c:choose>
 		
 		
