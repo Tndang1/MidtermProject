@@ -169,7 +169,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `customer_order` ;
 
 CREATE TABLE IF NOT EXISTS `customer_order` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `customer_id` INT NOT NULL,
   `order_date` DATETIME NULL,
   `amount` DECIMAL(6,2) NULL,
@@ -506,4 +506,3 @@ INSERT INTO `review` (`image`, `rating`, `review`, `customer_id`, `wine_id`) VAL
 INSERT INTO `review` (`image`, `rating`, `review`, `customer_id`, `wine_id`) VALUES (NULL, 5, 'Sometimes when I reflect back on all the wine I drink I feel shame. Then I look into the glass and think about the workers in the vineyards and all of their hopes and dreams. If I didn’t drink this...', 3, 3);
 
 COMMIT;
-
