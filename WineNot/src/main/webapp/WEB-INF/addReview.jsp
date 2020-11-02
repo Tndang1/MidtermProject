@@ -52,7 +52,9 @@
 			</div>
 		</nav>
 		<hr>
-		<form action="addWineReview.do"> 
+		<!-- <form action="addWineReview.do">  -->
+		
+		<form action="addReview.do"> 
 		    <img src="${wine.image}" alt="${wine.labelName} ${wine.vineyard} ${wine.vintageYear}" style="width:128px;height:256px;">
 	<!-- Replace style size limits with CSS -->
 	<p>
@@ -67,7 +69,9 @@
 		<li><strong>Description: </strong>${wine.description}</li>
 		<li><strong>Pairs with: </strong>${wine.pairs}</li>
 		<li><strong>Review: </strong>${review.review}</li>
-		<p>
+		</ul>
+		</form>
+		</p>
 
 		<hr>
 
@@ -83,8 +87,10 @@
 	<br>
 	<button type ="submit">Submit your review!</button>
 	</form>
+	<br>
 	 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+		</div>
 </body>
 </html>

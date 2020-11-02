@@ -153,6 +153,7 @@ public class WineController {
 		Wine wine = wineDao.findWineById(wineId);
 		model.addAttribute("wine", wine);
 		return "addReview";
+//		return "myReviews";
 		
 	}
 	
