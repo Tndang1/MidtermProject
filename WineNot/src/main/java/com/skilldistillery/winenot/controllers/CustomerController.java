@@ -75,6 +75,30 @@ public class CustomerController {
 		
 		return "createNewAccount";
 	}
+//	@RequestMapping(path = "createUsernameForm.do")
+//	public String createUsername(Model model, int id, String username) {
+//		User createNewUser = userDAO.getUserById(id);
+//		createNewUser.setUsername(username);
+//		userDAO.createUser(createNewUser);
+//		model.addAttribute("user", createNewUser);
+//		return "createNewAccount";
+//	}
+//	@RequestMapping(path = "createPasswordForm.do")
+//	public String createPass(Model model, int id, String pass) {
+//		User createPass = userDAO.getUserById(id);
+//		createPass.setPassword(pass);
+//		userDAO.updateUser(id, createPass);
+//		model.addAttribute("user", createPass);
+//		return "createNewAccount";
+//	}
+//	@RequestMapping(path = "createEmailForm.do")
+//	public String createEmail(Model model, int id, String email) {
+//		User createUser = userDAO.getUserById(id);
+//		createUser.setEmail(email);
+//		userDAO.updateUser(id, createUser);
+//		model.addAttribute("user", createUser);
+//		return "createNewAccount";
+//	}
 
 	@RequestMapping(path = "updateUserForm.do")
 	public String updateUsernameById(Model model, int id) {
@@ -167,14 +191,12 @@ public class CustomerController {
 		return "folder/userProfilePage";
 	}
 	
-<<<<<<< HEAD
-	@RequestMapping(path = "getCustomerReviews.do", method = RequestMethod.GET)
-	public String getAllReviews(Model model, int id) {
-		Customer customer = custDAO.getCustomerById(id); 
-		List<Review> listReviews = customer.getReviews();
-		model.addAttribute("reviews", listReviews);
-		
-=======
+//	@RequestMapping(path = "getCustomerReviews.do", method = RequestMethod.GET)
+//	public String getAllReviews(Model model, int id) {
+//		Customer customer = custDAO.getCustomerById(id); 
+//		List<Review> listReviews = customer.getReviews();
+//		model.addAttribute("reviews", listReviews);
+//		
 	@RequestMapping(path = "getAllReviews.do", method = RequestMethod.GET)
 	public String getAllReviews(Model model, int id) {
 		List<Review> reviews = custDAO.getCustomerReviews(id);
@@ -208,7 +230,6 @@ public class CustomerController {
 		Review review = rviewDAO.getReviewByCustomerAndWineId(custId, wineId);
 		review.setImage(image);
 		rviewDAO.updateReview(custId, wineId, review);
->>>>>>> 074812c19600c50c99bc56025edfdd326aff308f
 		return "myReviews";
 	}
 	

@@ -55,20 +55,20 @@
     <p>Please fill in this form to create an account.</p>
     <hr>
     <table>
-			<tr>Username: <td>${user.fName }</td> <form action= "updateUsernameForm.do">
+			<tr>Username: <td>${user.fName }</td> <form action= "createUsernameForm.do">
 			${user.fName }
 			<input type= "text" name="username" value="${user.username }"/>
 			<button type= "submit">Change Username</button>
 			</form></tr>
-			<tr>Email: <td>${user.email }</td> <form action= "updateEmailForm.do">
+			<tr>Email: <td>${user.email }</td> <form action= "createEmailForm.do">
 			${user.username }
 			<input type= "text" name="email" value="${user.email }"/>
-			<button type= "submit">Change Email</button>
+			<button type= "submit">Enter Email</button>
 			</form></tr>
-			<tr>Password: <td>${user.password }</td> <form action= "updatePasswordForm.do">
+			<tr>Password: <td>${user.password }</td> <form action= "createPasswordForm.do">
 			${user.password }
-			<input type= "hidden" name="pass" value="${user.password }"/>
-			<button type= "submit">Change Password</button>
+			<input type= "text" name="pass" value="${user.password }"/>
+			<button type= "submit">Create Password</button>
 			</form></tr><br><br>
 			
   <div class="form-row">

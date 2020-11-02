@@ -48,7 +48,7 @@
 		</nav>
 		<hr>
 		  <div>
-    <a class="btn btn-primary btn-lg" href="wineList.do" role="button">Sign Up</a>
+    <a class="btn btn-primary btn-lg" href="createNewAccount.do" role="button">Sign Up</a>
     </div>
     <hr>
     <h1>WineNot </h1> 
