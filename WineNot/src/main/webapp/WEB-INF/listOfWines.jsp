@@ -30,17 +30,27 @@
 						<a class="nav-link" href="homePage.do">Home <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="checkout.do">Order Wine</a>
+						<a class="nav-link" href="createUserForm.do">Log In</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="checkout.do?customerOrderId=1#">Order Wine</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="wineList.do">Wine Cellar</a>
 					</li>
 					
+					<li class="nav-item">
+						<a class="nav-link" href="updateUserForm.do?id=1#">Account Profile</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="favoritesList.do?id=1#">Favorites List</a>
+					</li>
+			
 				</ul>
-				
+			
 			</div>
 		</nav>
-    <hr>
+		<hr>
     <form action="findWineName.do" method="GET" class="form-inline my-2 my-lg-0">  
 					Wine Name: <input type="text" name="labelName"class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -91,6 +101,11 @@
 					<!-- Wine Color: <input type="text" name="id"class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 				</form>
+				 
+				 
+
+				 
+				 
 				 
 				<hr>
 <h1>Wine Searched:</h1>

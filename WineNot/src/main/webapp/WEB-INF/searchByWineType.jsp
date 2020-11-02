@@ -15,7 +15,7 @@
 
 </head>
 <body>
- <hr>
+<hr>
     <div class ="container">
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -30,30 +30,27 @@
 						<a class="nav-link" href="homePage.do">Home <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="checkout.do">Order Wine</a>
+						<a class="nav-link" href="createUserForm.do">Log In</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="checkout.do?customerOrderId=1#">Order Wine</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="wineList.do">Wine Cellar</a>
 					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Contact me at
-						</a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="https://www.linkedin.com/in/jourdan-rentschler-b16b4a13b" target="_blank">LinkedIn Profile</a>
-							<a class="dropdown-item" href="JOURDAN RENTSCHLER - Resume_PersonalPortfolio.pdf" target="_blank">Resume</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Something else here</a>
-						</div>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="updateUserForm.do?id=1#">Account Profile</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link disabled" href="#">Disabled</a>
+						<a class="nav-link" href="favoritesList.do?id=1#">Favorites List</a>
 					</li>
+			
 				</ul>
-				
+			
 			</div>
 		</nav>
-    <hr>
+		<hr>
   <!--   <form action="findWineByName.do" method="GET" class="form-inline my-2 my-lg-0">
 					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
