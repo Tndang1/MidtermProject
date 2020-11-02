@@ -68,8 +68,8 @@ public class CustomerController {
 //		return "folder/userProfilePage";
 		return "userProfilePage";
 	}
-	@RequestMapping(path = "createNewAccount.do", method = RequestMethod.GET)
-	public String createNewAccount(Customer customer, User user, Model model) {
+	@RequestMapping(path = "createCustomer.do")
+	public String createNewAccount(Model model, Customer customer, User user) {
 		User newUser = userDAO.createUser(user);
 		customer.setUser(newUser);
 		customer = custDAO.createCustomer(customer);

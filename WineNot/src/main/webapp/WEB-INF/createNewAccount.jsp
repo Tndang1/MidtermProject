@@ -54,22 +54,22 @@
 		<h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
-    <%-- <table>
-			<tr>Username: <td>${user.fName }</td> <form action= "createUsernameForm.do">
-			${user.fName }
-			<input type= "text" name="username" value="${user.username }"/>
-			<button type= "submit">Change Username</button>
+      <table>
+			<tr>Username: <td>${customer.fName }</td> <form action= "createCustomer.do">
+			${customer.fName }
+			<input type= "text" name="firstName" value="${customer.fName }"/>
+			<button type= "submit">First Name</button>
 			</form></tr>
-			<tr>Email: <td>${user.email }</td> <form action= "createEmailForm.do">
-			${user.username }
-			<input type= "text" name="email" value="${user.email }"/>
+			<tr>Email: <td>${customer.email }</td> <form action= "createCustomer.do">
+			${customer.username }
+			<input type= "text" name="email" value="${customer.email }"/>
 			<button type= "submit">Enter Email</button>
 			</form></tr>
-			<tr>Password: <td>${user.password }</td> <form action= "createPasswordForm.do">
-			${user.password }
-			<input type= "text" name="pass" value="${user.password }"/>
+			<tr>Password: <td>${customer.password }</td> <form action= "createCustomer.do">
+			${customer.password }
+			<input type= "text" name="pass" value="${customer.password }"/>
 			<button type= "submit">Create Password</button>
-			</form></tr><br><br> --%>
+			</form></tr><br><br>  
 			
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -90,8 +90,8 @@
     
     
     <div class="form-group col-md-6">
-      <label for="email">Email</label>
-      <input type="email" class="form-control" id="email">
+      <label for="inputEmail">Email</label>
+      <input type="email" class="form-control" id="inputEmail">
     </div>
     <div class="form-group col-md-6">
       <label for="password">Password</label>
