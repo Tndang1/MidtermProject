@@ -20,6 +20,7 @@ import com.skilldistillery.winenot.entities.CustomerOrder;
 import com.skilldistillery.winenot.entities.PaymentInfo;
 import com.skilldistillery.winenot.entities.Review;
 import com.skilldistillery.winenot.entities.User;
+import com.skilldistillery.winenot.entities.Wine;
 
 @Controller
 public class CustomerController {
@@ -159,6 +160,15 @@ public class CustomerController {
 	}
 
 	// FAVORITES FORMS ===================
+	
+	@RequestMapping(path = "favoritesList.do")
+	public String getFavorites(Model model, Integer id) {
+		List<Wine> cust = custDAO.getCustomerFavorites(id);
+		model.addAttribute("favList", cust);
+		
+		return "favorites";
+	}
+
 	
 	//ORDER FORMS ========================
 	@RequestMapping(path ="listAllCustomerOrders.do", method = RequestMethod.GET)
