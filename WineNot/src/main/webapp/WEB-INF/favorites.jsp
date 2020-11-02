@@ -13,56 +13,71 @@
 </head>
 <body>
 
-	<hr>
-	<div class="container">
+ <hr>
+    <div class ="container">
 
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<a class="navbar-brand" href="#">Navigation Bar</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active"><a class="nav-link"
-						href="homePage.do">Home <span class="sr-only">(current)</span></a>
+					<li class="nav-item active">
+						<a class="nav-link" href="homePage.do">Home <span class="sr-only">(current)</span></a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="checkout.do">Order
-							Wine</a></li>
-					<li class="nav-item"><a class="nav-link" href="wineList.do">Wine
-							Cellar</a></li>
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-						role="button" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false"> Contact me at </a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item"
-								href="https://www.linkedin.com/in/jourdan-rentschler-b16b4a13b"
-								target="_blank">LinkedIn Profile</a> <a class="dropdown-item"
-								href="JOURDAN RENTSCHLER - Resume_PersonalPortfolio.pdf"
-								target="_blank">Resume</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Something else here</a>
-						</div></li>
-					<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a>
+					<li class="nav-item">
+						<a class="nav-link" href="checkout.do?customerOrderId=1#">Order Wine</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="wineList.do">Wine Cellar</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="createUserForm.do">Log In</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="updateUserForm.do?id=1#">Account Profile</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="favoritesList.do?id=1#">Favorites List</a>
+					</li>
+			
+				<!-- 	<li class="nav-item">
+						<a class="nav-link disabled" href="#">Disabled</a>
+					</li> -->
 				</ul>
-				<form class="form-inline my-2 my-lg-0">
-					<input class="form-control mr-sm-2" type="search"
-						placeholder="Search" aria-label="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-				</form>
+			<!-- 	<form action="findWineName.do" method="GET">Search By Wine Name: <input type="text" name="labelName"/>
+					<input type = "submit" value="Wine Name"/>
+				</form> -->
+				<!--  class="form-inline my-2 my-lg-0">
+					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
 			</div>
 		</nav>
-		<hr>
+		<form class="form-inline">
+  <div class="form-group mb-2">
+    <label for="staticEmail2" class="sr-only">Email</label>
+    <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="email@example.com">
+  </div>
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="inputPassword2" class="sr-only">Password</label>
+    <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+  </div>
+  <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
+</form>
+    <hr>
+    <h1>WineNot </h1>   <form action="findWineName.do" method="GET">Search By Wine Name: <input type="text" name="labelName"/>
+					<input type = "submit" value="Wine Name"/>
+				
+				</form>
+    <hr>
 
 <!-- End of the Navigation bar  -->
-
+<!-- Need to figure out a way to view show jsp directly on page without having to go back and forth between pages.  -->
 <c:forEach items="${favList }" var="w">
-		<a href="favoritesList.do?id=${w.id }">${w.labelName}</a>
+		<a href="getWine.do?wid=${w.id }">${w.labelName}</a>
 		<br>
 	</c:forEach>
 
