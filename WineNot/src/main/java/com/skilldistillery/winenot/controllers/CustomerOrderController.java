@@ -153,7 +153,7 @@ public class CustomerOrderController {
 	public ModelAndView showAddedOrder(Integer id, Wine wine) {
 		custOrderDAO.addWineToOrder(id, wine);
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("addWineFromOrder");
+		mv.setViewName("checkout");
 		return mv;
 	}
 
