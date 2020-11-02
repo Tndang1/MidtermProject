@@ -111,7 +111,7 @@ public class CustomerController {
 			model.addAttribute("deleteResult", "Customer account not found");
 		}
 
-		return "folder/userProfilePage";
+		return "homePage";
 	}
 
 	// ADDRESS FORMS =================
