@@ -53,36 +53,36 @@
 		<div class="container">
 		<h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>
-    <hr>
+   <%--  <hr>
       <table>
-			<tr>Username: <td>${customer.fName }</td> <form action= "createCustomer.do">
-			${customer.fName }
-			<input type= "text" name="firstName" value="${customer.fName }"/>
+			<tr>Username: <td>${user.username }</td> <form action= "createCustomer.do">
+			${user.username }
+			<input type= "text" name="firstName" value="${user.username }"/>
 			<button type= "submit">First Name</button>
 			</form></tr>
-			<tr>Email: <td>${customer.email }</td> <form action= "createCustomer.do">
-			${customer.username }
-			<input type= "text" name="email" value="${customer.email }"/>
+			<tr>Email: <td>${user.email }</td> <form action= "createEmail.do">
+			${user.username }
+			<input type= "text" name="email" value="${user.email }"/>
 			<button type= "submit">Enter Email</button>
 			</form></tr>
-			<tr>Password: <td>${customer.password }</td> <form action= "createCustomer.do">
-			${customer.password }
-			<input type= "text" name="pass" value="${customer.password }"/>
+			<tr>Password: <td>${user.password }</td> <form action= "createPasswordForm.do">
+			${user.password }
+			<input type= "text" name="pass" value="${user.password }"/>
 			<button type= "submit">Create Password</button>
 			</form></tr><br><br>  
-			
+			 --%>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputFirstName4">First Name</label>
-      <input type="firstName" class="form-control" id="inputFirstName4" placeholder="FirstName">
+      <label for="inputFName">First Name</label>
+      <input type="firstName" class="form-control" id="inputFName" placeholder="FirstName">
     </div>
     <div class="form-group col-md-6">
-      <label for="inputLastName4">Last Name</label>
-      <input type="lastName" class="form-control" id="inputLastName4" placeholder="LastName">
+      <label for="inputLName">Last Name</label>
+      <input type="lastName" class="form-control" id="inputLName" placeholder="LastName">
     </div>
     <div class="form-group col-md-6">
-      <label for="inputbirthdate4">Date of Birth</label>
-      <input type="birthdate" class="form-control" id="birthdate" placeholder="MM/DD/YYYY">
+      <label for="inputBirthdate">Date of Birth</label>
+      <input type="text" class="form-control" id="inputBirthdate" placeholder="MM/DD/YYYY">
     
     </div>
     
@@ -94,10 +94,8 @@
       <input type="email" class="form-control" id="inputEmail">
     </div>
     <div class="form-group col-md-6">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" id="password">
-      <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+      <label for="inputPassword">Password</label>
+      <input type="text" class="form-control" id="inputPassword">
     </div>
     <div class="form-group">
     <label for="inputAddress">Address</label>

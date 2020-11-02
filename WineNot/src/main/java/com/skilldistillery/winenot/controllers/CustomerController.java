@@ -77,6 +77,22 @@ public class CustomerController {
 		
 		return "createNewAccount";
 	}
+//	@RequestMapping(path = "createEmail.do")
+//	public String createEmail(Model model, int id, String email, Customer customer) {
+//		User updateUser = userDAO.getUserById(id);
+//		updateUser.setEmail(email);
+//		userDAO.updateUser(id, updateUser);
+//		model.addAttribute("user", updateUser);
+//		return "createNewAccount";
+//	}
+//	@RequestMapping(path = "createPasswordForm.do")
+//	public String createPass(Model model, int id, String pass) {
+//		User updateUser = userDAO.getUserById(id);
+//		updateUser.setPassword(pass);
+//		userDAO.updateUser(id, updateUser);
+//		model.addAttribute("user", updateUser);
+//		return "createNewAccount";
+//	}
 
 	@RequestMapping(path = "updateUserForm.do")
 	public String updateUsernameById(Model model, int id) {
