@@ -71,8 +71,8 @@
 		<form action="findWineName.do" method="GET">
 			Search By Wine Name: <input type="text" name="labelName" /> <input
 				type="submit" value="Wine Name" />
-
 		</form>
+		</div>
 		<hr>
 		
 		<!-- End of Navbar  -->
@@ -81,19 +81,20 @@
 		
 		<h3>Confirmation Details</h3>
 		<c:choose>
-			<c:when test="${! empty showOrder}">
+			<c:when test="${! empty order}">
 				<ul>
-				<li><strong>Customer Order Id:</strong>${showOrder.orderId}</li>
-				<li><strong>Customer Order Date</strong>${showOrder.orderDate}</li>
-				<li><strong>Customer Order Amount</strong>${showOrder.amount}</li>
-				<li><strong>Customer Order Size</strong>${showOrder.size}</li>
-				<li><strong>Customer Payment Date</strong>${showOrder.paymentDate}</li>
+				<li><strong>Customer Order Id: </strong>${order.id}</li>
+				<li><strong>Customer Order Date: </strong>${order.orderDate}</li>
+				<li><strong>Customer Order Amount: $</strong>${order.amount}</li>
+				<li><strong>Customer Order Size: </strong>${order.size}</li>
 				</ul>
 			</c:when>
 			<c:otherwise>
 			<p> No order found </p>
 			</c:otherwise>		
 		</c:choose>
+		
+	
 		
 	 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
