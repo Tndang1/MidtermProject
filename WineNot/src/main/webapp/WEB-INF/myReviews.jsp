@@ -53,6 +53,13 @@
 
 		<div class="container-fluid">
 			<table>
+<<<<<<< HEAD
+			<ul>
+				<c:forEach items="${reviews}" var="reviews">
+					<li>
+						${reviews.id } ${reviews.rating } ${reviews.review}
+					</li>
+=======
 				<c:forEach items="${reviews}" var="review">
 					<tr>
 					<c:choose>
@@ -93,6 +100,7 @@
 						</form>
 						</td>
 					</tr>
+>>>>>>> 074812c19600c50c99bc56025edfdd326aff308f
 				</c:forEach>
 			</table>
 		</div>

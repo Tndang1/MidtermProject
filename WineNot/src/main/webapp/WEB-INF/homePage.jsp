@@ -53,6 +53,8 @@
 		</nav>
 		<hr>
 		  <div>
+    <a class="btn btn-primary btn-lg" href="createNewAccount.do" role="button">Sign Up</a>
+    <a class="btn btn-primary btn-lg btn-block" href="createNewAccount.do" role="button">Sign Up</a>
     <a class="btn btn-primary btn-lg btn-block" href="createNewAccount.do" role="button">Sign Up  <i class="fas fa-wine-glass"></i></a>
    
     <!-- <a class="btn btn-primary btn-lg" href="createNewAccount.do" role="button">Sign Up</a>
