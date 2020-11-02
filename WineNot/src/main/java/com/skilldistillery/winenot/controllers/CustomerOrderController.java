@@ -1,5 +1,6 @@
 package com.skilldistillery.winenot.controllers;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.skilldistillery.winenot.data.CustomerDAO;
 import com.skilldistillery.winenot.data.CustomerOrderDAO;
 import com.skilldistillery.winenot.entities.Address;
 import com.skilldistillery.winenot.entities.Customer;
@@ -23,6 +25,9 @@ public class CustomerOrderController {
 //	Order DAO==============================================
 	@Autowired
 	private CustomerOrderDAO custOrderDAO;
+	
+	@Autowired
+	private CustomerDAO custDAO;
 
 // Checkout page
 	@RequestMapping(path = "checkout.do", method = RequestMethod.GET)
@@ -90,9 +95,17 @@ public class CustomerOrderController {
 //  Create Order==============================================================
 
 	@RequestMapping(path = "create.do", method = RequestMethod.POST)
-	public ModelAndView createCustomerOrder(CustomerOrder order, RedirectAttributes ra) {
+	public ModelAndView createCustomerOrder(CustomerOrder order, Integer custId, RedirectAttributes ra) {
+		Customer customer = custDAO.getCustomerById(custId);
+		LocalDateTime now = LocalDateTime.now();
+		if (order.getSize() == 12) {
+			order.setAmount(220.99);
+		}
+		order.setCustomer(customer);
+		order.setOrderDate(now);
 		CustomerOrder addOrder = custOrderDAO.create(order);
-
+		
+		
 		ModelAndView mv = new ModelAndView();
 		ra.addFlashAttribute("order", addOrder);
 		mv.setViewName("redirect:orderMade.do");
@@ -104,7 +117,8 @@ public class CustomerOrderController {
 	@RequestMapping(path = "orderMade.do", method = RequestMethod.GET)
 	public ModelAndView created() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("showOrder"); 
+//		mv.setViewName("showOrder"); 
+		mv.setViewName("confirmationPage"); 
 		return mv;
 	}
 
@@ -155,6 +169,24 @@ public class CustomerOrderController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("checkout");
 		return mv;
+	}
+	
+	@RequestMapping(path = "customerOrder.do", method = RequestMethod.POST)
+	private String createOrder(Model model, Integer customerOrderId) {
+		CustomerOrder customerOrder = custOrderDAO.findById(customerOrderId);
+//		CustomerOrder customerOrder = custOrderDAO.create(customerOrderId);
+		List<Wine> wines = customerOrder.getWines();
+		Customer customer = customerOrder.getCustomer();
+		Address address = customer.getAddress();
+		PaymentInfo paymentInfo = customer.getPaymentInfo();
+		Address billingAddress = paymentInfo.getAddress();
+		model.addAttribute("custOrder", customerOrder);
+		model.addAttribute("customer", customer);
+		model.addAttribute("customerAddress", address);
+		model.addAttribute("bilingAddress", billingAddress);
+		model.addAttribute("paymentInfo", paymentInfo);
+		model.addAttribute("wines", wines);
+		return "confirmationPage";
 	}
 
 }
