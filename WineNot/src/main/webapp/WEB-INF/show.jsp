@@ -55,16 +55,16 @@
 	<!-- Replace style size limits with CSS -->
 	<p>
 	<ul>
-		<li>${wine.labelName}</li>
-		<li>${wine.vineyard}</li>
-		<li>${wine.vintageYear}</li>
-		<li>${wine.wineColor.wineColor}</li>
-		<li>${wine.wineType.wineType}</li>
-		<li>${wine.flavor}</li>
-		<li>${wine.dietary}</li>
-		<li>${wine.description}</li>
-		<li>${wine.pairs}</li>
-		<li>${review.review}</li>
+		<li><strong>Label Name: </strong>${wine.labelName}</li>
+		<li><strong>Vineyard: </strong>${wine.vineyard}</li>
+		<li><strong>Vintage Year: </strong>${wine.vintageYear}</li>
+		<li><strong>Color: </strong>${wine.wineColor.wineColor}</li>
+		<li><strong>Type: </strong>${wine.wineType.wineType}</li>
+		<li><strong>Flavor: </strong>${wine.flavor}</li>
+		<li><strong>Dietary: </strong>${wine.dietary}</li>
+		<li><strong>Description: </strong>${wine.description}</li>
+		<li><strong>Pairs with: </strong>${wine.pairs}</li>
+		<li><strong>Review: </strong>${review.review}</li>
 		<p>
 		<form action="addWineToOrder.do" method="GET">
 			<input type="hidden" name="id" value="${custOrder.id}"/>
