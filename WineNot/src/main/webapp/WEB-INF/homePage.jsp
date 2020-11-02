@@ -26,7 +26,7 @@
 						<a class="nav-link" href="homePage.do">Home <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="checkout.do">Order Wine</a>
+						<a class="nav-link" href="checkout.do?customerOrderId=1#">Order Wine</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="wineList.do">Wine Cellar</a>
@@ -46,9 +46,11 @@
 						<a class="nav-link disabled" href="#">Disabled</a>
 					</li>
 				</ul>
-				<form action="findWineName.do" method="GET" name="labelName" class="form-inline my-2 my-lg-0">
+				<form action="findWineName.do" method="GET">Search By Wine Name: <input type="text" name="labelName"/>
+					<input type = "submit" value="Wine Name"/>
+				<!--  class="form-inline my-2 my-lg-0">
 					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
 				</form>
 			</div>
 		</nav>
@@ -89,6 +91,9 @@
     <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
     <div class="col-sm-10">
       <input type="password" class="form-control" id="inputPassword3">
+      <small id = "passwordHelpInline" class="text-muted">
+       must be 8-20 characters long.
+      </small>
     </div>
   </div>
   <fieldset class="form-group">
