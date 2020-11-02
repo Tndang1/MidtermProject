@@ -54,10 +54,11 @@
 				</form>
 			</div>
 			</nav>
+			
 			<hr>
 			<h1>User Log In:</h1>
+			<hr>
 
-<hr>
 
 <form>
   <div class="form-row">
