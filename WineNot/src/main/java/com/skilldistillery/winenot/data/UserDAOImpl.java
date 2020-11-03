@@ -44,7 +44,7 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public User updateUser(int id, User user) {
 		User updateUser = em.find(User.class, id);
-
+		updateUser.setEmail(user.getEmail());
 		updateUser.setUsername(user.getUsername());
 		updateUser.setPassword(user.getPassword());
 		updateUser.setEnabled(user.getEnabled());

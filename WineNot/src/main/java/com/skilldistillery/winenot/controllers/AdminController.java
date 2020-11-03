@@ -61,6 +61,12 @@ public class AdminController {
 		model.addAttribute("wine", wine);
 		return "adminFiles/adminUpdateAWine";
 	}
+	@RequestMapping(path="adminUpdateUserForm.do", method = RequestMethod.GET)
+	public String updateUserForm(Model model, int userId) {
+		User user = userDAO.getUserById(userId);
+		model.addAttribute("user", user);
+		return "adminFiles/adminUpdateAUser";
+	}
 	
 	//********Admin review controls***********
 	@RequestMapping(path = "adminReviewList.do", method = RequestMethod.GET)
@@ -143,19 +149,26 @@ public class AdminController {
 	public String adminDisableUser(Model model, int userId) {
 		boolean disabled = userDAO.disableUser(userId);
 		model.addAttribute("disabled", disabled);
-		return null;
+		return "admin";
 	}
 	@RequestMapping(path="adminEnableUser.do", method = RequestMethod.GET)
 	public String adminEnableUser(Model model, int userId) {
 		boolean enabled = userDAO.enableUser(userId);
 		model.addAttribute("enabled", enabled);
-		return null;
+		return "admin";
 	}
 	@RequestMapping(path="adminUpdateUser.do", method = RequestMethod.GET)
-	public String adminUpdateUser(Model model, User user) {
-		User updated = userDAO.updateUser(user.getId(), user);
+	public String adminUpdateUser(Model model, int userId, int enabled, String username, String email, String password, String role) {
+		User user = new User();
+		user.setEnabled(enabled);
+		user.setUsername(username);
+		user.setEmail(email);
+		user.setId(userId);
+		user.setPassword(password);
+		user.setRole(role);
+		User updated = userDAO.updateUser(userId, user);
 		model.addAttribute("user", updated);
-		return null;
+		return "admin";
 	}
 	
 }
