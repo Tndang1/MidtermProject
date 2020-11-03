@@ -40,14 +40,19 @@
 					</li>
 					<c:if test = "${customerId != null}">
 					<li class="nav-item">
-						<a class="nav-link" href="checkout.do?customerOrderId=${customerId}#">Order Wine <i class='fas fa-shopping-cart'></i></a>
+						<a class="nav-link" href="checkout.do">Order Wine <i class='fas fa-shopping-cart'></i></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="updateUserForm.do?id=${customerId}#">Account Profile <i class='fas fa-address-card'></i></a>
+						<a class="nav-link" href="updateUserForm.do">Account Profile <i class='fas fa-address-card'></i></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="favoritesList.do?id=${customerId}#">Favorites List <i class='fas fa-list-alt'></i></a>
+						<a class="nav-link" href="favoritesList.do">Favorites List <i class='fas fa-list-alt'></i></a>
 					</li>
+					<c:if test = "${customer.user.role == 'admin'}">
+					<li class="nav-item">
+						<a class="nav-link" href="homePage.do">Administrative Controls<i class='fas fa-list-alt'></i></a>
+					</li>
+					</c:if>
 					<li class="nav-item">
 						<a class="nav-link" href="homePage.do">Log Out<i class='fas fa-list-alt'></i></a>
 					</li>
