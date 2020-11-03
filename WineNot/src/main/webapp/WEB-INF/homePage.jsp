@@ -30,22 +30,28 @@
 					<li class="nav-item active">
 						<a class="nav-link" href="homePage.do">Home <i class='fas fa-home'></i><span class="sr-only">(current)</span></a>
 					</li>
+					<c:if test="${customerId == null}">
 					<li class="nav-item">
 						<a class="nav-link" href="createUserForm.do">Log In <i class='fas fa-sign-in-alt'></i></a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="checkout.do?customerOrderId=1#">Order Wine <i class='fas fa-shopping-cart'></i></a>
-					</li>
+					</c:if>
 					<li class="nav-item">
 						<a class="nav-link" href="wineList.do">Wine Cellar <i class='fas fa-wine-glass' style='font-size:18px;color:red'></i></a>
 					</li>
-					
+					<c:if test = "${customerId != null}">
 					<li class="nav-item">
-						<a class="nav-link" href="updateUserForm.do?id=1#">Account Profile <i class='fas fa-address-card'></i></a>
+						<a class="nav-link" href="checkout.do?customerOrderId=${customerId}#">Order Wine <i class='fas fa-shopping-cart'></i></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="favoritesList.do?id=1#">Favorites List <i class='fas fa-list-alt'></i></a>
+						<a class="nav-link" href="updateUserForm.do?id=${customerId}#">Account Profile <i class='fas fa-address-card'></i></a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="favoritesList.do?id=${customerId}#">Favorites List <i class='fas fa-list-alt'></i></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="homePage.do">Log Out<i class='fas fa-list-alt'></i></a>
+					</li>
+					</c:if>
 			
 				</ul>
 			
@@ -120,10 +126,6 @@ WineNot<i class="fa fa-copyright"></i> Team
 <center>*Only for ages 21 and over! Please Drink Responsibility!*</center> 
 </div>
     
-   
- 
-
-      
    <hr> 
 <span class="byline">CREATED BY: Thomas Dang, Justin Livingston, Tevon Patterson and Jourdan Rentschler</span>
     <hr>

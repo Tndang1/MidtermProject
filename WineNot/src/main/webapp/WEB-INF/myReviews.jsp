@@ -141,6 +141,7 @@
 					</tr>
 </c:forEach>
 				</c:forEach>
+				</ul>
 			</table>
 		</div>
 	</div>

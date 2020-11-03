@@ -265,7 +265,8 @@ public class CustomerController {
 			model.addAttribute("failure", failure);
 			return "LogIn";
 		}
-		model.addAttribute(customer);
+		model.addAttribute("customer", customer);
+		model.addAttribute("customerId", customer.getId());
 		return "homePage";
 	}
 

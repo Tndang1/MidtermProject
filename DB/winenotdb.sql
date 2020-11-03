@@ -94,7 +94,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `address` ;
 
 CREATE TABLE IF NOT EXISTS `address` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `street` VARCHAR(100) NULL,
   `street2` VARCHAR(100) NULL,
   `city` VARCHAR(45) NULL,
@@ -135,9 +135,9 @@ CREATE TABLE IF NOT EXISTS `customer` (
   `first_name` VARCHAR(45) NOT NULL,
   `last_name` VARCHAR(45) NOT NULL,
   `birthdate` DATE NOT NULL,
-  `address_id` INT NOT NULL,
+  `address_id` INT NULL,
   `user_id` INT NOT NULL,
-  `payment_info_id` INT NOT NULL,
+  `payment_info_id` INT NULL,
   `create_date` DATETIME NOT NULL,
   `customer_image` VARCHAR(2000) NULL,
   `bio` TEXT NULL,
@@ -506,3 +506,4 @@ INSERT INTO `review` (`image`, `rating`, `review`, `customer_id`, `wine_id`) VAL
 INSERT INTO `review` (`image`, `rating`, `review`, `customer_id`, `wine_id`) VALUES (NULL, 5, 'Sometimes when I reflect back on all the wine I drink I feel shame. Then I look into the glass and think about the workers in the vineyards and all of their hopes and dreams. If I didn’t drink this...', 3, 3);
 
 COMMIT;
+

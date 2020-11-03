@@ -52,17 +52,45 @@
 			</div>
 		</nav>
 		<hr>
+		<!-- <form action="addWineReview.do">  -->
+		
+		<form action="addReview.do"> 
+		    <img src="${wine.image}" alt="${wine.labelName} ${wine.vineyard} ${wine.vintageYear}" style="width:128px;height:256px;">
+	<!-- Replace style size limits with CSS -->
+	<p>
+	<ul>
+		<li><strong>Label Name: </strong>${wine.labelName}</li>
+		<li><strong>Vineyard: </strong>${wine.vineyard}</li>
+		<li><strong>Vintage Year: </strong>${wine.vintageYear}</li>
+		<li><strong>Color: </strong>${wine.wineColor.wineColor}</li>
+		<li><strong>Type: </strong>${wine.wineType.wineType}</li>
+		<li><strong>Flavor: </strong>${wine.flavor}</li>
+		<li><strong>Dietary: </strong>${wine.dietary}</li>
+		<li><strong>Description: </strong>${wine.description}</li>
+		<li><strong>Pairs with: </strong>${wine.pairs}</li>
+		<li><strong>Review: </strong>${review.review}</li>
+		</ul>
+		</form>
+		</p>
 
-	<form action = "addWineReview.do">
+		<hr>
+
+<form action = "addWineReview.do">
+	
 	<input type = "hidden" name = "custId" value = "1">
 	<input type = "hidden" name = "wineId" value = "${wineId}">
-	Review: <input type ="text" name = "review">
-	Rating: <input type = "number" name = "rating">
-	Image URL Link:<input type = "text" name = "image">
+	Review: <input type ="text" name = "review"><br>
+	<br>
+	Rating: <input type = "number" name = "rating"><br>
+	<br>
+	Image URL Link: <input type = "text" name = "image"><br>
+	<br>
 	<button type ="submit">Submit your review!</button>
 	</form>
+	<br>
 	 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+		</div>
 </body>
 </html>
