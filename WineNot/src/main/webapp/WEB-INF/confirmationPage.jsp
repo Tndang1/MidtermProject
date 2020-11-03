@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet"
@@ -84,13 +85,46 @@
 			<c:when test="${! empty order}">
 				<ul>
 				<li><strong>Customer Order Id: </strong>${order.id}</li>
-				<li><strong>Customer Order Date: </strong>${order.orderDate}</li>
+				<li><strong>Customer Order Date: </strong><fmt:parseDate  value="${order.orderDate}"  type="date" pattern="yyyy-MM-dd'T'hh:mm:ss" var="parsedDate" /><fmt:formatDate type="both" value="${parsedDate}"/></li>		
 				<li><strong>Customer Order Amount: $</strong>${order.amount}</li>
 				<li><strong>Customer Order Size: </strong>${order.size}</li>
 				</ul>
 			</c:when>
 			<c:otherwise>
 			<p> No order found </p>
+			</c:otherwise>		
+		</c:choose>
+		
+		
+		<h3>Shipping Details</h3>
+			<c:choose>
+			<c:when test="${! empty addressInfo}">
+		<ul>
+		<li><strong>Street: </strong>${addressInfo.street }</li>
+		<li><strong>City: </strong>${addressInfo.city }</li>
+		<li><strong>State: </strong>${addressInfo.state }</li>
+		<li><strong>Zip: </strong>${addressInfo.zip }</li>
+		<li><strong>Country: </strong>${addressInfo.country }</li>
+		</ul>
+			</c:when>
+			<c:otherwise>
+			<p> No Shipping Details Found</p>
+			</c:otherwise>		
+		</c:choose>
+		
+		<h3>Payment Details</h3>
+			<c:choose>
+			<c:when test="${! empty paymentInfo}">
+		<ul>
+		<li><strong>Street: </strong>${paymentInfo.address.street}</li>
+		<li><strong>City: </strong>${paymentInfo.address.city}</li>
+		<li><strong>State: </strong>${paymentInfo.address.state}</li>
+		<li><strong>Zip: </strong>${paymentInfo.address.zip}</li>
+		<li><strong>Country: </strong>${paymentInfo.address.country}</li>
+		</ul>
+			</c:when>
+			<c:otherwise>
+			<p> No Pay Details Found</p>
 			</c:otherwise>		
 		</c:choose>
 		
