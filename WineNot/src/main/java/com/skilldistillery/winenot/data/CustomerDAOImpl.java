@@ -73,6 +73,17 @@ public class CustomerDAOImpl implements CustomerDAO {
 		em.close();
 		return wines;
 	}
+	
+	@Override
+	public List<Wine> addWineToFavorites(int id, int wid) {
+		Customer customer = em.find(Customer.class, id);
+		Wine wine = em.find(Wine.class, wid);
+		customer.addWineToFavorites(wine);
+		List<Wine> wines = customer.getWines();
+		customer.setWines(wines);
+		em.close();
+		return wines;
+	}
 
 	@Override
 	public List<CustomerOrder> getCustomerOrders(int id) {
