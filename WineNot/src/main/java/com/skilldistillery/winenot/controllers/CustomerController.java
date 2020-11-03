@@ -169,6 +169,29 @@ public class CustomerController {
 
 		return "address";
 	}
+	@RequestMapping(path = "updateAddressForm.do", method = RequestMethod.GET)
+	public String updateAddress(HttpSession session, String newAddy, Integer id, Model model) {
+		Customer customer = (Customer) session.getAttribute("customer");
+		Address address = addrDAO.getAddressById(customer.getAddress().getId());
+		address.setStreet(newAddy);
+		address.setStreet2(newAddy);
+		address.setCity(newAddy);
+		address.setState(newAddy);
+		address.setZip(newAddy);
+		
+		model.addAttribute("address", addrDAO.updateAddress(id, address));
+		return "updateAddress";
+	}
+//	@RequestMapping(path = "updateReviewReview.do", method = RequestMethod.GET)
+//	public String updateReviewReview(HttpSession session, Model model, int wineId, String reviewUpdate) {
+//		Customer customer = (Customer) session.getAttribute("customer");
+//		Review review = rviewDAO.getReviewByCustomerAndWineId(customer.getId(), wineId);
+//		review.setReview(reviewUpdate);
+//		rviewDAO.updateReview(customer.getId(), wineId, review);
+//		List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
+//		model.addAttribute("reviews", reviews);
+//		return "myReviews";
+//	}
 
 	// PAYMENT FORMS =================
 
