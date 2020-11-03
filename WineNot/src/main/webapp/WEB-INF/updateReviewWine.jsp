@@ -54,23 +54,29 @@
 		<hr>
 <h1>Update Your Review:</h1>	
 
-					<form action="getAllUpdatedReviews.do">Update Review Content:
+					<form action="getAllUpdatedReviews.do">
+					 <label for="reviews">  Update Review Content:</label>
 										<input type="hidden"
-											name="wineId" value="${wineId}" /> <input type="hidden"
-											name="custId" value="${custId}" /><input
-											type="text" name="reviewUpdate">
+											name="wineId" value="${wineId}" /> 
+											<input type="hidden"
+											name="custId" value="${custId}" />
+											
+											<input type="hidden"
+											name="reviews" value="${review.review}" /><input
+											type="text" name="reviewUpdate"><br>
 										
-									Update Review Rating:
+									<label for="rating">Update Review Rating:</label>
 										 <input
-											type="number" name="rating">
+											type="number" name="rating" value="${review.rating }"><br>
 										
-									Update Review Image:
+									<label for="image">Update Review Image:</label>
 										 <input
-											type="text" name="image">
+											type="text" name="image"><br>
 										
-										<button type="submit" >Submit</button>
+										<button type="submit" >Submit</button><br>
+										
 									</form>
-								
+								<br>
 								 
 								<td>
 								<form action="removeReview.do">
