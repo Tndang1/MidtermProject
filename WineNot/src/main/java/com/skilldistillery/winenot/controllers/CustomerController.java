@@ -1,5 +1,6 @@
 package com.skilldistillery.winenot.controllers;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,6 @@ import com.skilldistillery.winenot.entities.Customer;
 import com.skilldistillery.winenot.entities.CustomerOrder;
 import com.skilldistillery.winenot.entities.PaymentInfo;
 import com.skilldistillery.winenot.entities.Review;
-import com.skilldistillery.winenot.entities.ReviewId;
 import com.skilldistillery.winenot.entities.User;
 import com.skilldistillery.winenot.entities.Wine;
 
@@ -68,10 +68,18 @@ public class CustomerController {
 //		return "folder/userProfilePage";
 		return "userProfilePage";
 	}
-	@RequestMapping(path = "createCustomer.do")
-	public String createNewAccount(Model model, Customer customer, User user) {
+	@RequestMapping(path = "createCustomerForm.do")
+	public String createAccount() {
+		
+		return "createNewAccount";
+	}
+	@RequestMapping(path = "createCustomer.do", method = RequestMethod.POST)
+	public String createNewAccount(Model model, Customer customer, User user, LocalDateTime date) {
 		User newUser = userDAO.createUser(user);
 		customer.setUser(newUser);
+		LocalDateTime createDate = LocalDateTime.now();
+		customer.setBirthdate(createDate);
+		customer.setCreateDate(createDate);
 		customer = custDAO.createCustomer(customer);
 		model.addAttribute("newAccount", newUser);
 		
@@ -246,6 +254,19 @@ public class CustomerController {
 		List<CustomerOrder> orders = customer.getCustomerOrders();
 		model.addAttribute("orders", orders);
 		return "orderhistory";
+	}
+	
+	//Login in
+	@RequestMapping(path="checkCredentials.do", method = RequestMethod.GET)
+	public String checkCredentials(Model model, String email, String password) {
+		Customer customer = custDAO.verifyLogin(email, password);
+		if (customer == null) {
+			String failure = "Invalid login credentials, try again or create and account.";
+			model.addAttribute("failure", failure);
+			return "LogIn";
+		}
+		model.addAttribute(customer);
+		return "homePage";
 	}
 
 }

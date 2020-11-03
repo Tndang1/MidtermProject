@@ -9,6 +9,7 @@ import com.skilldistillery.winenot.entities.Wine;
 
 public interface CustomerDAO {
 	Customer getCustomerById(int id);
+	Customer verifyLogin(String email, String password);
 	List<Customer> getAllCustomers();
 	Customer createCustomer(Customer customer);
 	Customer updateCustomer(int id, Customer customer);
