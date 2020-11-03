@@ -69,27 +69,27 @@
 				<div>
 					<form:label path="address">Address: </form:label>
 					<input type="text" class="form-control" required="required"
-						name="address" placeholder="Address" />
+						name="address" placeholder="Address" /><br/>
 				</div>
 				<div>
 					<form:label path="address2">Address2: </form:label>
 					<input type="text" class="form-control" name="address2"
-						placeholder="Address2" />
+						placeholder="Address2" /><br/>
 				</div>
 				<div>
 					<form:label path="city">City: </form:label>
 					<input type="text" class="form-control" required="required"
-						name="city" placeholder="City" />
+						name="city" placeholder="City" /><br/>
 				</div>
 				<div>
 					<form:label path="state">State: </form:label>
 					<input type="text" class="form-control" required="required"
-						name="state" placeholder="State" />
+						name="state" placeholder="State" /><br/>
 				</div>
 				<div>
 					<form:label path="zip">Zip: </form:label>
 					<input type="text" class="form-control" required="required"
-						name="zip" placeholder="Zip" />
+						name="zip" placeholder="Zip" /><br/>
 				</div>
 				<button type="submit">Submit</button>
 			</form>

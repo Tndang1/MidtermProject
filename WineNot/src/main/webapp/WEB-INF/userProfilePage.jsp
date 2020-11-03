@@ -104,16 +104,31 @@
 		<br>
 		
 
+
+
+
+
+
+
+
+
+
+
 			<form>
 			<nav class="navbar navbar-expand-lg navbar-light bg-light"></t>Address Information</nav><br>
-  </div>
+  </div> <form action= "updateAddressForm.do">
+<tr>Street: <td>${address.street }</td> <form action= "updateAddressForm.do">
+			${address.street }
+			<input type= "text" name="street" value="${address.street}" placeholder="LastName"/>
+			</form></tr>
+			${address.street }
   <div class="form-group">
     <label for="inputAddress">Street</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    <input type="text" class="form-control" name="inputAddress" value="${address.street }">
   </div>
   <div class="form-group">
     <label for="inputAddress2">Street 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <input type="text" class="form-control" id="inputAddress2" placeholder="${address.street2 }">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -131,12 +146,6 @@
       <label for="inputZip">Zip</label>
       <input type="text" class="form-control" id="inputZip">
     </div>
-    <ul class="navbar-nav mr-auto">
-    <li class="nav-item">
-		<a class="nav-link" href="updateAddressForm.do?id=1#">Update Address</a> 
-		<!-- <button href="updateAddressForm.do?id=1#" type="submit">Update Address</button> -->
-	</li>
-	</ul>
   </div>
   <div class="form-group">
   </div>
