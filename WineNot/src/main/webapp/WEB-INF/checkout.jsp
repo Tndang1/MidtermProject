@@ -61,15 +61,15 @@
 		<form action="create.do" method="POST">
 			<div class="form-check"> Flavor of Wine: <br> 
 				<input type="hidden" value="1" name="custId">
-				<input class="form-check-input" type="checkbox" value="1" id="id" name = "wine_color_id"> 
+				<input class="form-check-input" type="checkbox" value="1" id="id" name = "wineColor"> 
 				<label class="form-check-label" for="id"> Red </label>
 			</div>
 			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value="2" id="id" name = "wine_color_id">
+				<input class="form-check-input" type="checkbox" value="2" id="id" name = "wineColor">
 				<label class="form-check-label" for="id"> White </label>
 			</div>
 			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value="3" id="id" name = "wine_color_id">
+				<input class="form-check-input" type="checkbox" value="3" id="id" name = "wineColor">
 				<label class="form-check-label" for="id"> Rose </label>
 			</div>
 			<br>

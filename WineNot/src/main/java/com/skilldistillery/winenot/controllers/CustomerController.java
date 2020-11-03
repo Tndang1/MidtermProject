@@ -16,6 +16,7 @@ import com.skilldistillery.winenot.data.CustomerOrderDAO;
 import com.skilldistillery.winenot.data.PaymentInfoDAO;
 import com.skilldistillery.winenot.data.ReviewDAO;
 import com.skilldistillery.winenot.data.UserDAO;
+import com.skilldistillery.winenot.data.WineDAO;
 import com.skilldistillery.winenot.entities.Address;
 import com.skilldistillery.winenot.entities.Customer;
 import com.skilldistillery.winenot.entities.CustomerOrder;
@@ -46,6 +47,9 @@ public class CustomerController {
 
 	@Autowired
 	private ReviewDAO rviewDAO;
+	
+	@Autowired
+	private WineDAO wDAO;
 
 	// REQUEST MAPPING ======================================================
 
@@ -249,6 +253,15 @@ public class CustomerController {
 	@RequestMapping(path = "favoritesList.do")
 	public String getFavorites(Model model, Integer id) {
 		List<Wine> cust = custDAO.getCustomerFavorites(id);
+		model.addAttribute("favList", cust);
+		
+		return "favorites";
+	}
+	
+	@RequestMapping(path = "addToFavoritesList.do")
+	public String addToFavorites(Model model, Integer id, Integer wid) {
+		
+		List<Wine> cust = custDAO.addWineToFavorites(id, wid);
 		model.addAttribute("favList", cust);
 		
 		return "favorites";

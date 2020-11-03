@@ -72,11 +72,12 @@
 			<input type="hidden" name="wine" value="${wine}"/>
 			<button type="submit">Add To Cart</button>
 		</form> --%>
-		<form action="addWineToFavorites.do" method="GET">
-			<input type="hidden" name="customerId" value="${customer.id}"/>
-			<input type="hidden" name="wine" value="${wine}"/>
+		<form action="addToFavoritesList.do" method="GET">
+			<input type="hidden" name="id" value="${customer.id}"/>
+			<input type="hidden" name="wid" value="${wine.id}"/>
 			<button type="submit">Add To Favorites!</button>
 		</form>
+		
 		<form action="addAReview.do" method="GET">
 			<input type="hidden" name="custId" value="${customer.id}"/>
 			<input type="hidden" name="wineId" value="${wine.id}"/>

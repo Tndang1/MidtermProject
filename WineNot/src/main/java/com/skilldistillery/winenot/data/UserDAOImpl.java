@@ -64,4 +64,20 @@ public class UserDAOImpl implements UserDAO {
 		return userWasDeleted;
 	}
 
+	@Override
+	public boolean disableUser(int id) {
+		User userToDisable = em.find(User.class, id);
+		userToDisable.setEnabled(0);
+		boolean disabled = userToDisable.getEnabled() < 1;
+		return disabled;
+	}
+
+	@Override
+	public boolean enableUser(int id) {
+		User userToEnable = em.find(User.class, id);
+		userToEnable.setEnabled(1);
+		boolean enabled = userToEnable.getEnabled() > 0;
+		return enabled;
+	}
+
 }

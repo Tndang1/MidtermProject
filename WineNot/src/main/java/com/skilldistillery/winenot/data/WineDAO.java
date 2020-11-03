@@ -24,5 +24,7 @@ public interface WineDAO {
 	public Wine createWine(Wine wine);
 	public Wine updateWine(Wine wine);
 	public void deleteWine(int id);
+	public boolean disableWine(int id);
+	public boolean enableWine(int id);
 
 }

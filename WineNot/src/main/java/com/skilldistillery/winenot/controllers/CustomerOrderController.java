@@ -1,6 +1,7 @@
 package com.skilldistillery.winenot.controllers;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.winenot.data.CustomerDAO;
 import com.skilldistillery.winenot.data.CustomerOrderDAO;
+import com.skilldistillery.winenot.data.WineDAO;
 import com.skilldistillery.winenot.entities.Address;
 import com.skilldistillery.winenot.entities.Customer;
 import com.skilldistillery.winenot.entities.CustomerOrder;
@@ -28,6 +30,9 @@ public class CustomerOrderController {
 	
 	@Autowired
 	private CustomerDAO custDAO;
+	
+	@Autowired
+	private WineDAO wineDAO;
 
 // Checkout page
 	@RequestMapping(path = "checkout.do", method = RequestMethod.GET)
@@ -95,7 +100,7 @@ public class CustomerOrderController {
 //  Create Order==============================================================
 
 	@RequestMapping(path = "create.do", method = RequestMethod.POST)
-	public ModelAndView createCustomerOrder(CustomerOrder order, Integer custId, RedirectAttributes ra) {
+	public ModelAndView createCustomerOrder(CustomerOrder order, Integer custId, Integer wineColor, RedirectAttributes ra) {
 		Customer customer = custDAO.getCustomerById(custId);
 		LocalDateTime now = LocalDateTime.now();
 		if (order.getSize() == 12) {
@@ -103,9 +108,18 @@ public class CustomerOrderController {
 		}
 		order.setCustomer(customer);
 		order.setOrderDate(now);
+		List<Wine> wines = null;
+		if (wineColor > 0 && wineColor < 3) {
+		wines = wineDAO.findWineByWineColorId(wineColor);
+		} else {
+			wines = wineDAO.findAllWine();
+		}
+		Collections.shuffle(wines);
+		for(int i = 0; i < order.getSize()-1; i++) {
+			order.addWine(wines.get(i));
+		}
+		
 		CustomerOrder addOrder = custOrderDAO.create(order);
-		
-		
 		ModelAndView mv = new ModelAndView();
 		ra.addFlashAttribute("order", addOrder);
 		mv.setViewName("redirect:orderMade.do");
