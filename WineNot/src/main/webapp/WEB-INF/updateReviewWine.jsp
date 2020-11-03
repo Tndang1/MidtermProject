@@ -61,8 +61,8 @@
 											<input type="hidden"
 											name="custId" value="${custId}" />
 											
-											<input type="hidden"
-											name="reviews" value="${review.review}" /><input
+										
+										<input	value="${review.review}" 
 											type="text" name="reviewUpdate"><br>
 										
 									<label for="rating">Update Review Rating:</label>
@@ -71,7 +71,7 @@
 										
 									<label for="image">Update Review Image:</label>
 										 <input
-											type="text" name="image"><br>
+											type="text" name="image" value="${review.image }"><br>
 										
 										<button type="submit" >Submit</button><br>
 										
