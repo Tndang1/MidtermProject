@@ -199,6 +199,14 @@
 	<ul class="navbar-nav mr-auto">
 
 		<li class="nav-item">
+			<a class="nav-link" href="logOutOfAccount.do">LogOut of Account</a>
+		</li>
+	</ul>
+</form>
+<form>
+	<ul class="navbar-nav mr-auto">
+
+		<li class="nav-item">
 			<a class="nav-link" href="deleteUser.do">Delete Account</a>
 		</li>
 	</ul>
