@@ -307,38 +307,8 @@ public class CustomerController {
 		return "myReviews";
 	}
 	
-//	@RequestMapping(path = "updateReviewReview.do", method = RequestMethod.GET)
-//	public String updateReviewReview(HttpSession session, Model model, int wineId, String reviewUpdate, String image) {
-//		Customer customer = (Customer) session.getAttribute("customer");
-//		Review review = rviewDAO.getReviewByCustomerAndWineId(customer.getId(), wineId);
-//		review.setReview(reviewUpdate);
-//		rviewDAO.updateReview(customer.getId(), wineId, review);
-//		List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
-//		model.addAttribute("reviews", reviews);
-//		return "myReviews";
-//	}
-//	@RequestMapping(path = "updateReviewRating.do", method = RequestMethod.GET)
-//	public String updateReviewRating(HttpSession session, Model model, int wineId, int rating) {
-//		Customer customer = (Customer) session.getAttribute("customer");
-//		Review review = rviewDAO.getReviewByCustomerAndWineId(customer.getId(), wineId);
-//		review.setRating(rating);
-//		rviewDAO.updateReview(customer.getId(), wineId, review);
-//		List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
-//		model.addAttribute("reviews", reviews);
-//		return "myReviews";
-//	}
-//	@RequestMapping(path = "updateReviewImage.do", method = RequestMethod.GET)
-//	public String updateReviewImage(HttpSession session, Model model, int wineId, String image) {
-//		Customer customer = (Customer) session.getAttribute("customer");
-//		Review review = rviewDAO.getReviewByCustomerAndWineId(customer.getId(), wineId);
-//		review.setImage(image);
-//		rviewDAO.updateReview(customer.getId(), wineId, review);
-//		List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
-//		model.addAttribute("reviews", reviews);
-//		return "myReviews";
-//	}
 	
-
+	
 	// FAVORITES FORMS ===================
 	
 	@RequestMapping(path = "favoritesList.do")
