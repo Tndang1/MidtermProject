@@ -151,6 +151,10 @@
 		<a class="nav-link" href="updateAddressForm.do?id=1#">Update Address</a> 
 		<!-- <button href="updateAddressForm.do?id=1#" type="submit">Update Address</button> -->
 	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="createPaymentInfoForm.do">Payment Info</a> <!-- Unsure of this -->
+	</li>
+
 </ul>
 </form>
 <form>

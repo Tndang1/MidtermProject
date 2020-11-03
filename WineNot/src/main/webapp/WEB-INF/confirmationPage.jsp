@@ -84,7 +84,7 @@
 			<c:when test="${! empty order}">
 				<ul>
 				<li><strong>Customer Order Id: </strong>${order.id}</li>
-				<li><strong>Customer Order Date: </strong><fmt:parseDate  value="${order.orderDate}"  type="date" pattern="yyyy-MM-dd'T'hh:mm:ss" var="parsedDate" /><fmt:formatDate type="both" value="${parsedDate}"/></li>		
+				<li><strong>Customer Order Date: </strong><fmt:parseDate  value="${order.orderDate}"  type="date" pattern="yyyy-MM-dd'T'HH:mm:ss.SSS" var="parsedDate" /><fmt:formatDate type="both" value="${parsedDate}"/></li>		
 				<li><strong>Customer Order Amount: $</strong>${order.amount}</li>
 				<li><strong>Customer Order Size: </strong>${order.size}</li>
 				</ul>
