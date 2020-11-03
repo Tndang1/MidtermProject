@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.winenot.data.AddressDAO;
 import com.skilldistillery.winenot.data.CustomerDAO;
@@ -336,6 +337,15 @@ public class CustomerController {
 		}
 		model.addAttribute("customerId", customer.getId());
 		return "homePage";
+	}
+	//Log Out 
+	@RequestMapping(path="logOutOfAccount.do", method = RequestMethod.GET)
+	public ModelAndView logOutOfAccount(HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		session.removeAttribute("customer");
+		mv.setViewName("homePage");
+		
+		return mv;
 	}
 
 }

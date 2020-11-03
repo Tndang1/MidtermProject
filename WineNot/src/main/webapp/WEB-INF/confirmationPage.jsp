@@ -53,7 +53,7 @@
 			
 			</div>
 		</nav>
-		<form class="form-inline">
+<!-- 		<form class="form-inline">
 			<div class="form-group mb-2">
 				<label for="staticEmail2" class="sr-only">Email</label> <input
 					type="text" readonly class="form-control-plaintext"
@@ -66,14 +66,13 @@
 			</div>
 			<button type="submit" class="btn btn-primary mb-2">Confirm
 				identity</button>
-		</form>
+		</form> -->
 		<hr>
-		<h1>WineNot</h1>
+		<!-- <h1>WineNot</h1>
 		<form action="findWineName.do" method="GET">
 			Search By Wine Name: <input type="text" name="labelName" /> <input
 				type="submit" value="Wine Name" />
-		</form>
-		</div>
+		</form> -->
 		<hr>
 		
 		<!-- End of Navbar  -->
@@ -133,5 +132,7 @@
 	 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>	
+
+		</div>
 </body>
 </html>
