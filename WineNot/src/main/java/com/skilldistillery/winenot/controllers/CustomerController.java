@@ -173,8 +173,9 @@ public class CustomerController {
 	// PAYMENT FORMS =================
 
 	@RequestMapping(path = "createPaymentInfoForm.do", method = RequestMethod.GET)
-	public String createPayInfoForm(HttpSession session, PaymentInfo payInfo) {
+	public String createPayInfoForm(HttpSession session, Model model, PaymentInfo payInfo) {
 		Customer customer = (Customer) session.getAttribute("customer");
+		model.addAttribute("payInfo", customer.getPaymentInfo());
 
 		return "payment";
 	}

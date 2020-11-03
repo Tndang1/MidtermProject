@@ -61,6 +61,22 @@
 			</div>
 		</nav>
 
+<c:choose>
+		<c:when test="${! empty payInfo}">
+			<ul>
+				<li><strong>Card Number: </strong>${payInfo.cardNumber}</li>
+			</ul>
+		</c:when>
+		<c:otherwise>
+		<p>No payment Info found.</p>
+		</c:otherwise>
+	</c:choose> 
+	
+
+
+
+
+
 
 
 	<p>Please enter your payment information</p>

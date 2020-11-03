@@ -192,6 +192,9 @@
 	<li class="nav-item">
 		<a class="nav-link" href="getAllReviews.do">Past Reviews</a> <!-- Unsure of this -->
 	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="createPaymentInfoForm.do">Payment Info</a> <!-- Unsure of this -->
+	</li>
 
 </ul>
 </form>
