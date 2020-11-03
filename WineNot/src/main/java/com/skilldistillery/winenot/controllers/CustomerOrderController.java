@@ -115,7 +115,7 @@ public class CustomerOrderController {
 			wines = wineDAO.findAllWine();
 		}
 		Collections.shuffle(wines);
-		for(int i = 0; i < order.getSize()-1; i++) {
+		for(int i = 0; i < order.getSize(); i++) {
 			order.addWine(wines.get(i));
 		}
 		
