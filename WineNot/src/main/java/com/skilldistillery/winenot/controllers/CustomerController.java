@@ -164,14 +164,14 @@ public class CustomerController {
 	@RequestMapping(path = "createPaymentInfoForm.do", method = RequestMethod.GET)
 	public String createPayInfoForm(PaymentInfo payInfo) {
 
-		return "folder/newPayInfoForm";
+		return "payment";
 	}
 
 	@RequestMapping(path = "createPaymentInfo.do", method = RequestMethod.POST)
 	public String createPayInfo(PaymentInfo payInfo, Model model) {
 		model.addAttribute("newUser", payInfoDAO.create(payInfo));
 
-		return "folder/userProfilePage";
+		return "payment";
 	}
 
 	// REVIEW FORMS =====================
