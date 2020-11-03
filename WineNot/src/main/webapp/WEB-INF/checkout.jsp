@@ -263,7 +263,6 @@
 			 --%>
 			 <br>
 				<input class="btn btn-primary" type="submit" value="Add to Cart">
-				<!-- <div><button type="submit" href="createAddressForm.do" ></button></div> -->
 		</form>
 
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
