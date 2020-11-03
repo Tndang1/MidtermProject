@@ -59,29 +59,37 @@
 											value="${review.id.customerId}" /> <input type="hidden"
 											name="wineId" value="${review.id.wineId}" /> <input
 											type="text" name="reviewUpdate">
-										<button type="submit">Update Review Content</button>
+										<!-- <button type="submit">Update Review Content</button> -->
 									</form>
 									<form action="updateReviewRating.do">
 										<input type="hidden" name="custId"
 											value="${review.id.customerId}" /> <input type="hidden"
 											name="wineId" value="${review.id.wineId}" /> <input
 											type="number" name="rating">
-										<button type="submit">Update Review Rating</button>
+										<!-- <button type="submit">Update Review Rating</button> -->
 									</form>
 									<form action="updateReviewImage.do">
 										<input type="hidden" name="custId"
 											value="${review.id.customerId}" /> <input type="hidden"
 											name="wineId" value="${review.id.wineId}" /> <input
 											type="text" name="image">
-										<button type="submit">Update Review Image</button>
+										<!-- <button type="submit">Update Review Image</button> -->
 									</form>
 								 </td> 
+								 
 								<td><form action="removeReview.do">
 										<input type="hidden" name="custId"
 											value="${review.id.customerId}" /> <input type="hidden"
 											name="wineId" value="${review.id.wineId}" />
 										<button type="submit">Delete Review</button>
-									</form></td>	
+									</form></td>
+								<td><form action="getAllUpdatedReviews.do">
+										<input type="hidden" name="custId"
+											value="${review.id.customerId}" /> <input type="hidden"
+											name="wineId" value="${review.id.wineId}" />
+										<button type="submit" >Submit</button>
+									</form></td>
+										
 		
 		
 		

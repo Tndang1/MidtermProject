@@ -215,6 +215,14 @@ public class CustomerController {
 		model.addAttribute("reviews", reviews);
 		return "myReviews";
 	}
+	@RequestMapping(path = "getAllUpdatedReviews.do", method = RequestMethod.GET)
+	public String getAllUpdatedReviews(HttpSession session, Model model) {
+		Customer customer = (Customer) session.getAttribute("customer");
+		List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
+		model.addAttribute("reviews", reviews);
+		return "myReviews";
+	}
+	//goes to the form 
 	@RequestMapping(path = "getUpdatedReviewOfWines.do", method = RequestMethod.GET)
 	public String getUpdatedReviewOfWiines(HttpSession session, Model model) {
 		Customer customer = (Customer) session.getAttribute("customer");
@@ -288,7 +296,7 @@ public class CustomerController {
 	
 	//ORDER FORMS ========================
 	@RequestMapping(path ="listAllCustomerOrders.do", method = RequestMethod.GET)
-	public String listAllCustomerOrders(HttpSession session, Model model, int id) {
+	public String listAllCustomerOrders(HttpSession session, Model model) {
 		Customer customer = (Customer) session.getAttribute("customer");
 		List<CustomerOrder> orders = customer.getCustomerOrders();
 		model.addAttribute("orders", orders);
