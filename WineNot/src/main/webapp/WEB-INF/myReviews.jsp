@@ -127,6 +127,13 @@
 											name="wineId" value="${review.id.wineId}" />
 										<button type="submit">Delete Review</button>
 									</form></td>
+							
+								<td><form action="getUpdatedReviewOfWines.do">
+										<input type="hidden" name="custId"
+											value="${review.id.customerId}" /> <input type="hidden"
+											name="wineId" value="${review.id.wineId}" />
+										<button type="submit">Update Review of Wine</button>
+									</form></td>
 							</tr>
 						</c:forEach>
 					

@@ -215,6 +215,13 @@ public class CustomerController {
 		model.addAttribute("reviews", reviews);
 		return "myReviews";
 	}
+	@RequestMapping(path = "getUpdatedReviewOfWines.do", method = RequestMethod.GET)
+	public String getUpdatedReviewOfWiines(HttpSession session, Model model) {
+		Customer customer = (Customer) session.getAttribute("customer");
+		List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
+		model.addAttribute("reviews", reviews);
+		return "updateReviewWine";
+	}
 	
 	@RequestMapping(path = "removeReview.do", method = RequestMethod.GET)
 	public String removeReview(HttpSession session, Model model, int wineId) {
