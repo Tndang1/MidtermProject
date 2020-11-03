@@ -176,7 +176,7 @@ public class CustomerController {
 	public String createPayInfoForm(HttpSession session, PaymentInfo payInfo) {
 		Customer customer = (Customer) session.getAttribute("customer");
 
-		return "folder/newPayInfoForm";
+		return "payment";
 	}
 
 	@RequestMapping(path = "createPaymentInfo.do", method = RequestMethod.POST)
@@ -184,7 +184,7 @@ public class CustomerController {
 		Customer customer = (Customer) session.getAttribute("customer");
 		model.addAttribute("newUser", payInfoDAO.create(payInfo));
 
-		return "folder/userProfilePage";
+		return "payment";
 	}
 
 	// REVIEW FORMS =====================
