@@ -54,6 +54,7 @@ class WineTest {
 		assertEquals(1, wine.getId());
 		assertEquals(2018, wine.getVintageYear());
 		assertEquals("Kendall-Jackson Vintner's Reserve", wine.getLabelName());
+		assertEquals(1, wine.getEnabled());
 		
 	}
 	@Test

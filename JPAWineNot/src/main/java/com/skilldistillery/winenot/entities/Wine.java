@@ -28,6 +28,7 @@ public class Wine {
 	private String description;
 	private String image;
 	private String pairs;
+	private int enabled;
 
 	@ManyToOne
 	@JoinColumn(name = "wine_type_id")
@@ -207,6 +208,12 @@ public class Wine {
 		if (id != other.id)
 			return false;
 		return true;
+	}
+	public int getEnabled() {
+		return enabled;
+	}
+	public void setEnabled(int enabled) {
+		this.enabled = enabled;
 	}
 
 }
