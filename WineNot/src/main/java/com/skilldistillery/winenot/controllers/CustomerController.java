@@ -268,8 +268,9 @@ public class CustomerController {
 	@RequestMapping(path = "getUpdatedReviewOfWines.do", method = RequestMethod.GET)
 	public String getUpdatedReviewOfWiines(HttpSession session, Model model, int custId, int wineId) {
 		Customer customer = (Customer) session.getAttribute("customer");
-		List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
-		model.addAttribute("reviews", reviews);
+//		List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
+		Review review = rviewDAO.getReviewByCustomerAndWineId(custId, wineId);
+		model.addAttribute("review", review);
 		model.addAttribute("custId", custId);
 		model.addAttribute("wineId", wineId);
 		return "updateReviewWine";
