@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.winenot.data.AddressDAO;
 import com.skilldistillery.winenot.data.CustomerDAO;
@@ -173,8 +174,9 @@ public class CustomerController {
 	// PAYMENT FORMS =================
 
 	@RequestMapping(path = "createPaymentInfoForm.do", method = RequestMethod.GET)
-	public String createPayInfoForm(HttpSession session, PaymentInfo payInfo) {
+	public String createPayInfoForm(HttpSession session, Model model, PaymentInfo payInfo) {
 		Customer customer = (Customer) session.getAttribute("customer");
+		model.addAttribute("payInfo", customer.getPaymentInfo());
 
 		return "payment";
 	}
@@ -316,8 +318,9 @@ public class CustomerController {
 	@RequestMapping(path ="listAllCustomerOrders.do", method = RequestMethod.GET)
 	public String listAllCustomerOrders(HttpSession session, Model model) {
 		Customer customer = (Customer) session.getAttribute("customer");
-		List<CustomerOrder> orders = customer.getCustomerOrders();
+		List<CustomerOrder> orders = custDAO.getCustomerOrders(customer.getId());
 		model.addAttribute("orders", orders);
+		
 		return "orderhistory";
 	}
 	
@@ -335,6 +338,15 @@ public class CustomerController {
 		}
 		model.addAttribute("customerId", customer.getId());
 		return "homePage";
+	}
+	//Log Out 
+	@RequestMapping(path="logOutOfAccount.do", method = RequestMethod.GET)
+	public ModelAndView logOutOfAccount(HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		session.removeAttribute("customer");
+		mv.setViewName("homePage");
+		
+		return mv;
 	}
 
 }

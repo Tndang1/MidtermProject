@@ -192,8 +192,19 @@
 	<li class="nav-item">
 		<a class="nav-link" href="getAllReviews.do">Past Reviews</a> <!-- Unsure of this -->
 	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="createPaymentInfoForm.do">Payment Info</a> <!-- Unsure of this -->
+	</li>
 
 </ul>
+</form>
+<form>
+	<ul class="navbar-nav mr-auto">
+
+		<li class="nav-item">
+			<a class="nav-link" href="logOutOfAccount.do">LogOut of Account</a>
+		</li>
+	</ul>
 </form>
 <form>
 	<ul class="navbar-nav mr-auto">

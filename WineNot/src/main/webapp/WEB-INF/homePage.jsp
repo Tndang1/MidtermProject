@@ -54,7 +54,7 @@
 					</li>
 					</c:if>
 					<li class="nav-item">
-						<a class="nav-link" href="homePage.do">Log Out<i class='fas fa-list-alt'></i></a>
+						<a class="nav-link" href="logOutOfAccount.do">Log Out<i class='fas fa-list-alt'></i></a>
 					</li>
 					</c:if>
 			

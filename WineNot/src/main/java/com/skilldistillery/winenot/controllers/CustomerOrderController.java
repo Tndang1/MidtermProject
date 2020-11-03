@@ -108,12 +108,12 @@ public class CustomerOrderController {
   	customer.getAddress();
 		customer.getPaymentInfo();
 
-		LocalDateTime now = LocalDateTime.now();
+//		LocalDateTime now = LocalDateTime.now();
 		if (order.getSize() == 12) {
 			order.setAmount(220.99);
 		}
 		order.setCustomer(customer);
-		order.setOrderDate(now);
+//		order.setOrderDate(now);
 		List<Wine> wines = null;
 		if (wineColor > 0 && wineColor < 3) {
 		wines = wineDAO.findWineByWineColorId(wineColor);
