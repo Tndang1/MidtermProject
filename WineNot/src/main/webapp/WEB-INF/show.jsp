@@ -76,6 +76,9 @@
 		<form action="addToFavoritesList.do" method="GET">
 			<input type="hidden" name="id" value="${customer.id}"/>
 			<input type="hidden" name="wid" value="${wine.id}"/>
+		<%-- 	<c:if test = "${customerId != null }">
+			
+			</c:if> --%>
 			<button type="submit">Add To Favorites!</button>
 		</form>
 		

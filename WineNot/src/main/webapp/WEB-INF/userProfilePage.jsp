@@ -102,26 +102,10 @@
 		
 		<br>
 		<br>
-		
-
-
-
-
-
-
-
-
-
-
 
 			<form>
 			<nav class="navbar navbar-expand-lg navbar-light bg-light"></t>Address Information</nav><br>
   </div> <form action= "updateAddressForm.do">
-<tr>Street: <td>${address.street }</td> <form action= "updateAddressForm.do">
-			${address.street }
-			<input type= "text" name="street" value="${address.street}" placeholder="LastName"/>
-			</form></tr>
-			${address.street }
   <div class="form-group">
     <label for="inputAddress">Street</label>
     <input type="text" class="form-control" name="inputAddress" value="${address.street }">
@@ -150,11 +134,6 @@
   <div class="form-group">
   </div>
 </form>
-<%-- <tr>Username: <td>${user.username }</td> <form action= "updateUsernameForm.do">
-			${user.username }
-			<input type= "text" name="username" value="${user.username }"/>
-			<button type= "submit">Change Username</button><br>
-			</form></tr> --%>
 
 <form>
 <ul class="navbar-nav mr-auto">
@@ -180,6 +159,14 @@
 		<li class="nav-item">
 			<a class="nav-link" href="deleteUser.do?id=1#">Delete Account</a>
 			
+			<a class="nav-link" href="logOutOfAccount.do">LogOut of Account</a>
+		</li>
+	</ul>
+</form>
+<form>
+	<ul class="navbar-nav mr-auto">
+
+		<li class="nav-item">
 			<a class="nav-link" href="deleteUser.do">Delete Account</a>
 		</li>
 	</ul>
