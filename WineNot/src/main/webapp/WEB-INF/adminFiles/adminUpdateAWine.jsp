@@ -17,7 +17,6 @@
 <body>
  <hr>
     <div class ="container">
-
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<a class="navbar-brand" href="homePage.do"style="color:DarkRed"><strong>WineNot</strong> <i class='fas fa-wine-glass' style='font-size:24px'></i></a>
 			<img src="https://images.squarespace-cdn.com/content/v1/5cf129c75bf4f50001c8b2f3/1588283318954-X25V1XW9WC42W3F8PHMJ/ke17ZwdGBToddI8pDm48kG0sXzLG2I85QyZp8ZpOahl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0vIHRucUU7a1Vci15HXS8HIyFOUrT9_OnKWFj0z76vvMsMQu7p6EAYImZh1X2UKwEQ/r1.jpg?format=1500w" style="width:200px;height:200px;">
@@ -57,50 +56,85 @@
 						<a class="nav-link" href="homePage.do">Log Out<i class='fas fa-list-alt'></i></a>
 					</li>
 					</c:if>
-			
 				</ul>
-			
 			</div>
 		</nav>
-		<h2>Welcome Money Maker!</h2>
-		<form action="adminWineList.do"><button type="submit">See all wines.</button></form></left>
-		<form action="adminReviewList.do"><button type="submit">See all Reviews.</button></form>
-		<form action="adminUserList.do"><button type="submit">See all users.</button></form>
-		<form action="adminWineForm.do"><button type="submit">Add a wine.</button></form>
-		
-		
-		
-		
-<c:if test="${wineResults != null}">
-		<table class="table">
-		<c:forEach items="${wineResults}" var="wine">
-		<tr>
-			<td>${wine.id}</td><td>${wine.labelName}</td><td>${wine.vineyard}</td><td><c:choose><c:when test="${wine.enabled == 1}">Enabled</c:when><c:otherwise>Disabled</c:otherwise></c:choose></td>
-			<td><form action="adminUpdateWineForm.do"><input type="hidden" name="wineId" value="${wine.id}"><button type="submit">Update this wine.</button></form></td>
-			<td><c:choose><c:when test="${wine.enabled == 1}">
-			<form action="adminDisableWine.do"><input type="hidden" name="wineId" value="${wine.id}"><button type="submit">Disable this wine.</button></form>
-			</c:when><c:otherwise>
-			<form action="adminEnableWine.do"><input type="hidden" name="wineId" value="${wine.id}"><button type="submit">Enable this wine.</button></form>
-			</c:otherwise></c:choose></td>
-		</tr>
-		</c:forEach>
-		</table>
-		</c:if>
-		
-		<c:if test="${userResults != null}">
-		<c:forEach items="${userResults}" var="user">
-			<p>${user.id} ${user.email} ${user.password} <c:choose><c:when test="${user.enabled == 1}">Enabled</c:when><c:otherwise>Disabled</c:otherwise></c:choose></p>
-		</c:forEach>
-		</c:if>
-		
-		<c:if test="${reviewResults != null}">
-		<c:forEach items="${reviewResults}" var="review">
-			<p>${review.review} ${review.rating}</p>
-		</c:forEach>
-		</c:if>
-		
-		
-		
+	</div>
+	<div class="container-fluid">
+	
+	<form action="adminAddWine.do">
+	<input type="hidden" name="wineId" value="${wine.id}"/>
+	<div class="form-group">
+	<label for="name">Label name</label>
+	<input type="text" id="name" name="labelName" value="${wine.labelName}" required>
+	</div>
+	<div class="form-group">
+	<label for="origin">Origin/Vineyard</label>
+	<input type="text" id="origin" name="vineyard" value="${wine.vineyard}">
+	</div>
+	<div class="form-group">
+	<label for="year">Year</label>
+	<input type="text" id="year" name="vintageYear" value="${wine.vintageYear}"required>
+	</div>
+	<div class="form-group">
+	<label for="desc">Description</label>
+	<input type="text" id="desc" name="description" value="${wine.description}" required>
+	</div>
+	<div class="form-group">
+	<label for="flav">Flavor</label>
+	<input type="text" id="flav" name="flavor" value="${wine.flavor}" required>
+	</div>
+	<div class="form-group">
+	<label for="diet">Dietary</label>
+	<input type="text" id="diet" value="${wine.dietary}" name="dietary">
+	</div>
+	<div class="form-group">
+	<label for="pair">Food Pairing</label>
+	<input type="text" id="pair" value="${wine.pairs}" name="pairs">
+	</div>
+	<div class="form-group">
+	<label for="img">Image</label>
+	<input type="text" id="img" value="${wine.image}" name="image">
+	</div>
+	<div class="form-group">
+	<label for="type">Type</label>
+		<select name="wineType" id="type" required>
+			<option value="${wine.wineType.id}" selected>${wine.wineType.wineType}</option>
+			<option value="1">1. Bordeaux</option>
+			<option value="2">2. Cabernet</option>
+			<option value="3">3. Chardonnay</option>
+			<option value="4">4. Malbec</option>
+			<option value="5">5. Merlot</option>
+			<option value="6">6. Moscato</option>
+			<option value="7">7. Pinot Grigio</option>
+			<option value="8">8. Pinot Noir</option>
+			<option value="9">9. Port</option>
+			<option value="10">10. Red Blend</option>
+			<option value="11">11. Riesling</option>
+			<option value="12">12. Rose</option>
+			<option value="13">13. Rosso</option>
+			<option value="14">14. Sangria</option>
+			<option value="15">15. Sauvignon Blanc</option>
+			<option value="16">16. Sparkling</option>
+			<option value="17">17. Syrah</option>
+			<option value="18">18. Zinfandel</option>
+			<option value="19">19. Sangiovese</option>
+		</select>
+	</div>
+	<div class="form-group">
+	<label for="color">Color</label>
+		<select name="wineColor" id="color" required>
+		<option value="${wine.wineColor.id}" selected>${wine.wineColor.wineColor}</option>
+			<option value="1">1. Red</option>
+			<option value="2">2. White</option>
+			<option value="3">3. Rose</option>
+		</select>
+	</div>
+	<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+	
+	
+	</div>
 		
 		
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

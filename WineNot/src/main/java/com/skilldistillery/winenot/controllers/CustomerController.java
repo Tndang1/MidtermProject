@@ -100,7 +100,8 @@ public class CustomerController {
 		if (session.getAttribute("customer") == null) {
 		session.setAttribute("customer", customer);
 		}
-		return "createNewAccount";
+//		return "createNewAccount";
+		return "homePage";
 	}
 
 	@RequestMapping(path = "updateUserForm.do")
