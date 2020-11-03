@@ -184,38 +184,8 @@
 			</li>
 		</c:forEach>
 --%>
-		<%-- <p>
-		<table>
-			<tr>
-				<th>Shipping Details</th>
-				<th>Billing Address</th>
-			</tr>
-			<tr>
-				<td>${customerAddress.street}${customerAddress.street2}</td>
-				<td>${paymentInfo.address.street}
-					${paymentInfo.address.street2}</td>
-			</tr>
-			<tr>
-				<td>${customerAddress.city},${customerAddress.state}</td>
-				<td>${paymentInfo.address.city},${paymentInfo.address.state}</td>
-			</tr>
-			<tr>
-				<td>${customerAddress.zip}</td>
-				<td>${paymentInfo.address.zip}</td>
-			</tr>
-			<tr>
-				<td>${customerAddress.country}</td>
-				<td>${paymentInfo.address.country}</td>
-			</tr>
-		</table>
-		</p>
-		<p>
-			Payment Info<br> ${paymentInfo.cardNumber}<br> Expiration
-			Date: ${paymentInfo.exprDate.month} ${paymentInfo.exprDate.year} <br>
-			Total: ${custOrder.amount}
-		</p>
-
-		<form>
+	
+<!-- 		<form>
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label for="inputEmail4">Email</label> <input type="email"
@@ -258,13 +228,44 @@
 					<label class="form-check-label" for="gridCheck"> Check me
 						out </label>
 				</div>
-			</div>
-			<button type="submit" class="btn btn-primary">Sign in</button>
-			 --%>
+			</div> -->
+		<!-- 	<button type="submit" class="btn btn-primary">Sign in</button> -->
+			
 			 <br>
 				<input class="btn btn-primary" type="submit" value="Add to Cart">
 				<!-- <div><a href="createAddressForm.do" ></a></div> -->
 		</form>
+		
+			<p>
+		<table>
+			<tr>
+				<th>Shipping Details</th>
+				<th>Billing Address</th>
+			</tr>
+			<tr>
+				<td>${customerAddress.street}${customerAddress.street2}</td>
+				<td>${paymentInfo.address.street}
+					${paymentInfo.address.street2}</td>
+			</tr>
+			<tr>
+				<td>${customerAddress.city}, ${customerAddress.state}</td>
+				<td>${paymentInfo.address.city}, ${paymentInfo.address.state}</td>
+			</tr>
+			<tr>
+				<td>${customerAddress.zip}</td>
+				<td>${paymentInfo.address.zip}</td>
+			</tr>
+			<tr>
+				<td>${customerAddress.country}</td>
+				<td>${paymentInfo.address.country}</td>
+			</tr>
+		</table>
+		</p>
+		<p>
+			Payment Info<br> ${paymentInfo.cardNumber}<br> Expiration
+			Date: ${paymentInfo.exprDate.month} ${paymentInfo.exprDate.year} <br>
+		</p>
+		
 
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
