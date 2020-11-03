@@ -17,7 +17,6 @@
 <body>
  <hr>
     <div class ="container">
-
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<a class="navbar-brand" href="homePage.do"style="color:DarkRed"><strong>WineNot</strong> <i class='fas fa-wine-glass' style='font-size:24px'></i></a>
 			<img src="https://images.squarespace-cdn.com/content/v1/5cf129c75bf4f50001c8b2f3/1588283318954-X25V1XW9WC42W3F8PHMJ/ke17ZwdGBToddI8pDm48kG0sXzLG2I85QyZp8ZpOahl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0vIHRucUU7a1Vci15HXS8HIyFOUrT9_OnKWFj0z76vvMsMQu7p6EAYImZh1X2UKwEQ/r1.jpg?format=1500w" style="width:200px;height:200px;">
@@ -57,70 +56,31 @@
 						<a class="nav-link" href="homePage.do">Log Out<i class='fas fa-list-alt'></i></a>
 					</li>
 					</c:if>
-			
 				</ul>
-			
 			</div>
 		</nav>
-		<h2>Welcome Money Maker!</h2>
-		<form action="adminWineList.do"><button type="submit">See all Wines.</button></form></left>
-		<form action="adminReviewList.do"><button type="submit">See all Reviews.</button></form>
-		<form action="adminUserList.do"><button type="submit">See all Users.</button></form>
-		<form action="adminWineForm.do"><button type="submit">Add a wine.</button></form>
-		
-		
-		
-		
-<table class="table">
-<c:if test="${wineResults != null}">
-		<c:forEach items="${wineResults}" var="wine">
-		<tr>
-			<td>${wine.id}</td><td>${wine.labelName}</td><td>${wine.vineyard}</td><td><c:choose><c:when test="${wine.enabled == 1}">Enabled</c:when><c:otherwise>Disabled</c:otherwise></c:choose></td>
-			<td><form action="adminUpdateWineForm.do"><input type="hidden" name="wineId" value="${wine.id}"><button type="submit">Update this wine.</button></form></td>
-			<td><c:choose><c:when test="${wine.enabled == 1}">
-			<form action="adminDisableWine.do"><input type="hidden" name="wineId" value="${wine.id}"><button type="submit">Disable this wine.</button></form>
-			</c:when><c:otherwise>
-			<form action="adminEnableWine.do"><input type="hidden" name="wineId" value="${wine.id}"><button type="submit">Enable this wine.</button></form>
-			</c:otherwise></c:choose></td>
-		</tr>
-		</c:forEach>
-</c:if>
-		
-<c:if test="${userResults != null}">
-		<c:forEach items="${userResults}" var="user">
-		<tr>
-			<td>${user.id}</td><td>${user.email}</td><td>${user.password}</td><td><c:choose><c:when test="${user.enabled == 1}">Enabled</c:when><c:otherwise>Disabled</c:otherwise></c:choose></td>
-			<td><form action="adminUpdateUserForm.do"><input type ="hidden" name="userId" value="${user.id}"><button type="submit">Update this user.</button></form>
-			<td><c:choose><c:when test="${user.enabled == 1}">
-			<form action="adminDisableUser.do"><input type="hidden" name="userId" value="${user.id}"><button type="submit">Disable this user.</button></form>
-			</c:when><c:otherwise>
-			<form action="adminEnableUser.do"><input type="hidden" name="userId" value="${user.id}"><button type="submit">Enable this user.</button></form>
-			</c:otherwise></c:choose></td>
-		</tr>
-		</c:forEach>
-</c:if>
-		
-<c:if test="${reviewResults != null}">
-		<c:forEach items="${reviewResults}" var="review">
-		<tr>
-			<td>Customer Id:${review.id.customerId}</td><td>Wine Id:${review.id.wineId}</td><td>${review.review}</td><td>${review.rating}</td>
-			<td><form action="adminUpdateReviewForm.do">			
-			<input type ="hidden" name="custId" value="${review.id.customerId}">
-			<input type ="hidden" name="wineId" value="${review.id.wineId}">
-			<button type="submit">Update this review.</button></form>
-			<td><form action="adminDeleteReview.do">
-			<input type="hidden" name="custId" value="${review.id.customerId}">
-			<input type="hidden" name="wineId" value="${review.id.wineId}">
-			<button type="submit">Delete this review.</button></form>
-		</tr>
-		</c:forEach>
-</c:if>
-</table>
-		
-		
-		
-		
-		
+	</div>
+	<div class="container-fluid">
+	
+	<form action="adminUpdateReview.do">
+	<input type="hidden" name="custId" value="${review.id.customerId}"/>
+	<input type="hidden" name="wineId" value="${review.id.wineId}"/>
+	<div class="form-group">
+	<label for="review">Review</label>
+	<input type="text" id="review" name="review" value="${review.review}" required>
+	</div>
+	<div class="form-group">
+	<label for="rating">Rating</label>
+	<input type="number" id="rating" name="rating" value="${review.rating}"required>
+	</div>
+	<div class="form-group">
+	<label for="image">Image</label>
+	<input type="text" id="image" name="image" value="${review.image}" required>
+	</div>
+	<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+	
+	</div>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>

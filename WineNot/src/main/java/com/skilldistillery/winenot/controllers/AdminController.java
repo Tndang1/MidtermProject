@@ -18,6 +18,7 @@ import com.skilldistillery.winenot.data.ReviewDAO;
 import com.skilldistillery.winenot.data.UserDAO;
 import com.skilldistillery.winenot.data.WineColorTypeDAO;
 import com.skilldistillery.winenot.data.WineDAO;
+import com.skilldistillery.winenot.entities.Customer;
 import com.skilldistillery.winenot.entities.Review;
 import com.skilldistillery.winenot.entities.ReviewId;
 import com.skilldistillery.winenot.entities.User;
@@ -67,6 +68,12 @@ public class AdminController {
 		model.addAttribute("user", user);
 		return "adminFiles/adminUpdateAUser";
 	}
+	@RequestMapping(path="adminUpdateReviewForm.do", method = RequestMethod.GET)
+	public String updateReviewFrom(Model model, int custId, int wineId) {
+		Review review = rviewDAO.getReviewByCustomerAndWineId(custId, wineId);
+		model.addAttribute("review", review);
+		return "adminFiles/adminUpdateAReview";
+	}
 	
 	//********Admin review controls***********
 	@RequestMapping(path = "adminReviewList.do", method = RequestMethod.GET)
@@ -76,10 +83,23 @@ public class AdminController {
 		return "admin";
 	}
 	@RequestMapping(path = "adminDeleteReview.do", method = RequestMethod.GET)
-	public String adminDeleteReview(Model model, ReviewId rid) {
-		boolean deleted = rviewDAO.deleteReview(rid.getCustomerId(), rid.getCustomerId());
+	public String adminDeleteReview(Model model, int custId, int wineId) {
+		boolean deleted = rviewDAO.deleteReview(custId, wineId);
 		model.addAttribute("deleted", deleted);
-		return null;
+		return "admin";
+	}
+	@RequestMapping(path = "adminUpdateReview.do", method = RequestMethod.GET)
+	public String adminUpdateReview(Model model, int custId, int wineId, String review, Integer rating, String image) {
+		Review updateReview = new Review();
+		Wine wine = wDAO.findWineById(wineId);
+		Customer customer = custDAO.getCustomerById(custId);
+		updateReview.setReview(review);
+		updateReview.setRating(rating);
+		updateReview.setImage(image);
+		updateReview.setWine(wine);
+		updateReview.setCustomer(customer);
+		rviewDAO.updateReview(custId, wineId, updateReview);
+		return "admin";
 	}
 	
 	//*******Admin wine controls**********
