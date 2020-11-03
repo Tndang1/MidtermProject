@@ -16,6 +16,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 @Entity
 @Table(name="customer_order")
 public class CustomerOrder {
@@ -29,6 +31,7 @@ public class CustomerOrder {
 	@JoinColumn(name="customer_id")
 	private Customer customer;
 	
+	@CreationTimestamp
 	@Column(name="order_date")
 	private LocalDateTime orderDate;
 	
