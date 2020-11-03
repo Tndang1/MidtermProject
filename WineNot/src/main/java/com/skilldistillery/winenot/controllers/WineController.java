@@ -168,6 +168,8 @@ public class WineController {
 		newReview.setRating(rating);
 		newReview.setImage(image);
 		reviewDao.createReview(newReview);
+		List<Review> reviews = customerDao.getCustomerReviews(custId);
+		model.addAttribute("reviews", reviews);
 		return "myReviews";
 	}
 }
