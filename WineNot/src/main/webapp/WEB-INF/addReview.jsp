@@ -54,7 +54,7 @@
 		<hr>
 		<!-- <form action="addWineReview.do">  -->
 		
-		<form action="addReview.do"> 
+		<form action="addAReview.do"> 
 		    <img src="${wine.image}" alt="${wine.labelName} ${wine.vineyard} ${wine.vintageYear}" style="width:128px;height:256px;">
 	<!-- Replace style size limits with CSS -->
 	<p>
