@@ -12,4 +12,7 @@ public interface UserDAO {
 	User updateUser(int id, User user);
 	boolean deleteUser(int id);
 	
+	public boolean disableUser(int id);
+	public boolean enableUser(int id);
+	
 }
