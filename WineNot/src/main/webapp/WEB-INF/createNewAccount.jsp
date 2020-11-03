@@ -87,9 +87,9 @@
    <!--  <div class="form-group col-md-6"> -->
     <%-- <fmt:parseDate  value="${customer.updatedAt}"  type="date" pattern="yyyy-MM-dd'T'hh:mm:ss" var="parsedDate" />
 	<fmt:formatDate type="both" value="${parsedDate}"/> --%>
-    <!--   <label for="inputBirthdate">Date of Birth</label>
-      <input type="date" class="form-control" name="birthdate" placeholder="MM/DD/YYYY">
-     -->
+      <label for="inputBirthdate">Date of Birth</label>
+      <input type="date" class="form-control" name="date" placeholder="MM/DD/YYYY">
+     
     <!-- </div> -->
     
     <!-- <div class="form-group">

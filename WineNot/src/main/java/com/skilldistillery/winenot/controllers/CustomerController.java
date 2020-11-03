@@ -1,5 +1,6 @@
 package com.skilldistillery.winenot.controllers;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -74,11 +75,18 @@ public class CustomerController {
 		return "createNewAccount";
 	}
 	@RequestMapping(path = "createCustomer.do", method = RequestMethod.POST)
-	public String createNewAccount(Model model, Customer customer, User user, LocalDateTime date) {
+	public String createNewAccount(Model model, User user, String date, String firstName, String lastName) {
 		User newUser = userDAO.createUser(user);
+		Customer customer = new Customer();
 		customer.setUser(newUser);
+		customer.setfName(firstName);
+		customer.setlName(lastName);
 		LocalDateTime createDate = LocalDateTime.now();
-		customer.setBirthdate(createDate);
+//		System.out.println(date);
+		LocalDate birthDate = LocalDate.parse(date);
+		LocalDateTime bornDate = birthDate.atStartOfDay();
+//		System.out.println(birthDate);
+		customer.setBirthdate(bornDate);
 		customer.setCreateDate(createDate);
 		customer = custDAO.createCustomer(customer);
 		model.addAttribute("newAccount", newUser);
