@@ -38,19 +38,20 @@ public class CustomerOrderController {
 
 // Checkout page
 	@RequestMapping(path = "checkout.do", method = RequestMethod.GET)
-	private String checkoutInfo(Model model, Integer customerOrderId) {
-		CustomerOrder customerOrder = custOrderDAO.findById(customerOrderId);
-		List<Wine> wines = customerOrder.getWines();
-		Customer customer = customerOrder.getCustomer();
-		Address address = customer.getAddress();
-		PaymentInfo paymentInfo = customer.getPaymentInfo();
-		Address billingAddress = paymentInfo.getAddress();
-		model.addAttribute("custOrder", customerOrder);
-		model.addAttribute("customer", customer);
-		model.addAttribute("customerAddress", address);
-		model.addAttribute("bilingAddress", billingAddress);
-		model.addAttribute("paymentInfo", paymentInfo);
-		model.addAttribute("wines", wines);
+	private String checkoutInfo(Model model) {
+		//Integer customerId was in method
+//		CustomerOrder customerOrder = custOrderDAO.findById(customerOrderId);
+//		List<Wine> wines = customerOrder.getWines();
+//		Customer customer = customerOrder.getCustomer();
+//		Address address = customer.getAddress();
+//		PaymentInfo paymentInfo = customer.getPaymentInfo();
+//		Address billingAddress = paymentInfo.getAddress();
+//		model.addAttribute("custOrder", customerOrder);
+//		model.addAttribute("customer", customer);
+//		model.addAttribute("customerAddress", address);
+//		model.addAttribute("bilingAddress", billingAddress);
+//		model.addAttribute("paymentInfo", paymentInfo);
+//		model.addAttribute("wines", wines);
 		return "checkout";
 	}
 	@RequestMapping(path = "removeWineFromCheckout.do", method = RequestMethod.GET)
