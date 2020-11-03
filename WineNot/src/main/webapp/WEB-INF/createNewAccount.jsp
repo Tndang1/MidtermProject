@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet"
@@ -52,68 +53,57 @@
 			</div>
 		</nav>
 		
-		<form>
 		<div class="container">
 		<h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>
-    <hr>
-      <table>
-			<tr>Username: <td>${customer.fName }</td> <form action= "createCustomer.do">
-			${customer.fName }
-			<input type= "text" name="firstName" value="${customer.fName }"/>
-			<button type= "submit">First Name</button>
-			</form></tr>
-			<tr>Email: <td>${customer.email }</td> <form action= "createCustomer.do">
-			${customer.username }
-			<input type= "text" name="email" value="${customer.email }"/>
-			<button type= "submit">Enter Email</button>
-			</form></tr>
-			<tr>Password: <td>${customer.password }</td> <form action= "createCustomer.do">
-			${customer.password }
-			<input type= "text" name="pass" value="${customer.password }"/>
-			<button type= "submit">Create Password</button>
-			</form></tr><br><br>  
-			
+     <hr>
+	<form action="createCustomer.do" method=POST>
+	<div>
+		<form:label path="username">Username: </form:label>
+		<input type="text" class="form-control" required="required"
+				name="username" placeholder="Username" />
+	</div>
+	<div>
+		<form:label path="email">Email: </form:label>
+		<input type="email" class="form-control" required="required"
+				name="email" placeholder="Email" />
+	</div>
+	<div>
+		<form:label path="password">Password: </form:label>
+		<input type="text" class="form-control" required="required"
+				name="password" placeholder="Password" />
+	</div>
+
+			 
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputFirstName4">First Name</label>
-      <input type="firstName" class="form-control" id="inputFirstName4" placeholder="FirstName">
+      <label for="inputFName">First Name</label>
+      <input type="firstName" class="form-control" name="firstName" placeholder="FirstName">
     </div>
     <div class="form-group col-md-6">
-      <label for="inputLastName4">Last Name</label>
-      <input type="lastName" class="form-control" id="inputLastName4" placeholder="LastName">
+      <label for="inputLName">Last Name</label>
+      <input type="lastName" class="form-control" name="lastName" placeholder="LastName">
     </div>
-    <div class="form-group col-md-6">
-      <label for="inputbirthdate4">Date of Birth</label>
-      <input type="birthdate" class="form-control" id="birthdate" placeholder="MM/DD/YYYY">
+   <!--  <div class="form-group col-md-6"> -->
+    <%-- <fmt:parseDate  value="${customer.updatedAt}"  type="date" pattern="yyyy-MM-dd'T'hh:mm:ss" var="parsedDate" />
+	<fmt:formatDate type="both" value="${parsedDate}"/> --%>
+      <label for="inputBirthdate">Date of Birth</label>
+      <input type="date" class="form-control" name="date" placeholder="MM/DD/YYYY">
+     
+    <!-- </div> -->
     
-    </div>
-    
-    
-    
-    
-    <div class="form-group col-md-6">
-      <label for="inputEmail">Email</label>
-      <input type="email" class="form-control" id="inputEmail">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" id="password">
-      <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-    </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
     <label for="inputAddress">Address</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    <input type="text" class="form-control" name="inputAddress" placeholder="1234 Main St">
   </div>
   <div class="form-group">
     <label for="inputAddress2">Address 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <input type="text" class="form-control" name="inputAddress2" placeholder="Apartment, studio, or floor">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputCity">City</label>
-      <input type="text" class="form-control" id="inputCity">
+      <input type="text" class="form-control" name="inputCity">
     </div>
     <div class="form-group col-md-4">
       <label for="inputState">State</label>
@@ -129,8 +119,21 @@
     <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
       <button type="submit" class="signupbtn">Sign Up</button>
+    </div> --> 
+	<button type="submit">Submit</button>
+	</form>
+    
+    
+    
+    <!-- <div class="form-group col-md-6">
+      <label for="inputEmail">Email</label>
+      <input type="email" class="form-control" name="inputEmail">
     </div>
-  </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword">Password</label>
+      <input type="text" class="form-control" id="inputPassword">
+    </div>
+ <!--  </div> -->
   
 </form>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

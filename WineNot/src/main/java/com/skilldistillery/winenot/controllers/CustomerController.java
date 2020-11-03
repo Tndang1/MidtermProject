@@ -1,5 +1,7 @@
 package com.skilldistillery.winenot.controllers;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,6 @@ import com.skilldistillery.winenot.entities.Customer;
 import com.skilldistillery.winenot.entities.CustomerOrder;
 import com.skilldistillery.winenot.entities.PaymentInfo;
 import com.skilldistillery.winenot.entities.Review;
-import com.skilldistillery.winenot.entities.ReviewId;
 import com.skilldistillery.winenot.entities.User;
 import com.skilldistillery.winenot.entities.Wine;
 
@@ -68,15 +69,46 @@ public class CustomerController {
 //		return "folder/userProfilePage";
 		return "userProfilePage";
 	}
-	@RequestMapping(path = "createCustomer.do")
-	public String createNewAccount(Model model, Customer customer, User user) {
+	@RequestMapping(path = "createCustomerForm.do")
+	public String createAccount() {
+		
+		return "createNewAccount";
+	}
+	@RequestMapping(path = "createCustomer.do", method = RequestMethod.POST)
+	public String createNewAccount(Model model, User user, String date, String firstName, String lastName) {
 		User newUser = userDAO.createUser(user);
+		Customer customer = new Customer();
 		customer.setUser(newUser);
+		customer.setfName(firstName);
+		customer.setlName(lastName);
+		LocalDateTime createDate = LocalDateTime.now();
+//		System.out.println(date);
+		LocalDate birthDate = LocalDate.parse(date);
+		LocalDateTime bornDate = birthDate.atStartOfDay();
+//		System.out.println(birthDate);
+		customer.setBirthdate(bornDate);
+		customer.setCreateDate(createDate);
 		customer = custDAO.createCustomer(customer);
 		model.addAttribute("newAccount", newUser);
 		
 		return "createNewAccount";
 	}
+//	@RequestMapping(path = "createEmail.do")
+//	public String createEmail(Model model, int id, String email, Customer customer) {
+//		User updateUser = userDAO.getUserById(id);
+//		updateUser.setEmail(email);
+//		userDAO.updateUser(id, updateUser);
+//		model.addAttribute("user", updateUser);
+//		return "createNewAccount";
+//	}
+//	@RequestMapping(path = "createPasswordForm.do")
+//	public String createPass(Model model, int id, String pass) {
+//		User updateUser = userDAO.getUserById(id);
+//		updateUser.setPassword(pass);
+//		userDAO.updateUser(id, updateUser);
+//		model.addAttribute("user", updateUser);
+//		return "createNewAccount";
+//	}
 
 	@RequestMapping(path = "updateUserForm.do")
 	public String updateUsernameById(Model model, int id) {
