@@ -54,42 +54,38 @@
 		<hr>
 <h1>Update Your Review:</h1>	
 
-					<form action="updateReviewReview.do">
-										<input type="hidden" name="custId"
-											value="${review.id.customerId}" /> <input type="hidden"
-											name="wineId" value="${review.id.wineId}" /> <input
+					<form action="getAllUpdatedReviews.do">Update Review Content:
+										<input type="hidden"
+											name="wineId" value="${wineId}" /> <input type="hidden"
+											name="custId" value="${custId}" /><input
 											type="text" name="reviewUpdate">
-										<!-- <button type="submit">Update Review Content</button> -->
-									</form>
-									<form action="updateReviewRating.do">
-										<input type="hidden" name="custId"
-											value="${review.id.customerId}" /> <input type="hidden"
-											name="wineId" value="${review.id.wineId}" /> <input
+										
+									Update Review Rating:
+										 <input
 											type="number" name="rating">
-										<!-- <button type="submit">Update Review Rating</button> -->
-									</form>
-									<form action="updateReviewImage.do">
-										<input type="hidden" name="custId"
-											value="${review.id.customerId}" /> <input type="hidden"
-											name="wineId" value="${review.id.wineId}" /> <input
+										
+									Update Review Image:
+										 <input
 											type="text" name="image">
-										<!-- <button type="submit">Update Review Image</button> -->
+										
+										<button type="submit" >Submit</button>
 									</form>
-								 </td> 
+								
 								 
-								<td><form action="removeReview.do">
+								<td>
+								<form action="removeReview.do">
 										<input type="hidden" name="custId"
 											value="${review.id.customerId}" /> <input type="hidden"
 											name="wineId" value="${review.id.wineId}" />
 										<button type="submit">Delete Review</button>
-									</form></td>
-								<td><form action="getAllUpdatedReviews.do">
+									</form>
+									</td>
+							<%-- 	<td><form action="getAllReviewsUpdated.do">
 										<input type="hidden" name="custId"
 											value="${review.id.customerId}" /> <input type="hidden"
-											name="wineId" value="${review.id.wineId}" />
-										<button type="submit" >Submit</button>
-									</form></td>
-										
+											<name="wineId" value="${review.id.wineId}" /> 
+									</form></td> 
+										 --%>
 		
 		
 		

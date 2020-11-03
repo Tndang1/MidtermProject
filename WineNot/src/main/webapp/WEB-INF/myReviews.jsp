@@ -98,7 +98,7 @@
 								
 								<td>${review.rating}</td>
 								<td>${review.review}</td>
-								 <td>
+								 <%-- <td>
 									<form action="updateReviewReview.do">
 										<input type="hidden" name="custId"
 											value="${review.id.customerId}" /> <input type="hidden"
@@ -120,7 +120,7 @@
 											type="text" name="image">
 										<button type="submit">Update Review Image</button>
 									</form>
-								 </td> 
+								 </td>  --%>
 								<td><form action="removeReview.do">
 										<input type="hidden" name="custId"
 											value="${review.id.customerId}" /> <input type="hidden"
