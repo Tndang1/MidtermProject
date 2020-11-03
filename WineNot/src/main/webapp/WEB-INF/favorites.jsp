@@ -8,6 +8,10 @@
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+	crossorigin="anonymous">
 <meta charset="UTF-8">
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
@@ -74,11 +78,19 @@
 <!-- Need to figure out a way to view show jsp directly on page without having to go back and forth between pages.  -->
 <h1>Favorites List:</h1>
 
+<div class="container-fluid">
+<table class="table table-striped table-hover">
+
 <c:forEach items="${favList }" var="w">
-		<a href="getWine.do?wid=${w.id }">${w.labelName}</a>
+<tr>
+		<td><a href="getWine.do?wid=${w.id }">${w.labelName}</a></td>
 		<br>
+	</tr>
 	</c:forEach>
 
+</table>
+<br>
+<br>
 
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -91,5 +103,6 @@
 			src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
 			integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
 			crossorigin="anonymous"></script>
+</div>
 </body>
 </html>
