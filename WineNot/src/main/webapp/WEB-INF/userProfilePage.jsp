@@ -184,13 +184,13 @@
 <ul class="navbar-nav mr-auto">
 
 	<li class="nav-item">
-		<a class="nav-link" href="favoritesList.do?id=1#">Favorites List</a>
+		<a class="nav-link" href="favoritesList.do">Favorites List</a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link" href="listAllCustomerOrders.do?id=1#">Order History</a>
+		<a class="nav-link" href="listAllCustomerOrders.do">Order History</a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link" href="getAllReviews.do?id=1#">Past Reviews</a> <!-- Unsure of this -->
+		<a class="nav-link" href="getAllReviews.do">Past Reviews</a> <!-- Unsure of this -->
 	</li>
 
 </ul>
@@ -199,7 +199,7 @@
 	<ul class="navbar-nav mr-auto">
 
 		<li class="nav-item">
-			<a class="nav-link" href="deleteUser.do?id=1#">Delete Account</a>
+			<a class="nav-link" href="deleteUser.do">Delete Account</a>
 		</li>
 	</ul>
 </form>
