@@ -61,52 +61,35 @@
 		</nav>
 
 		<div class="container">
-
-			<p>
-				<%-- <tr>Username: <td>${user.username }</td> <form action= "updateUsernameForm.do">
-			${user.username }
-			<input type= "text" name="username" value="${user.username }"/>
-			<button type= "submit">Change Username</button><br>
-			</form></tr>
-			<tr>Email: <td>${user.email }</td> <form action= "updateEmailForm.do">
-			${user.username }
-			<input type= "text" name="email" value="${user.email }"/>
-			<button type= "submit">Change Email</button><br>
-			</form></tr>
-			<tr>Password: <td>${user.password }</td> <form action= "updatePasswordForm.do">
-			${user.password }
-			<input type= "hidden" name="pass" value="${user.password }"/>
-			<button type= "submit">Change Password</button>
-			</form></tr><br><br> --%>
-			<form>
 			<table>
-			<tr> Street: <td>${address.street }</td> <form action = "updateAddressForm.do"></form>
+			<tr> Street: <td>${address.street }</td> <form action = "updateAddressForm.do">
 			${address.street }
 			<input type= "text" name="street" value="${address.street}"/>
-			<!-- <button type= "submit">Update Street</button><br> -->
-			</form></tr>
-			 <tr>Street2: <td>${address.street2 }</td> <form action= "updateAddressForm.do">
+			</tr>
+			
+			 <tr>Street2: <td>${address.street2 }</td> 
 			${address.street2 }
 			<input type= "text" name="email" value="${address.street2 }"/>
-			<!-- <button type= "submit">Change Email</button><br> -->
-			</form></tr>
-			 <tr>City: <td>${address.city }</td> <form action= "updateAddressForm.do">
+			</tr>
+			
+			 <tr>City: <td>${address.city }</td> 
 			${address.city }
 			<input type= "text" name="email" value="${address.city }"/>
-			<!-- <button type= "submit">Change Email</button><br> -->
-			</form></tr>
-			 <tr>State: <td>${address.state }</td> <form action= "updateAddressForm.do">
+			</tr>
+			
+			 <tr>State: <td>${address.state }</td> 
 			${address.state }
 			<input type= "text" name="email" value="${address.state }"/>
-			<!-- <button type= "submit">Change Email</button><br> -->
-			</form></tr>
-			<tr>Zip Code: <td>${address.zip }</td> <form action= "updateAddressForm.do">
+			</tr>
+			
+			<tr>Zip Code: <td>${address.zip }</td> 
 			${address.zip }
 			<input type= "hidden" name="pass" value="${address.zip }"/>
 			<button type= "submit">Update Address</button>
-			</form></tr><br><br>  
-			</table>
+			</tr><br><br> 
 			</form>
+			 
+			</table>
 
 </body>
 </html>

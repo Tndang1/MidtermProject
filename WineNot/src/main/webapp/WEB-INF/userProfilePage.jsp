@@ -104,7 +104,7 @@
 			</form></tr>
 			<tr>Password: <td>${user.password }</td> <form action= "updatePasswordForm.do">
 			${user.password }
-			<input type= "hidden" name="pass" value="${user.password }"/>
+			<input type= "text" name="pass" value=" "/>
 			<button type= "submit">Change Password</button>
 			</form></tr><br><br>
 			
@@ -140,22 +140,13 @@
 
 			<form>
 			<nav class="navbar navbar-expand-lg navbar-light bg-light"></t>Address Information</nav><br>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="inputPassword4">
-    </div>
   </div>
   <div class="form-group">
-    <label for="inputAddress">Address</label>
+    <label for="inputAddress">Street</label>
     <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
   </div>
   <div class="form-group">
-    <label for="inputAddress2">Address 2</label>
+    <label for="inputAddress2">Street 2</label>
     <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
   </div>
   <div class="form-row">
@@ -174,11 +165,21 @@
       <label for="inputZip">Zip</label>
       <input type="text" class="form-control" id="inputZip">
     </div>
+    <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+		<a class="nav-link" href="updateAddressForm.do?id=1#">Update Address</a> 
+		<!-- <button href="updateAddressForm.do?id=1#" type="submit">Update Address</button> -->
+	</li>
+	</ul>
   </div>
   <div class="form-group">
   </div>
 </form>
-
+<%-- <tr>Username: <td>${user.username }</td> <form action= "updateUsernameForm.do">
+			${user.username }
+			<input type= "text" name="username" value="${user.username }"/>
+			<button type= "submit">Change Username</button><br>
+			</form></tr> --%>
 
 <form>
 <ul class="navbar-nav mr-auto">
@@ -192,7 +193,10 @@
 	<li class="nav-item">
 		<a class="nav-link" href="getAllReviews.do?id=1#">Past Reviews</a> <!-- Unsure of this -->
 	</li>
-
+<li class="nav-item">
+		<a class="nav-link" href="updateAddressForm.do?id=1#">Update Address</a> 
+		<!-- <button href="updateAddressForm.do?id=1#" type="submit">Update Address</button> -->
+	</li>
 </ul>
 </form>
 <form>
@@ -200,6 +204,7 @@
 
 		<li class="nav-item">
 			<a class="nav-link" href="deleteUser.do?id=1#">Delete Account</a>
+			
 		</li>
 	</ul>
 </form>
