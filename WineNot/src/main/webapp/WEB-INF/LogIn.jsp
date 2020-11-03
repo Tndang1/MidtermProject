@@ -57,11 +57,11 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" name="email">
+      <input type="email" class="form-control" name="email" value="admin@admin.org">
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" name="password">
+      <input type="password" class="form-control" name="password" value="admin">
     </div>
   </div>
   <button type="submit" class="btn btn-primary">Sign in</button>
