@@ -112,7 +112,7 @@ DROP TABLE IF EXISTS `payment_info` ;
 
 CREATE TABLE IF NOT EXISTS `payment_info` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `address_id` INT NOT NULL,
+  `address_id` INT NULL,
   `card_number` VARCHAR(45) NULL,
   `expr_date` DATE NULL,
   PRIMARY KEY (`id`),
