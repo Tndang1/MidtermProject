@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,19 +38,20 @@ public class CustomerOrderController {
 
 // Checkout page
 	@RequestMapping(path = "checkout.do", method = RequestMethod.GET)
-	private String checkoutInfo(Model model, Integer customerOrderId) {
-		CustomerOrder customerOrder = custOrderDAO.findById(customerOrderId);
-		List<Wine> wines = customerOrder.getWines();
-		Customer customer = customerOrder.getCustomer();
-		Address address = customer.getAddress();
-		PaymentInfo paymentInfo = customer.getPaymentInfo();
-		Address billingAddress = paymentInfo.getAddress();
-		model.addAttribute("custOrder", customerOrder);
-		model.addAttribute("customer", customer);
-		model.addAttribute("customerAddress", address);
-		model.addAttribute("bilingAddress", billingAddress);
-		model.addAttribute("paymentInfo", paymentInfo);
-		model.addAttribute("wines", wines);
+	private String checkoutInfo(Model model) {
+		//Integer customerId was in method
+//		CustomerOrder customerOrder = custOrderDAO.findById(customerOrderId);
+//		List<Wine> wines = customerOrder.getWines();
+//		Customer customer = customerOrder.getCustomer();
+//		Address address = customer.getAddress();
+//		PaymentInfo paymentInfo = customer.getPaymentInfo();
+//		Address billingAddress = paymentInfo.getAddress();
+//		model.addAttribute("custOrder", customerOrder);
+//		model.addAttribute("customer", customer);
+//		model.addAttribute("customerAddress", address);
+//		model.addAttribute("bilingAddress", billingAddress);
+//		model.addAttribute("paymentInfo", paymentInfo);
+//		model.addAttribute("wines", wines);
 		return "checkout";
 	}
 	@RequestMapping(path = "removeWineFromCheckout.do", method = RequestMethod.GET)
@@ -100,8 +103,8 @@ public class CustomerOrderController {
 //  Create Order==============================================================
 
 	@RequestMapping(path = "create.do", method = RequestMethod.POST)
-	public ModelAndView createCustomerOrder(CustomerOrder order, Integer custId, Integer wineColor, RedirectAttributes ra) {
-		Customer customer = custDAO.getCustomerById(custId);
+	public ModelAndView createCustomerOrder(HttpSession session, CustomerOrder order, Integer custId, Integer wineColor, RedirectAttributes ra) {
+		Customer customer = (Customer)session.getAttribute("customer");
 		LocalDateTime now = LocalDateTime.now();
 		if (order.getSize() == 12) {
 			order.setAmount(220.99);
@@ -118,7 +121,6 @@ public class CustomerOrderController {
 		for(int i = 0; i < order.getSize(); i++) {
 			order.addWine(wines.get(i));
 		}
-		
 		CustomerOrder addOrder = custOrderDAO.create(order);
 		ModelAndView mv = new ModelAndView();
 		ra.addFlashAttribute("order", addOrder);
