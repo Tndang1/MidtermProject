@@ -78,14 +78,14 @@
 									</form>
 								<br>
 								 
-								<td>
+							<%-- 	<td>
 								<form action="removeReview.do">
 										<input type="hidden" name="custId"
 											value="${review.id.customerId}" /> <input type="hidden"
 											name="wineId" value="${review.id.wineId}" />
 										<button type="submit">Delete Review</button>
 									</form>
-									</td>
+									</td> --%>
 							<%-- 	<td><form action="getAllReviewsUpdated.do">
 										<input type="hidden" name="custId"
 											value="${review.id.customerId}" /> <input type="hidden"

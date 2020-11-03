@@ -339,8 +339,9 @@ public class CustomerController {
 	@RequestMapping(path ="listAllCustomerOrders.do", method = RequestMethod.GET)
 	public String listAllCustomerOrders(HttpSession session, Model model) {
 		Customer customer = (Customer) session.getAttribute("customer");
-		List<CustomerOrder> orders = customer.getCustomerOrders();
+		List<CustomerOrder> orders = custDAO.getCustomerOrders(customer.getId());
 		model.addAttribute("orders", orders);
+		
 		return "orderhistory";
 	}
 	

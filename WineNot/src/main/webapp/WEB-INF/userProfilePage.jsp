@@ -16,34 +16,6 @@
 </head>
 <body>
 
-<!-- 	<hr>
-	<div class="container">
-
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="#">LOGO HERE</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active"><a href="homePage.do" href="#">Home
-							<span class="sr-only">(current)</span>
-					</a></li>&nbsp;&nbsp;&nbsp;
-					<li class="nav-item"><a href="ContactPage.jsp"> Contact us
-					</a></li>
-				</ul>
-				<form class="form-inline my-2 my-lg-0">
-					<input class="form-control mr-sm-2" type="search"
-						placeholder="Search" aria-label="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-				</form>
-			</div>
-		</nav> -->
-		
 		<hr>
     <div class ="container">
 
@@ -81,13 +53,7 @@
 			</div>
 		</nav>
 		<hr>
-		<!-- <div class="text-center">
-			<img src="https://content.codecademy.com/courses/freelance-1/unit-2/explorer.jpeg" /> -->
-			<!-- #Imageid img{
-			max-width: 72%;
-			max-height: 22%;
-			} -->
-		<!-- </div> -->
+	
 		<hr>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light"><h5>User Information</h5></nav>
 		<p>
@@ -185,13 +151,13 @@
 <ul class="navbar-nav mr-auto">
 
 	<li class="nav-item">
-		<a class="nav-link" href="favoritesList.do?id=1#">Favorites List</a>
+		<a class="nav-link" href="favoritesList.do">Favorites List</a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link" href="listAllCustomerOrders.do?id=1#">Order History</a>
+		<a class="nav-link" href="listAllCustomerOrders.do">Order History</a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link" href="getAllReviews.do?id=1#">Past Reviews</a> <!-- Unsure of this -->
+		<a class="nav-link" href="getAllReviews.do">Past Reviews</a> <!-- Unsure of this -->
 	</li>
 <li class="nav-item">
 		<a class="nav-link" href="updateAddressForm.do?id=1#">Update Address</a> 
@@ -205,6 +171,7 @@
 		<li class="nav-item">
 			<a class="nav-link" href="deleteUser.do?id=1#">Delete Account</a>
 			
+			<a class="nav-link" href="deleteUser.do">Delete Account</a>
 		</li>
 	</ul>
 </form>
