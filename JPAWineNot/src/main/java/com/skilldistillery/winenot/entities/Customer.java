@@ -157,6 +157,7 @@ public class Customer {
 			wine.addCustomer(this);
 		}
 	}
+	
 	public void removeWineToFavorites(Wine wine) {
 		if (wines != null && wines.contains(wine)) {
 			wines.remove(wine);

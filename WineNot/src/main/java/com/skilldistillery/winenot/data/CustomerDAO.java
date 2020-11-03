@@ -17,5 +17,6 @@ public interface CustomerDAO {
 	List<Wine> getCustomerFavorites(int id);
 	List<CustomerOrder> getCustomerOrders(int id);
 	List<Review> getCustomerReviews(int id);
+	List<Wine> addWineToFavorites(int id, int wid);
 	
 }
