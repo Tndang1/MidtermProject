@@ -35,17 +35,17 @@
 						<a class="nav-link" href="createUserForm.do">Log In <i class='fas fa-sign-in-alt'></i></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="checkout.do?customerOrderId=1#">Order Wine <i class='fas fa-shopping-cart'></i></a>
+						<a class="nav-link" href="checkout.do?customerOrderId=${customerId}#">Order Wine <i class='fas fa-shopping-cart'></i></a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="wineList.do">Wine Cellar <i class='fas fa-wine-glass' style='font-size:18px;color:red'></i></a>
 					</li>
 					
 					<li class="nav-item">
-						<a class="nav-link" href="updateUserForm.do?id=1#">Account Profile <i class='fas fa-address-card'></i></a>
+						<a class="nav-link" href="updateUserForm.do?id=${customerId}#">Account Profile <i class='fas fa-address-card'></i></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="favoritesList.do?id=1#">Favorites List <i class='fas fa-list-alt'></i></a>
+						<a class="nav-link" href="favoritesList.do?id=${customerId}#">Favorites List <i class='fas fa-list-alt'></i></a>
 					</li>
 			
 				</ul>

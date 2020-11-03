@@ -77,7 +77,7 @@
 
 <form action = "addWineReview.do">
 	
-	<input type = "hidden" name = "custId" value = "1">
+	<input type = "hidden" name = "custId" value = "${customerId}">
 	<input type = "hidden" name = "wineId" value = "${wineId}">
 	Review: <input type ="text" name = "review"><br>
 	<br>
