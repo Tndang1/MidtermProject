@@ -52,7 +52,46 @@
 			</div>
 		</nav>
 		<hr>
-<h1>Update Your Review:</h1>		
+<h1>Update Your Review:</h1>	
+
+					<form action="getAllUpdatedReviews.do">
+					 <label for="reviews">  Update Review Content:</label>
+										<input type="hidden"
+											name="wineId" value="${wineId}" /> 
+											<input type="hidden"
+											name="custId" value="${custId}" />
+											
+											<input type="hidden"
+											name="reviews" value="${review.review}" /><input
+											type="text" name="reviewUpdate"><br>
+										
+									<label for="rating">Update Review Rating:</label>
+										 <input
+											type="number" name="rating" value="${review.rating }"><br>
+										
+									<label for="image">Update Review Image:</label>
+										 <input
+											type="text" name="image"><br>
+										
+										<button type="submit" >Submit</button><br>
+										
+									</form>
+								<br>
+								 
+								<td>
+								<form action="removeReview.do">
+										<input type="hidden" name="custId"
+											value="${review.id.customerId}" /> <input type="hidden"
+											name="wineId" value="${review.id.wineId}" />
+										<button type="submit">Delete Review</button>
+									</form>
+									</td>
+							<%-- 	<td><form action="getAllReviewsUpdated.do">
+										<input type="hidden" name="custId"
+											value="${review.id.customerId}" /> <input type="hidden"
+											<name="wineId" value="${review.id.wineId}" /> 
+									</form></td> 
+										 --%>
 		
 		
 		

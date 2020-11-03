@@ -9,6 +9,10 @@
 	crossorigin="anonymous">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+	crossorigin="anonymous">
 <meta charset="UTF-8">
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
@@ -67,17 +71,16 @@
 		<h1>Your Reviews:</h1>
 
 		<div class="container-fluid">
-			<table>
+			<table class="table table-stripped table-hover">
 
-			<!-- 	<ul> -->
-				<%-- 	<c:forEach items="${reviews}" var="reviews">
-						<li>${reviews.id } ${reviews.rating } ${reviews.review}</li> --%>
 
 						<tr>
 						<th>Image</th>
 						<th>Wine Name</th>
-						<th>Rating</th><br>
-						<th>Review</th>
+						<th>Rating</th><br><br>
+						<th>Review</th><br>
+						<th>Delete</th>
+						<th>Update</th>
 						</tr>
 						<c:forEach items="${reviews}" var="review">
 							<tr>
@@ -86,7 +89,7 @@
 										<td><img src="${review.image}"
 											alt="${review.wine.labelName}"
 											style="width: 50px; height: 50px;">
-											<!-- style="width: 50%; height: 50%;" -->
+											
 									</c:when>
 									<c:otherwise>
 										<td>No image uploaded! Link an image from imgur or
@@ -98,7 +101,7 @@
 								
 								<td>${review.rating}</td>
 								<td>${review.review}</td>
-								 <td>
+								 <%-- <td>
 									<form action="updateReviewReview.do">
 										<input type="hidden" name="custId"
 											value="${review.id.customerId}" /> <input type="hidden"
@@ -120,21 +123,28 @@
 											type="text" name="image">
 										<button type="submit">Update Review Image</button>
 									</form>
-								 </td> 
+								 </td>  --%>
 								<td><form action="removeReview.do">
 										<input type="hidden" name="custId"
 											value="${review.id.customerId}" /> <input type="hidden"
 											name="wineId" value="${review.id.wineId}" />
 										<button type="submit">Delete Review</button>
 									</form></td>
+							
+								<td><form action="getUpdatedReviewOfWines.do">
+										<input type="hidden" name="custId"
+											value="${review.id.customerId}" /> <input type="hidden"
+											name="wineId" value="${review.id.wineId}" />
+										<button type="submit">Update Review of Wine</button>
+									</form></td>
 							</tr>
 						</c:forEach>
 					
-				<!-- </ul> -->
+			
 			</table>
 		</div> 
 	</div>
-
+<br>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>

@@ -105,6 +105,9 @@ public class CustomerOrderController {
 	@RequestMapping(path = "create.do", method = RequestMethod.POST)
 	public ModelAndView createCustomerOrder(HttpSession session, CustomerOrder order, Integer custId, Integer wineColor, RedirectAttributes ra) {
 		Customer customer = (Customer)session.getAttribute("customer");
+  	customer.getAddress();
+		customer.getPaymentInfo();
+
 		LocalDateTime now = LocalDateTime.now();
 		if (order.getSize() == 12) {
 			order.setAmount(220.99);
@@ -123,6 +126,8 @@ public class CustomerOrderController {
 		}
 		CustomerOrder addOrder = custOrderDAO.create(order);
 		ModelAndView mv = new ModelAndView();
+		ra.addFlashAttribute("addressInfo", customer.getAddress());
+		ra.addFlashAttribute("paymentInfo", customer.getPaymentInfo());
 		ra.addFlashAttribute("order", addOrder);
 		mv.setViewName("redirect:orderMade.do");
 
