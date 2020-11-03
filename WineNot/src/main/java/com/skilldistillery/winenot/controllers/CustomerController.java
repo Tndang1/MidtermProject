@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -79,7 +81,7 @@ public class CustomerController {
 		return "createNewAccount";
 	}
 	@RequestMapping(path = "createCustomer.do", method = RequestMethod.POST)
-	public String createNewAccount(Model model, User user, String date, String firstName, String lastName) {
+	public String createNewAccount(HttpSession session, Model model, User user, String date, String firstName, String lastName) {
 		User newUser = userDAO.createUser(user);
 		Customer customer = new Customer();
 		customer.setUser(newUser);
@@ -94,46 +96,53 @@ public class CustomerController {
 		customer.setCreateDate(createDate);
 		customer = custDAO.createCustomer(customer);
 		model.addAttribute("newAccount", newUser);
-		
+		if (session.getAttribute("customer") == null) {
+		session.setAttribute("customer", customer);
+		}
 		return "createNewAccount";
 	}
 
 	@RequestMapping(path = "updateUserForm.do")
-	public String updateUsernameById(Model model, int id) {
-		User updateUser = userDAO.getUserById(id);
+	public String updateUsernameById(HttpSession session, Model model) {
+		Customer customer = (Customer) session.getAttribute("customer");
+		User updateUser = userDAO.getUserById(customer.getId());
 		model.addAttribute("user", updateUser);
 		return "userProfilePage";
 	}
 	@RequestMapping(path = "updateUsernameForm.do")
-	public String updateUsername(Model model, int id, String username) {
-		User updateUser = userDAO.getUserById(id);
+	public String updateUsername(HttpSession session, Model model, String username) {
+		Customer customer = (Customer) session.getAttribute("customer");
+		User updateUser = userDAO.getUserById(customer.getId());
 		updateUser.setUsername(username);
-		userDAO.updateUser(id, updateUser);
+		userDAO.updateUser(customer.getId(), updateUser);
 		model.addAttribute("user", updateUser);
 		return "userProfilePage";
 	}
 
 	@RequestMapping(path = "updatePasswordForm.do")
-	public String updatePass(Model model, int id, String pass) {
-		User updateUser = userDAO.getUserById(id);
+	public String updatePass(HttpSession session, Model model, String pass) {
+		Customer customer = (Customer) session.getAttribute("customer");
+		User updateUser = userDAO.getUserById(customer.getId());
 		updateUser.setPassword(pass);
-		userDAO.updateUser(id, updateUser);
+		userDAO.updateUser(customer.getId(), updateUser);
 		model.addAttribute("user", updateUser);
 		return "userProfilePage";
 	}
 
 	@RequestMapping(path = "updateEmailForm.do")
-	public String updateEmail(Model model, int id, String email) {
-		User updateUser = userDAO.getUserById(id);
+	public String updateEmail(HttpSession session, Model model, String email) {
+		Customer customer = (Customer) session.getAttribute("customer");
+		User updateUser = userDAO.getUserById(customer.getId());
 		updateUser.setEmail(email);
-		userDAO.updateUser(id, updateUser);
+		userDAO.updateUser(customer.getId(), updateUser);
 		model.addAttribute("user", updateUser);
 		return "userProfilePage";
 	}
 
 	@RequestMapping(path = "deleteUser.do")
-	public String deleteUser(int id, Model model) {
-		if (custDAO.deleteCustomer(id)) {
+	public String deleteUser(HttpSession session, Model model) {
+		Customer customer = (Customer) session.getAttribute("customer");
+		if (custDAO.deleteCustomer(customer.getId())) {
 			model.addAttribute("deleteResult", "Customer Account deleted");
 		}
 
@@ -147,13 +156,15 @@ public class CustomerController {
 	// ADDRESS FORMS =================
 
 	@RequestMapping(path = "createAddressForm.do", method = RequestMethod.GET)
-	public String CreateAddressForm(Address Address) {
+	public String CreateAddressForm(HttpSession session, Address Address) {
+		Customer customer = (Customer) session.getAttribute("customer");
 
 		return "address";
 	}
 
 	@RequestMapping(path = "createAddress.do", method = RequestMethod.POST)
-	public String createAddress(Address address, Model model) {
+	public String createAddress(HttpSession session, Address address, Model model) {
+		Customer customer = (Customer) session.getAttribute("customer");
 		model.addAttribute("newAddress", addrDAO.createAddress(address));
 
 		return "address";
@@ -162,28 +173,30 @@ public class CustomerController {
 	// PAYMENT FORMS =================
 
 	@RequestMapping(path = "createPaymentInfoForm.do", method = RequestMethod.GET)
-	public String createPayInfoForm(PaymentInfo payInfo) {
+	public String createPayInfoForm(HttpSession session, PaymentInfo payInfo) {
+		Customer customer = (Customer) session.getAttribute("customer");
 
-		return "folder/newPayInfoForm";
+		return "payment";
 	}
 
 	@RequestMapping(path = "createPaymentInfo.do", method = RequestMethod.POST)
-	public String createPayInfo(PaymentInfo payInfo, Model model) {
+	public String createPayInfo(HttpSession session, PaymentInfo payInfo, Model model) {
+		Customer customer = (Customer) session.getAttribute("customer");
 		model.addAttribute("newUser", payInfoDAO.create(payInfo));
 
-		return "folder/userProfilePage";
+		return "payment";
 	}
 
 	// REVIEW FORMS =====================
 
 	@RequestMapping(path = "createReviewForm.do", method = RequestMethod.GET)
-	public String createReviewForm(Review review) {
+	public String createReviewForm(HttpSession session, Review review) {
 
 		return "folder/reviewsForm";
 	}
 
 	@RequestMapping(path = "createReview.do", method = RequestMethod.POST)
-	public String createReview(Review review, Model model) {
+	public String createReview(HttpSession session, Review review, Model model) {
 		model.addAttribute("review", rviewDAO.createReview(review));
 
 		return "folder/userProfilePage";
@@ -196,38 +209,58 @@ public class CustomerController {
 //		model.addAttribute("reviews", listReviews);
 //		
 	@RequestMapping(path = "getAllReviews.do", method = RequestMethod.GET)
-	public String getAllReviews(Model model, int id) {
-		List<Review> reviews = custDAO.getCustomerReviews(id);
+	public String getAllReviews(HttpSession session, Model model) {
+		Customer customer = (Customer) session.getAttribute("customer");
+		List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
 		model.addAttribute("reviews", reviews);
 		return "myReviews";
 	}
+	@RequestMapping(path = "getUpdatedReviewOfWines.do", method = RequestMethod.GET)
+	public String getUpdatedReviewOfWiines(HttpSession session, Model model) {
+		Customer customer = (Customer) session.getAttribute("customer");
+		List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
+		model.addAttribute("reviews", reviews);
+		return "updateReviewWine";
+	}
 	
 	@RequestMapping(path = "removeReview.do", method = RequestMethod.GET)
-	public String removeReview(Model model, int custId, int wineId) {
-		Boolean deleted = rviewDAO.deleteReview(custId, wineId);
+	public String removeReview(HttpSession session, Model model, int wineId) {
+		Customer customer = (Customer) session.getAttribute("customer");
+		Boolean deleted = rviewDAO.deleteReview(customer.getId(), wineId);
+		List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
+		model.addAttribute("reviews", reviews);
 		model.addAttribute("deleted", deleted);
 		return "myReviews";
 	}
 	
 	@RequestMapping(path = "updateReviewReview.do", method = RequestMethod.GET)
-	public String updateReviewReview(Model model, int custId, int wineId, String reviewUpdate) {
-		Review review = rviewDAO.getReviewByCustomerAndWineId(custId, wineId);
+	public String updateReviewReview(HttpSession session, Model model, int wineId, String reviewUpdate) {
+		Customer customer = (Customer) session.getAttribute("customer");
+		Review review = rviewDAO.getReviewByCustomerAndWineId(customer.getId(), wineId);
 		review.setReview(reviewUpdate);
-		rviewDAO.updateReview(custId, wineId, review);
+		rviewDAO.updateReview(customer.getId(), wineId, review);
+		List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
+		model.addAttribute("reviews", reviews);
 		return "myReviews";
 	}
 	@RequestMapping(path = "updateReviewRating.do", method = RequestMethod.GET)
-	public String updateReviewRating(Model model, int custId, int wineId, int rating) {
-		Review review = rviewDAO.getReviewByCustomerAndWineId(custId, wineId);
+	public String updateReviewRating(HttpSession session, Model model, int wineId, int rating) {
+		Customer customer = (Customer) session.getAttribute("customer");
+		Review review = rviewDAO.getReviewByCustomerAndWineId(customer.getId(), wineId);
 		review.setRating(rating);
-		rviewDAO.updateReview(custId, wineId, review);
+		rviewDAO.updateReview(customer.getId(), wineId, review);
+		List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
+		model.addAttribute("reviews", reviews);
 		return "myReviews";
 	}
 	@RequestMapping(path = "updateReviewImage.do", method = RequestMethod.GET)
-	public String updateReviewImage(Model model, int custId, int wineId, String image) {
-		Review review = rviewDAO.getReviewByCustomerAndWineId(custId, wineId);
+	public String updateReviewImage(HttpSession session, Model model, int wineId, String image) {
+		Customer customer = (Customer) session.getAttribute("customer");
+		Review review = rviewDAO.getReviewByCustomerAndWineId(customer.getId(), wineId);
 		review.setImage(image);
-		rviewDAO.updateReview(custId, wineId, review);
+		rviewDAO.updateReview(customer.getId(), wineId, review);
+		List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
+		model.addAttribute("reviews", reviews);
 		return "myReviews";
 	}
 	
@@ -235,17 +268,18 @@ public class CustomerController {
 	// FAVORITES FORMS ===================
 	
 	@RequestMapping(path = "favoritesList.do")
-	public String getFavorites(Model model, Integer id) {
-		List<Wine> cust = custDAO.getCustomerFavorites(id);
+	public String getFavorites(HttpSession session, Model model, Integer id) {
+		Customer customer = (Customer) session.getAttribute("customer");
+		List<Wine> cust = custDAO.getCustomerFavorites(customer.getId());
 		model.addAttribute("favList", cust);
 		
 		return "favorites";
 	}
 	
 	@RequestMapping(path = "addToFavoritesList.do")
-	public String addToFavorites(Model model, Integer id, Integer wid) {
-		
-		List<Wine> cust = custDAO.addWineToFavorites(id, wid);
+	public String addToFavorites(HttpSession session, Model model, Integer id, Integer wid) {
+		Customer customer = (Customer) session.getAttribute("customer");
+		List<Wine> cust = custDAO.addWineToFavorites(customer.getId(), wid);
 		model.addAttribute("favList", cust);
 		
 		return "favorites";
@@ -254,8 +288,8 @@ public class CustomerController {
 	
 	//ORDER FORMS ========================
 	@RequestMapping(path ="listAllCustomerOrders.do", method = RequestMethod.GET)
-	public String listAllCustomerOrders(Model model, int id) {
-		Customer customer = custDAO.getCustomerById(id);
+	public String listAllCustomerOrders(HttpSession session, Model model, int id) {
+		Customer customer = (Customer) session.getAttribute("customer");
 		List<CustomerOrder> orders = customer.getCustomerOrders();
 		model.addAttribute("orders", orders);
 		return "orderhistory";
@@ -263,14 +297,16 @@ public class CustomerController {
 	
 	//Login in
 	@RequestMapping(path="checkCredentials.do", method = RequestMethod.GET)
-	public String checkCredentials(Model model, String email, String password) {
+	public String checkCredentials(HttpSession session, Model model, String email, String password) {
 		Customer customer = custDAO.verifyLogin(email, password);
 		if (customer == null) {
 			String failure = "Invalid login credentials, try again or create and account.";
 			model.addAttribute("failure", failure);
 			return "LogIn";
 		}
-		model.addAttribute("customer", customer);
+		if (session.getAttribute("customer") == null) {
+		session.setAttribute("customer", customer);
+		}
 		model.addAttribute("customerId", customer.getId());
 		return "homePage";
 	}

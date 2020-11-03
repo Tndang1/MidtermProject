@@ -61,15 +61,15 @@
 		<form action="create.do" method="POST">
 			<div class="form-check"> Flavor of Wine: <br> 
 				<input type="hidden" value="1" name="custId">
-				<input class="form-check-input" type="checkbox" value="1" id="id" name = "wineColor"> 
+				<input class="form-check-input" type="radio" value="1" id="id" name = "wineColor"> 
 				<label class="form-check-label" for="id"> Red </label>
 			</div>
 			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value="2" id="id" name = "wineColor">
+				<input class="form-check-input" type="radio" value="2" id="id" name = "wineColor">
 				<label class="form-check-label" for="id"> White </label>
 			</div>
 			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value="3" id="id" name = "wineColor">
+				<input class="form-check-input" type="radio" value="3" id="id" name = "wineColor">
 				<label class="form-check-label" for="id"> Rose </label>
 			</div>
 			<br>
@@ -158,12 +158,12 @@
 			
 			<div class="form-check">Quantity: <br> 
 				<input type ="hidden" value="129.99" name ="amount"> 
-				<input class="form-check-input" type="checkbox" value="6" id="id" name = "size"> 
+				<input class="form-check-input" type="radio" value="6" id="id" name = "size"> 
 				
 				<label class="form-check-label" for="id"> 6 <strong>Amount: $129.99</strong> </label> 
 			</div>
 			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value="12" id="id" name = "size">
+				<input class="form-check-input" type="radio" value="12" id="id" name = "size">
 				<label class="form-check-label" for="id"> 12 <strong>Amount: $220.99</strong> </label>
 			</div>
 
@@ -233,7 +233,6 @@
 			
 			 <br>
 				<input class="btn btn-primary" type="submit" value="Add to Cart">
-				<!-- <div><a href="createAddressForm.do" ></a></div> -->
 		</form>
 		
 			<p>

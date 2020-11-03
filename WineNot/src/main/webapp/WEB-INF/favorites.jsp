@@ -35,24 +35,24 @@
 						<a class="nav-link" href="createUserForm.do">Log In <i class='fas fa-sign-in-alt'></i></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="checkout.do?customerOrderId=1#">Order Wine <i class='fas fa-shopping-cart'></i></a>
+						<a class="nav-link" href="checkout.do?customerOrderId=${customerId}#">Order Wine <i class='fas fa-shopping-cart'></i></a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="wineList.do">Wine Cellar <i class='fas fa-wine-glass' style='font-size:18px;color:red'></i></a>
 					</li>
 					
 					<li class="nav-item">
-						<a class="nav-link" href="updateUserForm.do?id=1#">Account Profile <i class='fas fa-address-card'></i></a>
+						<a class="nav-link" href="updateUserForm.do?id=${customerId}#">Account Profile <i class='fas fa-address-card'></i></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="favoritesList.do?id=1#">Favorites List <i class='fas fa-list-alt'></i></a>
+						<a class="nav-link" href="favoritesList.do?id=${customerId}#">Favorites List <i class='fas fa-list-alt'></i></a>
 					</li>
 			
 				</ul>
 			
 			</div>
 		</nav>
-		<form class="form-inline">
+<!-- 		<form class="form-inline">
   <div class="form-group mb-2">
     <label for="staticEmail2" class="sr-only">Email</label>
     <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="email@example.com">
@@ -62,16 +62,18 @@
     <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
   </div>
   <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
-</form>
+</form> -->
     <hr>
-    <h1>WineNot </h1>   <form action="findWineName.do" method="GET">Search By Wine Name: <input type="text" name="labelName"/>
+<!--     <h1>WineNot </h1>   <form action="findWineName.do" method="GET">Search By Wine Name: <input type="text" name="labelName"/>
 					<input type = "submit" value="Wine Name"/>
 				
 				</form>
-    <hr>
+    <hr> -->
 
 <!-- End of the Navigation bar  -->
 <!-- Need to figure out a way to view show jsp directly on page without having to go back and forth between pages.  -->
+<h1>Favorites List:</h1>
+
 <c:forEach items="${favList }" var="w">
 		<a href="getWine.do?wid=${w.id }">${w.labelName}</a>
 		<br>

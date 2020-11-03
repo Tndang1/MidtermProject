@@ -2,6 +2,8 @@ package com.skilldistillery.winenot.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.skilldistillery.winenot.data.CustomerDAO;
 import com.skilldistillery.winenot.data.ReviewDAO;
 import com.skilldistillery.winenot.data.WineDAO;
+import com.skilldistillery.winenot.entities.Customer;
 import com.skilldistillery.winenot.entities.Review;
 import com.skilldistillery.winenot.entities.ReviewId;
 import com.skilldistillery.winenot.entities.Wine;
@@ -147,8 +150,9 @@ public class WineController {
 	
 	//add review
 	@RequestMapping(path = "addAReview.do")
-	public String addAReview(Model model, Integer custId, Integer wineId) {
-		model.addAttribute("custId", custId);
+	public String addAReview(HttpSession session, Model model, Integer custId, Integer wineId) {
+		Customer customer = (Customer)session.getAttribute("customer");
+		model.addAttribute("custId", customer.getId());
 		model.addAttribute("wineId", wineId);
 		Wine wine = wineDao.findWineById(wineId);
 		model.addAttribute("wine", wine);
@@ -158,17 +162,18 @@ public class WineController {
 	}
 	
 	@RequestMapping(path = "addWineReview.do")
-	public String submitWineReview(Model model, Integer custId, Integer wineId, String review, Integer rating, String image) {
-		ReviewId id = new ReviewId(custId, wineId);
+	public String submitWineReview(HttpSession session, Model model, Integer custId, Integer wineId, String review, Integer rating, String image) {
+		Customer customer = (Customer)session.getAttribute("customer");
+		ReviewId id = new ReviewId(customer.getId(), wineId);
 		Review newReview = new Review();
 		newReview.setId(id);
-		newReview.setCustomer(customerDao.getCustomerById(custId));
+		newReview.setCustomer(customerDao.getCustomerById(customer.getId()));
 		newReview.setWine(wineDao.findWineById(wineId));
 		newReview.setReview(review);
 		newReview.setRating(rating);
 		newReview.setImage(image);
 		reviewDao.createReview(newReview);
-		List<Review> reviews = customerDao.getCustomerReviews(custId);
+		List<Review> reviews = customerDao.getCustomerReviews(customer.getId());
 		model.addAttribute("reviews", reviews);
 		return "myReviews";
 	}

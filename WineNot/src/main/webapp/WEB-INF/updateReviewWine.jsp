@@ -12,10 +12,10 @@
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-<title>${wine.labelName}, ${wine.vintageYear}.</title>
+<title>Update Reviews of Wine</title>
 </head>
 <body>
- <hr>
+<hr>
    <div class ="container">
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -52,50 +52,51 @@
 			</div>
 		</nav>
 		<hr>
-    <img src="${wine.image}" alt="${wine.labelName} ${wine.vineyard} ${wine.vintageYear}" style="width:128px;height:256px;">
-	<!-- Replace style size limits with CSS -->
-	<p>
-	<ul>
-		<li><strong>Label Name: </strong>${wine.labelName}</li>
-		<li><strong>Vineyard: </strong>${wine.vineyard}</li>
-		<li><strong>Vintage Year: </strong>${wine.vintageYear}</li>
-		<li><strong>Color: </strong>${wine.wineColor.wineColor}</li>
-		<li><strong>Type: </strong>${wine.wineType.wineType}</li>
-		<li><strong>Flavor: </strong>${wine.flavor}</li>
-		<li><strong>Dietary: </strong>${wine.dietary}</li>
-		<li><strong>Description: </strong>${wine.description}</li>
-		<li><strong>Pairs with: </strong>${wine.pairs}</li>
-		<li><strong>Review: </strong>${review.review}</li>
+<h1>Update Your Review:</h1>	
+
+					<form action="updateReviewReview.do">
+										<input type="hidden" name="custId"
+											value="${review.id.customerId}" /> <input type="hidden"
+											name="wineId" value="${review.id.wineId}" /> <input
+											type="text" name="reviewUpdate">
+										<button type="submit">Update Review Content</button>
+									</form>
+									<form action="updateReviewRating.do">
+										<input type="hidden" name="custId"
+											value="${review.id.customerId}" /> <input type="hidden"
+											name="wineId" value="${review.id.wineId}" /> <input
+											type="number" name="rating">
+										<button type="submit">Update Review Rating</button>
+									</form>
+									<form action="updateReviewImage.do">
+										<input type="hidden" name="custId"
+											value="${review.id.customerId}" /> <input type="hidden"
+											name="wineId" value="${review.id.wineId}" /> <input
+											type="text" name="image">
+										<button type="submit">Update Review Image</button>
+									</form>
+								 </td> 
+								<td><form action="removeReview.do">
+										<input type="hidden" name="custId"
+											value="${review.id.customerId}" /> <input type="hidden"
+											name="wineId" value="${review.id.wineId}" />
+										<button type="submit">Delete Review</button>
+									</form></td>	
 		
-		<p>
-		<%-- <form action="addWineToOrder.do" method="GET">
-			<input type="hidden" name="id" value="${custOrder.id}"/>
-			<input type="hidden" name="wine" value="${wine}"/>
-			<button type="submit">Add To Cart</button>
-		</form> --%>
-		<form action="addToFavoritesList.do" method="GET">
-			<input type="hidden" name="id" value="${customer.id}"/>
-			<input type="hidden" name="wid" value="${wine.id}"/>
-			<button type="submit">Add To Favorites!</button>
-		</form>
 		
-		<form action="addAReview.do" method="GET">
-			<input type="hidden" name="custId" value="${customer.id}"/>
-			<input type="hidden" name="wineId" value="${wine.id}"/>
-			<button type="submit">Review this wine.</button>
-		</form>
-		</p>
-	</ul>
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
-		integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
-		crossorigin="anonymous"></script>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
 </html>
