@@ -73,20 +73,29 @@
 			<input type="hidden" name="wine" value="${wine}"/>
 			<button type="submit">Add To Cart</button>
 		</form> --%>
+		<c:choose>
+		<c:when test = "${customer != null }">
 		<form action="addToFavoritesList.do" method="GET">
 			<input type="hidden" name="id" value="${customer.id}"/>
 			<input type="hidden" name="wid" value="${wine.id}"/>
-		<%-- 	<c:if test = "${customerId != null }">
-			
-			</c:if> --%>
 			<button type="submit">Add To Favorites!</button>
+			
 		</form>
-		
 		<form action="addAReview.do" method="GET">
 			<input type="hidden" name="custId" value="${customer.id}"/>
 			<input type="hidden" name="wineId" value="${wine.id}"/>
 			<button type="submit">Review this wine.</button>
 		</form>
+		</c:when>					 
+		<c:otherwise>
+		<form action="checkCredentials.do" method="GET">
+			<button name="logIn" type="submit">Please LogIn</button>
+		</form>
+		</c:otherwise>
+			
+			
+		</c:choose>
+		
 		</p>
 	</ul>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

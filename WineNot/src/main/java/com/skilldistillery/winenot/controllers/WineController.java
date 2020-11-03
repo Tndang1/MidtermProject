@@ -41,8 +41,9 @@ public class WineController {
 	}
 	//search by Wine ID
 	@RequestMapping(path = "getWine.do", method = RequestMethod.GET)
-	public String showWineId(Integer wid, Model model) {
+	public String showWineId(HttpSession session,Integer wid, Model model) {
 		Wine wine = wineDao.findWineById(wid);
+		Customer customer = (Customer) session.getAttribute("customer");
 		List<Review> reviews = wine.getReviews();
 		if(reviews.size() > 0) {
 		model.addAttribute("review", reviews.get((int)(Math.random() * (reviews.size()-1))));
