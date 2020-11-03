@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -100,8 +102,8 @@ public class CustomerOrderController {
 //  Create Order==============================================================
 
 	@RequestMapping(path = "create.do", method = RequestMethod.POST)
-	public ModelAndView createCustomerOrder(CustomerOrder order, Integer custId, Integer wineColor, RedirectAttributes ra) {
-		Customer customer = custDAO.getCustomerById(custId);
+	public ModelAndView createCustomerOrder(HttpSession session, CustomerOrder order, Integer custId, Integer wineColor, RedirectAttributes ra) {
+		Customer customer = (Customer)session.getAttribute("customer");
 		LocalDateTime now = LocalDateTime.now();
 		if (order.getSize() == 12) {
 			order.setAmount(220.99);
@@ -118,7 +120,6 @@ public class CustomerOrderController {
 		for(int i = 0; i < order.getSize(); i++) {
 			order.addWine(wines.get(i));
 		}
-		
 		CustomerOrder addOrder = custOrderDAO.create(order);
 		ModelAndView mv = new ModelAndView();
 		ra.addFlashAttribute("order", addOrder);
