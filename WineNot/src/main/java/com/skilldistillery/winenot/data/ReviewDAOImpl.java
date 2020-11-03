@@ -31,7 +31,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 	}
 
 	@Override
-	public List<Review> getAllReviews(ReviewId id) {
+	public List<Review> getAllReviews() {
 		String jpql = "Select r FROM Review r";
 		List<Review> reviews = em.createQuery(jpql, Review.class).getResultList();
 		return reviews;
