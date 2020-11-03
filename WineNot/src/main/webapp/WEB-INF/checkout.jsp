@@ -235,7 +235,7 @@
 				<input class="btn btn-primary" type="submit" value="Add to Cart">
 		</form>
 		
-			<p>
+<%-- 			<p>
 		<table>
 			<tr>
 				<th>Shipping Details</th>
@@ -265,7 +265,7 @@
 			Date: ${paymentInfo.exprDate.month} ${paymentInfo.exprDate.year} <br>
 		</p>
 		
-
+ --%>
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 			crossorigin="anonymous"></script>
