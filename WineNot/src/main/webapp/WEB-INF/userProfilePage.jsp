@@ -16,34 +16,6 @@
 </head>
 <body>
 
-<!-- 	<hr>
-	<div class="container">
-
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="#">LOGO HERE</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active"><a href="homePage.do" href="#">Home
-							<span class="sr-only">(current)</span>
-					</a></li>&nbsp;&nbsp;&nbsp;
-					<li class="nav-item"><a href="ContactPage.jsp"> Contact us
-					</a></li>
-				</ul>
-				<form class="form-inline my-2 my-lg-0">
-					<input class="form-control mr-sm-2" type="search"
-						placeholder="Search" aria-label="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-				</form>
-			</div>
-		</nav> -->
-		
 		<hr>
     <div class ="container">
 
@@ -81,13 +53,7 @@
 			</div>
 		</nav>
 		<hr>
-		<!-- <div class="text-center">
-			<img src="https://content.codecademy.com/courses/freelance-1/unit-2/explorer.jpeg" /> -->
-			<!-- #Imageid img{
-			max-width: 72%;
-			max-height: 22%;
-			} -->
-		<!-- </div> -->
+	
 		<hr>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light"><h5>User Information</h5></nav>
 		<p>
@@ -104,7 +70,7 @@
 			</form></tr>
 			<tr>Password: <td>${user.password }</td> <form action= "updatePasswordForm.do">
 			${user.password }
-			<input type= "hidden" name="pass" value="${user.password }"/>
+			<input type= "text" name="pass" value=" "/>
 			<button type= "submit">Change Password</button>
 			</form></tr><br><br>
 			
@@ -136,27 +102,17 @@
 		
 		<br>
 		<br>
-		
 
 			<form>
 			<nav class="navbar navbar-expand-lg navbar-light bg-light"></t>Address Information</nav><br>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="inputPassword4">
-    </div>
+  </div> <form action= "updateAddressForm.do">
+  <div class="form-group">
+    <label for="inputAddress">Street</label>
+    <input type="text" class="form-control" name="inputAddress" value="${address.street }">
   </div>
   <div class="form-group">
-    <label for="inputAddress">Address</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-  </div>
-  <div class="form-group">
-    <label for="inputAddress2">Address 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <label for="inputAddress2">Street 2</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="${address.street2 }">
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -179,7 +135,6 @@
   </div>
 </form>
 
-
 <form>
 <ul class="navbar-nav mr-auto">
 
@@ -192,6 +147,10 @@
 	<li class="nav-item">
 		<a class="nav-link" href="getAllReviews.do">Past Reviews</a> <!-- Unsure of this -->
 	</li>
+<li class="nav-item">
+		<a class="nav-link" href="updateAddressForm.do?id=1#">Update Address</a> 
+		<!-- <button href="updateAddressForm.do?id=1#" type="submit">Update Address</button> -->
+	</li>
 	<li class="nav-item">
 		<a class="nav-link" href="createPaymentInfoForm.do">Payment Info</a> <!-- Unsure of this -->
 	</li>
@@ -202,6 +161,8 @@
 	<ul class="navbar-nav mr-auto">
 
 		<li class="nav-item">
+			<a class="nav-link" href="deleteUser.do?id=1#">Delete Account</a>
+			
 			<a class="nav-link" href="logOutOfAccount.do">LogOut of Account</a>
 		</li>
 	</ul>

@@ -62,49 +62,34 @@
 
 		<div class="container">
 
-			<p>
-				<%-- <tr>Username: <td>${user.username }</td> <form action= "updateUsernameForm.do">
-			${user.username }
-			<input type= "text" name="username" value="${user.username }"/>
-			<button type= "submit">Change Username</button><br>
-			</form></tr>
-			<tr>Email: <td>${user.email }</td> <form action= "updateEmailForm.do">
-			${user.username }
-			<input type= "text" name="email" value="${user.email }"/>
-			<button type= "submit">Change Email</button><br>
-			</form></tr>
-			<tr>Password: <td>${user.password }</td> <form action= "updatePasswordForm.do">
-			${user.password }
-			<input type= "hidden" name="pass" value="${user.password }"/>
-			<button type= "submit">Change Password</button>
-			</form></tr><br><br> --%>
-			<p>Please fill in your address information.</p>
+			
+			<p>Please fill in or update your address information.</p>
 			<hr>
 			<form action="createAddress.do" method=POST>
 				<div>
 					<form:label path="address">Address: </form:label>
 					<input type="text" class="form-control" required="required"
-						name="address" placeholder="Address" />
+						name="address" placeholder="Address" /><br/>
 				</div>
 				<div>
 					<form:label path="address2">Address2: </form:label>
 					<input type="text" class="form-control" name="address2"
-						placeholder="Address2" />
+						placeholder="Address2" /><br/>
 				</div>
 				<div>
 					<form:label path="city">City: </form:label>
 					<input type="text" class="form-control" required="required"
-						name="city" placeholder="City" />
+						name="city" placeholder="City" /><br/>
 				</div>
 				<div>
 					<form:label path="state">State: </form:label>
 					<input type="text" class="form-control" required="required"
-						name="state" placeholder="State" />
+						name="state" placeholder="State" /><br/>
 				</div>
 				<div>
 					<form:label path="zip">Zip: </form:label>
 					<input type="text" class="form-control" required="required"
-						name="zip" placeholder="Zip" />
+						name="zip" placeholder="Zip" /><br/>
 				</div>
 				<button type="submit">Submit</button>
 			</form>
