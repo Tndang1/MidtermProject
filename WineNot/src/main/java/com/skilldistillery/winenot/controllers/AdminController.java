@@ -50,11 +50,16 @@ public class AdminController {
 		model.addAttribute("customer", session.getAttribute("customer"));
 		return "admin";
 	}
-	
 	@RequestMapping(path = "adminWineForm.do", method = RequestMethod.GET)
 	public String addWineForm(HttpSession session, Model model) {
 		model.addAttribute("customer", session.getAttribute("customer"));
-		return "adminAddAWine";
+		return "adminFiles/adminAddAWine";
+	}
+	@RequestMapping(path="adminUpdateWineForm.do", method = RequestMethod.GET)
+	public String updateWineForm(Model model, int wineId) {
+		Wine wine = wDAO.findWineById(wineId);
+		model.addAttribute("wine", wine);
+		return "adminFiles/adminUpdateAWine";
 	}
 	
 	//********Admin review controls***********
@@ -82,16 +87,29 @@ public class AdminController {
 	public String adminDisableWine(Model model, int wineId) {
 		boolean disabled = wDAO.disableWine(wineId);
 		model.addAttribute("disabled", disabled);
-		return null;
+		return "admin";
 	}
 	@RequestMapping(path="adminEnableWine.do", method = RequestMethod.GET)
 	public String adminEnableWine(Model model, int wineId) {
 		boolean enabled = wDAO.enableWine(wineId);
 		model.addAttribute("enabled", enabled);
-		return null;
+		return "admin";
 	}
 	@RequestMapping(path="adminUpdateWine.do", method = RequestMethod.GET)
-	public String adminUpdateWine(Model model, Wine wine) {
+	public String adminUpdateWine(Model model, int wineId, String labelName, String vineyard, Integer vintageYear, String flavor, String dietary, String description, String image, String pairs, Integer wineType, Integer wineColor) {
+		Wine wine = new Wine();
+		wine.setId(wineId);
+		wine.setDescription(description);
+		wine.setDietary(dietary);
+		wine.setEnabled(1);
+		wine.setFlavor(flavor);
+		wine.setImage(image);
+		wine.setLabelName(labelName);
+		wine.setPairs(pairs);
+		wine.setVineyard(vineyard);
+		wine.setVintageYear(vintageYear);
+		wine.setWineColor(colorTypeDAO.findColorById(wineColor));
+		wine.setWineType(colorTypeDAO.findTypeById(wineType));
 		Wine updated = wDAO.updateWine(wine);
 		model.addAttribute("wine", updated);
 		return null;
