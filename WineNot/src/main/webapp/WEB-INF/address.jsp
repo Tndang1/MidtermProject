@@ -66,33 +66,44 @@
 			<p>Please fill in or update your address information.</p>
 			<hr>
 			<form action="createAddress.do" method=POST>
+			<ul><
+			
 				<div>
 					<form:label path="address">Address: </form:label>
 					<input type="text" class="form-control" required="required"
-						name="address" placeholder="Address" /><br/>
+						name="address" placeholder="Address" />
+				<p>
+			
 				</div>
+			
 				<div>
 					<form:label path="address2">Address2: </form:label>
 					<input type="text" class="form-control" name="address2"
 						placeholder="Address2" /><br/>
+				
 				</div>
+			
 				<div>
 					<form:label path="city">City: </form:label>
 					<input type="text" class="form-control" required="required"
-						name="city" placeholder="City" /><br/>
+						name="city" placeholder="City" />
+				
 				</div>
+			
 				<div>
 					<form:label path="state">State: </form:label>
 					<input type="text" class="form-control" required="required"
-						name="state" placeholder="State" /><br/>
-				</div>
+						name="state" placeholder="State" />
+				
 				<div>
 					<form:label path="zip">Zip: </form:label>
 					<input type="text" class="form-control" required="required"
-						name="zip" placeholder="Zip" /><br/>
-				</div>
+						name="zip" placeholder="Zip" />
+				
 				<button type="submit">Submit</button>
+	
 			</form>
+				</div>
 
 			<!-- <form>
  <div class="form-group">

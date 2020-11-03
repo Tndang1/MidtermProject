@@ -73,7 +73,7 @@
 			<input type= "text" name="pass" value=" "/>
 			<button type= "submit">Change Password</button>
 			</form></tr><br><br>
-			
+
 			
 		
 		<form>
@@ -106,6 +106,7 @@
 			<form>
 			<nav class="navbar navbar-expand-lg navbar-light bg-light"></t>Address Information</nav><br>
   </div> <form action= "updateAddressForm.do">
+  
   <div class="form-group">
     <label for="inputAddress">Street</label>
     <input type="text" class="form-control" name="inputAddress" value="${address.street }">
@@ -139,13 +140,10 @@
 <ul class="navbar-nav mr-auto">
 
 	<li class="nav-item">
-		<a class="nav-link" href="favoritesList.do">Favorites List</a>
-	</li>
-	<li class="nav-item">
 		<a class="nav-link" href="listAllCustomerOrders.do">Order History</a>
 	</li>
 	<li class="nav-item">
-		<a class="nav-link" href="getAllReviews.do">Past Reviews</a> <!-- Unsure of this -->
+		<a class="nav-link" href="getAllReviews.do">Past Reviews</a> 
 	</li>
 <li class="nav-item">
 		<a class="nav-link" href="updateAddressForm.do?id=1#">Update Address</a> 
