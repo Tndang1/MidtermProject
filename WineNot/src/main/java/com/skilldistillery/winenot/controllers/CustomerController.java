@@ -158,7 +158,8 @@ public class CustomerController {
 	public String createAddress(HttpSession session, Address address, Model model) {
 		Customer customer = (Customer) session.getAttribute("customer");
 		model.addAttribute("newAddress", addrDAO.createAddress(address));
-		return "address";
+//		return "address";
+		return "userProfilePage";
 	}
 	@RequestMapping(path = "updateAddressForm.do", method = RequestMethod.GET)
 	public String updateAddress(HttpSession session, Model model) {
