@@ -62,50 +62,57 @@
 
 		<div class="container">
 
-			
-			<p>Please fill in or update your address information.</p>
+
+			<p>Please fill in your address information.</p>
 			<hr>
 			<form action="createAddress.do" method=POST>
-			<ul>
-			
-				<div>
-					<form:label path="address">Address: </form:label>
-					<input type="text" class="form-control" required="required"
-						name="address" placeholder="Address" />
-				<p>
-			
-				</div>
-			
-				<div>
-					<form:label path="address2">Address2: </form:label>
-					<input type="text" class="form-control" name="address2"
-						placeholder="Address2" /><br/>
-				
-				</div>
-			
-				<div>
-					<form:label path="city">City: </form:label>
-					<input type="text" class="form-control" required="required"
-						name="city" placeholder="City" />
-				
-				</div>
-			
-				<div>
-					<form:label path="state">State: </form:label>
-					<input type="text" class="form-control" required="required"
-						name="state" placeholder="State" />
-				
-				<div>
-					<form:label path="zip">Zip: </form:label>
-					<input type="text" class="form-control" required="required"
-						name="zip" placeholder="Zip" />
-				<br>
-				<button action="" type="submit">Submit</button>
-	
-			</form>
-				</div>
 
-			<!-- <form>
+				<ul>
+
+					<div>
+						<form:label path="street">Address: </form:label>
+						<input type="text" class="form-control" required="required"
+							name="Street" placeholder="Address" />
+					</div>
+
+					<div>
+						<form:label path="street2">Address2: </form:label>
+						<input type="text" class="form-control" name="Street2"
+							placeholder="Street2" />
+
+					</div>
+
+					<div>
+						<form:label path="city">City: </form:label>
+						<input type="text" class="form-control" required="required"
+							name="city" placeholder="City" />
+
+					</div>
+
+					<div>
+						<form:label path="state">State: </form:label>
+						<input type="text" class="form-control" required="required"
+							name="state" placeholder="State" />
+					</div>
+					
+						<div>
+							<form:label path="zip">Zip: </form:label>
+						<input type="text" class="form-control" required="required"
+							name="zip" placeholder="Zip" />
+					</div>
+					
+					<div>
+							<form:label path="country">Country: </form:label>
+						<input type="text" class="form-control" required="required"
+							name="country" placeholder="country" />
+					</div>
+					</ul>
+							<button action="" type="submit">Submit</button>
+
+			</form>
+		</div>
+
+		<!-- <form>
  <div class="form-group">
     <label for="inputAddress">Address</label>
     <input type="text" class="form-control" name="inputAddress" placeholder="1234 Main St">
@@ -137,16 +144,16 @@
 	<button type="submit">Submit</button>
 	</div>
 	</form> -->
-			<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-				integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-				crossorigin="anonymous"></script>
-			<script
-				src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-				integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-				crossorigin="anonymous"></script>
-			<script
-				src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-				integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-				crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+			integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+			integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+			crossorigin="anonymous"></script>
 </body>
 </html>
