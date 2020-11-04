@@ -10,6 +10,8 @@ public interface WineDAO {
 	
 	public Wine findWineById(int id);
 	public List<Wine> findAllWine();
+	public List<Wine> findAllEnabledWine();
+	public List<Wine> findAllDisabledWine();
 	public List<Wine> findWineByName(String labelName);
 	
 //	public List<WineType> findWineByWineType(String wineType);
