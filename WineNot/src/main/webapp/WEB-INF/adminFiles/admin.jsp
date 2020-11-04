@@ -75,26 +75,44 @@
 		
 		
 <%-- 		<h6><center>List of Wines:</center></h6> --%>
-<table class="table">
+<table class="table table-hover">
 <c:if test="${wineResults != null}">
+		<tr>
+			<th>Wine Id</th>
+			<th>Label Name</th>
+			<th>Vineyard</th>
+			<th>Enabled/Disabled</th>
+			<th>Update Wine</th>
+			<th>Enabled/Disabled</th>
+		</tr>
+			
 		<c:forEach items="${wineResults}" var="wine">
 		<tr>
 			<td>${wine.id}</td><td>${wine.labelName}</td><td>${wine.vineyard}</td><td><c:choose><c:when test="${wine.enabled == 1}">Enabled</c:when><c:otherwise>Disabled</c:otherwise></c:choose></td>
-			<td><form action="adminUpdateWineForm.do"><input type="hidden" name="wineId" value="${wine.id}"><button type="submit" class="btn btn-success btn-sm">Update this wine.</button></form></td>
+			<td><form action="adminUpdateWineForm.do"><input type="hidden" name="wineId" value="${wine.id}"><button type="submit" class="btn btn-success btn-sm">Update this wine</button></form></td>
 			<td><c:choose><c:when test="${wine.enabled == 1}">
-			<form action="adminDisableWine.do"><input type="hidden" name="wineId" value="${wine.id}"><button type="submit" class="btn btn-danger btn-sm">Disable this wine.</button></form>
+			<form action="adminDisableWine.do"><input type="hidden" name="wineId" value="${wine.id}"><button type="submit" class="btn btn-danger btn-sm">Disable this wine</button></form>
 			</c:when><c:otherwise>
-			<form action="adminEnableWine.do"><input type="hidden" name="wineId" value="${wine.id}"><button type="submit" class="btn btn-primary btn-sm">Enable this wine.</button></form>
+			<form action="adminEnableWine.do"><input type="hidden" name="wineId" value="${wine.id}"><button type="submit" class="btn btn-primary btn-sm">Enable this wine</button></form>
 			</c:otherwise></c:choose></td>
 		</tr>
 		</c:forEach>
 </c:if>
 		
 <c:if test="${userResults != null}">
+	<tr>
+			<th>User Id</th>
+			<th>User Email</th>
+			<th>User Password</th>
+			<th>Enabled/Disabled</th>
+			<th>Update User</th>
+			<th>Delete User</th>
+		</tr>
+	
 		<c:forEach items="${userResults}" var="user">
 		<tr>
 			<td>${user.id}</td><td>${user.email}</td><td>${user.password}</td><td><c:choose><c:when test="${user.enabled == 1}">Enabled</c:when><c:otherwise>Disabled</c:otherwise></c:choose></td>
-			<td><form action="adminUpdateUserForm.do"><input type ="hidden" name="userId" value="${user.id}"><button type="submit">Update this user.</button></form>
+			<td><form action="adminUpdateUserForm.do"><input type ="hidden" name="userId" value="${user.id}"><button type="submit">Update this user</button></form>
 			<td><c:choose><c:when test="${user.enabled == 1}">
 			<form action="adminDisableUser.do"><input type="hidden" name="userId" value="${user.id}"><button type="submit">Disable this user.</button></form>
 			</c:when><c:otherwise>
@@ -105,17 +123,25 @@
 </c:if>
 		
 <c:if test="${reviewResults != null}">
+		<tr>
+			<th>Customer Id</th>
+			<th>Wine Id</th>
+			<th>Review</th>
+			<th>Rating</th>
+			<th>Update Review</th>
+			<th>Delete Review</th>
+		</tr>
 		<c:forEach items="${reviewResults}" var="review">
 		<tr>
 			<td>Customer Id:${review.id.customerId}</td><td>Wine Id:${review.id.wineId}</td><td>${review.review}</td><td>${review.rating}</td>
 			<td><form action="adminUpdateReviewForm.do">			
 			<input type ="hidden" name="custId" value="${review.id.customerId}">
 			<input type ="hidden" name="wineId" value="${review.id.wineId}">
-			<button type="submit">Update this review.</button></form>
+			<button type="submit" class="btn btn-info btn-sm">Update this review</button></form>
 			<td><form action="adminDeleteReview.do">
 			<input type="hidden" name="custId" value="${review.id.customerId}">
 			<input type="hidden" name="wineId" value="${review.id.wineId}">
-			<button type="submit">Delete this review.</button></form>
+			<button type="submit" class="btn btn-warning btn-sm">Delete this review</button></form>
 		</tr>
 		</c:forEach>
 </c:if>
