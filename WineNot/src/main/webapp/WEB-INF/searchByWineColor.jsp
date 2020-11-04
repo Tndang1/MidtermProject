@@ -18,7 +18,7 @@
 </head>
 <body>
 <hr>
-    <div class ="container">
+<div class ="container">
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<a class="navbar-brand" href="homePage.do"style="color:DarkRed"><strong>WineNot</strong> <i class='fas fa-wine-glass' style='font-size:24px'></i></a>
@@ -29,25 +29,36 @@
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active">
+					<!-- <li class="nav-item active">
 						<a class="nav-link" href="homePage.do">Home <i class='fas fa-home'></i><span class="sr-only">(current)</span></a>
-					</li>
+					</li> -->
+					<c:if test="${customer == null}">
 					<li class="nav-item">
 						<a class="nav-link" href="createUserForm.do">Log In <i class='fas fa-sign-in-alt'></i></a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="checkout.do?customerOrderId=1#">Order Wine <i class='fas fa-shopping-cart'></i></a>
-					</li>
+					</c:if>
 					<li class="nav-item">
 						<a class="nav-link" href="wineList.do">Wine Cellar <i class='fas fa-wine-glass' style='font-size:18px;color:red'></i></a>
 					</li>
-					
+					<c:if test = "${customer != null}">
 					<li class="nav-item">
-						<a class="nav-link" href="updateUserForm.do?id=1#">Account Profile <i class='fas fa-address-card'></i></a>
+						<a class="nav-link" href="checkout.do">Order Wine <i class='fas fa-shopping-cart'></i></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="favoritesList.do?id=1#">Favorites List <i class='fas fa-list-alt'></i></a>
+						<a class="nav-link" href="updateUserForm.do">Account Profile <i class='fas fa-address-card'></i></a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="favoritesList.do">Favorites List <i class='fas fa-list-alt'></i></a>
+					</li>
+					<c:if test = "${customer.user.role == 'admin'}">
+					<li class="nav-item">
+						<a class="nav-link" href="admin.do">Administrative Controls<i class='fas fa-list-alt'></i></a>
+					</li>
+					</c:if>
+					<li class="nav-item">
+						<a class="nav-link" href="logOutOfAccount.do">Log Out<i class='fas fa-list-alt'></i></a>
+					</li>
+					</c:if>
 			
 				</ul>
 			
