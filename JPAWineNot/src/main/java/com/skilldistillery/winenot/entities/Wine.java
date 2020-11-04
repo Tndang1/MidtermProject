@@ -50,6 +50,16 @@ public class Wine {
 	public Wine() {
 		super();
 	}
+	public Wine(int id, String labelName, String vineyard, Integer vintageYear, String flavor, String dietary, String image, String pairs) {
+		this.id = id;
+		this.labelName = labelName;
+		this.vineyard = vineyard;
+		this.vintageYear = vintageYear;
+		this.flavor = flavor;
+		this.dietary = dietary;
+		this.image = image;
+		this.pairs = pairs;
+	}
 	public int getId() {
 		return id;
 	}

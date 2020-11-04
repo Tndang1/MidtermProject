@@ -62,7 +62,7 @@
 	</div>
 	<div class="container-fluid">
 	
-	<form action="adminAddWine.do">
+	<form action="adminUpdateWine.do">
 	<input type="hidden" name="wineId" value="${wine.id}"/>
 	<div class="form-group">
 	<label for="name">Label name</label>
