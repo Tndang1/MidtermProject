@@ -77,5 +77,19 @@ public class CustomerOrderDAOImpl implements CustomerOrderDAO {
 		em.close();
 		return removed;
 	}
+	
+	@Override
+	public boolean removeAllWineFromOrder(List<Wine> wines, int custOrderId) {
+		CustomerOrder dbOrder = em.find(CustomerOrder.class, custOrderId);
+		int size = wines.size() - 1;
+		for(int i = size; i >= 0; i--) {
+			System.out.println(wines.get(i).getId());
+			dbOrder.removeWine(wines.get(i));
+		}
+		em.flush();
+		em.close();
+		boolean removed = wines.size() < 1;
+		return removed;
+	}
 
 }

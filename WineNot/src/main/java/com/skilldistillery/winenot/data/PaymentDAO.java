@@ -7,6 +7,8 @@ public interface PaymentDAO {
 	
 	public Payment createPayment(Payment payment);
 	public Payment updatePayment(int id, Payment payment);
-	public void deletePayment(int id);
+	public boolean deletePayment(int id);
+
+	public Payment findPaymentByOrderId(int id);
 
 }
