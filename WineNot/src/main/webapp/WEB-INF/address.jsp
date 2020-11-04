@@ -99,7 +99,7 @@
 					<form:label path="zip">Zip: </form:label>
 					<input type="text" class="form-control" required="required"
 						name="zip" placeholder="Zip" />
-				
+				<br>
 				<button action="" type="submit">Submit</button>
 	
 			</form>
