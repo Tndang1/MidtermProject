@@ -85,7 +85,6 @@
 			<td><form action= "updatePasswordForm.do">
 			<input type= "text" name="pass" value="${user.password } "/>
 			<button type= "submit">Change Password</button>
-<<<<<<< HEAD
 			</form></tr><br><br>
 
 			<form action ="createAddressForm.do"></form>
@@ -93,11 +92,9 @@
 		<form>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light"></t>Payment Information</nav></form><br>
 			
-=======
 			</form>
 			</td>
 		</tr>
->>>>>>> d2a0cdaaaa90bd75f6c06e01f64aac3c6c36e3d8
 </table>
 
 <hr>
@@ -135,9 +132,7 @@
   <li><strong>Zip: </strong>${address.zip }</li>
   <li><strong>Country: </strong>${address.country }</li>
   </ul>
-<<<<<<< HEAD
 </form>
-=======
   <%-- <div class="form-group">
     <label for="inputAddress">Street</label>
     <input type="text" class="form-control" name="inputAddress" value="${address.street }">
@@ -165,7 +160,6 @@
   </div>
   <div class="form-group">
   </div> --%>
->>>>>>> d2a0cdaaaa90bd75f6c06e01f64aac3c6c36e3d8
 
 </c:when>
 <c:otherwise>
@@ -184,11 +178,12 @@
 		<a class="nav-link" href="getAllReviews.do">Past Reviews</a> 
 	</li>
 <li class="nav-item">
-		<a class="nav-link" href="updateAddressForm.do">Update Address</a> 
+		<a class="nav-link" href="createAddressForm.do">Create Address</a> 
 		
 	</li>
-	<li class="nav-item">
-		<a class="nav-link" href="createPaymentInfoForm.do">Payment Info</a> 
+ <li class="nav-item">
+		<a class="nav-link" href="updateAddressInfo.do">Update Address</a> 
+		
 	</li>
 
 </ul>

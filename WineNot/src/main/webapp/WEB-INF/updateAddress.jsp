@@ -63,8 +63,6 @@
 		<c:choose>
 		<c:when test="${! empty payInfo}">
 		<ul>
-				<li><strong>Card Number: </strong>${payInfo.cardNumber}</li>
-				<li><strong>Card Expiration: </strong>${payInfo.exprDate}</li>
 				<li><strong>Street: </strong>${payInfo.address.street}</li>
 				<li><strong>City: </strong>${payInfo.address.city}</li>
 				<li><strong>State: </strong>${payInfo.address.state}</li>
@@ -112,12 +110,8 @@
 			<td><input type= "text" name="state" value="${address.state }"/></td>
 			</tr>
 			
-			<tr>Zip Code: <td>${address.zip }</td> 
-			${address.zip }
-			<input type= "text" name="pass" value="${address.zip }"/>
-			</tr><br>
 			<tr>
-			<td>Zip Code: ${address.zip }</td>
+			<td>Zip Code: ${address.zip }</td>${address.zip }
 			<td><input type= "text" name="zip" value="${address.zip }"/><td>
 			</tr>
 			
@@ -144,9 +138,9 @@
 	
 			</table>
 			</div>
-			<tr>
+			<!-- <tr>
 			<td><button type= "submit">Update Address</button></td>
-			</tr>
+			</tr> -->
 			 
 		</table>
 	</form>
