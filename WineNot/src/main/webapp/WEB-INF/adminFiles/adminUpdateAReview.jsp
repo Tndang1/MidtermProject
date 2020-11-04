@@ -69,6 +69,7 @@
 	<form action="adminUpdateReview.do">
 	<input type="hidden" name="custId" value="${review.id.customerId}"/>
 	<input type="hidden" name="wineId" value="${review.id.wineId}"/>
+<%-- 	<input type="hidden" name="wineLabelName" value="${wine.labelName}"/> --%>
 	
 	<div class="form-group">
 	<li><label for="review">Review</label>
