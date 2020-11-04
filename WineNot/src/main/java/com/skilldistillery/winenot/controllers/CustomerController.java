@@ -187,7 +187,7 @@ public class CustomerController {
 //		return "userProfilePage";
 	}
 //	THIS METHOD IS FOR UPDATING ADDRESS.
-	@RequestMapping(path = "updateAddressInfo.do", method = RequestMethod.POST)
+	@RequestMapping(path = "updateAddressInfo.do", method = RequestMethod.GET)
 	public String updateAddress(HttpSession session, Integer id, Model model,String street, String street2, String city, String state, String zip, String country) {
 		Customer customer = (Customer) session.getAttribute("customer");
 		Address address = new Address();
@@ -201,7 +201,7 @@ public class CustomerController {
 		
 		addrDAO.updateAddress(id, address);
 		model.addAttribute("custAddress", address);
-		return "updateProfilePage";
+		return "userProfilePage";
 	}
 
 	@RequestMapping(path = "deleteAddressForm.do", method = RequestMethod.GET)

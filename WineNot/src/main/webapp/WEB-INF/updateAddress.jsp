@@ -62,7 +62,12 @@
 <!-- FIX SUBMIT BUTTON FOR UPDATE ADDRESS. -->
 		<div class="container">
 			<table>
-			<tr> Street: <td>${address.street }</td> <form action = "updateAddressInfo.do" method ="POST">
+			
+			<tr> Street: <td>${address.street }</td> 
+			
+			<form action = "updateAddressInfo.do">
+			<input type="hidden" name="id" value="${address.id}">
+			
 			${address.street }
 			<input type= "text" name="street" value="${address.street}"/>
 			</tr>
@@ -85,6 +90,9 @@
 			<tr>Zip Code: <td>${address.zip }</td> 
 			${address.zip }
 			<input type= "text" name="zip" value="${address.zip }"/>
+			<tr>Country: <td>${address.country}</td> 
+			${address.country }
+			<input type= "text" name="country" value="${address.country }"/>
 			<button type= "submit">Update Address</button>
 			</tr><br><br> 
 			</form>

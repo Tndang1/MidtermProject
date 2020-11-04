@@ -179,7 +179,7 @@
 		<a class="nav-link" href="getAllReviews.do">Past Reviews</a> 
 	</li>
 <li class="nav-item">
-		<a class="nav-link" href="updateAddressForm.do?id=${user.id}">Update Address</a> 
+		<a class="nav-link" href="updateAddressForm.do">Update Address</a> 
 		<!-- <button href="updateAddressForm.do?id=1#" type="submit">Update Address</button> -->
 	</li>
 	<li class="nav-item">
