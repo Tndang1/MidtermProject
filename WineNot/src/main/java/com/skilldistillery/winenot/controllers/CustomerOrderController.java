@@ -26,15 +26,26 @@ import com.skilldistillery.winenot.entities.Wine;
 @Controller
 public class CustomerOrderController {
 
-//	*************Order DAO**********
+	//*************Order DAO**********
+	
 	@Autowired
 	private CustomerOrderDAO custOrderDAO;
 	@Autowired
 	private CustomerDAO custDAO;
 	@Autowired
 	private WineDAO wineDAO;
-
-// Checkout page
+	
+	
+	//GUIDE for request mapping ===========================================================
+	
+	//Checkout page controllers start at line 49
+	//ORDER LSIT Controllers start at line 82
+	//Create order controllers start at line 110
+	//Update order controllers start at line 150
+	//CRUD for Order controllers start at line 178
+	
+	//Checkout page controllers ==============================================================
+	
 	@RequestMapping(path = "checkout.do", method = RequestMethod.GET)
 	private String checkoutInfo(Model model) {
 		//Integer customerId was in method
@@ -68,7 +79,8 @@ public class CustomerOrderController {
 		return "checkout";
 	}
 	
-//	***************Find orders by id************
+	//ORDER LIST CONTROLLERS ===========================================================
+	
 	@RequestMapping(path = "findById.do", method = RequestMethod.GET)
 	private String findOrdersById(Model model, int id) {
 		CustomerOrder custOrderId = custOrderDAO.findById(id);
@@ -76,14 +88,14 @@ public class CustomerOrderController {
 		return "custOrderById";
 	}
 
-//	***************list of orders***************
+	//***************list of orders***************
 	@RequestMapping(path = "orderList.do", method = RequestMethod.GET)
 	public String listedOrders(Model model) {
 		List<CustomerOrder> orderList = custOrderDAO.findAll();
 		model.addAttribute("order", orderList);
 		return "orderList";
 	}
-//	******************delete list of wines***************
+	//******************delete list of wines***************
 	@RequestMapping(path = "removeAllWine", method = RequestMethod.GET)
 	public String removeAllWinesFromOrder(Model model, int id) {
 		CustomerOrder custOrderId = custOrderDAO.findById(id);
@@ -95,7 +107,7 @@ public class CustomerOrderController {
 		return "allWineGone";
 	}
 
-//  *******************Create Order****************
+	//CREATE ORDER CONTROLLERS ======================================================================================================================
 
 	@RequestMapping(path = "create.do", method = RequestMethod.POST)
 	public ModelAndView createCustomerOrder(HttpSession session, CustomerOrder order, Integer custId, Integer wineColor, RedirectAttributes ra) {
@@ -125,7 +137,7 @@ public class CustomerOrderController {
 		return mv;
 	}
 
-	// new order added=============================================================
+
 	@RequestMapping(path = "orderMade.do", method = RequestMethod.GET)
 	public ModelAndView created() {
 		ModelAndView mv = new ModelAndView();
@@ -133,7 +145,7 @@ public class CustomerOrderController {
 		return mv;
 	}
 
-//	update order ===========================================================
+	// UPDATE ORDER CONTROLLERS ===========================================================
 
 	@RequestMapping(path = "changeOrder.do")
 	public ModelAndView updateOrder(int id, CustomerOrder order) {
@@ -144,7 +156,7 @@ public class CustomerOrderController {
 		return mv;
 	}
 
-//	updated by redirect====================================================
+	
 	@RequestMapping(path = "updatedOrder.do", method = RequestMethod.POST)
 	public ModelAndView update(Integer id) {
 		ModelAndView mv = new ModelAndView();
@@ -153,7 +165,7 @@ public class CustomerOrderController {
 		return mv;
 	}
 
-//	display updated order=================================================
+	
 	@RequestMapping(path = "Updated.do", method = RequestMethod.POST)
 	public ModelAndView updateConfirmation(int id, CustomerOrder order) {
 		ModelAndView mv = new ModelAndView();
@@ -163,7 +175,8 @@ public class CustomerOrderController {
 		return mv;
 	}
 
-//	delete wineFromOrder ================================================================
+	//	CRUD FOR ORDER CONTROLLERS  ================================================================
+	
 	@RequestMapping(path = "removeWineFromOrder.do", method = RequestMethod.GET)
 	public ModelAndView showDeletedOrder(Integer id, int wineId) {
 		custOrderDAO.removeWineFromOrder(id, wineId);
@@ -171,7 +184,7 @@ public class CustomerOrderController {
 		mv.setViewName("deleteWineFromOrder");
 		return mv;
 	}
-//	add wineFromOrder ================================================================
+
 	@RequestMapping(path = "addWineToOrder.do", method = RequestMethod.GET)
 	public ModelAndView showAddedOrder(Integer id, Wine wine) {
 		custOrderDAO.addWineToOrder(id, wine);
