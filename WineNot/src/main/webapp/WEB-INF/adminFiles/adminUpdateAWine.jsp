@@ -146,7 +146,7 @@
 	</div></li>
 	
 	<input type="hidden" name="enabled" value="${wine.enabled}">
-	<button type="submit" class="btn btn-danger">Submit</button>
+	<button type="submit" class="btn btn-success">Update Wine</button>
 	</form>
 	
 	
