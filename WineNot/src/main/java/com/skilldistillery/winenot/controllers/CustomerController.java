@@ -169,6 +169,8 @@ public class CustomerController {
 		address.setZip(zip);
 		address.setCountry(country);
 		address = addrDAO.updateAddress(id, address);
+		customer.setAddress(address);
+		session.setAttribute("customer", customer);
 		model.addAttribute("address", address);
 		return "userProfilePage";
 	}
