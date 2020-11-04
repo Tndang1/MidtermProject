@@ -92,10 +92,10 @@
   <!--   </div>
   </div> -->
   <c:choose>
-  <c:when test="${! empty payInfo }">
+  <c:when test="${! empty customer.paymentInfo }">
   <ul>
-  <li><strong>Card Number: </strong>${payInfo.cardNumber}</li>
-  <li><strong>Expiration Date: </strong>${payInfo.exprDate}</li>
+  <li><strong>Card Number: </strong>${customer.paymentInfo.cardNumber}</li>
+  <li><strong>Expiration Date: </strong>${customer.paymentInfo.exprDate}</li>
   </ul>
   </c:when>
   <c:otherwise>
@@ -179,7 +179,7 @@
 		<a class="nav-link" href="getAllReviews.do">Past Reviews</a> 
 	</li>
 <li class="nav-item">
-		<a class="nav-link" href="updateAddressForm.do?id=1#">Update Address</a> 
+		<a class="nav-link" href="updateAddressForm.do?id=${user.id}">Update Address</a> 
 		<!-- <button href="updateAddressForm.do?id=1#" type="submit">Update Address</button> -->
 	</li>
 	<li class="nav-item">
