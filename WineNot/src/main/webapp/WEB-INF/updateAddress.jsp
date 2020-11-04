@@ -114,7 +114,6 @@
 			<tr>Zip Code: <td>${address.zip }</td> 
 			${address.zip }
 			<input type= "text" name="pass" value="${address.zip }"/>
-			<input type= "text" name="zip" value="${address.zip }"/>
 			</tr><br>
 			
 			<tr>Country: <td>${address.country}</td> 
@@ -125,6 +124,15 @@
 			<button type= "submit">Update Address</button>
 			<!-- </tr><br><br>  -->
 			</form>
+			
+			<form>
+
+	<ul class="navbar-nav mr-auto">
+		<li class="nav-item">
+			<a class="nav-link" href="deleteAddressForm.do">Delete Address</a>
+		</li>
+	</ul>
+</form>
 			 
 			</table> 
 

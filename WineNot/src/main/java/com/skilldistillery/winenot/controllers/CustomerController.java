@@ -182,6 +182,20 @@ public class CustomerController {
 		model.addAttribute("deleted", deleted);
 		return "userProfilePage";
 	}
+	
+	@RequestMapping(path = "deleteUserAddress.do")
+	public String deleteUserAddress(HttpSession session, Integer id, Model model) {
+		Customer customer = (Customer) session.getAttribute("customer");
+		if (addrDAO.deleteAddress(customer.getId())) {
+			model.addAttribute("deleteResult", "Customer Address deleted");
+		}
+		else {
+			model.addAttribute("deleteResult", "Customer address not found");
+		}
+		return "userProfilePage";
+	}
+	
+	
 	// PAYMENT FORMS =================
 
 	@RequestMapping(path = "createPaymentInfoForm.do", method = RequestMethod.GET)

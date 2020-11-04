@@ -143,12 +143,11 @@
 		<a class="nav-link" href="getAllReviews.do">Past Reviews</a> 
 	</li>
 <li class="nav-item">
-		<a class="nav-link" href="updateAddressForm.do?">Update Address</a> 
 		<a class="nav-link" href="updateAddressForm.do">Update Address</a> 
 		
 	</li>
 	<li class="nav-item">
-		<a class="nav-link" href="createPaymentInfoForm.do">Payment Info</a> <!-- Unsure of this -->
+		<a class="nav-link" href="createPaymentInfoForm.do">Payment Info</a> 
 	</li>
 
 </ul>
