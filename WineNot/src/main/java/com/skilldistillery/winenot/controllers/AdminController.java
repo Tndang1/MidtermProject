@@ -138,7 +138,7 @@ public class AdminController {
 		wine.setWineType(colorTypeDAO.findTypeById(wineType));
 		Wine updated = wDAO.updateWine(wine);
 		model.addAttribute("wine", updated);
-		return null;
+		return "admin";
 	}
 	@RequestMapping(path="adminAddWine.do", method = RequestMethod.GET)
 	public String adminAddWine(Model model, String labelName, String vineyard, Integer vintageYear, String flavor, String dietary, String description, String image, String pairs, Integer wineType, Integer wineColor) {
