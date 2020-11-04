@@ -63,43 +63,78 @@
 
 <c:choose>
 		<c:when test="${! empty payInfo}">
-			<ul>
+		<ul>
 				<li><strong>Card Number: </strong>${payInfo.cardNumber}</li>
-			</ul>
+				<li><strong>Card Expiration: </strong>${payInfo.exprDate}</li>
+				<li><strong>Street: </strong>${payInfo.address.street}</li>
+				<li><strong>City: </strong>${payInfo.address.city}</li>
+				<li><strong>State: </strong>${payInfo.address.state}</li>
+				<li><strong>Zip: </strong>${payInfo.address.zip}</li>
+				<li><strong>Country: </strong>${payInfo.address.country}</li>
+		</ul>
+				
+				
+			
 		</c:when>
 		<c:otherwise>
 		<p>No payment Info found.</p>
 		</c:otherwise>
 	</c:choose> 
+
+
+	<h3>Click to add your payment Information</h3>
+	<form action="createPaymentInfo.do" method="POST">
+	<div>
+		<form:label path="cardNumber">Card Number: </form:label>
+		<input type="text" class="form-control" required="required"
+				name="cardNumber" placeholder="XXXX-XXXX-XXXX-XXXX" />
+	</div>
+	<div>
+		<form:label path="exprDate">Expiration Date: </form:label>
+		<input type="text" class="form-control" required="required"
+				name="exprDate" placeholder="YYYY-MM-DD" />
+	</div>
+	<div>
+		<form:label path="street">Street: </form:label>
+		<input type="text" class="form-control" required="required"
+				name="street" placeholder="Street" />
+	</div>
+	<div>
+		<form:label path="street2">Street 2: </form:label>
+		<input type="text" class="form-control"
+				name="street2" placeholder="Street 2" />
+	</div>
+	<div>
+		<form:label path="city">City: </form:label>
+		<input type="text" class="form-control" required="required"
+				name="city" placeholder="City" />
+	</div>
+	<div>
+		<form:label path="state">State: </form:label>
+		<input type="text" class="form-control" required="required"
+				name="state" placeholder="State" />
+	</div>
+	<div>
+		<form:label path="zip">Zip: </form:label>
+		<input type="text" class="form-control" required="required"
+				name="zip" placeholder="Zip" />
+	</div>
+	<div>
+		<form:label path="country">Country: </form:label>
+		<input type="text" class="form-control" required="required"
+				name="country" placeholder="Country" />
+	</div>
 	
 
-
-
-
-
-
-
-	<p>Please enter your payment information</p>
-	<hr>
-	<form action="createPaymentInfo.do" method=POST>
-		<div>
-			<form:label path="cardNumber">Card Number: </form:label>
-			<input type="text" class="form-control" required="required"
-				name="cardNumber" placeholder="Card number" />
-		</div>
-		<div>
-			<form:label path="exprDate">Expiration Date: </form:label>
-			<input type="text" class="form-control" name="exprDate"
-				placeholder="Expiration Date:" />
-		</div>
-
-
-
-
-
-
-		<button type="submit">Submit</button>
+	
+			<button type="submit">Submit Card Information</button>
 	</form>
+	
+	
+	
+	
+	<hr>
+
 
 
 

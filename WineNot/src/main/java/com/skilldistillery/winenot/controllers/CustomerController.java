@@ -222,15 +222,33 @@ public class CustomerController {
 	@RequestMapping(path = "createPaymentInfoForm.do", method = RequestMethod.GET)
 	public String createPayInfoForm(HttpSession session, Model model, PaymentInfo payInfo) {
 		Customer customer = (Customer) session.getAttribute("customer");
+		customer.getAddress();
+		customer.getPaymentInfo();
 		model.addAttribute("payInfo", customer.getPaymentInfo());
 
 		return "payment";
 	}
 
 	@RequestMapping(path = "createPaymentInfo.do", method = RequestMethod.POST)
-	public String createPayInfo(HttpSession session, PaymentInfo payInfo, Model model) {
+	public String createPayInfo(HttpSession session, Model model, String cardNumber, String exprDate, String street, String street2, String city, String state, String zip, String country) {
 		Customer customer = (Customer) session.getAttribute("customer");
-		model.addAttribute("newUser", payInfoDAO.create(payInfo));
+		Address address = new Address();
+		PaymentInfo paymentInfo = new PaymentInfo();
+		paymentInfo.setCardNumber(cardNumber);
+		LocalDate someDate = LocalDate.parse(exprDate);
+		LocalDateTime exprDateTime = someDate.atStartOfDay();
+		paymentInfo.setExprDate(exprDateTime);
+		address.setStreet(street);
+		address.setStreet2(street2);
+		address.setCity(city);
+		address.setState(state);
+		address.setZip(zip);
+		address.setCountry(country);
+		paymentInfo.setAddress(address);
+		
+		
+		
+		model.addAttribute("payInfo", payInfoDAO.create(paymentInfo, address));
 
 		return "payment";
 	}
