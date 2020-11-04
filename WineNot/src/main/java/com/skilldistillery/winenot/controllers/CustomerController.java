@@ -249,6 +249,33 @@ public class CustomerController {
 
 		return "userProfilePage";
 	}
+	@RequestMapping(path = "updatePaymentInfoForm.do", method = RequestMethod.GET)
+	public String updatePaymentInfoForm(HttpSession session, Model model) {
+		Customer customer = (Customer) session.getAttribute("customer");
+		model.addAttribute("payInfo", customer.getPaymentInfo());
+		return "updatePayment";
+	}
+	
+//	THIS METHOD IS FOR UPDATING PAYMENT INFORMATION.
+	@RequestMapping(path = "updatePaymentInfo.do", method = RequestMethod.POST)
+	public String updatePaymentInfo(HttpSession session, Integer id, Model model, Address address, String cardNumber, String exprDate) {
+		Customer customer = (Customer) session.getAttribute("customer");
+		LocalDate date = LocalDate.parse(exprDate); 
+		LocalDateTime newDate = date.atStartOfDay();
+		
+		PaymentInfo paymentInfo = new PaymentInfo();
+		paymentInfo.setCardNumber(cardNumber);
+		paymentInfo.setAddress(address);
+		paymentInfo.setExprDate(newDate);
+		paymentInfo.setId(id);
+		payInfoDAO.update(id, paymentInfo);
+		custDAO.setPayment(customer.getId(), paymentInfo);
+		customer.setPaymentInfo(paymentInfo);
+		session.setAttribute("customer", customer);
+		model.addAttribute("address", address);
+		return "userProfilePage";
+		
+	}
 
 	// REVIEW FORMS ====================================================================================
 
