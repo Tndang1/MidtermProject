@@ -182,7 +182,7 @@
 		
 	</li>
  <li class="nav-item">
-		<a class="nav-link" href="updateAddressInfo.do">Update Address</a> 
+		<a class="nav-link" href="updateAddressForm.do">Update Address</a> 
 		
 	</li>
 

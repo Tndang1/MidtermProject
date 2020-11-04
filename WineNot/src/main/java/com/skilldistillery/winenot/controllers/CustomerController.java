@@ -178,15 +178,12 @@ public class CustomerController {
 		address.setState(state);
 		address.setZip(zip);
 		address.setCountry(country);
-		address = addrDAO.updateAddress(address.getId(), address);
+		address = addrDAO.updateAddress(id, address);
 		customer.setAddress(address);
 		session.setAttribute("customer", customer);
 		model.addAttribute("address", address);
 		return "userProfilePage";
 		
-//		custDAO.setAddress(customer.getId(), newInfo.getAddress());
-//		custDAO.setPayment(customer.getId(), newInfo);
-//		model.addAttribute("payInfo", newInfo);
 	}
 
 	@RequestMapping(path = "deleteAddressForm.do", method = RequestMethod.GET)
