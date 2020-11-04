@@ -185,6 +185,9 @@
 		<a class="nav-link" href="updateAddressForm.do">Update Address</a> 
 		
 	</li>
+		<li class="nav-item">
+		<a class="nav-link" href="createPaymentInfoForm.do">Payment Info</a>
+	</li>
 
 </ul>
 </form>
