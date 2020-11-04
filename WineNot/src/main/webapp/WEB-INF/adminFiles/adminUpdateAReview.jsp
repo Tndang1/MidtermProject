@@ -60,26 +60,38 @@
 			</div>
 		</nav>
 	</div>
+	<hr>
 	<div class="container-fluid">
-	
+	<h5>Update Review:</h5>
+	<hr>
+		<table>
+		<ul>
 	<form action="adminUpdateReview.do">
 	<input type="hidden" name="custId" value="${review.id.customerId}"/>
 	<input type="hidden" name="wineId" value="${review.id.wineId}"/>
-	<div class="form-group">
-	<label for="review">Review</label>
-	<input type="text" id="review" name="review" value="${review.review}" required>
-	</div>
-	<div class="form-group">
-	<label for="rating">Rating</label>
-	<input type="number" id="rating" name="rating" value="${review.rating}"required>
-	</div>
-	<div class="form-group">
-	<label for="image">Image</label>
-	<input type="text" id="image" name="image" value="${review.image}" required>
-	</div>
-	<button type="submit" class="btn btn-primary">Submit</button>
-	</form>
 	
+	<div class="form-group">
+	<li><label for="review">Review</label>
+	<input type="text" id="review" name="review" value="${review.review}" required>
+	</div></li>
+	
+	<div class="form-group">
+	<li><label for="rating">Rating</label>
+	<input type="number" id="rating" name="rating" value="${review.rating}"required>
+	</div></li>
+	
+	<div class="form-group">
+	<li><label for="image">Image</label>
+	<input type="text" id="image" name="image" value="${review.image}" required>
+	</div></li>
+	
+	<button type="submit" class="btn btn-info">Update Review</button>
+	</form>
+	<br>
+	
+		</ul>
+		</table>
+	<br>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
