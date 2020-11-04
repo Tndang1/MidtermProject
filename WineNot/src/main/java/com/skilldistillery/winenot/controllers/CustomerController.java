@@ -183,6 +183,7 @@ public class CustomerController {
 		
 		model.addAttribute("address", addrDAO.updateAddress(id, address));
 		return "updateAddress";
+//		return "userProfilePage";
 	}
 	@RequestMapping(path = "deleteAddressForm.do", method = RequestMethod.GET)
 	public String deleteAddress(HttpSession session, Integer id, Model model) {
@@ -250,7 +251,8 @@ public class CustomerController {
 		
 		model.addAttribute("payInfo", payInfoDAO.create(paymentInfo, address));
 
-		return "payment";
+//		return "payment";
+		return "userProfilePage";
 	}
 
 	// REVIEW FORMS =====================
