@@ -60,7 +60,7 @@
 			</div>
 		</nav>
 		
-		<c:choose>
+<%-- 		<c:choose>
 		<c:when test="${! empty payInfo}">
 		<ul>
 				<li><strong>Street: </strong>${payInfo.address.street}</li>
@@ -77,17 +77,15 @@
 		<p>No payment Info found.</p>
 		</c:otherwise>
 	</c:choose> 
-		
+ --%>		
 
 	
 		<hr>
 <!-- FIX SUBMIT BUTTON FOR UPDATE ADDRESS. -->
 <h1>Update Address:</h1>
 <hr>
-</div>
-<div class="container-fluid">
-	<form action = "updateAddressInfo.do">
-	<input type="hidden" name="id" value="${address.id}">
+	<form action="updateAddressInfo.do" method="POST">
+	<input type="hidden" value="${address.id}">
 		<table>
 			
 			<tr>
@@ -111,20 +109,50 @@
 			</tr>
 			
 			<tr>
-			<td>Zip Code: ${address.zip }</td>${address.zip }
+			<td>Zip Code: ${address.zip }</td>
 			<td><input type= "text" name="zip" value="${address.zip }"/><td>
 			</tr>
 			
 			<tr>
 			<td>Country: ${address.country}</td>
-			<td><input type= "text" name="country" value="${address.country }"/><td>
+			<td><input type= "text" name="country" value="${address.country }"/></td>
 			</tr>
 			
 			<button type= "submit">Update Address</button>
 			<!-- </tr><br><br>  -->
+			</table> 
 			</form>
 			
+			    
 			<form>
+
+
+							
+							 <%-- 	<td><form action="getUpdatedReviewOfWines.do">
+						<input type="hidden" name="custId"
+								value="${review.id.customerId}" /> <input type="hidden"
+								name="wineId" value="${review.id.wineId}" />
+											
+					<button type="submit">Update Review of Wine</button>
+				</form></td>  --%>
+<%-- 
+			    <td><form action="removeReview.do">
+					<input type="hidden" name="custId"
+						   value="${review.id.customerId}" /> <input type="hidden"
+						   name="wineId" value="${review.id.wineId}" />
+					<button type="submit">Delete Review</button>
+				</form></td>
+							
+								<td><form action="getUpdatedReviewOfWines.do">
+						<input type="hidden" name="custId"
+								value="${review.id.customerId}" /> <input type="hidden"
+								name="wineId" value="${review.id.wineId}" />
+											
+					<button type="submit">Update Review of Wine</button>
+				</form></td> --%>
+
+
+
 
 	<ul class="navbar-nav mr-auto">
 		<li class="nav-item">
@@ -132,18 +160,19 @@
 		</li>
 	</ul>
 </form>
-			 
-			</table> 
+			<%--  <form action="deleteAddressForm.do">
+					<input type="hidden" name="custId"
+						   value="${address.address}" />
+						   <input type="hidden"
+						   name="address" value="${address.address}" />
+					<button type="submit">Delete Address</button>
+				</form> --%>
 
 	
-			</table>
-			</div>
 			<!-- <tr>
 			<td><button type= "submit">Update Address</button></td>
 			</tr> -->
 			 
-		</table>
-	</form>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

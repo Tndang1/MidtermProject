@@ -6,6 +6,8 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.winenot.entities.Address;
+import com.skilldistillery.winenot.entities.Customer;
 import com.skilldistillery.winenot.entities.Payment;
 
 @Service
@@ -46,5 +48,6 @@ public class PaymentDAOImpl implements PaymentDAO {
 		em.flush();
 		
 	}
+
 
 }

@@ -158,7 +158,7 @@ public class CustomerController {
 	public String createAddress(HttpSession session, Address address, Model model) {
 		Customer customer = (Customer) session.getAttribute("customer");
 		model.addAttribute("newAddress", addrDAO.createAddress(address));
-		return "address";
+		return "userProfilePage";
 	}
 	@RequestMapping(path = "updateAddressForm.do", method = RequestMethod.GET)
 	public String updateAddress(HttpSession session, Model model) {
@@ -167,18 +167,18 @@ public class CustomerController {
 		return "updateAddress";
 	}
 //	THIS METHOD IS FOR UPDATING ADDRESS.
-	@RequestMapping(path = "updateAddressInfo.do", method = RequestMethod.GET)
-	public String updateAddress(HttpSession session, Integer id, Model model,String street, String street2, String city, String state, String zip, String country) {
+	@RequestMapping(path = "updateAddressInfo.do", method = RequestMethod.POST)
+//	public String updateAddress(HttpSession session, Integer id, Model model,String street, String street2, String city, String state, String zip, String country) {
+		public String updateAddress(HttpSession session, Model model, Address address) {
 		Customer customer = (Customer) session.getAttribute("customer");
-		Address address = new Address();
 		
-		address.setStreet(street);
-		address.setStreet2(street2);
-		address.setCity(city);
-		address.setState(state);
-		address.setZip(zip);
-		address.setCountry(country);
-		address = addrDAO.updateAddress(id, address);
+//		address.setStreet(street);
+//		address.setStreet2(street2);
+//		address.setCity(city);
+//		address.setState(state);
+//		address.setZip(zip);
+//		address.setCountry(country);
+		address = addrDAO.updateAddress(address.getId(), address);
 		customer.setAddress(address);
 		session.setAttribute("customer", customer);
 		model.addAttribute("address", address);
@@ -187,26 +187,29 @@ public class CustomerController {
 	}
 
 	@RequestMapping(path = "deleteAddressForm.do", method = RequestMethod.GET)
-	public String deleteAddress(HttpSession session, Integer id, Model model) {
+	public String deleteAddress(HttpSession session, Model model) {
 		Customer customer = (Customer) session.getAttribute("customer");
-		Boolean deleted = addrDAO.deleteAddress(id);
 		Address address = addrDAO.getAddressById(customer.getId());
+		
+		custDAO.setAddress(customer.getAddress().getId(), null);
+		payInfoDAO.setAddress(customer.getAddress().getId(), null);
+		Boolean deleted = addrDAO.deleteAddress(address.getId());
+		
 		model.addAttribute("address", address);
 		model.addAttribute("deleted", deleted);
 		return "updateAddress";
 	}
 	
-	@RequestMapping(path = "deleteUserAddress.do")
-	public String deleteUserAddress(HttpSession session, Integer id, Model model) {
-		Customer customer = (Customer) session.getAttribute("customer");
-		if (addrDAO.deleteAddress(customer.getId())) {
-			model.addAttribute("deleteResult", "Customer Address deleted");
-		}
-		else {
-			model.addAttribute("deleteResult", "Customer address not found");
-		}
-		return "userProfilePage";
-	}
+	
+//	@RequestMapping(path = "removeReview.do", method = RequestMethod.GET)
+//	public String removeReview(HttpSession session, Model model, int wineId) {
+//		Customer customer = (Customer) session.getAttribute("customer");
+//		Boolean deleted = rviewDAO.deleteReview(customer.getId(), wineId);
+//		List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
+//		model.addAttribute("reviews", reviews);
+//		model.addAttribute("deleted", deleted);
+//		return "myReviews";
+//	}
 	
 	
 	// PAYMENT FORMS =================
