@@ -122,38 +122,16 @@ public class AdminController {
 		return "admin";
 	}
 	@RequestMapping(path="adminUpdateWine.do", method = RequestMethod.GET)
-	public String adminUpdateWine(Model model, int wineId, String labelName, String vineyard, Integer vintageYear, String flavor, String dietary, String description, String image, String pairs, Integer wineType, Integer wineColor) {
-		Wine wine = new Wine();
-		wine.setId(wineId);
-		wine.setDescription(description);
-		wine.setDietary(dietary);
-		wine.setEnabled(1);
-		wine.setFlavor(flavor);
-		wine.setImage(image);
-		wine.setLabelName(labelName);
-		wine.setPairs(pairs);
-		wine.setVineyard(vineyard);
-		wine.setVintageYear(vintageYear);
-		wine.setWineColor(colorTypeDAO.findColorById(wineColor));
-		wine.setWineType(colorTypeDAO.findTypeById(wineType));
-		Wine updated = wDAO.updateWine(wine);
-		model.addAttribute("wine", updated);
+	public String adminUpdateWine(Model model, Wine wine, Integer wineTypeId, Integer wineColorId) {
+		wine.setWineColor(colorTypeDAO.findColorById(wineColorId));
+		wine.setWineType(colorTypeDAO.findTypeById(wineTypeId));
+		wDAO.updateWine(wine);
 		return "admin";
 	}
 	@RequestMapping(path="adminAddWine.do", method = RequestMethod.GET)
-	public String adminAddWine(Model model, String labelName, String vineyard, Integer vintageYear, String flavor, String dietary, String description, String image, String pairs, Integer wineType, Integer wineColor) {
-		Wine wine = new Wine();
-		wine.setDescription(description);
-		wine.setDietary(dietary);
-		wine.setEnabled(1);
-		wine.setFlavor(flavor);
-		wine.setImage(image);
-		wine.setLabelName(labelName);
-		wine.setPairs(pairs);
-		wine.setVineyard(vineyard);
-		wine.setVintageYear(vintageYear);
-		wine.setWineColor(colorTypeDAO.findColorById(wineColor));
-		wine.setWineType(colorTypeDAO.findTypeById(wineType));
+	public String adminAddWine(Model model, Wine wine, Integer wineTypeId, Integer wineColorId) {
+		wine.setWineColor(colorTypeDAO.findColorById(wineColorId));
+		wine.setWineType(colorTypeDAO.findTypeById(wineTypeId));
 		wDAO.createWine(wine);
 		return "admin";
 	}

@@ -39,32 +39,16 @@ public class WineDAOImpl implements WineDAO {
 				.getResultList();
 	}
 
-//	@Override
-//	public List<WineType> findWineByWineType(String wineType) {
-//		String jpql = "SELECT wt FROM WineType wt WHERE wt.wineType = :wineType";
-//		return em.createQuery(jpql, WineType.class)
-//				.setParameter("wineType", wineType)
-//				.getResultList();
-//	}
-	//WINE TYPE: 
+
 @Override
 public List<Wine> findWineTypeId(int id) {
 		String jpql = "SELECT w FROM Wine w WHERE w.wineType.id = :wineType";
-//		Wine wine = em.find(Wine.class, id);
 		List<Wine> wineTypes = em.createQuery(jpql, Wine.class)
 				.setParameter("wineType", id)
 				.getResultList();
 		em.close();
 		return wineTypes;
 }
-
-//	@Override
-//	public List<WineColor> findWineByWineColor(String wineColor) {
-//		String jpql = "SELECT wc FROM WineColor wc WHERE wc.wineColor = :wineColor";
-//		return em.createQuery(jpql, WineColor.class)
-//				.setParameter("wineColor", wineColor)
-//				.getResultList();
-//	}
 
 @Override
 public List<Wine> findWineByWineColorId(int id) {
@@ -76,17 +60,10 @@ public List<Wine> findWineByWineColorId(int id) {
 	return wineColors;
 }
 
-//	@Override
-//	public List<Review> displayListOfReviews(Review review) {
-////		String jpql = "SELECT r FROM Review r";
-////		return em.createQuery(jpql, Review.class)
-////				
-////				.getResultList();
-//	}
 	@Override
 	public List<Review> getCustomerReviews(int id) {
-		Customer customer = em.find(Customer.class, id);
-		List<Review> reviews = customer.getReviews();
+		Wine wine = em.find(Wine.class, id);
+		List<Review> reviews = wine.getReviews();
 		em.close();
 		return reviews;
 	}
