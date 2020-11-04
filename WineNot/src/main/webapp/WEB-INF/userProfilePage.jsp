@@ -82,6 +82,7 @@
 			</form></tr><br><br>
 			
 </table>
+<hr>
 			
 		
 		<form>
