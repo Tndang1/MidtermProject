@@ -191,7 +191,7 @@ public class CustomerController {
 		Address address = addrDAO.getAddressById(customer.getId());
 		model.addAttribute("address", address);
 		model.addAttribute("deleted", deleted);
-		return "updateAddress";
+		return "userProfilePage";
 	}
 //	@RequestMapping(path = "removeReview.do", method = RequestMethod.GET)
 //	public String removeReview(HttpSession session, Model model, int wineId) {

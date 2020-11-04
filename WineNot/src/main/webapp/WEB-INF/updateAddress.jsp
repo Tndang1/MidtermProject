@@ -59,7 +59,29 @@
 
 			</div>
 		</nav>
+		
+		<c:choose>
+		<c:when test="${! empty payInfo}">
+		<ul>
+				<li><strong>Card Number: </strong>${payInfo.cardNumber}</li>
+				<li><strong>Card Expiration: </strong>${payInfo.exprDate}</li>
+				<li><strong>Street: </strong>${payInfo.address.street}</li>
+				<li><strong>City: </strong>${payInfo.address.city}</li>
+				<li><strong>State: </strong>${payInfo.address.state}</li>
+				<li><strong>Zip: </strong>${payInfo.address.zip}</li>
+				<li><strong>Country: </strong>${payInfo.address.country}</li>
+		</ul>
+				
+				
+			
+		</c:when>
+		<c:otherwise>
+		<p>No payment Info found.</p>
+		</c:otherwise>
+	</c:choose> 
+		
 
+	
 		<div class="container">
 			<table>
 			<tr> Street: <td>${address.street }</td> <form action = "updateAddressForm.do">
@@ -84,12 +106,12 @@
 			
 			<tr>Zip Code: <td>${address.zip }</td> 
 			${address.zip }
-			<input type= "hidden" name="pass" value="${address.zip }"/>
+			<input type= "text" name="pass" value="${address.zip }"/>
 			<button type= "submit">Update Address</button>
 			</tr><br><br> 
 			</form>
 			 
-			</table>
+			</table> 
 
 </body>
 </html>
