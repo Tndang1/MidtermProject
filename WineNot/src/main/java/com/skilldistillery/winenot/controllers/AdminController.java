@@ -45,7 +45,18 @@ public class AdminController {
 	@Autowired
 	private WineColorTypeDAO colorTypeDAO;
 	
-	//*******Admin Navigation********
+	// Guide for admin request mapping ==============================================================
+	
+	
+	// Admin navigation starts on line 58
+	// Admin review control starts on line 89
+	// Admin wine controls starts on line 117
+	// Admin user controls start on line 152
+	
+	
+	
+	// Admin Navigation==============================================================================
+	
 	@RequestMapping(path = "admin.do")
 	public String adminPage(HttpSession session, Model model) {
 		model.addAttribute("customer", session.getAttribute("customer"));
@@ -75,7 +86,8 @@ public class AdminController {
 		return "adminFiles/adminUpdateAReview";
 	}
 	
-	//********Admin review controls***********
+	// Admin review controls==========================================================================
+
 	@RequestMapping(path = "adminReviewList.do", method = RequestMethod.GET)
 	public String adminReviewList(Model model) {
 		List<Review> review = rviewDAO.getAllReviews();
@@ -102,7 +114,8 @@ public class AdminController {
 		return "adminFiles/admin";
 	}
 	
-	//*******Admin wine controls**********
+	//Admin wine controls=============================================================================
+
 	@RequestMapping(path = "adminWineList.do", method = RequestMethod.GET)
 	public String adminWineList(HttpSession session, Model model) {
 		List<Wine> wines = wDAO.findAllWine();
@@ -136,7 +149,8 @@ public class AdminController {
 		return "adminFiles/admin";
 	}
 	
-	//*******Admin user controls***************
+	// Admin user controls=============================================================================
+
 	@RequestMapping(path="adminUserList.do", method = RequestMethod.GET)
 	public String adminUserList(Model model) {
 		List<User> user = userDAO.getAllUsers();
