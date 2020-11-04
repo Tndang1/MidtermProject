@@ -29,7 +29,7 @@ import com.skilldistillery.winenot.entities.Wine;
 @Controller
 public class CustomerController {
 
-	// All DAOS that could be implemented by the Customer ==================
+	// All DAOS that could be implemented by the Customer ==============================================
 
 	@Autowired
 	private CustomerDAO custDAO;
@@ -41,15 +41,18 @@ public class CustomerController {
 	private PaymentInfoDAO payInfoDAO;
 	@Autowired
 	private ReviewDAO rviewDAO;
+	
+	//Guide for request mappings ========================================================================
+	
+	//User forms start at line 55.
+	//Address forms start at line 144.
+	//Payment forms start at line 189.
+	//Review forms start at line 225.
+	//Favorite forms start at 290.
+	//Order formm start at 309
+	//Log in/out forms start at line 319
 
-	// REQUEST MAPPING ======================================================
-
-	@RequestMapping(path = "index.html")
-	public String index(Model model) {
-		return "index.html";
-	}
-
-	// USER FORMS ================
+	// USER FORMS ============================================================================================
 
 	@RequestMapping(path = "createUserForm.do", method = RequestMethod.GET)
 	public String createUserForm(User user) {
@@ -70,6 +73,7 @@ public class CustomerController {
 	public String createNewAccount(HttpSession session, Model model, User user, String date, String firstName, String lastName) {
 		User newUser = userDAO.createUser(user);
 		Customer customer = new Customer();
+		newUser.setEnabled(1);
 		customer.setUser(newUser);
 		customer.setfName(firstName);
 		customer.setlName(lastName);
@@ -137,7 +141,7 @@ public class CustomerController {
 		return "homePage";
 	}
 
-	// ADDRESS FORMS ================= ADDRESS FORMS =====================
+	// ADDRESS FORMS ================================================================================
 
 	@RequestMapping(path = "createAddressForm.do", method = RequestMethod.GET)
 	public String CreateAddressForm(HttpSession session, Address Address) {
@@ -184,7 +188,7 @@ public class CustomerController {
 		model.addAttribute("deleted", deleted);
 		return "updateAddress";
 	}
-	// PAYMENT FORMS =================
+	// PAYMENT FORMS =====================================================================================================
 
 	@RequestMapping(path = "createPaymentInfoForm.do", method = RequestMethod.GET)
 	public String createPayInfoForm(HttpSession session, Model model, PaymentInfo payInfo) {
@@ -220,7 +224,7 @@ public class CustomerController {
 		return "userProfilePage";
 	}
 
-	// REVIEW FORMS =====================
+	// REVIEW FORMS ====================================================================================
 
 	@RequestMapping(path = "createReviewForm.do", method = RequestMethod.GET)
 	public String createReviewForm(HttpSession session, Review review) {
@@ -285,7 +289,7 @@ public class CustomerController {
 		return "myReviews";
 	}
 	
-	// FAVORITES FORMS ===================
+	// FAVORITES FORMS =======================================================================
 	
 	@RequestMapping(path = "favoritesList.do")
 	public String getFavorites(HttpSession session, Model model, Integer id) {
@@ -304,7 +308,8 @@ public class CustomerController {
 	}
 
 	
-	//ORDER FORMS ========================
+	//ORDER FORMS =====================================================================
+	
 	@RequestMapping(path ="listAllCustomerOrders.do", method = RequestMethod.GET)
 	public String listAllCustomerOrders(HttpSession session, Model model) {
 		Customer customer = (Customer) session.getAttribute("customer");
@@ -313,11 +318,17 @@ public class CustomerController {
 		return "orderhistory";
 	}
 	
-	//Login in
+	//Login in ========================================================================
+	
 	@RequestMapping(path="checkCredentials.do", method = RequestMethod.GET)
 	public String checkCredentials(HttpSession session, Model model, String email, String password) {
 		Customer customer = custDAO.verifyLogin(email, password);
-		if (customer == null) {
+		if (customer == null ) {
+			String failure = "Invalid login credentials, try again or create and account.";
+			model.addAttribute("failure", failure);
+			return "LogIn";
+		}
+		if (customer.getUser().getEnabled() == 0) {
 			String failure = "Invalid login credentials, try again or create and account.";
 			model.addAttribute("failure", failure);
 			return "LogIn";
@@ -328,7 +339,8 @@ public class CustomerController {
 		model.addAttribute("customerId", customer.getId());
 		return "homePage";
 	}
-	//Log Out 
+	//Log Out ==========================================================================
+	
 	@RequestMapping(path="logOutOfAccount.do", method = RequestMethod.GET)
 	public ModelAndView logOutOfAccount(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
