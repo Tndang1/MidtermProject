@@ -63,32 +63,39 @@
 		<nav class="navbar navbar-expand-lg navbar-light bg-light"><h5>User Information</h5></nav>
 		<p>
 		<table>
-			<tr>Username: <td>${user.username }</td> 
-			<form action= "updateUsernameForm.do">
-			 ${user.username } 
-			<input type= "text" name="username" value="${user.username }"/>
-			<button type= "submit">Change Username</button><br>
-			</form></tr>
-			<tr>Email: <td>${user.email }</td> 
-			<form action= "updateEmailForm.do">
-			${user.username }
+		<tr>
+			<td>Username: ${user.username}</td> 
+			<td>
+				<form action= "updateUsernameForm.do">
+				<input type= "text" name="username" value="${user.username }"/>
+				<button type= "submit">Change Username</button><br>
+				</form>
+			</td>
+		</tr>
+		<tr>
+			<td>Email: ${user.email}</td> 
+			<td><form action= "updateEmailForm.do">
 			<input type= "text" name="email" value="${user.email }"/>
 			<button type= "submit">Change Email</button><br>
-			</form></tr>
-			<tr>Password: <td>${user.password }</td> <form action= "updatePasswordForm.do">
-			${user.password }
+			</form>
+			</td>
+		</tr>
+		<tr>
+			<td>Password: ${user.password }</td>
+			<td><form action= "updatePasswordForm.do">
 			<input type= "text" name="pass" value="${user.password } "/>
 			<button type= "submit">Change Password</button>
-			</form></tr><br><br>
-			
+			</form>
+			</td>
+		</tr>
 </table>
-			
+<br><br>	
 		
 		<form>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light"></t>Payment Information</nav></form><br>
 
   <c:choose>
-  <c:when test="${! empty customer.paymentInfo }">
+  <c:when test="${! empty customer.paymentInfo}">
   <ul>
   <li><strong>Card Number: </strong>${customer.paymentInfo.cardNumber}</li>
   <li><strong>Expiration Date: </strong>${customer.paymentInfo.exprDate}</li>
@@ -99,15 +106,10 @@
   </c:otherwise>
   </c:choose>
 
-
-		
-		
 <c:choose>
-<c:when test="${! empty address }">
+<c:when test="${! empty address}">
 
-			<form>
-			<nav class="navbar navbar-expand-lg navbar-light bg-light"></t>Address Information</nav></form><br>
- <form action= "updateAddressForm.do">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">Address Information</nav><br>
   <ul>
   <li><strong>Street: </strong>${address.street }</li>
   <li><strong>Street2: </strong>${address.street2 }</li>
@@ -115,6 +117,7 @@
   <li><strong>State: </strong>${address.state }</li>
   <li><strong>Zip: </strong>${address.zip }</li>
   <li><strong>Country: </strong>${address.country }</li>
+  </ul>
   <%-- <div class="form-group">
     <label for="inputAddress">Street</label>
     <input type="text" class="form-control" name="inputAddress" value="${address.street }">
@@ -142,13 +145,10 @@
   </div>
   <div class="form-group">
   </div> --%>
-  </ul>
-</form>
 
- 
 </c:when>
 <c:otherwise>
-<p>No address information found</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">No Address Information Found</nav><br>
 </c:otherwise>
 </c:choose>
 

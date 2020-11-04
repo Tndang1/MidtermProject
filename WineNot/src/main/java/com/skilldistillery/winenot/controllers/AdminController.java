@@ -49,7 +49,7 @@ public class AdminController {
 	@RequestMapping(path = "admin.do")
 	public String adminPage(HttpSession session, Model model) {
 		model.addAttribute("customer", session.getAttribute("customer"));
-		return "admin";
+		return "adminFiles/admin";
 	}
 	@RequestMapping(path = "adminWineForm.do", method = RequestMethod.GET)
 	public String addWineForm(HttpSession session, Model model) {
@@ -80,13 +80,13 @@ public class AdminController {
 	public String adminReviewList(Model model) {
 		List<Review> review = rviewDAO.getAllReviews();
 		model.addAttribute("reviewResults", review);
-		return "admin";
+		return "adminFiles/admin";
 	}
 	@RequestMapping(path = "adminDeleteReview.do", method = RequestMethod.GET)
 	public String adminDeleteReview(Model model, int custId, int wineId) {
 		boolean deleted = rviewDAO.deleteReview(custId, wineId);
 		model.addAttribute("deleted", deleted);
-		return "admin";
+		return "adminFiles/admin";
 	}
 	@RequestMapping(path = "adminUpdateReview.do", method = RequestMethod.GET)
 	public String adminUpdateReview(Model model, int custId, int wineId, String review, Integer rating, String image) {
@@ -99,7 +99,7 @@ public class AdminController {
 		updateReview.setWine(wine);
 		updateReview.setCustomer(customer);
 		rviewDAO.updateReview(custId, wineId, updateReview);
-		return "admin";
+		return "adminFiles/admin";
 	}
 	
 	//*******Admin wine controls**********
@@ -107,33 +107,33 @@ public class AdminController {
 	public String adminWineList(HttpSession session, Model model) {
 		List<Wine> wines = wDAO.findAllWine();
 		model.addAttribute("wineResults", wines);
-		return "admin";
+		return "adminFiles/admin";
 	}
 	@RequestMapping(path="adminDisableWine.do", method = RequestMethod.GET)
 	public String adminDisableWine(Model model, int wineId) {
 		boolean disabled = wDAO.disableWine(wineId);
 		model.addAttribute("disabled", disabled);
-		return "admin";
+		return "adminFiles/admin";
 	}
 	@RequestMapping(path="adminEnableWine.do", method = RequestMethod.GET)
 	public String adminEnableWine(Model model, int wineId) {
 		boolean enabled = wDAO.enableWine(wineId);
 		model.addAttribute("enabled", enabled);
-		return "admin";
+		return "adminFiles/admin";
 	}
 	@RequestMapping(path="adminUpdateWine.do", method = RequestMethod.GET)
 	public String adminUpdateWine(Model model, Wine wine, Integer wineTypeId, Integer wineColorId) {
 		wine.setWineColor(colorTypeDAO.findColorById(wineColorId));
 		wine.setWineType(colorTypeDAO.findTypeById(wineTypeId));
 		wDAO.updateWine(wine);
-		return "admin";
+		return "adminFiles/admin";
 	}
 	@RequestMapping(path="adminAddWine.do", method = RequestMethod.GET)
 	public String adminAddWine(Model model, Wine wine, Integer wineTypeId, Integer wineColorId) {
 		wine.setWineColor(colorTypeDAO.findColorById(wineColorId));
 		wine.setWineType(colorTypeDAO.findTypeById(wineTypeId));
 		wDAO.createWine(wine);
-		return "admin";
+		return "adminFiles/admin";
 	}
 	
 	//*******Admin user controls***************
@@ -141,19 +141,19 @@ public class AdminController {
 	public String adminUserList(Model model) {
 		List<User> user = userDAO.getAllUsers();
 		model.addAttribute("userResults", user);
-		return "admin";
+		return "adminFiles/admin";
 	}
 	@RequestMapping(path="adminDisableUser.do", method = RequestMethod.GET)
 	public String adminDisableUser(Model model, int userId) {
 		boolean disabled = userDAO.disableUser(userId);
 		model.addAttribute("disabled", disabled);
-		return "admin";
+		return "adminFiles/admin";
 	}
 	@RequestMapping(path="adminEnableUser.do", method = RequestMethod.GET)
 	public String adminEnableUser(Model model, int userId) {
 		boolean enabled = userDAO.enableUser(userId);
 		model.addAttribute("enabled", enabled);
-		return "admin";
+		return "adminFiles/admin";
 	}
 	@RequestMapping(path="adminUpdateUser.do", method = RequestMethod.GET)
 	public String adminUpdateUser(Model model, int userId, int enabled, String username, String email, String password, String role) {
@@ -166,7 +166,7 @@ public class AdminController {
 		user.setRole(role);
 		User updated = userDAO.updateUser(userId, user);
 		model.addAttribute("user", updated);
-		return "admin";
+		return "adminFiles/admin";
 	}
 	
 }
