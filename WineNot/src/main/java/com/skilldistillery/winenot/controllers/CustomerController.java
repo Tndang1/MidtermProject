@@ -2,6 +2,7 @@ package com.skilldistillery.winenot.controllers;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Period;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -71,15 +72,20 @@ public class CustomerController {
 	}
 	@RequestMapping(path = "createCustomer.do", method = RequestMethod.POST)
 	public String createNewAccount(HttpSession session, Model model, User user, String date, String firstName, String lastName) {
+		LocalDate birthDate = LocalDate.parse(date);
+		Period period = Period.between(birthDate, LocalDate.now());
+		if (period.getYears() <= 21) {
+			model.addAttribute("failure", "You must be 21 or older to use this service!");
+			return "homePage";
+		}
+		LocalDateTime bornDate = birthDate.atStartOfDay();
+		LocalDateTime createDate = LocalDateTime.now();
 		User newUser = userDAO.createUser(user);
 		Customer customer = new Customer();
 		newUser.setEnabled(1);
 		customer.setUser(newUser);
 		customer.setfName(firstName);
 		customer.setlName(lastName);
-		LocalDateTime createDate = LocalDateTime.now();
-		LocalDate birthDate = LocalDate.parse(date);
-		LocalDateTime bornDate = birthDate.atStartOfDay();
 		customer.setBirthdate(bornDate);
 		customer.setCreateDate(createDate);
 		customer = custDAO.createCustomer(customer);
