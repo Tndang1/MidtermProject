@@ -89,7 +89,14 @@
 	
 	<div class="form-group">
 	<li><label for="diet">Dietary</label>
-	<input type="text" id="diet" name="dietary">
+	<!-- <input type="text" id="diet" name="dietary"> -->
+	<select name="dietary" id="diet">
+	<option value="kosher">Kosher</option>
+	<option value="paleo">Paleo</option>
+	<option value="organic">Organic</option>
+	<option value="palei">Palei</option>
+	<option value="keto">Keto</option>
+	</select>
 	</div></li>
 	
 	<div class="form-group">
@@ -142,7 +149,7 @@
 	</div></li>
 	
 	<input type="hidden" value="1" name="enabled">
-	<button type="submit" class="btn btn-danger btn-lg">Submit</button>
+	<button type="submit" class="btn btn-danger btn-lg">Add Wine</button>
 	</form>
 	
 	
