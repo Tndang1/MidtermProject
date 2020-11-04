@@ -91,6 +91,9 @@ public class AdminController {
 	@RequestMapping(path = "adminReviewList.do", method = RequestMethod.GET)
 	public String adminReviewList(Model model) {
 		List<Review> review = rviewDAO.getAllReviews();
+//		Wine wine = new Wine();
+//		wine.getLabelName();
+//		model.addAttribute("wineName", wine);
 		model.addAttribute("reviewResults", review);
 		return "adminFiles/admin";
 	}

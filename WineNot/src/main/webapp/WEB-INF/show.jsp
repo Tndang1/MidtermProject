@@ -92,11 +92,22 @@
 			<button type="submit">Add To Favorites!</button>
 			
 		</form>
-		<form action="addAReview.do" method="GET">
-			<input type="hidden" name="custId" value="${customer.id}"/>
-			<input type="hidden" name="wineId" value="${wine.id}"/>
-			<button type="submit">Review this wine.</button>
-		</form>
+			<c:choose>
+			<c:when test = "${reviewed == false}">
+			<form action="addAReview.do" method="GET">
+				<input type="hidden" name="custId" value="${customer.id}"/>
+				<input type="hidden" name="wineId" value="${wine.id}"/>
+				<button type="submit">Review this wine.</button>
+			</form>
+			</c:when>
+			<c:otherwise>
+			<form action="getUpdatedReviewOfWines.do" method="GET">
+				<input type="hidden" name="custId" value="${customer.id}"/>
+				<input type="hidden" name="wineId" value="${wine.id}"/>
+				<button type="submit">Update your review?</button>
+			</form>			
+			</c:otherwise>
+			</c:choose>
 		</c:when>					 
 		<c:otherwise>
 		<form action="checkCredentials.do" method="GET">

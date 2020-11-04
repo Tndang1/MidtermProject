@@ -67,7 +67,7 @@
 			<td>Username: ${user.username}</td> 
 			<td>
 				<form action= "updateUsernameForm.do">
-				<input type= "text" name="username" value="${user.username }"/>
+				<input type= "text" name="username" value="${user.username}"/>
 				<button type= "submit">Change Username</button><br>
 				</form>
 			</td>
@@ -75,7 +75,7 @@
 		<tr>
 			<td>Email: ${user.email}</td> 
 			<td><form action= "updateEmailForm.do">
-			<input type= "text" name="email" value="${user.email }"/>
+			<input type= "text" name="email" value="${user.email}"/>
 			<button type= "submit">Change Email</button><br>
 			</form>
 			</td>
@@ -83,18 +83,18 @@
 		<tr>
 			<td>Password: ${user.password }</td>
 			<td><form action= "updatePasswordForm.do">
-			<input type= "text" name="pass" value="${user.password } "/>
+			<input type= "text" name="pass" value="${user.password} "/>
 			<button type= "submit">Change Password</button>
 			</form></tr><br><br>
 
-			<form action ="createAddressForm.do"></form>
+			<form action="createAddressForm.do"></form>
 		
-		<form>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light"></t>Payment Information</nav></form><br>
+		
+		<!-- <form><nav class="navbar navbar-expand-lg navbar-light bg-light">Payment Information</nav></form><br> -->
 			
-			</form>
-			</td>
-		</tr>
+		<!-- 	</form> -->
+			<!-- </td> -->
+		<!-- </tr> -->
 </table>
 
 <hr>
@@ -114,7 +114,7 @@
   </ul>
   </c:when>
   <c:otherwise>
-  <p>No payment information found</p>
+  <p><center>No payment information found</center></p>
   </c:otherwise>
   </c:choose>
   
@@ -122,9 +122,12 @@
 
 <c:choose>
 <c:when test="${! empty address}">
+<%-- <c:when test="${! empty customer}"> --%>
+
 
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">Address Information</nav><br>
   <ul>
+ <%--  <li><strong>${customer.fName } ${customer.lName }</strong></li> --%>
   <li><strong>Street: </strong>${address.street }</li>
   <li><strong>Street2: </strong>${address.street2 }</li>
   <li><strong>City: </strong>${address.city }</li>
@@ -133,38 +136,18 @@
   <li><strong>Country: </strong>${address.country }</li>
   </ul>
 </form>
-  <%-- <div class="form-group">
-    <label for="inputAddress">Street</label>
-    <input type="text" class="form-control" name="inputAddress" value="${address.street }">
-  </div>
-  <div class="form-group">
-    <label for="inputAddress2">Street 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="${address.street2 }">
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputCity">City</label>
-      <input type="text" class="form-control" id="inputCity">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputZip">Zip</label>
-      <input type="text" class="form-control" id="inputZip">
-    </div>
-  </div>
-  <div class="form-group">
-  </div> --%>
+
 
 </c:when>
+<%-- </c:when> --%>
 <c:otherwise>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">No Address Information Found</nav><br>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">Address Information</nav><br>
+<p><center>No address information found</center></p><br>
 </c:otherwise>
+<%-- <c:otherwise>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">No Customer name found</nav><br>
+
+</c:otherwise> --%>
 </c:choose>
 
 <hr>
@@ -184,6 +167,9 @@
  <li class="nav-item">
 		<a class="nav-link" href="updateAddressForm.do">Update Address</a> 
 		
+	</li>
+		<li class="nav-item">
+		<a class="nav-link" href="createPaymentInfoForm.do">Payment Info</a>
 	</li>
 
 </ul>

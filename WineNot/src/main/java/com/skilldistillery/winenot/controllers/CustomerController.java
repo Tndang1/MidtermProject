@@ -74,7 +74,7 @@ public class CustomerController {
 	public String createNewAccount(HttpSession session, Model model, User user, String date, String firstName, String lastName) {
 		LocalDate birthDate = LocalDate.parse(date);
 		Period period = Period.between(birthDate, LocalDate.now());
-		if (period.getYears() <= 21) {
+		if (period.getYears() < 21) {
 			model.addAttribute("failure", "You must be 21 or older to use this service!");
 			return "homePage";
 		}
@@ -158,6 +158,7 @@ public class CustomerController {
 	public String createAddress(HttpSession session, Address address, Model model) {
 		Customer customer = (Customer) session.getAttribute("customer");
 		model.addAttribute("newAddress", addrDAO.createAddress(address));
+//		return "address";
 		return "userProfilePage";
 	}
 	@RequestMapping(path = "updateAddressForm.do", method = RequestMethod.GET)
