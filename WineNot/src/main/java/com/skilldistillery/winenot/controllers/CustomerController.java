@@ -15,11 +15,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.winenot.data.AddressDAO;
 import com.skilldistillery.winenot.data.CustomerDAO;
-import com.skilldistillery.winenot.data.CustomerOrderDAO;
 import com.skilldistillery.winenot.data.PaymentInfoDAO;
 import com.skilldistillery.winenot.data.ReviewDAO;
 import com.skilldistillery.winenot.data.UserDAO;
-import com.skilldistillery.winenot.data.WineDAO;
 import com.skilldistillery.winenot.entities.Address;
 import com.skilldistillery.winenot.entities.Customer;
 import com.skilldistillery.winenot.entities.CustomerOrder;
@@ -35,24 +33,14 @@ public class CustomerController {
 
 	@Autowired
 	private CustomerDAO custDAO;
-
 	@Autowired
 	private UserDAO userDAO;
-
 	@Autowired
 	private AddressDAO addrDAO;
-
-	@Autowired
-	private CustomerOrderDAO custOrdDAO;
-
 	@Autowired
 	private PaymentInfoDAO payInfoDAO;
-
 	@Autowired
 	private ReviewDAO rviewDAO;
-	
-	@Autowired
-	private WineDAO wDAO;
 
 	// REQUEST MAPPING ======================================================
 
@@ -66,14 +54,11 @@ public class CustomerController {
 	@RequestMapping(path = "createUserForm.do", method = RequestMethod.GET)
 	public String createUserForm(User user) {
 		return "LogIn";
-//		return "folder/newUserForm";
 	}
 
 	@RequestMapping(path = "createUser.do", method = RequestMethod.POST)
 	public String createUser(User user, Model model) {
 		model.addAttribute("newUser", userDAO.createUser(user));
-
-//		return "folder/userProfilePage";
 		return "userProfilePage";
 	}
 	@RequestMapping(path = "createCustomerForm.do")
@@ -89,10 +74,8 @@ public class CustomerController {
 		customer.setfName(firstName);
 		customer.setlName(lastName);
 		LocalDateTime createDate = LocalDateTime.now();
-//		System.out.println(date);
 		LocalDate birthDate = LocalDate.parse(date);
 		LocalDateTime bornDate = birthDate.atStartOfDay();
-//		System.out.println(birthDate);
 		customer.setBirthdate(bornDate);
 		customer.setCreateDate(createDate);
 		customer = custDAO.createCustomer(customer);
@@ -100,7 +83,6 @@ public class CustomerController {
 		if (session.getAttribute("customer") == null) {
 		session.setAttribute("customer", customer);
 		}
-//		return "createNewAccount";
 		return "homePage";
 	}
 
@@ -147,11 +129,9 @@ public class CustomerController {
 		if (custDAO.deleteCustomer(customer.getId())) {
 			model.addAttribute("deleteResult", "Customer Account deleted");
 		}
-
 		else {
 			model.addAttribute("deleteResult", "Customer account not found");
 		}
-
 		return "homePage";
 	}
 
@@ -160,31 +140,20 @@ public class CustomerController {
 	@RequestMapping(path = "createAddressForm.do", method = RequestMethod.GET)
 	public String CreateAddressForm(HttpSession session, Address Address) {
 		Customer customer = (Customer) session.getAttribute("customer");
-
 		return "address";
 	}
-
 	@RequestMapping(path = "createAddress.do", method = RequestMethod.POST)
 	public String createAddress(HttpSession session, Address address, Model model) {
 		Customer customer = (Customer) session.getAttribute("customer");
 		model.addAttribute("newAddress", addrDAO.createAddress(address));
-
 		return "address";
 	}
 	@RequestMapping(path = "updateAddressForm.do", method = RequestMethod.GET)
 	public String updateAddress(HttpSession session, Integer id, Model model) {
 		Customer customer = (Customer) session.getAttribute("customer");
 		customer.getAddress();
-//		Address address = addrDAO.getAddressById(customer.getAddress().getId());
-//		address.setStreet(newAddy);
-//		address.setStreet2(newAddy);
-//		address.setCity(newAddy);
-//		address.setState(newAddy);
-//		address.setZip(newAddy);
-		
 		model.addAttribute("address", customer.getAddress());
 		return "updateAddress";
-//		return "userProfilePage";
 	}
 //	THIS METHOD IS FOR UPDATING ADDRESS.
 	@RequestMapping(path = "updateAddressInfo.do", method = RequestMethod.GET)
@@ -213,30 +182,6 @@ public class CustomerController {
 		model.addAttribute("deleted", deleted);
 		return "userProfilePage";
 	}
-//	@RequestMapping(path = "removeReview.do", method = RequestMethod.GET)
-//	public String removeReview(HttpSession session, Model model, int wineId) {
-//	Customer customer = (Customer) session.getAttribute("customer");
-//	Boolean deleted = rviewDAO.deleteReview(customer.getId(), wineId);
-//	List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
-//	model.addAttribute("reviews", reviews);
-//	model.addAttribute("deleted", deleted);
-//	return "myReviews";
-//}
-	
-	
-	
-	
-//	@RequestMapping(path = "updateReviewReview.do", method = RequestMethod.GET)
-//	public String updateReviewReview(HttpSession session, Model model, int wineId, String reviewUpdate) {
-//		Customer customer = (Customer) session.getAttribute("customer");
-//		Review review = rviewDAO.getReviewByCustomerAndWineId(customer.getId(), wineId);
-//		review.setReview(reviewUpdate);
-//		rviewDAO.updateReview(customer.getId(), wineId, review);
-//		List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
-//		model.addAttribute("reviews", reviews);
-//		return "myReviews";
-//	}
-
 	// PAYMENT FORMS =================
 
 	@RequestMapping(path = "createPaymentInfoForm.do", method = RequestMethod.GET)
@@ -248,7 +193,6 @@ public class CustomerController {
 
 		return "payment";
 	}
-	
 
 	@RequestMapping(path = "createPaymentInfo.do", method = RequestMethod.POST)
 	public String createPayInfo(HttpSession session, Model model, String cardNumber, String exprDate, String street, String street2, String city, String state, String zip, String country) {
@@ -270,9 +214,10 @@ public class CustomerController {
 //		custDAO.setAddress(customer.getId(), newInfo.getAddress());
 //		custDAO.setPayment(customer.getId(), newInfo);
 		
+		custDAO.setAddress(customer.getId(), newInfo.getAddress());
+		custDAO.setPayment(customer.getId(), newInfo);
 		model.addAttribute("payInfo", newInfo);
 
-//		return "payment";
 		return "userProfilePage";
 	}
 
@@ -290,13 +235,7 @@ public class CustomerController {
 
 		return "folder/userProfilePage";
 	}
-	
-//	@RequestMapping(path = "getCustomerReviews.do", method = RequestMethod.GET)
-//	public String getAllReviews(Model model, int id) {
-//		Customer customer = custDAO.getCustomerById(id); 
-//		List<Review> listReviews = customer.getReviews();
-//		model.addAttribute("reviews", listReviews);
-//		
+
 	//displays the list of reviews currently
 	@RequestMapping(path = "getAllReviews.do", method = RequestMethod.GET)
 	public String getAllReviews(HttpSession session, Model model) {
@@ -323,9 +262,7 @@ public class CustomerController {
 		Customer customer = (Customer) session.getAttribute("customer");
 		Review review = rviewDAO.getReviewByCustomerAndWineId(customer.getId(), wineId);
 		review.setReview(reviewUpdate);
-//		rviewDAO.updateReview(customer.getId(), wineId, review);
 		review.setRating(rating);
-//		rviewDAO.updateReview(customer.getId(), wineId, review);
 		review.setImage(image);
 		rviewDAO.updateReview(customer.getId(), wineId, review);
 		List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
@@ -349,8 +286,6 @@ public class CustomerController {
 		return "myReviews";
 	}
 	
-	
-	
 	// FAVORITES FORMS ===================
 	
 	@RequestMapping(path = "favoritesList.do")
@@ -358,7 +293,6 @@ public class CustomerController {
 		Customer customer = (Customer) session.getAttribute("customer");
 		List<Wine> cust = custDAO.getCustomerFavorites(customer.getId());
 		model.addAttribute("favList", cust);
-		
 		return "favorites";
 	}
 	
@@ -367,7 +301,6 @@ public class CustomerController {
 		Customer customer = (Customer) session.getAttribute("customer");
 		List<Wine> cust = custDAO.addWineToFavorites(customer.getId(), wid);
 		model.addAttribute("favList", cust);
-		
 		return "favorites";
 	}
 
@@ -378,7 +311,6 @@ public class CustomerController {
 		Customer customer = (Customer) session.getAttribute("customer");
 		List<CustomerOrder> orders = custDAO.getCustomerOrders(customer.getId());
 		model.addAttribute("orders", orders);
-		
 		return "orderhistory";
 	}
 	
@@ -403,8 +335,6 @@ public class CustomerController {
 		ModelAndView mv = new ModelAndView();
 		session.removeAttribute("customer");
 		mv.setViewName("homePage");
-		
 		return mv;
 	}
-
 }

@@ -63,7 +63,7 @@
 			</div>
 		</nav>
 		<h2>Welcome Money Maker!</h2>
-		<form action="adminWineList.do"><button type="submit">See all Wines.</button></form></left>
+		<form action="adminWineList.do"><button type="submit">See all Wines.</button></form>
 		<form action="adminReviewList.do"><button type="submit">See all Reviews.</button></form>
 		<form action="adminUserList.do"><button type="submit">See all Users.</button></form>
 		<form action="adminWineForm.do"><button type="submit">Add a wine.</button></form>
@@ -116,7 +116,7 @@
 		</c:forEach>
 </c:if>
 </table>
-		
+</div>		
 		
 		
 		

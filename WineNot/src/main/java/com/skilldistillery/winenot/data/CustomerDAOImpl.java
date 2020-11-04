@@ -119,7 +119,6 @@ public class CustomerDAOImpl implements CustomerDAO {
 	public Customer setAddress(int id, Address address) {
 		Customer customer = em.find(Customer.class, id);
 		customer.setAddress(address);
-		
 		return customer;
 		
 	}
@@ -128,7 +127,6 @@ public class CustomerDAOImpl implements CustomerDAO {
 	public Customer setPayment(int id, PaymentInfo payInfo) {
 		Customer customer = em.find(Customer.class, id);
 		customer.setPaymentInfo(payInfo);
-		
 		return customer;
 	}
 	

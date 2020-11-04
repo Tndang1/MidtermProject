@@ -55,25 +55,29 @@
 			
 			</div>
 		</nav>
-		<hr>
 	
+	
+		<hr>
+		<h1>User Account Profile</h1>
 		<hr>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light"><h5>User Information</h5></nav>
 		<p>
 		<table>
-			<tr>Username: <td>${user.username }</td> <form action= "updateUsernameForm.do">
-			${user.username }
+			<tr>Username: <td>${user.username }</td> 
+			<form action= "updateUsernameForm.do">
+			 ${user.username } 
 			<input type= "text" name="username" value="${user.username }"/>
 			<button type= "submit">Change Username</button><br>
 			</form></tr>
-			<tr>Email: <td>${user.email }</td> <form action= "updateEmailForm.do">
+			<tr>Email: <td>${user.email }</td> 
+			<form action= "updateEmailForm.do">
 			${user.username }
 			<input type= "text" name="email" value="${user.email }"/>
 			<button type= "submit">Change Email</button><br>
 			</form></tr>
 			<tr>Password: <td>${user.password }</td> <form action= "updatePasswordForm.do">
 			${user.password }
-			<input type= "text" name="pass" value=" "/>
+			<input type= "text" name="pass" value="${user.password } "/>
 			<button type= "submit">Change Password</button>
 			</form></tr><br><br>
 
@@ -81,6 +85,13 @@
 		
 		<form>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light"></t>Payment Information</nav></form><br>
+			
+</table>
+			
+		
+		<form>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light"></t>Payment Information</nav></form><br>
+
   <c:choose>
   <c:when test="${! empty customer.paymentInfo }">
   <ul>
@@ -94,12 +105,14 @@
   </c:choose>
   
 </form>
+
+
 		
 		
 <c:choose>
 <c:when test="${! empty address }">
-			<form>
 
+			<form>
 			<nav class="navbar navbar-expand-lg navbar-light bg-light"></t>Address Information</nav></form><br>
  <form action= "updateAddressForm.do">
   <ul>
@@ -119,7 +132,7 @@
 </c:otherwise>
 </c:choose>
 
-
+<hr>
 <form>
 <ul class="navbar-nav mr-auto">
 
@@ -132,7 +145,7 @@
 <li class="nav-item">
 		<a class="nav-link" href="updateAddressForm.do?">Update Address</a> 
 		<a class="nav-link" href="updateAddressForm.do">Update Address</a> 
-		<!-- <button href="updateAddressForm.do?id=1#" type="submit">Update Address</button> -->
+		
 	</li>
 	<li class="nav-item">
 		<a class="nav-link" href="createPaymentInfoForm.do">Payment Info</a> <!-- Unsure of this -->
@@ -149,7 +162,8 @@
 		</li>
 	</ul>
 </form>
-</table>
+<hr>
+	</div>
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 			crossorigin="anonymous"></script>

@@ -76,10 +76,6 @@
 	<input type="text" id="year" name="vintageYear" required>
 	</div>
 	<div class="form-group">
-	<label for="desc">Description</label>
-	<input type="text" id="desc" name="description" required>
-	</div>
-	<div class="form-group">
 	<label for="flav">Flavor</label>
 	<input type="text" id="flav" name="flavor" required>
 	</div>
@@ -88,16 +84,20 @@
 	<input type="text" id="diet" name="dietary">
 	</div>
 	<div class="form-group">
-	<label for="pair">Food Pairing</label>
-	<input type="text" id="pair" name="pairs">
+	<label for="desc">Description</label>
+	<input type="text" id="desc" name="description" required>
 	</div>
 	<div class="form-group">
 	<label for="img">Image</label>
 	<input type="text" id="img" name="image">
 	</div>
 	<div class="form-group">
+	<label for="pair">Food Pairing</label>
+	<input type="text" id="pair" name="pairs">
+	</div>
+	<div class="form-group">
 	<label for="type">Type</label>
-		<select name="wineType" id="type" required>
+		<select name="wineTypeId" id="type" required>
 			<option value="1" id="id">1. Bordeaux</option>
 			<option value="2">2. Cabernet</option>
 			<option value="3">3. Chardonnay</option>
@@ -121,12 +121,13 @@
 	</div>
 	<div class="form-group">
 	<label for="color">Color</label>
-		<select name="wineColor" id="color" required>
+		<select name="wineColorId" id="color" required>
 			<option value="1">1. Red</option>
 			<option value="2">2. White</option>
 			<option value="3">3. Rose</option>
 		</select>
 	</div>
+	<input type="hidden" value="1" name="enabled">
 	<button type="submit" class="btn btn-primary">Submit</button>
 	</form>
 	

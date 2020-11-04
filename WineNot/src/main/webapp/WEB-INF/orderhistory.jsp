@@ -54,6 +54,8 @@
 			</div>
 		</nav>
     <hr>
+    <h1>Order History:</h1>
+    <hr>
 		<ul>
 			<c:forEach items="${orders}" var="order">
 				<li>${order.orderDate.month} ${order.orderDate.dayOfMonth}, ${order.orderDate.year}

@@ -17,8 +17,6 @@ import com.skilldistillery.winenot.entities.Wine;
 @Transactional
 public class CustomerOrderDAOImpl implements CustomerOrderDAO {
 
-//	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("WineNotPU");
-
 	@PersistenceContext
 	private EntityManager em;
 	
@@ -32,7 +30,6 @@ public class CustomerOrderDAOImpl implements CustomerOrderDAO {
 		em.persist(order);
 		em.flush();
 		em.close();
-		
 		return order;
 	}
 
@@ -50,11 +47,8 @@ public class CustomerOrderDAOImpl implements CustomerOrderDAO {
 	@Override
 	public boolean deleteCustomerOrder(int id) {
 		CustomerOrder deleteOrder = em.find(CustomerOrder.class, id);
-		
 		em.remove(deleteOrder);
-		
 		boolean orderWasDeleted = !em.contains(deleteOrder);
-		
 		return orderWasDeleted;
 	}
 

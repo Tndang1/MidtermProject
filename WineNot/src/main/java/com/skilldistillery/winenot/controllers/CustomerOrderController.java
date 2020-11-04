@@ -26,13 +26,11 @@ import com.skilldistillery.winenot.entities.Wine;
 @Controller
 public class CustomerOrderController {
 
-//	Order DAO==============================================
+//	*************Order DAO**********
 	@Autowired
 	private CustomerOrderDAO custOrderDAO;
-	
 	@Autowired
 	private CustomerDAO custDAO;
-	
 	@Autowired
 	private WineDAO wineDAO;
 
@@ -70,7 +68,7 @@ public class CustomerOrderController {
 		return "checkout";
 	}
 	
-//	Find orders by id=====================================================
+//	***************Find orders by id************
 	@RequestMapping(path = "findById.do", method = RequestMethod.GET)
 	private String findOrdersById(Model model, int id) {
 		CustomerOrder custOrderId = custOrderDAO.findById(id);
@@ -78,14 +76,14 @@ public class CustomerOrderController {
 		return "custOrderById";
 	}
 
-//	list of orders=======================================================
+//	***************list of orders***************
 	@RequestMapping(path = "orderList.do", method = RequestMethod.GET)
 	public String listedOrders(Model model) {
 		List<CustomerOrder> orderList = custOrderDAO.findAll();
 		model.addAttribute("order", orderList);
 		return "orderList";
 	}
-//	delete list of wines================================================
+//	******************delete list of wines***************
 	@RequestMapping(path = "removeAllWine", method = RequestMethod.GET)
 	public String removeAllWinesFromOrder(Model model, int id) {
 		CustomerOrder custOrderId = custOrderDAO.findById(id);
@@ -97,23 +95,17 @@ public class CustomerOrderController {
 		return "allWineGone";
 	}
 
-	
-	
-
-//  Create Order==============================================================
+//  *******************Create Order****************
 
 	@RequestMapping(path = "create.do", method = RequestMethod.POST)
 	public ModelAndView createCustomerOrder(HttpSession session, CustomerOrder order, Integer custId, Integer wineColor, RedirectAttributes ra) {
 		Customer customer = (Customer)session.getAttribute("customer");
   	customer.getAddress();
 		customer.getPaymentInfo();
-
-//		LocalDateTime now = LocalDateTime.now();
 		if (order.getSize() == 12) {
 			order.setAmount(220.99);
 		}
 		order.setCustomer(customer);
-//		order.setOrderDate(now);
 		List<Wine> wines = null;
 		if (wineColor > 0 && wineColor < 3) {
 		wines = wineDAO.findWineByWineColorId(wineColor);
@@ -130,7 +122,6 @@ public class CustomerOrderController {
 		ra.addFlashAttribute("paymentInfo", customer.getPaymentInfo());
 		ra.addFlashAttribute("order", addOrder);
 		mv.setViewName("redirect:orderMade.do");
-
 		return mv;
 	}
 
@@ -138,7 +129,6 @@ public class CustomerOrderController {
 	@RequestMapping(path = "orderMade.do", method = RequestMethod.GET)
 	public ModelAndView created() {
 		ModelAndView mv = new ModelAndView();
-//		mv.setViewName("showOrder"); 
 		mv.setViewName("confirmationPage"); 
 		return mv;
 	}
@@ -161,7 +151,6 @@ public class CustomerOrderController {
 		mv.addObject("order", custOrderDAO.findById(id));
 		mv.setViewName("updateOrder");
 		return mv;
-
 	}
 
 //	display updated order=================================================
@@ -172,7 +161,6 @@ public class CustomerOrderController {
 		mv.addObject("order", order);
 		mv.setViewName("updatedOrderPage");
 		return mv;
-
 	}
 
 //	delete wineFromOrder ================================================================
@@ -195,7 +183,6 @@ public class CustomerOrderController {
 	@RequestMapping(path = "customerOrder.do", method = RequestMethod.POST)
 	private String createOrder(Model model, Integer customerOrderId) {
 		CustomerOrder customerOrder = custOrderDAO.findById(customerOrderId);
-//		CustomerOrder customerOrder = custOrderDAO.create(customerOrderId);
 		List<Wine> wines = customerOrder.getWines();
 		Customer customer = customerOrder.getCustomer();
 		Address address = customer.getAddress();
@@ -209,5 +196,4 @@ public class CustomerOrderController {
 		model.addAttribute("wines", wines);
 		return "confirmationPage";
 	}
-
 }
