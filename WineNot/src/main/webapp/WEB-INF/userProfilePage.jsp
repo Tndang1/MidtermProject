@@ -80,64 +80,47 @@
 			<form action ="createAddressForm.do"></form>
 		
 		<form>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light"></t>Payment Information</nav><br>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputFirstName4">First Name</label>
-      <input type="firstName" class="form-control" id="inputFirstName4" placeholder="FirstName">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputLastName4">Last Name</label>
-      <input type="lastName" class="form-control" id="inputLastName4" placeholder="LastName">
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="inputCardNumber">Card Number</label>
-    <input type="text" class="form-control" id="inputCardNumber" placeholder="XXXX XXXX XXXX XXXX">
-  </div>
-  <div class="form-group">
-    <label for="inputExprDate">Expiration Date</label>
-    <input type="text" class="form-control" id="inputExprDate" placeholder="00/00">
-  </div>
-  <div class="form-group">
-  </div>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light"></t>Payment Information</nav></form><br>
+  <c:choose>
+  <c:when test="${! empty customer.paymentInfo }">
+  <ul>
+  <li><strong>Card Number: </strong>${customer.paymentInfo.cardNumber}</li>
+  <li><strong>Expiration Date: </strong>${customer.paymentInfo.exprDate}</li>
+  </ul>
+  </c:when>
+  <c:otherwise>
+  <p>No payment information found</p>
+  </c:otherwise>
+  </c:choose>
+  
 </form>
 		
 		<br>
 		<br>
-
+		
+<c:choose>
+<c:when test="${! empty address }">
 			<form>
-			<nav class="navbar navbar-expand-lg navbar-light bg-light"></t>Address Information</nav><br>
-  </div> <form action= "updateAddressForm.do">
-  
-  <div class="form-group">
-    <label for="inputAddress">Street</label>
-    <input type="text" class="form-control" name="inputAddress" value="${address.street }">
-  </div>
-  <div class="form-group">
-    <label for="inputAddress2">Street 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="${address.street2 }">
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputCity">City</label>
-      <input type="text" class="form-control" id="inputCity">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputZip">Zip</label>
-      <input type="text" class="form-control" id="inputZip">
-    </div>
-  </div>
-  <div class="form-group">
-  </div>
+
+			<nav class="navbar navbar-expand-lg navbar-light bg-light"></t>Address Information</nav></form><br>
+ <form action= "updateAddressForm.do">
+  <ul>
+  <li><strong>Street: </strong>${address.street }</li>
+  <li><strong>Street2: </strong>${address.street2 }</li>
+  <li><strong>City: </strong>${address.city }</li>
+  <li><strong>State: </strong>${address.state }</li>
+  <li><strong>Zip: </strong>${address.zip }</li>
+  <li><strong>Country: </strong>${address.country }</li>
+  </ul>
 </form>
+
+ 
+</c:when>
+<c:otherwise>
+<p>No address information found</p>
+</c:otherwise>
+</c:choose>
+
 
 <form>
 <ul class="navbar-nav mr-auto">
@@ -150,6 +133,7 @@
 	</li>
 <li class="nav-item">
 		<a class="nav-link" href="updateAddressForm.do?">Update Address</a> 
+		<a class="nav-link" href="updateAddressForm.do">Update Address</a> 
 		<!-- <button href="updateAddressForm.do?id=1#" type="submit">Update Address</button> -->
 	</li>
 	<li class="nav-item">
@@ -158,24 +142,16 @@
 
 </ul>
 </form>
-<form>
-	<ul class="navbar-nav mr-auto">
 
-		<li class="nav-item">
-			<!-- <a class="nav-link" href="deleteUser.do?id=1#">Delete Account</a> -->
-			
-			<!-- <a class="nav-link" href="logOutOfAccount.do">LogOut of Account</a> -->
-		</li>
-	</ul>
-</form>
 <form>
-	<ul class="navbar-nav mr-auto">
 
+	<ul class="navbar-nav mr-auto">
 		<li class="nav-item">
 			<a class="nav-link" href="deleteUser.do">Delete Account</a>
 		</li>
 	</ul>
 </form>
+</table>
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 			crossorigin="anonymous"></script>

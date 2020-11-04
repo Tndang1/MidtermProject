@@ -82,31 +82,41 @@
 		
 
 	
+<!-- FIX SUBMIT BUTTON FOR UPDATE ADDRESS. -->
 		<div class="container">
 			<table>
-			<tr> Street: <td>${address.street }</td> <form action = "updateAddressForm.do">
+			
+			<tr> Street: <td>${address.street }</td> 
+			
+			<form action = "updateAddressInfo.do">
+			<input type="hidden" name="id" value="${address.id}">
+			
 			${address.street }
 			<input type= "text" name="street" value="${address.street}"/>
 			</tr>
 			
 			 <tr>Street2: <td>${address.street2 }</td> 
 			${address.street2 }
-			<input type= "text" name="email" value="${address.street2 }"/>
+			<input type= "text" name="street2" value="${address.street2 }"/>
 			</tr>
 			
 			 <tr>City: <td>${address.city }</td> 
 			${address.city }
-			<input type= "text" name="email" value="${address.city }"/>
+			<input type= "text" name="city" value="${address.city }"/>
 			</tr>
 			
 			 <tr>State: <td>${address.state }</td> 
 			${address.state }
-			<input type= "text" name="email" value="${address.state }"/>
+			<input type= "text" name="state" value="${address.state }"/>
 			</tr>
 			
 			<tr>Zip Code: <td>${address.zip }</td> 
 			${address.zip }
 			<input type= "text" name="pass" value="${address.zip }"/>
+			<input type= "text" name="zip" value="${address.zip }"/>
+			<tr>Country: <td>${address.country}</td> 
+			${address.country }
+			<input type= "text" name="country" value="${address.country }"/>
 			<button type= "submit">Update Address</button>
 			</tr><br><br> 
 			</form>
