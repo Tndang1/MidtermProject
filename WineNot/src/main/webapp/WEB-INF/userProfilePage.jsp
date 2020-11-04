@@ -121,8 +121,9 @@
 <c:choose>
 <c:when test="${! empty address }">
 			<form>
-			<nav class="navbar navbar-expand-lg navbar-light bg-light"></t>Address Information</nav><br>
-  </div> <form action= "updateAddressForm.do">
+
+			<nav class="navbar navbar-expand-lg navbar-light bg-light"></t>Address Information</nav></form><br>
+ <form action= "updateAddressForm.do">
   <ul>
   <li><strong>Street: </strong>${address.street }</li>
   <li><strong>Street2: </strong>${address.street2 }</li>
@@ -157,9 +158,10 @@
   </div>
   <div class="form-group">
   </div> --%>
-  
-</form>
   </ul>
+</form>
+
+ 
 </c:when>
 <c:otherwise>
 <p>No address information found</p>
@@ -186,19 +188,21 @@
 
 </ul>
 </form>
-<form>
+
+<!-- <form>
 	<ul class="navbar-nav mr-auto">
 
 		<li class="nav-item">
-			<!-- <a class="nav-link" href="deleteUser.do?id=1#">Delete Account</a> -->
+			<a class="nav-link" href="deleteUser.do?id=1#">Delete Account</a>
 			
-			<!-- <a class="nav-link" href="logOutOfAccount.do">LogOut of Account</a> -->
+			 <a class="nav-link" href="logOutOfAccount.do">LogOut of Account</a> 
 		</li>
 	</ul>
-</form>
-<form>
-	<ul class="navbar-nav mr-auto">
+</form> -->
 
+<form>
+
+	<ul class="navbar-nav mr-auto">
 		<li class="nav-item">
 			<a class="nav-link" href="deleteUser.do">Delete Account</a>
 		</li>
