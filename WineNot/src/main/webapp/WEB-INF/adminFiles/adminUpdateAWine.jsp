@@ -63,7 +63,7 @@
 	<div class="container-fluid">
 	
 	<form action="adminUpdateWine.do">
-	<input type="hidden" name="wineId" value="${wine.id}"/>
+	<input type="hidden" name="id" value="${wine.id}"/>
 	<div class="form-group">
 	<label for="name">Label name</label>
 	<input type="text" id="name" name="labelName" value="${wine.labelName}" required>
@@ -98,7 +98,7 @@
 	</div>
 	<div class="form-group">
 	<label for="type">Type</label>
-		<select name="wineType" id="type" required>
+		<select name="wineTypeId" id="type" required>
 			<option value="${wine.wineType.id}" selected>${wine.wineType.wineType}</option>
 			<option value="1">1. Bordeaux</option>
 			<option value="2">2. Cabernet</option>
@@ -123,13 +123,14 @@
 	</div>
 	<div class="form-group">
 	<label for="color">Color</label>
-		<select name="wineColor" id="color" required>
+		<select name="wineColorId" id="color" required>
 		<option value="${wine.wineColor.id}" selected>${wine.wineColor.wineColor}</option>
 			<option value="1">1. Red</option>
 			<option value="2">2. White</option>
 			<option value="3">3. Rose</option>
 		</select>
 	</div>
+	<input type="hidden" name="enabled" value="${wine.enabled}">
 	<button type="submit" class="btn btn-primary">Submit</button>
 	</form>
 	

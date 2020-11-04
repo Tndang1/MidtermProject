@@ -50,8 +50,7 @@ public class Wine {
 	public Wine() {
 		super();
 	}
-	public Wine(int id, String labelName, String vineyard, Integer vintageYear, String flavor, String dietary, String image, String pairs) {
-		this.id = id;
+	public Wine(String labelName, String vineyard, Integer vintageYear, String flavor, String dietary, String image, String pairs) {
 		this.labelName = labelName;
 		this.vineyard = vineyard;
 		this.vintageYear = vintageYear;

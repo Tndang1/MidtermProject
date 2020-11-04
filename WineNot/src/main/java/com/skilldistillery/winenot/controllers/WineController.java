@@ -26,19 +26,16 @@ public class WineController {
 	
 	@Autowired
 	private WineDAO wineDao;
-//	private WineTypeDAO wineTypeDao;
-//	private WineColorDAO wineColorDao;
 	@Autowired
 	private ReviewDAO reviewDao;
 	@Autowired
 	private CustomerDAO customerDao;
 	
-	
-	//
-	@RequestMapping(path = "/")
+	@RequestMapping(path = {"/", "homePage.do"})
 	public String index() {
 		return "homePage";
 	}
+
 	//search by Wine ID
 	@RequestMapping(path = "getWine.do", method = RequestMethod.GET)
 	public String showWineId(HttpSession session,Integer wid, Model model) {
@@ -129,26 +126,8 @@ public class WineController {
 		mv.addObject("wine", wine);
 		mv.setViewName("updatedWinePage");
 		return mv;
-		
 	}
-	//delete wine
-	@RequestMapping(path="deletedWine.do", method = RequestMethod.GET)
-	public ModelAndView showDeletedWine(Integer id) {
-		wineDao.deleteWine(id);
-		ModelAndView mv = new ModelAndView();
-//		ra.addFlashAttribute("wine", deleteThisWine);
-		mv.setViewName("deleteWine");
-		return mv;
-	}
-	
-	
-	
-	//home page
-	@RequestMapping(path = "homePage.do")
-	public String backHome() {
-		return "homePage";
-	}
-	
+
 	//add review
 	@RequestMapping(path = "addAReview.do")
 	public String addAReview(HttpSession session, Model model, Integer custId, Integer wineId) {
@@ -158,8 +137,6 @@ public class WineController {
 		Wine wine = wineDao.findWineById(wineId);
 		model.addAttribute("wine", wine);
 		return "addReview";
-//		return "myReviews";
-		
 	}
 	
 	@RequestMapping(path = "addWineReview.do")
