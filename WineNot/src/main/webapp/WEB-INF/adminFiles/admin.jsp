@@ -65,25 +65,26 @@
 		<h6>Please selection an option:</h6>
 		<table>
 		<ul>
-		<li><form action="adminWineList.do"><button type="button" class="btn btn-danger btn-lg">See all Wines <i class='fas fa-wine-glass' style='font-size:18px;'></i></button></form></li><br>
-		<li><form action="adminReviewList.do"><button type="button" class="btn btn-danger btn-lg">See all Reviews <i class='fas fa-list-alt'></i></button></form></li><br>
-		<li><form action="adminUserList.do"><button type="button" class="btn btn-danger btn-lg">See all Users <i class='fas fa-address-card'></i></button></form></li><br>
-		<li><form action="adminWineForm.do"><button type="button" class="btn btn-danger btn-lg">Add a wine <i class='fas fa-wine-glass' style='font-size:18px;'></i></button></form></li><br>
+		<li><form action="adminWineList.do"><button type="submit" class="btn btn-danger btn-lg">See all Wines <i class='fas fa-wine-glass' style='font-size:18px;'></i></button></form></li><br>
+		<li><form action="adminReviewList.do"><button type="submit" class="btn btn-danger btn-lg">See all Reviews <i class='fas fa-list-alt'></i></button></form></li><br>
+		<li><form action="adminUserList.do"><button type="submit" class="btn btn-danger btn-lg">See all Users <i class='fas fa-address-card'></i></button></form></li><br>
+		<li><form action="adminWineForm.do"><button type="submit" class="btn btn-danger btn-lg">Add a wine <i class='fas fa-wine-glass' style='font-size:18px;'></i></button></form></li><br>
 		</ul>
 		</table>
+		<hr>
 		
 		
-		
+<%-- 		<h6><center>List of Wines:</center></h6> --%>
 <table class="table">
 <c:if test="${wineResults != null}">
 		<c:forEach items="${wineResults}" var="wine">
 		<tr>
 			<td>${wine.id}</td><td>${wine.labelName}</td><td>${wine.vineyard}</td><td><c:choose><c:when test="${wine.enabled == 1}">Enabled</c:when><c:otherwise>Disabled</c:otherwise></c:choose></td>
-			<td><form action="adminUpdateWineForm.do"><input type="hidden" name="wineId" value="${wine.id}"><button type="submit">Update this wine.</button></form></td>
+			<td><form action="adminUpdateWineForm.do"><input type="hidden" name="wineId" value="${wine.id}"><button type="submit" class="btn btn-success btn-sm">Update this wine.</button></form></td>
 			<td><c:choose><c:when test="${wine.enabled == 1}">
-			<form action="adminDisableWine.do"><input type="hidden" name="wineId" value="${wine.id}"><button type="submit">Disable this wine.</button></form>
+			<form action="adminDisableWine.do"><input type="hidden" name="wineId" value="${wine.id}"><button type="submit" class="btn btn-danger btn-sm">Disable this wine.</button></form>
 			</c:when><c:otherwise>
-			<form action="adminEnableWine.do"><input type="hidden" name="wineId" value="${wine.id}"><button type="submit">Enable this wine.</button></form>
+			<form action="adminEnableWine.do"><input type="hidden" name="wineId" value="${wine.id}"><button type="submit" class="btn btn-primary btn-sm">Enable this wine.</button></form>
 			</c:otherwise></c:choose></td>
 		</tr>
 		</c:forEach>
