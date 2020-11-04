@@ -115,8 +115,6 @@
   </div> -->
 </form>
 		
-		<br>
-		<br>
 		
 <c:choose>
 <c:when test="${! empty address }">
