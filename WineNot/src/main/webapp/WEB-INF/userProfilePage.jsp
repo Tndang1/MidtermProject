@@ -89,7 +89,12 @@
 			</td>
 		</tr>
 </table>
+
+<hr>
+			
+
 <br><br>	
+
 		
 		<form>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light"></t>Payment Information</nav></form><br>
