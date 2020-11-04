@@ -246,10 +246,11 @@ public class CustomerController {
 		address.setZip(zip);
 		address.setCountry(country);
 		paymentInfo.setAddress(address);
+		PaymentInfo newInfo = payInfoDAO.create(paymentInfo, address);
+		custDAO.setAddress(customer.getId(), newInfo.getAddress());
+		custDAO.setPayment(customer.getId(), newInfo);
 		
-		
-		
-		model.addAttribute("payInfo", payInfoDAO.create(paymentInfo, address));
+		model.addAttribute("payInfo", newInfo);
 
 //		return "payment";
 		return "userProfilePage";

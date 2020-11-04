@@ -8,8 +8,10 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.winenot.entities.Address;
 import com.skilldistillery.winenot.entities.Customer;
 import com.skilldistillery.winenot.entities.CustomerOrder;
+import com.skilldistillery.winenot.entities.PaymentInfo;
 import com.skilldistillery.winenot.entities.Review;
 import com.skilldistillery.winenot.entities.User;
 import com.skilldistillery.winenot.entities.Wine;
@@ -110,6 +112,23 @@ public class CustomerDAOImpl implements CustomerDAO {
 		} catch (Exception e) {
 			return null;
 		}
+		return customer;
+	}
+
+	@Override
+	public Customer setAddress(int id, Address address) {
+		Customer customer = em.find(Customer.class, id);
+		customer.setAddress(address);
+		
+		return customer;
+		
+	}
+
+	@Override
+	public Customer setPayment(int id, PaymentInfo payInfo) {
+		Customer customer = em.find(Customer.class, id);
+		customer.setPaymentInfo(payInfo);
+		
 		return customer;
 	}
 	
