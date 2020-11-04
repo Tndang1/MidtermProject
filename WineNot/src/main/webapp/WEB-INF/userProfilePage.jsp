@@ -80,18 +80,30 @@
 			
 		
 		<form>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light"></t>Payment Information</nav><br>
-  <div class="form-row">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light"></t>Payment Information</nav></form><br>
+  <!-- <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputFirstName4">First Name</label>
       <input type="firstName" class="form-control" id="inputFirstName4" placeholder="FirstName">
     </div>
     <div class="form-group col-md-6">
       <label for="inputLastName4">Last Name</label>
-      <input type="lastName" class="form-control" id="inputLastName4" placeholder="LastName">
-    </div>
-  </div>
-  <div class="form-group">
+      <input type="lastName" class="form-control" id="inputLastName4" placeholder="LastName"> -->
+  <!--   </div>
+  </div> -->
+  <c:choose>
+  <c:when test="${! empty payInfo }">
+  <ul>
+  <li><strong>Card Number: </strong>${payInfo.cardNumber}</li>
+  <li><strong>Expiration Date: </strong>${payInfo.exprDate}</li>
+  </ul>
+  </c:when>
+  <c:otherwise>
+  <p>No payment information found</p>
+  </c:otherwise>
+  </c:choose>
+  
+<!--   <div class="form-group">
     <label for="inputCardNumber">Card Number</label>
     <input type="text" class="form-control" id="inputCardNumber" placeholder="XXXX XXXX XXXX XXXX">
   </div>
@@ -100,17 +112,25 @@
     <input type="text" class="form-control" id="inputExprDate" placeholder="00/00">
   </div>
   <div class="form-group">
-  </div>
+  </div> -->
 </form>
 		
 		<br>
 		<br>
-
+		
+<c:choose>
+<c:when test="${! empty address }">
 			<form>
 			<nav class="navbar navbar-expand-lg navbar-light bg-light"></t>Address Information</nav><br>
   </div> <form action= "updateAddressForm.do">
-  
-  <div class="form-group">
+  <ul>
+  <li><strong>Street: </strong>${address.street }</li>
+  <li><strong>Street2: </strong>${address.street2 }</li>
+  <li><strong>City: </strong>${address.city }</li>
+  <li><strong>State: </strong>${address.state }</li>
+  <li><strong>Zip: </strong>${address.zip }</li>
+  <li><strong>Country: </strong>${address.country }</li>
+  <%-- <div class="form-group">
     <label for="inputAddress">Street</label>
     <input type="text" class="form-control" name="inputAddress" value="${address.street }">
   </div>
@@ -136,8 +156,16 @@
     </div>
   </div>
   <div class="form-group">
-  </div>
+  </div> --%>
+  
 </form>
+  </ul>
+</c:when>
+<c:otherwise>
+<p>No address information found</p>
+</c:otherwise>
+</c:choose>
+
 
 <form>
 <ul class="navbar-nav mr-auto">
@@ -176,6 +204,7 @@
 		</li>
 	</ul>
 </form>
+</table>
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 			crossorigin="anonymous"></script>
