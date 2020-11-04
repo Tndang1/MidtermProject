@@ -66,6 +66,7 @@
 			<p>Please fill in your address information.</p>
 			<hr>
 			<form action="createAddress.do" method=POST>
+
 				<ul>
 
 					<div>
@@ -107,6 +108,7 @@
 					</div>
 					</ul>
 							<button action="" type="submit">Submit</button>
+
 			</form>
 		</div>
 
