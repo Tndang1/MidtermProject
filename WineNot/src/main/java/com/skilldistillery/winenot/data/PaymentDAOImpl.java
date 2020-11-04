@@ -19,8 +19,15 @@ public class PaymentDAOImpl implements PaymentDAO {
 
 	@Override
 	public Payment findById(int id) {
-		
 		return em.find(Payment.class, id);
+	}
+	
+	@Override
+	public Payment findPaymentByOrderId(int id) {
+		String jpql = "SELECT p FROM Payment p WHERE p.customerOrder.id = :id";
+		Payment payment = em.createQuery(jpql, Payment.class).setParameter("id", id).getSingleResult();
+		em.close();
+		return payment;
 	}
 
 	@Override
@@ -36,16 +43,19 @@ public class PaymentDAOImpl implements PaymentDAO {
 		updatePayment.setComplete(payment.getComplete());
 		updatePayment.setId(payment.getId());
 		updatePayment.setPaymentDate(payment.getPaymentDate());
+		em.close();
 		return updatePayment;
 	}
 
 	@Override
-	public void deletePayment(int id) {
-		String jpql = "DELETE FROM Payment p WHERE p,id = :id";
-		id = em.createQuery(jpql)
-				.setParameter("id", id)
-				.executeUpdate();
+	public boolean deletePayment(int id) {
+		String jpql = "SELECT p FROM Payment p WHERE p.id = :id";
+		Payment payment = em.createQuery(jpql, Payment.class).setParameter("id", id).getSingleResult();
+		em.remove(payment);
+		boolean removed = !em.contains(payment);
 		em.flush();
+		em.close();
+		return removed;
 		
 	}
 

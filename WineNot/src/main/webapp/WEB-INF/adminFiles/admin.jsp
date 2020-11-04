@@ -60,17 +60,18 @@
 			</div>
 		</nav>
 		<hr>
-		<h2><center>Welcome Money Maker!</center></h2>
+		<h2><center>Administrative Controls</center></h2>
 		<hr>
 		<h6>Please selection an option:</h6>
-		<table>
+		<!-- <table> -->
 		<ul>
-		<li><form action="adminWineList.do"><button type="submit" class="btn btn-danger btn-lg">See all Wines <i class='fas fa-wine-glass' style='font-size:18px;'></i></button></form></li><br>
-		<li><form action="adminReviewList.do"><button type="submit" class="btn btn-danger btn-lg">See all Reviews <i class='fas fa-list-alt'></i></button></form></li><br>
-		<li><form action="adminUserList.do"><button type="submit" class="btn btn-danger btn-lg">See all Users <i class='fas fa-address-card'></i></button></form></li><br>
-		<li><form action="adminWineForm.do"><button type="submit" class="btn btn-danger btn-lg">Add a wine <i class='fas fa-wine-glass' style='font-size:18px;'></i></button></form></li><br>
+		<li><form action="adminWineList.do"><button type="submit" class="btn btn-danger btn-lg">See all Wines <i class='fas fa-wine-glass' style='font-size:18px;'></i></button></form></li>
+		<li><form action="adminReviewList.do"><button type="submit" class="btn btn-danger btn-lg">See all Reviews <i class='fas fa-list-alt'></i></button></form></li>
+		<li><form action="adminUserList.do"><button type="submit" class="btn btn-danger btn-lg">See all Users <i class='fas fa-address-card'></i></button></form></li>
+		<li><form action="adminOrderList.do"><button type="submit" class="btn btn-danger btn-lg">See all Orders <i class='fas fa-address-card'></i></button></form></li>
+		<li><form action="adminWineForm.do"><button type="submit" class="btn btn-danger btn-lg">Add a wine <i class='fas fa-wine-glass' style='font-size:18px;'></i></button></form></li>
 		</ul>
-		</table>
+		<!-- </table> -->
 		<hr>
 		
 		
@@ -144,6 +145,23 @@
 			<button type="submit" class="btn btn-warning btn-sm">Delete this review</button></form>
 		</tr>
 		</c:forEach>
+</c:if>
+
+<c:if test="${orderResults != null}">
+	<c:forEach items="${orderResults}" var="order">
+	<tr><td>${order.id}</td><td>${order.customer.id}</td><td>${order.customer.fName}</td><td>${order.customer.lName}</td><td>${order.orderDate.month}</td><td>${order.orderDate.dayOfMonth}</td><td>${order.orderDate.year}</td></tr>
+					<tr>
+						<c:forEach items="${order.wines}" var="wine">
+							<td>${wine.labelName} ${wine.vineyard} ${wine.vintageYear}</td>
+						</c:forEach>
+					</tr>
+	<tr><td>
+		<form action="adminDeleteOrder.do">
+		<input type="hidden" name="orderId" value="${order.id}">
+		<button type="submit" class="btn btn-warning btn-sm">Delete this order</button>
+		</form>
+	</td></tr>
+	</c:forEach>
 </c:if>
 </table>
 </div>		
