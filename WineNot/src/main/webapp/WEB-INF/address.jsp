@@ -66,7 +66,7 @@
 			<p>Please fill in or update your address information.</p>
 			<hr>
 			<form action="createAddress.do" method=POST>
-			<ul><
+			<ul>
 			
 				<div>
 					<form:label path="address">Address: </form:label>
@@ -100,7 +100,7 @@
 					<input type="text" class="form-control" required="required"
 						name="zip" placeholder="Zip" />
 				
-				<button type="submit">Submit</button>
+				<button action="" type="submit">Submit</button>
 	
 			</form>
 				</div>

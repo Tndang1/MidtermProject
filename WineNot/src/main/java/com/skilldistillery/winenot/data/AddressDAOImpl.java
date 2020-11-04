@@ -51,7 +51,7 @@ public class AddressDAOImpl implements AddressDAO {
 		updateAddress.setState(address.getState());
 		updateAddress.setZip(address.getZip());
 		updateAddress.setCountry(address.getCountry());
-
+		em.close();
 		return updateAddress;
 	}
 
@@ -62,6 +62,8 @@ public class AddressDAOImpl implements AddressDAO {
 		em.remove(deleteAddress);
 
 		boolean addressWasDeleted = !em.contains(deleteAddress);
+		
+		em.close();
 
 		return addressWasDeleted;
 	}

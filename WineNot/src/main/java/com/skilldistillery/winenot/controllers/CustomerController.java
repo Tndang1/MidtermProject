@@ -183,6 +183,7 @@ public class CustomerController {
 		session.setAttribute("customer", customer);
 		model.addAttribute("address", address);
 		return "userProfilePage";
+		
 	}
 
 	@RequestMapping(path = "deleteAddressForm.do", method = RequestMethod.GET)
@@ -194,6 +195,21 @@ public class CustomerController {
 		model.addAttribute("deleted", deleted);
 		return "updateAddress";
 	}
+	
+	@RequestMapping(path = "deleteUserAddress.do")
+	public String deleteUserAddress(HttpSession session, Integer id, Model model) {
+		Customer customer = (Customer) session.getAttribute("customer");
+		if (addrDAO.deleteAddress(customer.getId())) {
+			model.addAttribute("deleteResult", "Customer Address deleted");
+		}
+		else {
+			model.addAttribute("deleteResult", "Customer address not found");
+		}
+		return "userProfilePage";
+	}
+	
+	
+	// PAYMENT FORMS =================
 	// PAYMENT FORMS =====================================================================================================
 
 	@RequestMapping(path = "createPaymentInfoForm.do", method = RequestMethod.GET)
@@ -223,6 +239,9 @@ public class CustomerController {
 		address.setCountry(country);
 		paymentInfo.setAddress(address);
 		PaymentInfo newInfo = payInfoDAO.create(paymentInfo, address);
+//		custDAO.setAddress(customer.getId(), newInfo.getAddress());
+//		custDAO.setPayment(customer.getId(), newInfo);
+		
 		custDAO.setAddress(customer.getId(), newInfo.getAddress());
 		custDAO.setPayment(customer.getId(), newInfo);
 		model.addAttribute("payInfo", newInfo);

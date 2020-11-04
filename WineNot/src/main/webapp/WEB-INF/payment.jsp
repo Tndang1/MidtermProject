@@ -71,8 +71,6 @@
 <c:choose>
 		<c:when test="${! empty payInfo}">
 		<ul>
-	<!-- 	<form action="createPaymentInfoForm.do"></form> -->
-	<%-- 	<input name="cardNumber" value="${payInfo.cardNumber }"> --%>
 				<li><strong>Card Number: </strong>${payInfo.cardNumber}</li>
 				<li><strong>Card Expiration: </strong>${payInfo.exprDate}</li>
 				<li><strong>Street: </strong>${payInfo.address.street}</li>

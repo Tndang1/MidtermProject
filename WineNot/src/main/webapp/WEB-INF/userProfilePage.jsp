@@ -85,6 +85,13 @@
 			<td><form action= "updatePasswordForm.do">
 			<input type= "text" name="pass" value="${user.password } "/>
 			<button type= "submit">Change Password</button>
+			</form></tr><br><br>
+
+			<form action ="createAddressForm.do"></form>
+		
+		<form>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light"></t>Payment Information</nav></form><br>
+			
 			</form>
 			</td>
 		</tr>
@@ -110,6 +117,8 @@
   <p>No payment information found</p>
   </c:otherwise>
   </c:choose>
+  
+</form>
 
 <c:choose>
 <c:when test="${! empty address}">
@@ -123,6 +132,7 @@
   <li><strong>Zip: </strong>${address.zip }</li>
   <li><strong>Country: </strong>${address.country }</li>
   </ul>
+</form>
   <%-- <div class="form-group">
     <label for="inputAddress">Street</label>
     <input type="text" class="form-control" name="inputAddress" value="${address.street }">
@@ -168,15 +178,17 @@
 		<a class="nav-link" href="getAllReviews.do">Past Reviews</a> 
 	</li>
 <li class="nav-item">
-		<a class="nav-link" href="updateAddressForm.do">Update Address</a> 
+		<a class="nav-link" href="createAddressForm.do">Create Address</a> 
 		
 	</li>
-	<li class="nav-item">
-		<a class="nav-link" href="createPaymentInfoForm.do">Payment Info</a> <!-- Unsure of this -->
+ <li class="nav-item">
+		<a class="nav-link" href="updateAddressForm.do">Update Address</a> 
+		
 	</li>
 
 </ul>
 </form>
+
 <form>
 
 	<ul class="navbar-nav mr-auto">

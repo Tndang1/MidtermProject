@@ -59,6 +59,27 @@
 
 			</div>
 		</nav>
+		
+		<c:choose>
+		<c:when test="${! empty payInfo}">
+		<ul>
+				<li><strong>Street: </strong>${payInfo.address.street}</li>
+				<li><strong>City: </strong>${payInfo.address.city}</li>
+				<li><strong>State: </strong>${payInfo.address.state}</li>
+				<li><strong>Zip: </strong>${payInfo.address.zip}</li>
+				<li><strong>Country: </strong>${payInfo.address.country}</li>
+		</ul>
+				
+				
+			
+		</c:when>
+		<c:otherwise>
+		<p>No payment Info found.</p>
+		</c:otherwise>
+	</c:choose> 
+		
+
+	
 		<hr>
 <!-- FIX SUBMIT BUTTON FOR UPDATE ADDRESS. -->
 <h1>Update Address:</h1>
@@ -90,7 +111,7 @@
 			</tr>
 			
 			<tr>
-			<td>Zip Code: ${address.zip }</td>
+			<td>Zip Code: ${address.zip }</td>${address.zip }
 			<td><input type= "text" name="zip" value="${address.zip }"/><td>
 			</tr>
 			
@@ -99,9 +120,27 @@
 			<td><input type= "text" name="country" value="${address.country }"/><td>
 			</tr>
 			
-			<tr>
+			<button type= "submit">Update Address</button>
+			<!-- </tr><br><br>  -->
+			</form>
+			
+			<form>
+
+	<ul class="navbar-nav mr-auto">
+		<li class="nav-item">
+			<a class="nav-link" href="deleteAddressForm.do">Delete Address</a>
+		</li>
+	</ul>
+</form>
+			 
+			</table> 
+
+	
+			</table>
+			</div>
+			<!-- <tr>
 			<td><button type= "submit">Update Address</button></td>
-			</tr>
+			</tr> -->
 			 
 		</table>
 	</form>
