@@ -20,10 +20,8 @@ import com.skilldistillery.winenot.data.WineColorTypeDAO;
 import com.skilldistillery.winenot.data.WineDAO;
 import com.skilldistillery.winenot.entities.Customer;
 import com.skilldistillery.winenot.entities.Review;
-import com.skilldistillery.winenot.entities.ReviewId;
 import com.skilldistillery.winenot.entities.User;
 import com.skilldistillery.winenot.entities.Wine;
-import com.skilldistillery.winenot.entities.WineColor;
 
 @Controller
 public class AdminController {
