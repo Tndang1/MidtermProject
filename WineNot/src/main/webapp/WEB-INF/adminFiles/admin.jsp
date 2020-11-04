@@ -59,12 +59,18 @@
 			
 			</div>
 		</nav>
-		<h2>Welcome Money Maker!</h2>
-		<form action="adminWineList.do"><button type="submit">See all Wines.</button></form>
-		<form action="adminReviewList.do"><button type="submit">See all Reviews.</button></form>
-		<form action="adminUserList.do"><button type="submit">See all Users.</button></form>
-		<form action="adminWineForm.do"><button type="submit">Add a wine.</button></form>
-		
+		<hr>
+		<h2><center>Welcome Money Maker!</center></h2>
+		<hr>
+		<h6>Please selection an option:</h6>
+		<table>
+		<ul>
+		<li><form action="adminWineList.do"><button type="button" class="btn btn-danger btn-lg">See all Wines <i class='fas fa-wine-glass' style='font-size:18px;'></i></button></form></li><br>
+		<li><form action="adminReviewList.do"><button type="button" class="btn btn-danger btn-lg">See all Reviews <i class='fas fa-list-alt'></i></button></form></li><br>
+		<li><form action="adminUserList.do"><button type="button" class="btn btn-danger btn-lg">See all Users <i class='fas fa-address-card'></i></button></form></li><br>
+		<li><form action="adminWineForm.do"><button type="button" class="btn btn-danger btn-lg">Add a wine <i class='fas fa-wine-glass' style='font-size:18px;'></i></button></form></li><br>
+		</ul>
+		</table>
 		
 		
 		
