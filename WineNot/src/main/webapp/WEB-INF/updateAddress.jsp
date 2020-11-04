@@ -18,7 +18,7 @@
 </head>
 <body>
 	<hr>
-	<div class="container">
+	<div class="container-fluid">
 
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<a class="navbar-brand" href="homePage.do" style="color: DarkRed"><strong>WineNot</strong>
@@ -86,40 +86,45 @@
 <!-- FIX SUBMIT BUTTON FOR UPDATE ADDRESS. -->
 <h1>Update Address:</h1>
 <hr>
-		<div class="container">
-			<table>
-			<form action = "updateAddressInfo.do">
-			<input type="hidden" name="id" value="${address.id}">
+</div>
+<div class="container-fluid">
+	<form action = "updateAddressInfo.do">
+	<input type="hidden" name="id" value="${address.id}">
+		<table>
 			
-			<tr> Street: <td>${address.street }</td> 
-			${address.street }
-			<input type= "text" name="street" value="${address.street}"/>
-			</tr><br>
+			<tr>
+			<td>Street: ${address.street }</td>
+			<td><input type= "text" name="street" value="${address.street}"/></td>
+			</tr>
 			
-			 <tr>Street2: <td>${address.street2 }</td> 
-			${address.street2 }
-			<input type= "text" name="street2" value="${address.street2 }"/>
-			</tr><br>
+			<tr>
+			<td>Street2: ${address.street2 }</td>
+			<td><input type= "text" name="street2" value="${address.street2 }"/></td>
+			</tr>
 			
-			 <tr>City: <td>${address.city }</td> 
-			${address.city }
-			<input type= "text" name="city" value="${address.city }"/>
-			</tr><br>
+			<tr>
+			<td>City: ${address.city }</td> 
+		 	<td><input type= "text" name="city" value="${address.city }"/></td>
+			</tr>
 			
-			 <tr>State: <td>${address.state }</td> 
-			${address.state }
-			<input type= "text" name="state" value="${address.state }"/>
-			</tr><br>
+			 <tr>
+			 <td>State: ${address.state }</td>
+			<td><input type= "text" name="state" value="${address.state }"/></td>
+			</tr>
 			
 			<tr>Zip Code: <td>${address.zip }</td> 
 			${address.zip }
 			<input type= "text" name="pass" value="${address.zip }"/>
 			</tr><br>
+			<tr>
+			<td>Zip Code: ${address.zip }</td>
+			<td><input type= "text" name="zip" value="${address.zip }"/><td>
+			</tr>
 			
-			<tr>Country: <td>${address.country}</td> 
-			${address.country }
-			<input type= "text" name="country" value="${address.country }"/>
-			</tr><br>
+			<tr>
+			<td>Country: ${address.country}</td>
+			<td><input type= "text" name="country" value="${address.country }"/><td>
+			</tr>
 			
 			<button type= "submit">Update Address</button>
 			<!-- </tr><br><br>  -->
@@ -139,6 +144,12 @@
 	
 			</table>
 			</div>
+			<tr>
+			<td><button type= "submit">Update Address</button></td>
+			</tr>
+			 
+		</table>
+	</form>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

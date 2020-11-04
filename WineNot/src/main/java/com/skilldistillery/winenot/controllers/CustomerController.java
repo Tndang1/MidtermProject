@@ -91,6 +91,8 @@ public class CustomerController {
 		Customer customer = (Customer) session.getAttribute("customer");
 		User updateUser = userDAO.getUserById(customer.getId());
 		model.addAttribute("user", updateUser);
+		model.addAttribute("customer", customer);
+		model.addAttribute("address", customer.getAddress());
 		return "userProfilePage";
 	}
 	@RequestMapping(path = "updateUsernameForm.do")
@@ -149,9 +151,8 @@ public class CustomerController {
 		return "address";
 	}
 	@RequestMapping(path = "updateAddressForm.do", method = RequestMethod.GET)
-	public String updateAddress(HttpSession session, Integer id, Model model) {
+	public String updateAddress(HttpSession session, Model model) {
 		Customer customer = (Customer) session.getAttribute("customer");
-		customer.getAddress();
 		model.addAttribute("address", customer.getAddress());
 		return "updateAddress";
 	}
@@ -167,9 +168,10 @@ public class CustomerController {
 		address.setState(state);
 		address.setZip(zip);
 		address.setCountry(country);
-		
-		addrDAO.updateAddress(id, address);
-		model.addAttribute("custAddress", address);
+		address = addrDAO.updateAddress(id, address);
+		customer.setAddress(address);
+		session.setAttribute("customer", customer);
+		model.addAttribute("address", address);
 		return "userProfilePage";
 	}
 
