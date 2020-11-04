@@ -113,13 +113,10 @@
 		
 		<h3>Payment Details</h3>
 			<c:choose>
-			<c:when test="${! empty paymentInfo}">
+			<c:when test="${! empty customer.paymentInfo}">
 		<ul>
-		<li><strong>Street: </strong>${paymentInfo.address.street}</li>
-		<li><strong>City: </strong>${paymentInfo.address.city}</li>
-		<li><strong>State: </strong>${paymentInfo.address.state}</li>
-		<li><strong>Zip: </strong>${paymentInfo.address.zip}</li>
-		<li><strong>Country: </strong>${paymentInfo.address.country}</li>
+		<li><strong>Card Number: </strong>${customer.paymentInfo.cardNumber}</li>
+		<li><strong>Expiration Date: </strong>${customer.paymentInfo.exprDate}</li>
 		</ul>
 			</c:when>
 			<c:otherwise>
