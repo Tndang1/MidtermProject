@@ -63,21 +63,21 @@
 		<div class="container">
 
 
-			<p>Please fill in or update your address information.</p>
+			<p>Please fill in your address information.</p>
 			<hr>
 			<form action="createAddress.do" method=POST>
 				<ul>
 
 					<div>
-						<form:label path="address">Address: </form:label>
+						<form:label path="street">Address: </form:label>
 						<input type="text" class="form-control" required="required"
-							name="address" placeholder="Address" />
+							name="Street" placeholder="Address" />
 					</div>
 
 					<div>
-						<form:label path="address2">Address2: </form:label>
-						<input type="text" class="form-control" name="address2"
-							placeholder="Address2" />
+						<form:label path="street2">Address2: </form:label>
+						<input type="text" class="form-control" name="Street2"
+							placeholder="Street2" />
 
 					</div>
 
@@ -92,12 +92,20 @@
 						<form:label path="state">State: </form:label>
 						<input type="text" class="form-control" required="required"
 							name="state" placeholder="State" />
-
+					</div>
+					
 						<div>
 							<form:label path="zip">Zip: </form:label>
-							<input type="text" class="form-control" required="required"
-								name="zip" placeholder="Zip" />
-
+						<input type="text" class="form-control" required="required"
+							name="zip" placeholder="Zip" />
+					</div>
+					
+					<div>
+							<form:label path="country">Country: </form:label>
+						<input type="text" class="form-control" required="required"
+							name="country" placeholder="country" />
+					</div>
+					</ul>
 							<button action="" type="submit">Submit</button>
 			</form>
 		</div>
