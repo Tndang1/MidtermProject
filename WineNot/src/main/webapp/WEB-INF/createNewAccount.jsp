@@ -134,7 +134,7 @@
 	<fmt:formatDate type="both" value="${parsedDate}"/> --%>
       <label for="inputBirthdate">Date of Birth</label>
       <input type="date" class="form-control" name="date" placeholder="MM/DD/YYYY">
-     
+     </div>
     <!-- </div> -->
     
     <!-- <div class="form-group">
@@ -165,9 +165,11 @@
       <button type="button" class="cancelbtn">Cancel</button>
       <button type="submit" class="signupbtn">Sign Up</button>
     </div> --> 
-	<button action="homePage.do"type="submit">Submit</button>
+   <br>
+    <p>
+	<button action="homePage.do"type="submit" class="btn btn-primary">Submit</button>
 	</form>
-    
+    </p>
     
     
     <!-- <div class="form-group col-md-6">
