@@ -112,11 +112,11 @@
 		<c:forEach items="${userResults}" var="user">
 		<tr>
 			<td>${user.id}</td><td>${user.email}</td><td>${user.password}</td><td><c:choose><c:when test="${user.enabled == 1}">Enabled</c:when><c:otherwise>Disabled</c:otherwise></c:choose></td>
-			<td><form action="adminUpdateUserForm.do"><input type ="hidden" name="userId" value="${user.id}"><button type="submit">Update this user</button></form>
+			<td><form action="adminUpdateUserForm.do"><input type ="hidden" name="userId" value="${user.id}"><button type="submit" class="btn btn-primary btn-sm">Update this User</button></form>
 			<td><c:choose><c:when test="${user.enabled == 1}">
-			<form action="adminDisableUser.do"><input type="hidden" name="userId" value="${user.id}"><button type="submit">Disable this user.</button></form>
+			<form action="adminDisableUser.do"><input type="hidden" name="userId" value="${user.id}"><button type="submit" class="btn btn-dark btn-sm">Disable this User</button></form>
 			</c:when><c:otherwise>
-			<form action="adminEnableUser.do"><input type="hidden" name="userId" value="${user.id}"><button type="submit">Enable this user.</button></form>
+			<form action="adminEnableUser.do"><input type="hidden" name="userId" value="${user.id}"><button type="submit"class="btn btn-success btn-sm">Enable this User</button></form>
 			</c:otherwise></c:choose></td>
 		</tr>
 		</c:forEach>

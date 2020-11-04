@@ -60,8 +60,10 @@
 			</div>
 		</nav>
 	</div>
+	<hr>
 	<div class="container-fluid">
-	
+	<h5>Update User:</h5>
+	<hr>
 	<form action="adminUpdateUser.do">
 	<input type="hidden" name="userId" value="${user.id}"/>
 	<input type="hidden" name="enabled" value="${user.enabled}"/>
@@ -81,7 +83,7 @@
 	<label for="role">Role</label>
 	<input type="text" id="role" name="role" value="${user.role}" required>
 	</div>
-	<button type="submit" class="btn btn-primary">Submit</button>
+	<button type="submit" class="btn btn-primary">Update User</button>
 	</form>
 	
 	</div>
