@@ -155,7 +155,7 @@ public class CustomerController {
 		return "homePage";
 	}
 
-	// ADDRESS FORMS =================
+	// ADDRESS FORMS ================= ADDRESS FORMS =====================
 
 	@RequestMapping(path = "createAddressForm.do", method = RequestMethod.GET)
 	public String CreateAddressForm(HttpSession session, Address Address) {
@@ -172,19 +172,38 @@ public class CustomerController {
 		return "address";
 	}
 	@RequestMapping(path = "updateAddressForm.do", method = RequestMethod.GET)
-	public String updateAddress(HttpSession session, String newAddy, Integer id, Model model) {
+	public String updateAddress(HttpSession session, Integer id, Model model) {
 		Customer customer = (Customer) session.getAttribute("customer");
-		Address address = addrDAO.getAddressById(customer.getAddress().getId());
-		address.setStreet(newAddy);
-		address.setStreet2(newAddy);
-		address.setCity(newAddy);
-		address.setState(newAddy);
-		address.setZip(newAddy);
+		customer.getAddress();
+//		Address address = addrDAO.getAddressById(customer.getAddress().getId());
+//		address.setStreet(newAddy);
+//		address.setStreet2(newAddy);
+//		address.setCity(newAddy);
+//		address.setState(newAddy);
+//		address.setZip(newAddy);
 		
-		model.addAttribute("address", addrDAO.updateAddress(id, address));
+		model.addAttribute("address", customer.getAddress());
 		return "updateAddress";
 //		return "userProfilePage";
 	}
+//	THIS METHOD IS FOR UPDATING ADDRESS.
+	@RequestMapping(path = "updateAddressInfo.do", method = RequestMethod.GET)
+	public String updateAddress(HttpSession session, Integer id, Model model,String street, String street2, String city, String state, String zip, String country) {
+		Customer customer = (Customer) session.getAttribute("customer");
+		Address address = new Address();
+		
+		address.setStreet(street);
+		address.setStreet2(street2);
+		address.setCity(city);
+		address.setState(state);
+		address.setZip(zip);
+		address.setCountry(country);
+		
+		addrDAO.updateAddress(id, address);
+		model.addAttribute("custAddress", address);
+		return "userProfilePage";
+	}
+
 	@RequestMapping(path = "deleteAddressForm.do", method = RequestMethod.GET)
 	public String deleteAddress(HttpSession session, Integer id, Model model) {
 		Customer customer = (Customer) session.getAttribute("customer");
@@ -229,6 +248,7 @@ public class CustomerController {
 
 		return "payment";
 	}
+	
 
 	@RequestMapping(path = "createPaymentInfo.do", method = RequestMethod.POST)
 	public String createPayInfo(HttpSession session, Model model, String cardNumber, String exprDate, String street, String street2, String city, String state, String zip, String country) {
