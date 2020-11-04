@@ -46,7 +46,9 @@
 					<li class="nav-item">
 						<a class="nav-link" href="favoritesList.do?id=1#">Favorites List <i class='fas fa-list-alt'></i></a>
 					</li>
-			
+					<li class="nav-item">
+						<a class="nav-link" href="logOutOfAccount.do">Log Out<i class='fas fa-list-alt'></i></a>
+					</li>
 				</ul>
 			
 			</div>

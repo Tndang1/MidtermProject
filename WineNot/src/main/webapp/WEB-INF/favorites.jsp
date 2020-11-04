@@ -51,40 +51,26 @@
 					<li class="nav-item">
 						<a class="nav-link" href="favoritesList.do?id=${customerId}#">Favorites List <i class='fas fa-list-alt'></i></a>
 					</li>
+						<li class="nav-item">
+						<a class="nav-link" href="logOutOfAccount.do">Log Out<i class='fas fa-list-alt'></i></a>
+					</li>
 			
 				</ul>
 			
 			</div>
 		</nav>
-<!-- 		<form class="form-inline">
-  <div class="form-group mb-2">
-    <label for="staticEmail2" class="sr-only">Email</label>
-    <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="email@example.com">
-  </div>
-  <div class="form-group mx-sm-3 mb-2">
-    <label for="inputPassword2" class="sr-only">Password</label>
-    <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
-  </div>
-  <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
-</form> -->
-    <hr>
-<!--     <h1>WineNot </h1>   <form action="findWineName.do" method="GET">Search By Wine Name: <input type="text" name="labelName"/>
-					<input type = "submit" value="Wine Name"/>
-				
-				</form>
-    <hr> -->
-
 <!-- End of the Navigation bar  -->
 <!-- Need to figure out a way to view show jsp directly on page without having to go back and forth between pages.  -->
+<hr>
 <h1>Favorites List:</h1>
-
+<hr>
 <div class="container-fluid">
 <table class="table table-striped table-hover">
 
 <c:forEach items="${favList }" var="w">
 <tr>
 		<td><a href="getWine.do?wid=${w.id }">${w.labelName}</a></td>
-		<br>
+		<!-- <br> -->
 	</tr>
 	</c:forEach>
 
@@ -92,6 +78,7 @@
 <br>
 <br>
 
+</div>
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 			crossorigin="anonymous"></script>
@@ -103,6 +90,5 @@
 			src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
 			integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
 			crossorigin="anonymous"></script>
-</div>
 </body>
 </html>
