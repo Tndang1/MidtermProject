@@ -110,7 +110,7 @@ public class CustomerOrderController {
 		if (wineColor > 0 && wineColor < 3) {
 		wines = wineDAO.findWineByWineColorId(wineColor);
 		} else {
-			wines = wineDAO.findAllWine();
+			wines = wineDAO.findAllEnabledWine();
 		}
 		Collections.shuffle(wines);
 		for(int i = 0; i < order.getSize(); i++) {

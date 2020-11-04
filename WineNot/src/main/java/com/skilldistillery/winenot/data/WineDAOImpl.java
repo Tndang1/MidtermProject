@@ -29,10 +29,20 @@ public class WineDAOImpl implements WineDAO {
 		String jpql = "SELECT w FROM Wine w";
 		return em.createQuery(jpql, Wine.class).getResultList();
 	}
-
+	@Override
+	public List<Wine> findAllEnabledWine(){
+		String jpql = "SELECT w FROM Wine w WHERE w.enabled = 1";
+		return em.createQuery(jpql, Wine.class).getResultList();
+	}
+	
+	@Override
+	public List<Wine> findAllDisabledWine(){
+		String jpql = "SELECT w FROM Wine w WHERE w.enabled = 0";
+		return em.createQuery(jpql, Wine.class).getResultList();
+	}
 	@Override
 	public List<Wine> findWineByName(String labelName) {
-		String jpql = "SELECT w FROM Wine w WHERE w.labelName = :labelName";
+		String jpql = "SELECT w FROM Wine w WHERE w.labelName = :labelName AND w.enabled = 1";
 		
 		return em.createQuery(jpql, Wine.class)
 				.setParameter("labelName", labelName)
@@ -42,7 +52,7 @@ public class WineDAOImpl implements WineDAO {
 
 @Override
 public List<Wine> findWineTypeId(int id) {
-		String jpql = "SELECT w FROM Wine w WHERE w.wineType.id = :wineType";
+		String jpql = "SELECT w FROM Wine w WHERE w.wineType.id = :wineType AND w.enabled = 1";
 		List<Wine> wineTypes = em.createQuery(jpql, Wine.class)
 				.setParameter("wineType", id)
 				.getResultList();
@@ -52,7 +62,7 @@ public List<Wine> findWineTypeId(int id) {
 
 @Override
 public List<Wine> findWineByWineColorId(int id) {
-		String jpql = "SELECT w FROM Wine w WHERE w.wineColor.id = :wineColor";
+		String jpql = "SELECT w FROM Wine w WHERE w.wineColor.id = :wineColor AND w.enabled = 1";
 		List<Wine> wineColors = em.createQuery(jpql, Wine.class)
 				.setParameter("wineColor", id)
 				.getResultList();

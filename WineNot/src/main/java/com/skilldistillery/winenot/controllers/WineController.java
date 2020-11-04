@@ -51,7 +51,7 @@ public class WineController {
 	//List of all wines
 	@RequestMapping(path = "wineList.do", method = RequestMethod.GET)
 	public String listedWines(Model model) {
-		List<Wine> listOfWines = wineDao.findAllWine();
+		List<Wine> listOfWines = wineDao.findAllEnabledWine();
 		model.addAttribute("wine", listOfWines);
 		return "listOfWines";
 	}
