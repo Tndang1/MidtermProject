@@ -60,44 +60,57 @@
 			</div>
 		</nav>
 	</div>
+		<hr>
 	<div class="container-fluid">
-	
+	<h4>Update Wine:</h4>
+		<hr>
+	<table>
+		<ul>
 	<form action="adminUpdateWine.do">
 	<input type="hidden" name="id" value="${wine.id}"/>
 	<div class="form-group">
-	<label for="name">Label name</label>
+	
+	<li><label for="name">Label name</label>
 	<input type="text" id="name" name="labelName" value="${wine.labelName}" required>
-	</div>
+	</div></li>
+	
 	<div class="form-group">
-	<label for="origin">Origin/Vineyard</label>
+	<li><label for="origin">Origin/Vineyard</label>
 	<input type="text" id="origin" name="vineyard" value="${wine.vineyard}">
-	</div>
+	</div></li>
+	
 	<div class="form-group">
-	<label for="year">Year</label>
+	<li><label for="year">Year</label>
 	<input type="text" id="year" name="vintageYear" value="${wine.vintageYear}"required>
-	</div>
+	</div></li>
+	
 	<div class="form-group">
-	<label for="desc">Description</label>
+	<li><label for="desc">Description</label>
 	<input type="text" id="desc" name="description" value="${wine.description}" required>
-	</div>
+	</div></li>
+	
 	<div class="form-group">
-	<label for="flav">Flavor</label>
+	<li><label for="flav">Flavor</label>
 	<input type="text" id="flav" name="flavor" value="${wine.flavor}" required>
-	</div>
+	</div></li>
+	
 	<div class="form-group">
-	<label for="diet">Dietary</label>
+	<li><label for="diet">Dietary</label>
 	<input type="text" id="diet" value="${wine.dietary}" name="dietary">
-	</div>
+	</div></li>
+	
 	<div class="form-group">
-	<label for="pair">Food Pairing</label>
+	<li><label for="pair">Food Pairing</label>
 	<input type="text" id="pair" value="${wine.pairs}" name="pairs">
-	</div>
+	</div></li>
+	
 	<div class="form-group">
-	<label for="img">Image</label>
+	<li><label for="img">Image</label>
 	<input type="text" id="img" value="${wine.image}" name="image">
-	</div>
+	</div></li>
+	
 	<div class="form-group">
-	<label for="type">Type</label>
+	<li><label for="type">Type</label>
 		<select name="wineTypeId" id="type" required>
 			<option value="${wine.wineType.id}" selected>${wine.wineType.wineType}</option>
 			<option value="1">1. Bordeaux</option>
@@ -120,24 +133,28 @@
 			<option value="18">18. Zinfandel</option>
 			<option value="19">19. Sangiovese</option>
 		</select>
-	</div>
+	</div></li>
+	
 	<div class="form-group">
-	<label for="color">Color</label>
+	<li><label for="color">Color</label>
 		<select name="wineColorId" id="color" required>
 		<option value="${wine.wineColor.id}" selected>${wine.wineColor.wineColor}</option>
 			<option value="1">1. Red</option>
 			<option value="2">2. White</option>
 			<option value="3">3. Rose</option>
 		</select>
-	</div>
+	</div></li>
+	
 	<input type="hidden" name="enabled" value="${wine.enabled}">
-	<button type="submit" class="btn btn-primary">Submit</button>
+	<button type="submit" class="btn btn-danger">Submit</button>
 	</form>
 	
 	
+	</ul>
+	</table>
+	
+<br>		
 	</div>
-		
-		
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>

@@ -18,7 +18,6 @@
 
 	<hr>
 	 <div class ="container">
-
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<a class="navbar-brand" href="homePage.do"style="color:DarkRed"><strong>WineNot</strong> <i class='fas fa-wine-glass' style='font-size:24px'></i></a>
 			<img src="https://images.squarespace-cdn.com/content/v1/5cf129c75bf4f50001c8b2f3/1588283318954-X25V1XW9WC42W3F8PHMJ/ke17ZwdGBToddI8pDm48kG0sXzLG2I85QyZp8ZpOahl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0vIHRucUU7a1Vci15HXS8HIyFOUrT9_OnKWFj0z76vvMsMQu7p6EAYImZh1X2UKwEQ/r1.jpg?format=1500w" style="width:200px;height:200px;">
@@ -47,7 +46,6 @@
 					<li class="nav-item">
 						<a class="nav-link" href="favoritesList.do?id=1#">Favorites List <i class='fas fa-list-alt'></i></a>
 					</li>
-					</li>
 						<li class="nav-item">
 						<a class="nav-link" href="logOutOfAccount.do">Log Out<i class='fas fa-list-alt'></i></a>
 					</li>
@@ -56,10 +54,11 @@
 			
 			</div>
 		</nav>
+	</div>
 		<hr>
 
 		<!-- ===================== End of Navbar =================== -->
-
+<div class ="container">
 		<strong>Wine Order</strong>
 
 		<form action="create.do" method="POST">
@@ -76,10 +75,13 @@
 				<input class="form-check-input" type="radio" value="3" id="id" name = "wineColor">
 				<label class="form-check-label" for="id"> Rose </label>
 			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="radio" value="4" id="id" name = "wineColor">
+				<label class="form-check-label" for="id"> Leave it to fate! (Random) </label>
+			</div>
 			<br>
 			<!-- End of Flavors of wine -->
 			
-
 				<!-- <div class="form-check">
 					Type of Wine: <br> <input class="form-check-input"
 						type="checkbox" value="1" id="id"> <label
@@ -171,10 +173,6 @@
 				<label class="form-check-label" for="id"> 12 <strong>Amount: $220.99</strong> </label>
 			</div>
 
-		
-	
-
-
 		<!-- Old code for list of wines in cart. -->
 		<%-- 	<ul> 
 		<c:forEach items="${wines}" var="wine">
@@ -236,9 +234,9 @@
 		<!-- 	<button type="submit" class="btn btn-primary">Sign in</button> -->
 			
 			 <br>
-				<input class="btn btn-primary" type="submit" value="Add to Cart">
+				<input class="btn btn-primary" type="submit" value="Submit Your Order!">
 		</form>
-		
+		</div>
 <%-- 			<p>
 		<table>
 			<tr>
