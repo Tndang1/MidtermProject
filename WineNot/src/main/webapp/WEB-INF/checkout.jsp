@@ -237,6 +237,7 @@
 				<input class="btn btn-primary" type="submit" value="Submit Your Order!">
 		</form>
 		</div>
+		<br>
 <%-- 			<p>
 		<table>
 			<tr>
