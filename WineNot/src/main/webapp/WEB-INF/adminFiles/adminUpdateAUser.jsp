@@ -12,11 +12,12 @@
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-<title>Administrative Controls</title>
+<title>Update A User</title>
 </head>
 <body>
  <hr>
-    <div class ="container">
+    <div class ="container-fluid">
+
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<a class="navbar-brand" href="homePage.do"style="color:DarkRed"><strong>WineNot</strong> <i class='fas fa-wine-glass' style='font-size:24px'></i></a>
 			<img src="https://images.squarespace-cdn.com/content/v1/5cf129c75bf4f50001c8b2f3/1588283318954-X25V1XW9WC42W3F8PHMJ/ke17ZwdGBToddI8pDm48kG0sXzLG2I85QyZp8ZpOahl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0vIHRucUU7a1Vci15HXS8HIyFOUrT9_OnKWFj0z76vvMsMQu7p6EAYImZh1X2UKwEQ/r1.jpg?format=1500w" style="width:200px;height:200px;">
@@ -26,9 +27,6 @@
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active">
-						<a class="nav-link" href="homePage.do">Home <i class='fas fa-home'></i><span class="sr-only">(current)</span></a>
-					</li>
 					<c:if test="${customer == null}">
 					<li class="nav-item">
 						<a class="nav-link" href="createUserForm.do">Log In <i class='fas fa-sign-in-alt'></i></a>
@@ -49,14 +47,16 @@
 					</li>
 					<c:if test = "${customer.user.role == 'admin'}">
 					<li class="nav-item">
-						<a class="nav-link" href="homePage.do">Administrative Controls<i class='fas fa-list-alt'></i></a>
+						<a class="nav-link" href="admin.do">Administrative Controls<i class='fas fa-list-alt'></i></a>
 					</li>
 					</c:if>
 					<li class="nav-item">
-						<a class="nav-link" href="homePage.do">Log Out<i class='fas fa-list-alt'></i></a>
+						<a class="nav-link" href="logOutOfAccount.do">Log Out<i class='fas fa-list-alt'></i></a>
 					</li>
 					</c:if>
+			
 				</ul>
+			
 			</div>
 		</nav>
 	</div>

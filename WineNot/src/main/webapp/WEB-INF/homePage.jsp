@@ -63,9 +63,8 @@
 			</div>
 		</nav>
 		<hr>
-		  <div>
+	<div>
     <a class="btn btn-primary btn-lg btn-block" href="createCustomerForm.do" role="button">Sign Up  <i class="fas fa-wine-glass"></i></a>
-   
     <!-- <a class="btn btn-primary btn-lg" href="createNewAccount.do" role="button">Sign Up</a>
    <button href="createNewAccount.do"type="button" class="btn btn-primary btn-lg btn-block">Sign Up</button> -->
     
