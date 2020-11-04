@@ -64,7 +64,18 @@
 		</nav>
 		<hr>
 	<div>
+	
+	<c:choose>
+	<c:when test = "${customer != null}">
+    <p class="lead">Welcome, ${customer.fName} <i class="fas fa-wine-glass"></i></p>
+	</c:when>
+	<c:when test = "${failure != null}">
+    <p class="leade">${failure} <i class="far fa-sad-cry"></i></p>
+    </c:when>
+    <c:otherwise>
     <a class="btn btn-primary btn-lg btn-block" href="createCustomerForm.do" role="button">Sign Up  <i class="fas fa-wine-glass"></i></a>
+    </c:otherwise>
+	</c:choose>
     <!-- <a class="btn btn-primary btn-lg" href="createNewAccount.do" role="button">Sign Up</a>
    <button href="createNewAccount.do"type="button" class="btn btn-primary btn-lg btn-block">Sign Up</button> -->
     
