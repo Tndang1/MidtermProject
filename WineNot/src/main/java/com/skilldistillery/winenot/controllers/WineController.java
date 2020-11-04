@@ -45,6 +45,17 @@ public class WineController {
 		if(reviews.size() > 0) {
 		model.addAttribute("review", reviews.get((int)(Math.random() * (reviews.size()-1))));
 		}
+		List<Review> custReviews = null; 
+		if(customer != null) {
+		custReviews = customerDao.getCustomerReviews(customer.getId());
+		}
+		boolean reviewed = false;
+		try {
+			reviewed = custReviews.contains(reviewDao.getReviewByCustomerAndWineId(customer.getId(), wid));
+		} catch (Exception e) {
+			
+		}
+		model.addAttribute("reviewed", reviewed);
 		model.addAttribute("wine", wine);
 		return "show";
 	}
