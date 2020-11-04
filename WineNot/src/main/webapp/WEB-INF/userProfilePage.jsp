@@ -55,42 +55,38 @@
 			
 			</div>
 		</nav>
-		<hr>
 	
+	
+		<hr>
+		<h1>User Account Profile</h1>
 		<hr>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light"><h5>User Information</h5></nav>
 		<p>
 		<table>
-			<tr>Username: <td>${user.username }</td> <form action= "updateUsernameForm.do">
-			${user.username }
+			<tr>Username: <td>${user.username }</td> 
+			<form action= "updateUsernameForm.do">
+			 ${user.username } 
 			<input type= "text" name="username" value="${user.username }"/>
 			<button type= "submit">Change Username</button><br>
 			</form></tr>
-			<tr>Email: <td>${user.email }</td> <form action= "updateEmailForm.do">
+			<tr>Email: <td>${user.email }</td> 
+			<form action= "updateEmailForm.do">
 			${user.username }
 			<input type= "text" name="email" value="${user.email }"/>
 			<button type= "submit">Change Email</button><br>
 			</form></tr>
 			<tr>Password: <td>${user.password }</td> <form action= "updatePasswordForm.do">
 			${user.password }
-			<input type= "text" name="pass" value=" "/>
+			<input type= "text" name="pass" value="${user.password } "/>
 			<button type= "submit">Change Password</button>
 			</form></tr><br><br>
-
+			
+</table>
 			
 		
 		<form>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light"></t>Payment Information</nav></form><br>
-  <!-- <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputFirstName4">First Name</label>
-      <input type="firstName" class="form-control" id="inputFirstName4" placeholder="FirstName">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputLastName4">Last Name</label>
-      <input type="lastName" class="form-control" id="inputLastName4" placeholder="LastName"> -->
-  <!--   </div>
-  </div> -->
+
   <c:choose>
   <c:when test="${! empty customer.paymentInfo }">
   <ul>
@@ -102,24 +98,14 @@
   <p>No payment information found</p>
   </c:otherwise>
   </c:choose>
-  
-<!--   <div class="form-group">
-    <label for="inputCardNumber">Card Number</label>
-    <input type="text" class="form-control" id="inputCardNumber" placeholder="XXXX XXXX XXXX XXXX">
-  </div>
-  <div class="form-group">
-    <label for="inputExprDate">Expiration Date</label>
-    <input type="text" class="form-control" id="inputExprDate" placeholder="00/00">
-  </div>
-  <div class="form-group">
-  </div> -->
-</form>
+
+
 		
 		
 <c:choose>
 <c:when test="${! empty address }">
-			<form>
 
+			<form>
 			<nav class="navbar navbar-expand-lg navbar-light bg-light"></t>Address Information</nav></form><br>
  <form action= "updateAddressForm.do">
   <ul>
@@ -166,7 +152,7 @@
 </c:otherwise>
 </c:choose>
 
-
+<hr>
 <form>
 <ul class="navbar-nav mr-auto">
 
@@ -178,7 +164,7 @@
 	</li>
 <li class="nav-item">
 		<a class="nav-link" href="updateAddressForm.do">Update Address</a> 
-		<!-- <button href="updateAddressForm.do?id=1#" type="submit">Update Address</button> -->
+		
 	</li>
 	<li class="nav-item">
 		<a class="nav-link" href="createPaymentInfoForm.do">Payment Info</a> <!-- Unsure of this -->
@@ -186,18 +172,6 @@
 
 </ul>
 </form>
-
-<!-- <form>
-	<ul class="navbar-nav mr-auto">
-
-		<li class="nav-item">
-			<a class="nav-link" href="deleteUser.do?id=1#">Delete Account</a>
-			
-			 <a class="nav-link" href="logOutOfAccount.do">LogOut of Account</a> 
-		</li>
-	</ul>
-</form> -->
-
 <form>
 
 	<ul class="navbar-nav mr-auto">
@@ -206,7 +180,8 @@
 		</li>
 	</ul>
 </form>
-</table>
+<hr>
+	</div>
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 			crossorigin="anonymous"></script>

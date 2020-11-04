@@ -59,45 +59,55 @@
 
 			</div>
 		</nav>
+		<hr>
 <!-- FIX SUBMIT BUTTON FOR UPDATE ADDRESS. -->
+<h1>Update Address:</h1>
+<hr>
 		<div class="container">
 			<table>
-			
-			<tr> Street: <td>${address.street }</td> 
-			
 			<form action = "updateAddressInfo.do">
 			<input type="hidden" name="id" value="${address.id}">
 			
+			<tr> Street: <td>${address.street }</td> 
 			${address.street }
 			<input type= "text" name="street" value="${address.street}"/>
-			</tr>
+			</tr><br>
 			
 			 <tr>Street2: <td>${address.street2 }</td> 
 			${address.street2 }
 			<input type= "text" name="street2" value="${address.street2 }"/>
-			</tr>
+			</tr><br>
 			
 			 <tr>City: <td>${address.city }</td> 
 			${address.city }
 			<input type= "text" name="city" value="${address.city }"/>
-			</tr>
+			</tr><br>
 			
 			 <tr>State: <td>${address.state }</td> 
 			${address.state }
 			<input type= "text" name="state" value="${address.state }"/>
-			</tr>
+			</tr><br>
 			
 			<tr>Zip Code: <td>${address.zip }</td> 
 			${address.zip }
 			<input type= "text" name="zip" value="${address.zip }"/>
+			</tr><br>
+			
 			<tr>Country: <td>${address.country}</td> 
 			${address.country }
 			<input type= "text" name="country" value="${address.country }"/>
+			</tr><br>
+			
 			<button type= "submit">Update Address</button>
-			</tr><br><br> 
+			<!-- </tr><br><br>  -->
 			</form>
 			 
+	
 			</table>
-
+			</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
 </html>
