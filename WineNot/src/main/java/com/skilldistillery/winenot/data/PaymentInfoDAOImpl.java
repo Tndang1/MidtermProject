@@ -10,7 +10,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import com.skilldistillery.winenot.entities.Payment;
+import com.skilldistillery.winenot.entities.Address;
 import com.skilldistillery.winenot.entities.PaymentInfo;
 
 @Transactional
@@ -28,8 +28,9 @@ public class PaymentInfoDAOImpl implements PaymentInfoDAO {
 	}
 
 	@Override
-	public PaymentInfo create(PaymentInfo payInfo) {
-
+	public PaymentInfo create(PaymentInfo payInfo, Address address) {
+		
+		em.persist(address);
 		em.persist(payInfo);
 		em.flush();
 		em.close();
