@@ -127,8 +127,8 @@
 	<br>
 	
 	 <ul class="pager">
-    <li class="previous"><a href="getWine.do?wid=${wine.id < 65}">Previous</a></li>
-    <li class="next"><a href="getWine.do?wid=${wine.id > 0 }">Next</a></li>
+    <li class="previous"><a href="getWine.do?wid=${wine.id  -1}">Previous</a></li>
+    <li class="next"><a href="getWine.do?wid=${wine.id  +1 }">Next</a></li>
   </ul>
 	
 	</div>
