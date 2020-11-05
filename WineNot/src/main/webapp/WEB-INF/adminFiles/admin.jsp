@@ -161,8 +161,30 @@
 							<td>${wine.labelName} ${wine.vineyard} ${wine.vintageYear}</td>
 						</c:forEach>
 					</tr>
+					
+					
+<c:choose>
+	<c:when test="${order.processed == 0}">				
 	<tr><td>
-		<form action="adminDeleteOrder.do">
+		<form action="adminProcessOrder.do" method="POST">
+		<input type="hidden" name="orderId" value="${order.id}">
+		<button type="submit" class="btn btn-success btn-sm">Process this order</button>
+		</form>
+	</td></tr>
+	</c:when>
+	<c:otherwise>
+	<tr><td>
+		<form action="adminUnprocessOrder.do" method="POST">
+		<input type="hidden" name="orderId" value="${order.id}">
+		<button type="submit" class="btn btn-warning btn-sm">Unprocess this order</button>
+		</form>
+	</td></tr>
+	</c:otherwise>
+</c:choose>
+	
+	
+	<tr><td>
+		<form action="adminDeleteOrder.do" method="POST">
 		<input type="hidden" name="orderId" value="${order.id}">
 		<button type="submit" class="btn btn-warning btn-sm">Delete this order</button>
 		</form>

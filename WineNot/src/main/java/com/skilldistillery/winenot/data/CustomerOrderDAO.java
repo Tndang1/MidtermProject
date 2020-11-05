@@ -7,7 +7,7 @@ import com.skilldistillery.winenot.entities.Wine;
 
 public interface CustomerOrderDAO {
 
-	CustomerOrder findById(int id); 
+	public CustomerOrder findById(int id); 
 	
 	public CustomerOrder create(CustomerOrder order); 
 	
@@ -15,11 +15,14 @@ public interface CustomerOrderDAO {
 	
 	public boolean deleteCustomerOrder(int id); 
 	
-	List<CustomerOrder> findAll(); 
+	public List<CustomerOrder> findAll(); 
 	
 	public Wine addWineToOrder(int id, Wine wine); 
 	
 	public boolean removeWineFromOrder(int id, int wineId);
 
-	boolean removeAllWineFromOrder(List<Wine> wines, int custId); 
+	public boolean removeAllWineFromOrder(List<Wine> wines, int custId); 
+	
+	public boolean processOrder(int orderId);
+	public boolean unprocessOrder(int orderId);
 }

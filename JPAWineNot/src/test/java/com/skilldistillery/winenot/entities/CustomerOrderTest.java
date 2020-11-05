@@ -47,6 +47,7 @@ class CustomerOrderTest {
 	void test_Order_entity_fields() {
 		assertNotNull(order);
 		assertEquals(1, order.getId());
+		assertEquals(0, order.getProcessed());
 		LocalDateTime od = order.getOrderDate();
 		assertEquals(2020, od.getYear());
 		assertEquals(129.99, order.getAmount());
