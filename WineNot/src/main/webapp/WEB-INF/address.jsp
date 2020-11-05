@@ -152,7 +152,7 @@
 					
 						<div>
 							<form:label path="zip">Zip: </form:label>
-						<input type="text" class="form-control" required="required" name="zip" placeholder="Zip" />
+						<input type="number" class="form-control" required="required" name="zip" placeholder="Zip" />
 					</div>
 					
 					<div>
