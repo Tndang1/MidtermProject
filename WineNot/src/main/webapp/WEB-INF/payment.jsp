@@ -71,7 +71,7 @@
 		<c:when test="${! empty payInfo}">
 		<ul>
 				<li><strong>Card Number: </strong>${payInfo.cardNumber}</li>
-				<li><strong>Card Expiration: </strong>${payInfo.exprDate}</li>
+				<li><strong>Card Expiration: </strong>${customer.paymentInfo.exprDate.month} / ${customer.paymentInfo.exprDate.year}</li>
 				<%-- <li><strong>Street: </strong>${payInfo.address.street}</li>
 				<li><strong>City: </strong>${payInfo.address.city}</li>
 				<li><strong>State: </strong>${payInfo.address.state}</li>
@@ -100,8 +100,8 @@
 	</div>
 	<div>
 		<form:label path="exprDate">Expiration Date: </form:label>
-		<input type="text" class="form-control" required="required"
-				name="exprDate" placeholder="YYYY-MM-DD" />
+		<input type="month" class="form-control" required="required"
+				name="exprDate" />
 	</div>
 	<!-- <div>
 		<form:label path="street">Street: </form:label>

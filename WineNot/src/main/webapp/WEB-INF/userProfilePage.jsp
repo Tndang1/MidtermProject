@@ -68,7 +68,7 @@
 		<hr>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light"><h5>User Information</h5></nav>
 		<p>
-		<table>
+	<table class="table">
 		<tr>
 			<td>Username: ${user.username}</td> 
 			<td>
@@ -91,17 +91,8 @@
 			<td><form action= "updatePasswordForm.do">
 			<input type= "text" name="pass" value="${customer.user.password} "/>
 			<button type= "submit">Change Password</button>
-			</form></tr><br><br>
-
-			<form action="createAddressForm.do"></form>
-		
-		
-		<!-- <form><nav class="navbar navbar-expand-lg navbar-light bg-light">Payment Information</nav></form><br> -->
-			
-		<!-- 	</form> -->
-			<!-- </td> -->
-		<!-- </tr> -->
-</table>
+			</form></tr>
+	</table>
 
 <hr>
 			
@@ -109,14 +100,14 @@
 <br><br>	
 
 		
-		<form>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light"></t>Payment Information</nav></form><br>
+	
+<nav class="navbar navbar-expand-lg navbar-light bg-light"></t>Payment Information</nav></form><br>
 
   <c:choose>
   <c:when test="${! empty customer.paymentInfo}">
   <ul>
   <li><strong>Card Number: </strong>${customer.paymentInfo.cardNumber}</li>
-  <li><strong>Expiration Date: </strong>${customer.paymentInfo.exprDate}</li>
+  <li><strong>Expiration Date: </strong>${customer.paymentInfo.exprDate.month} / ${customer.paymentInfo.exprDate.year}</li>
   </ul>
   </c:when>
   <c:otherwise>
@@ -124,16 +115,11 @@
   </c:otherwise>
   </c:choose>
   
-</form>
-
 <c:choose>
 <c:when test="${! empty customer.address}">
-<%-- <c:when test="${! empty customer}"> --%>
 
-
-			<nav class="navbar navbar-expand-lg navbar-light bg-light">Address Information</nav><br>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">Address Information</nav><br>
   <ul>
- <%--  <li><strong>${customer.fName } ${customer.lName }</strong></li> --%>
   <li><strong>Street: </strong>${customer.address.street }</li>
   <li><strong>Street2: </strong>${customer.address.street2 }</li>
   <li><strong>City: </strong>${customer.address.city }</li>
@@ -141,19 +127,13 @@
   <li><strong>Zip: </strong>${customer.address.zip }</li>
   <li><strong>Country: </strong>${customer.address.country }</li>
   </ul>
-</form>
 
 
 </c:when>
-<%-- </c:when> --%>
 <c:otherwise>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">Address Information</nav><br>
 <p><center>No address information found</center></p><br>
 </c:otherwise>
-<%-- <c:otherwise>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">No Customer name found</nav><br>
-
-</c:otherwise> --%>
 </c:choose>
 
 <hr>

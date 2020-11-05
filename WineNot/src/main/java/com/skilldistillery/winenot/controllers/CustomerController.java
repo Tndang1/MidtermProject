@@ -235,6 +235,7 @@ public class CustomerController {
 	public String createPayInfo(HttpSession session, Model model, String cardNumber, String exprDate, String street, String street2, String city, String state, String zip, String country) {
 		Customer customer = (Customer) session.getAttribute("customer");
 //		Address address = new Address();
+		exprDate = exprDate.concat("-01");
 		PaymentInfo paymentInfo = new PaymentInfo();
 		paymentInfo.setCardNumber(cardNumber);
 		LocalDate someDate = LocalDate.parse(exprDate);

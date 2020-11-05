@@ -107,19 +107,16 @@
 	<form action="createCustomer.do" method=POST>
 	<div>
 		<form:label path="username">Username: </form:label>
-		<input type="text" class="form-control" required="required"
-				name="username" placeholder="Username" />
+		<input type="text" placeholder="Username" class="form-control" name="username" placeholder="Username" max="45" required/>
 	</div>
 	<div>
 		<form:label path="email">Email: </form:label>
-		<input type="email" class="form-control" required="required"
-				name="email" placeholder="Email" />
+		<input type="email" placeholder="wineNot@winenot.com" class="form-control" name="email" placeholder="Email" max="45" required/>
 	</div>
 	<div>
 		<form:label path="password">Password: </form:label>
-		<input type="password" value="fakePW" id="myInput" class="form-control" required="required"
-				name="password" placeholder="Password" />
-				<input type="checkbox" onclick="myFunction()">Show Password
+		<input type="password" placeholder="**********" id="myInput" class="form-control" name="password" placeholder="Password" max="100" required/>
+		<input type="checkbox" onclick="myFunction()">Show Password
 	</div>
 	
 
@@ -127,18 +124,17 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputFName">First Name</label>
-      <input type="firstName" class="form-control" name="firstName" placeholder="FirstName">
+      <input type="text" class="form-control" name="firstName" placeholder="FirstName" max="45">
     </div>
     <div class="form-group col-md-6">
       <label for="inputLName">Last Name</label>
-      <input type="lastName" class="form-control" name="lastName" placeholder="LastName">
+      <input type="text" class="form-control" name="lastName" placeholder="LastName" max="45">
     </div>
-   <!--  <div class="form-group col-md-6"> -->
-    <%-- <fmt:parseDate  value="${customer.updatedAt}"  type="date" pattern="yyyy-MM-dd'T'hh:mm:ss" var="parsedDate" />
-	<fmt:formatDate type="both" value="${parsedDate}"/> --%>
+    <div class="form-group col-md-6">
       <label for="inputBirthdate">Date of Birth</label>
       <input type="date" class="form-control" name="date" placeholder="MM/DD/YYYY">
-     </div>
+    </div>
+ </div>
     <!-- </div> -->
     
     <!-- <div class="form-group">
@@ -170,10 +166,8 @@
       <button type="submit" class="signupbtn">Sign Up</button>
     </div> --> 
    <br>
-    <p>
-	<button action="homePage.do"type="submit" class="btn btn-primary">Submit</button>
-	</form>
-    </p>
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>
     
     
     <!-- <div class="form-group col-md-6">
@@ -186,7 +180,7 @@
     </div>
  <!--  </div> -->
   
-</form>
+<!-- </form> -->
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
