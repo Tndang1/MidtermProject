@@ -11,6 +11,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.winenot.entities.Address;
+import com.skilldistillery.winenot.entities.Payment;
 import com.skilldistillery.winenot.entities.PaymentInfo;
 
 @Transactional
@@ -67,12 +68,12 @@ public class PaymentInfoDAOImpl implements PaymentInfoDAO {
 		String jpql = "Select p FROM PaymentInfo p ";
 		return em.createQuery(jpql, PaymentInfo.class).getResultList();
 	}
-
-@Override
+	@Override
 	public PaymentInfo setAddress(int id, Address address) {
 		PaymentInfo paymentInfo = em.find(PaymentInfo.class, id);
 		paymentInfo.setAddress(address);
 		return paymentInfo;
 	}
+
 
 }

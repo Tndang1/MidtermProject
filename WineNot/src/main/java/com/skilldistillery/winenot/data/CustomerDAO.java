@@ -22,5 +22,5 @@ public interface CustomerDAO {
 	List<Wine> addWineToFavorites(int id, int wid);
 	Customer setAddress(int id, Address address);
 	Customer setPayment(int id, PaymentInfo payInfo);
-	
+	boolean removeWineFromFavorites (int id, int wid);
 }

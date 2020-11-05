@@ -71,8 +71,15 @@
 <tr>
 		<td><a href="getWine.do?wid=${w.id }">${w.labelName}</a></td>
 		<!-- <br> -->
-	</tr>
+<td><form action="removeFromFavorites.do">
+			<input type="hidden"
+				name="wid" value="${w.id}" />
+						<button type="submit">Delete Wine</button>
+						</form></td>
 	</c:forEach>
+	
+		
+	</tr>
 
 </table>
 <br>
