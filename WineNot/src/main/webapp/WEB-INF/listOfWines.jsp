@@ -17,8 +17,8 @@
 
 </head>
 <body>
- <hr>
-   <div class ="container">
+<hr>
+    <div class ="container">
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<a class="navbar-brand" href="homePage.do"style="color:DarkRed"><strong>WineNot</strong> <i class='fas fa-wine-glass' style='font-size:24px'></i></a>

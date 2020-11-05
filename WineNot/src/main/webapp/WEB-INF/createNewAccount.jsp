@@ -52,7 +52,8 @@
 			
 			</div>
 		</nav> -->
-		    <div class ="container">
+<hr>
+    <div class ="container">
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<a class="navbar-brand" href="homePage.do"style="color:DarkRed"><strong>WineNot</strong> <i class='fas fa-wine-glass' style='font-size:24px'></i></a>
@@ -98,6 +99,7 @@
 			
 			</div>
 		</nav>
+		<hr>
 		<div class="container">
 		<h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>

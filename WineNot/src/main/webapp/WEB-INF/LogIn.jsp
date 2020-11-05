@@ -63,7 +63,8 @@
 			
 			</div>
 		</nav> --%>
-		<div class ="container">
+		<hr>
+    <div class ="container">
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<a class="navbar-brand" href="homePage.do"style="color:DarkRed"><strong>WineNot</strong> <i class='fas fa-wine-glass' style='font-size:24px'></i></a>
@@ -109,8 +110,7 @@
 			
 			</div>
 		</nav>
-			
-			<hr>
+		<hr>
 			<h1>User Log In:</h1>
 			<hr>
 <c:if test = "${failure != null}">${failure}</c:if>
