@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.winenot.data.CustomerDAO;
 import com.skilldistillery.winenot.data.CustomerOrderDAO;
+import com.skilldistillery.winenot.data.WineColorTypeDAO;
 import com.skilldistillery.winenot.data.WineDAO;
 import com.skilldistillery.winenot.entities.Address;
 import com.skilldistillery.winenot.entities.Customer;
@@ -34,6 +35,8 @@ public class CustomerOrderController {
 	private CustomerDAO custDAO;
 	@Autowired
 	private WineDAO wineDAO;
+	@Autowired
+	private WineColorTypeDAO colorTypeDAO;
 	
 	
 	//GUIDE for request mapping ===========================================================
@@ -111,7 +114,7 @@ public class CustomerOrderController {
 
 	@RequestMapping(path = "create.do", method = RequestMethod.POST)
 	public ModelAndView createCustomerOrder(HttpSession session, CustomerOrder order, Integer custId, 
-			Integer wineColor, RedirectAttributes ra) {
+			Integer wineColorId, RedirectAttributes ra) {
 		Customer customer = (Customer)session.getAttribute("customer");
   	customer.getAddress();
 		customer.getPaymentInfo();
@@ -119,9 +122,10 @@ public class CustomerOrderController {
 			order.setAmount(220.99);
 		}
 		order.setCustomer(customer);
+		order.setWineColor(colorTypeDAO.findColorById(wineColorId));
 		List<Wine> wines = null;
-		if (wineColor > 0 && wineColor < 3) {
-		wines = wineDAO.findWineByWineColorId(wineColor);
+		if (wineColorId > 0 && wineColorId < 3) {
+		wines = wineDAO.findWineByWineColorId(wineColorId);
 		} else {
 			wines = wineDAO.findAllEnabledWine();
 		}
