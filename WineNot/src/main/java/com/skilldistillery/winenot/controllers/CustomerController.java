@@ -192,7 +192,7 @@ public class CustomerController {
 		Customer customer = (Customer) session.getAttribute("customer");
 		Address address = addrDAO.getAddressById(customer.getId());
 		
-		custDAO.setAddress(customer.getAddress().getId(), null);
+		custDAO.setAddress(customer.getId(), null);
 		payInfoDAO.setAddress(customer.getAddress().getId(), null);
 		Boolean deleted = addrDAO.deleteAddress(address.getId());
 		
