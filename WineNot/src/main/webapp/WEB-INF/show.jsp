@@ -77,7 +77,7 @@
 		<li><strong>Description: </strong>${wine.description}</li>
 		<li><strong>Pairs with: </strong>${wine.pairs}</li>
 		<li><strong>Review: </strong>${review.review}</li>
-		
+		<hr>
 		<p>
 		<%-- <form action="addWineToOrder.do" method="GET">
 			<input type="hidden" name="id" value="${custOrder.id}"/>
@@ -89,29 +89,29 @@
 		<form action="addToFavoritesList.do" method="GET">
 			<input type="hidden" name="id" value="${customer.id}"/>
 			<input type="hidden" name="wid" value="${wine.id}"/>
-			<button type="submit">Add To Favorites!</button>
+			<button type="submit" class="btn btn-primary">Add To Favorites</button>
+		</form><br>
 			
-		</form>
 			<c:choose>
 			<c:when test = "${reviewed == false}">
 			<form action="addAReview.do" method="GET">
 				<input type="hidden" name="custId" value="${customer.id}"/>
 				<input type="hidden" name="wineId" value="${wine.id}"/>
-				<button type="submit">Review this wine.</button>
+				<button type="submit" class="btn btn-dark">Review this wine</button>
 			</form>
 			</c:when>
 			<c:otherwise>
 			<form action="getUpdatedReviewOfWines.do" method="GET">
 				<input type="hidden" name="custId" value="${customer.id}"/>
 				<input type="hidden" name="wineId" value="${wine.id}"/>
-				<button type="submit">Update your review?</button>
+				<button type="submit" class="btn btn-success">Update your review?</button>
 			</form>			
 			</c:otherwise>
 			</c:choose>
 		</c:when>					 
 		<c:otherwise>
 		<form action="checkCredentials.do" method="GET">
-			<button name="logIn" type="submit">Please LogIn</button>
+			<button name="logIn" type="submit" class="btn btn-danger">Please LogIn</button>
 		</form>
 		</c:otherwise>
 			
@@ -120,6 +120,9 @@
 		
 		</p>
 	</ul>
+	<br>
+	</div>
+	
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
 		crossorigin="anonymous"></script>
