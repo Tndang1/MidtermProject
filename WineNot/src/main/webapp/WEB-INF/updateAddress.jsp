@@ -34,9 +34,9 @@
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active"><a class="nav-link"
+		<!-- 			<li class="nav-item active"><a class="nav-link"
 						href="homePage.do">Home <i class='fas fa-home'></i><span
-							class="sr-only">(current)</span></a></li>
+							class="sr-only">(current)</span></a></li> -->
 					<li class="nav-item"><a class="nav-link"
 						href="createUserForm.do">Log In <i class='fas fa-sign-in-alt'></i></a>
 					</li>
@@ -60,7 +60,7 @@
 			</div>
 		</nav>
 		
-		<c:choose>
+		<%-- <c:choose>
 		<c:when test="${! empty payInfo}">
 		<ul>
 				<li><strong>Street: </strong>${payInfo.address.street}</li>
@@ -76,7 +76,7 @@
 		<c:otherwise>
 		<p>No payment Info found.</p>
 		</c:otherwise>
-	</c:choose> 
+	</c:choose>  --%>
 		
 
 	
@@ -111,7 +111,7 @@
 			</tr>
 			
 			<tr>
-			<td>Zip Code: ${address.zip }</td>${address.zip }
+			<td>Zip Code: ${address.zip }</td>
 			<td><input type= "text" name="zip" value="${address.zip }"/><td>
 			</tr>
 			
@@ -126,12 +126,12 @@
 			
 			<form>
 
-	<ul class="navbar-nav mr-auto">
+<!-- 	<ul class="navbar-nav mr-auto">
 		<li class="nav-item">
 			<a class="nav-link" href="deleteAddressForm.do">Delete Address</a>
 		</li>
 	</ul>
-</form>
+</form> -->
 			 
 			</table> 
 
@@ -144,6 +144,8 @@
 			 
 		</table>
 	</form>
+<br>
+<br>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

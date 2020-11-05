@@ -155,9 +155,12 @@ public class CustomerController {
 		return "address";
 	}
 	@RequestMapping(path = "createAddress.do", method = RequestMethod.POST)
-	public String createAddress(HttpSession session, Address address, Model model) {
+	public String createAddress(HttpSession session, Address address, Integer id, Model model) {
 		Customer customer = (Customer) session.getAttribute("customer");
 		model.addAttribute("newAddress", addrDAO.createAddress(address));
+		custDAO.setAddress(customer.getId(), address);
+		customer.setAddress(address);
+		session.setAttribute("customer", customer);
 //		return "address";
 		return "userProfilePage";
 	}
@@ -187,11 +190,31 @@ public class CustomerController {
 		
 	}
 
+//	@RequestMapping(path = "deleteAddressForm.do", method = RequestMethod.GET)
+//	public String deleteAddress(HttpSession session, Integer id, Model model) {
+//		Customer customer = (Customer) session.getAttribute("customer");
+//		customer.setAddress(null);
+//		
+//		try {
+//			customer.getPaymentInfo().setAddress(null);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		Boolean deleted = addrDAO.deleteAddress(customer.getAddress().getId());
+//		
+////		Address address = addrDAO.getAddressById(customer.getId());
+////		model.addAttribute("address", address);
+//		model.addAttribute("deleted", deleted);
+//		return "updateAddress";
+//	}
+	
 	@RequestMapping(path = "deleteAddressForm.do", method = RequestMethod.GET)
-	public String deleteAddress(HttpSession session, Integer id, Model model) {
+	public String deleteAddress(HttpSession session, Model model) {
 		Customer customer = (Customer) session.getAttribute("customer");
-		Boolean deleted = addrDAO.deleteAddress(id);
 		Address address = addrDAO.getAddressById(customer.getId());
+		custDAO.setAddress(customer.getId(), null);
+//		payInfoDAO.setAddress(customer.getPaymentInfo().getId(), null);
+		Boolean deleted = addrDAO.deleteAddress(address.getId());
 		model.addAttribute("address", address);
 		model.addAttribute("deleted", deleted);
 		return "updateAddress";
@@ -226,27 +249,28 @@ public class CustomerController {
 	@RequestMapping(path = "createPaymentInfo.do", method = RequestMethod.POST)
 	public String createPayInfo(HttpSession session, Model model, String cardNumber, String exprDate, String street, String street2, String city, String state, String zip, String country) {
 		Customer customer = (Customer) session.getAttribute("customer");
-		Address address = new Address();
+//		Address address = new Address();
 		PaymentInfo paymentInfo = new PaymentInfo();
 		paymentInfo.setCardNumber(cardNumber);
 		LocalDate someDate = LocalDate.parse(exprDate);
 		LocalDateTime exprDateTime = someDate.atStartOfDay();
 		paymentInfo.setExprDate(exprDateTime);
-		address.setStreet(street);
-		address.setStreet2(street2);
-		address.setCity(city);
-		address.setState(state);
-		address.setZip(zip);
-		address.setCountry(country);
-		paymentInfo.setAddress(address);
-		PaymentInfo newInfo = payInfoDAO.create(paymentInfo, address);
+//		address.setStreet(street);
+//		address.setStreet2(street2);
+//		address.setCity(city);
+//		address.setState(state);
+//		address.setZip(zip);
+//		address.setCountry(country);
+		paymentInfo.setAddress(null);
+		PaymentInfo newInfo = payInfoDAO.create(paymentInfo);
 //		custDAO.setAddress(customer.getId(), newInfo.getAddress());
 //		custDAO.setPayment(customer.getId(), newInfo);
 		
-		custDAO.setAddress(customer.getId(), newInfo.getAddress());
+//		custDAO.setAddress(customer.getId(), newInfo.getAddress());
 		custDAO.setPayment(customer.getId(), newInfo);
 		model.addAttribute("payInfo", newInfo);
-
+		customer.setPaymentInfo(paymentInfo);
+		session.setAttribute("customer", customer);
 		return "userProfilePage";
 	}
 	@RequestMapping(path = "updatePaymentInfoForm.do", method = RequestMethod.GET)
