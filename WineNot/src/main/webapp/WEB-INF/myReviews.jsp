@@ -113,7 +113,7 @@
 										<input type="hidden" name="custId"
 											value="${review.id.customerId}" /> <input type="hidden"
 											name="wineId" value="${review.id.wineId}" />
-										<button type="submit">Delete Review</button>
+										<button type="submit" class="btn btn-danger">Delete Review</button>
 									</form></td>
 							
 								<td><form action="getUpdatedReviewOfWines.do">
@@ -121,7 +121,7 @@
 											value="${review.id.customerId}" /> <input type="hidden"
 											name="wineId" value="${review.id.wineId}" />
 											
-										<button type="submit">Update Review of Wine</button>
+										<button type="submit" class="btn btn-primary">Update Review of Wine</button>
 									</form></td>
 							</tr>
 						</c:forEach>
