@@ -154,11 +154,15 @@ public class AdminController {
 		return "adminFiles/admin";
 	}
 
-	@RequestMapping(path = "adminAddWine.do", method = RequestMethod.GET)
+	@RequestMapping(path = "adminAddWine.do", method = RequestMethod.POST)
 	public String adminAddWine(Model model, Wine wine, Integer wineTypeId, Integer wineColorId) {
 		wine.setWineColor(colorTypeDAO.findColorById(wineColorId));
 		wine.setWineType(colorTypeDAO.findTypeById(wineTypeId));
 		wDAO.createWine(wine);
+		return "redirect:adminWineAdded.do";
+	}
+	@RequestMapping(path = "adminWineAdded.do", method = RequestMethod.GET)
+	public String adminWineAdded() {
 		return "adminFiles/admin";
 	}
 
