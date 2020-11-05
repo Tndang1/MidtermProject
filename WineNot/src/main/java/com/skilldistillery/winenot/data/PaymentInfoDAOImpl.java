@@ -28,9 +28,9 @@ public class PaymentInfoDAOImpl implements PaymentInfoDAO {
 	}
 
 	@Override
-	public PaymentInfo create(PaymentInfo payInfo, Address address) {
+	public PaymentInfo create(PaymentInfo payInfo) {
 		
-		em.persist(address);
+//		em.persist(address);
 		em.persist(payInfo);
 		em.flush();
 		em.close();
@@ -66,6 +66,13 @@ public class PaymentInfoDAOImpl implements PaymentInfoDAO {
 		//PaymentInfo correct spelling? Note for future reference.
 		String jpql = "Select p FROM PaymentInfo p ";
 		return em.createQuery(jpql, PaymentInfo.class).getResultList();
+	}
+
+@Override
+	public PaymentInfo setAddress(int id, Address address) {
+		PaymentInfo paymentInfo = em.find(PaymentInfo.class, id);
+		paymentInfo.setAddress(address);
+		return paymentInfo;
 	}
 
 }
