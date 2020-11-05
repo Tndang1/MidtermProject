@@ -67,7 +67,7 @@
 			<td>Username: ${user.username}</td> 
 			<td>
 				<form action= "updateUsernameForm.do">
-				<input type= "text" name="username" value="${user.username}"/>
+				<input type= "text" name="username" value="${customer.user.username}"/>
 				<button type= "submit">Change Username</button><br>
 				</form>
 			</td>
@@ -75,7 +75,7 @@
 		<tr>
 			<td>Email: ${user.email}</td> 
 			<td><form action= "updateEmailForm.do">
-			<input type= "text" name="email" value="${user.email}"/>
+			<input type= "text" name="email" value="${customer.user.email}"/>
 			<button type= "submit">Change Email</button><br>
 			</form>
 			</td>
@@ -83,7 +83,7 @@
 		<tr>
 			<td>Password: ${user.password }</td>
 			<td><form action= "updatePasswordForm.do">
-			<input type= "text" name="pass" value="${user.password} "/>
+			<input type= "text" name="pass" value="${customer.user.password} "/>
 			<button type= "submit">Change Password</button>
 			</form></tr><br><br>
 
