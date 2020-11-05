@@ -93,7 +93,7 @@ public class CustomerController {
 		if (session.getAttribute("customer") == null) {
 		session.setAttribute("customer", customer);
 		}
-		return "homePage";
+		return "address";
 	}
 
 	@RequestMapping(path = "updateUserForm.do")
@@ -164,7 +164,7 @@ public class CustomerController {
 		customer.setAddress(address);
 		session.setAttribute("customer", customer);
 //		return "address";
-		return "userProfilePage";
+		return "payment";
 	}
 	@RequestMapping(path = "updateAddressForm.do", method = RequestMethod.GET)
 	public String updateAddress(HttpSession session, Model model) {
@@ -249,6 +249,7 @@ public class CustomerController {
 //		address.setCountry(country);
 		paymentInfo.setAddress(null);
 		PaymentInfo newInfo = payInfoDAO.create(paymentInfo);
+		custDAO.setPayment(customer.getId(), paymentInfo);
 		model.addAttribute("payInfo", newInfo);
 		customer.setPaymentInfo(paymentInfo);
 		session.setAttribute("customer", customer);
