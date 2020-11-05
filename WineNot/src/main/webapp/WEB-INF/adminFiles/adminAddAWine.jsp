@@ -66,7 +66,7 @@
 	<hr>
 	<table>
 	<ul>
-	<form action="adminAddWine.do">
+	<form action="adminAddWine.do" method = "POST">
 	<div class="form-group">
 	<li><label for="name">Label name</label>
 	<input type="text" id="name" name="labelName" required>
@@ -96,8 +96,8 @@
 	
 	<div class="form-group">
 	<li><label for="diet">Dietary</label>
-	<!-- <input type="text" id="diet" name="dietary"> -->
 	<select name="dietary" id="diet">
+	<option value=""></option>
 	<option value="kosher">Kosher</option>
 	<option value="paleo">Paleo</option>
 	<option value="organic">Organic</option>
@@ -158,11 +158,11 @@
 	<input type="hidden" value="1" name="enabled">
 	<button type="submit" class="btn btn-danger btn-lg">Add Wine</button>
 	</form>
+	</ul>
 	
 
 	
 	
-	</ul>
 	</table>
 	</div>
 		<br>
