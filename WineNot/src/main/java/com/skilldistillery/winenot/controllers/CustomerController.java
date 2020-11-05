@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.winenot.data.AddressDAO;
 import com.skilldistillery.winenot.data.CustomerDAO;
@@ -67,7 +68,6 @@ public class CustomerController {
 	}
 	@RequestMapping(path = "createCustomerForm.do")
 	public String createAccount() {
-		
 		return "createNewAccount";
 	}
 	@RequestMapping(path = "createCustomer.do", method = RequestMethod.POST)
@@ -93,6 +93,10 @@ public class CustomerController {
 		if (session.getAttribute("customer") == null) {
 		session.setAttribute("customer", customer);
 		}
+		return "redirect:customerCreated.do";
+	}
+	@RequestMapping(path = "customerCreated.do")
+	public String customerCreated() {
 		return "address";
 	}
 
@@ -163,7 +167,10 @@ public class CustomerController {
 		custDAO.setAddress(customer.getId(), address);
 		customer.setAddress(address);
 		session.setAttribute("customer", customer);
-//		return "address";
+		return "redirect:addressCreated.do";
+	}
+	@RequestMapping(path = "addressCreated.do", method = RequestMethod.GET)
+	public String addressCreated() {
 		return "payment";
 	}
 	@RequestMapping(path = "updateAddressForm.do", method = RequestMethod.GET)
@@ -174,51 +181,26 @@ public class CustomerController {
 	}
 //	THIS METHOD IS FOR UPDATING ADDRESS.
 	@RequestMapping(path = "updateAddressInfo.do", method = RequestMethod.POST)
-//	public String updateAddress(HttpSession session, Integer id, Model model,String street, String street2, String city, String state, String zip, String country) {
 		public String updateAddress(HttpSession session, Model model, Address address) {
 		Customer customer = (Customer) session.getAttribute("customer");
-		
-//		address.setStreet(street);
-//		address.setStreet2(street2);
-//		address.setCity(city);
-//		address.setState(state);
-//		address.setZip(zip);
-//		address.setCountry(country);
 		address = addrDAO.updateAddress(address.getId(), address);
 		customer.setAddress(address);
 		session.setAttribute("customer", customer);
 		model.addAttribute("address", address);
 		return "userProfilePage";
-		
 	}
 
-
-	
 	@RequestMapping(path = "deleteAddressForm.do", method = RequestMethod.GET)
 	public String deleteAddress(HttpSession session, Model model) {
 		Customer customer = (Customer) session.getAttribute("customer");
 		Address address = addrDAO.getAddressById(customer.getId());
 		custDAO.setAddress(customer.getId(), null);
-//		payInfoDAO.setAddress(customer.getPaymentInfo().getId(), null);
 		Boolean deleted = addrDAO.deleteAddress(address.getId());
 		model.addAttribute("address", address);
 		model.addAttribute("deleted", deleted);
 		return "updateAddress";
 	}
-	
-	
-//	@RequestMapping(path = "removeReview.do", method = RequestMethod.GET)
-//	public String removeReview(HttpSession session, Model model, int wineId) {
-//		Customer customer = (Customer) session.getAttribute("customer");
-//		Boolean deleted = rviewDAO.deleteReview(customer.getId(), wineId);
-//		List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
-//		model.addAttribute("reviews", reviews);
-//		model.addAttribute("deleted", deleted);
-//		return "myReviews";
-//	}
-	
-	
-	// PAYMENT FORMS =================
+
 	// PAYMENT FORMS =====================================================================================================
 
 	@RequestMapping(path = "createPaymentInfoForm.do", method = RequestMethod.GET)
@@ -227,12 +209,11 @@ public class CustomerController {
 		customer.getAddress();
 		customer.getPaymentInfo();
 		model.addAttribute("payInfo", customer.getPaymentInfo());
-
 		return "payment";
 	}
 
 	@RequestMapping(path = "createPaymentInfo.do", method = RequestMethod.POST)
-	public String createPayInfo(HttpSession session, Model model, String cardNumber, String exprDate, String street, String street2, String city, String state, String zip, String country) {
+	public String createPayInfo(HttpSession session, Model model, String cardNumber, String exprDate) {
 		Customer customer = (Customer) session.getAttribute("customer");
 //		Address address = new Address();
 		exprDate = exprDate.concat("-01");
@@ -241,12 +222,6 @@ public class CustomerController {
 		LocalDate someDate = LocalDate.parse(exprDate);
 		LocalDateTime exprDateTime = someDate.atStartOfDay();
 		paymentInfo.setExprDate(exprDateTime);
-//		address.setStreet(street);
-//		address.setStreet2(street2);
-//		address.setCity(city);
-//		address.setState(state);
-//		address.setZip(zip);
-//		address.setCountry(country);
 		paymentInfo.setAddress(null);
 		PaymentInfo newInfo = payInfoDAO.create(paymentInfo);
 		custDAO.setPayment(customer.getId(), paymentInfo);
@@ -259,8 +234,6 @@ public class CustomerController {
 	public String payInfoCreated() {
 		return "userProfilePage";
 	}
-	
-	
 	
 	@RequestMapping(path = "updatePaymentInfoForm.do", method = RequestMethod.GET)
 	public String updatePaymentInfoForm(HttpSession session, Model model) {
@@ -294,17 +267,6 @@ public class CustomerController {
 
 	// REVIEW FORMS ====================================================================================
 
-	@RequestMapping(path = "createReviewForm.do", method = RequestMethod.GET)
-	public String createReviewForm(HttpSession session, Review review) {
-		return "folder/reviewsForm";
-	}
-
-	@RequestMapping(path = "createReview.do", method = RequestMethod.POST)
-	public String createReview(HttpSession session, Review review, Model model) {
-		model.addAttribute("review", rviewDAO.createReview(review));
-		return "folder/userProfilePage";
-	}
-
 	//displays the list of reviews currently
 	@RequestMapping(path = "getAllReviews.do", method = RequestMethod.GET)
 	public String getAllReviews(HttpSession session, Model model) {
@@ -316,9 +278,7 @@ public class CustomerController {
 
 	//goes to the form to update review of wines.
 	@RequestMapping(path = "getUpdatedReviewOfWines.do", method = RequestMethod.GET)
-	public String getUpdatedReviewOfWiines(HttpSession session, Model model, int custId, int wineId) {
-		Customer customer = (Customer) session.getAttribute("customer");
-//		List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
+	public String getUpdatedReviewOfWiines(Model model, int custId, int wineId) {
 		Review review = rviewDAO.getReviewByCustomerAndWineId(custId, wineId);
 		model.addAttribute("review", review);
 		model.addAttribute("custId", custId);
@@ -326,7 +286,7 @@ public class CustomerController {
 		return "updateReviewWine";
 	}
 	//redisplay the updated wines back to the reviews page.
-	@RequestMapping(path = "getAllUpdatedReviews.do", method = RequestMethod.GET)
+	@RequestMapping(path = "getAllUpdatedReviews.do", method = RequestMethod.POST)
 	public String getAllUpdatedReviews(HttpSession session, Model model, int wineId, String reviewUpdate, int rating, String image) {
 		Customer customer = (Customer) session.getAttribute("customer");
 		Review review = rviewDAO.getReviewByCustomerAndWineId(customer.getId(), wineId);
@@ -336,15 +296,16 @@ public class CustomerController {
 		rviewDAO.updateReview(customer.getId(), wineId, review);
 		List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
 		model.addAttribute("reviews", reviews);
-		return "myReviews";
+		return "redirect:reviewUpdated.do";
 	}
-	@RequestMapping(path = "getAllReviewsUpdated.do", method = RequestMethod.GET)
-	public String getAllReviewsUpdated(HttpSession session, Model model) {
+	@RequestMapping(path = "reviewUpdated.do", method = RequestMethod.GET)
+	public String reviewUpdated(HttpSession session, Model model) {
 		Customer customer = (Customer) session.getAttribute("customer");
 		List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
 		model.addAttribute("reviews", reviews);
 		return "myReviews";
 	}
+	
 	@RequestMapping(path = "removeReview.do", method = RequestMethod.GET)
 	public String removeReview(HttpSession session, Model model, int wineId) {
 		Customer customer = (Customer) session.getAttribute("customer");
@@ -381,40 +342,6 @@ public class CustomerController {
 		model.addAttribute("deleted", deleted);
 		return "favorites";
 	}
-//	@RequestMapping(path = "removeReview.do", method = RequestMethod.GET)
-//	public String removeReview(HttpSession session, Model model, int wineId) {
-//		Customer customer = (Customer) session.getAttribute("customer");
-//		Boolean deleted = rviewDAO.deleteReview(customer.getId(), wineId);
-//		List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
-//		model.addAttribute("reviews", reviews);
-//		model.addAttribute("deleted", deleted);
-//		return "myReviews";
-//	}
-
-//	@RequestMapping(path = "getAllUpdatedFavorites.do", method = RequestMethod.GET)
-//	public String getAllUpdatedFavorites(HttpSession session, Model model, int wineId, String favUpdate, int rating, String image) {
-//		Customer customer = (Customer) session.getAttribute("customer");
-//		Review review = rviewDAO.getReviewByCustomerAndWineId(customer.getId(), wineId);
-//		review.setReview(reviewUpdate);
-//		review.setRating(rating);
-//		review.setImage(image);
-//		rviewDAO.updateReview(customer.getId(), wineId, review);
-//		List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
-//		model.addAttribute("reviews", reviews);
-//		return "myReviews";
-//	}
-//		@RequestMapping(path = "getAllUpdatedReviews.do", method = RequestMethod.GET)
-//		public String getAllUpdatedReviews(HttpSession session, Model model, int wineId, String reviewUpdate, int rating, String image) {
-//			Customer customer = (Customer) session.getAttribute("customer");
-//			Review review = rviewDAO.getReviewByCustomerAndWineId(customer.getId(), wineId);
-//			review.setReview(reviewUpdate);
-//			review.setRating(rating);
-//			review.setImage(image);
-//			rviewDAO.updateReview(customer.getId(), wineId, review);
-//			List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
-//			model.addAttribute("reviews", reviews);
-//			return "myReviews";
-//	}
 	
 	//ORDER FORMS =====================================================================
 	

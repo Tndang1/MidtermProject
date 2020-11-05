@@ -65,10 +65,10 @@
 		<hr>
 		<!-- <form action="addWineReview.do">  -->
 		
-		<form action="addAReview.do"> 
+
 		    <img src="${wine.image}" alt="${wine.labelName} ${wine.vineyard} ${wine.vintageYear}" style="width:128px;height:256px;">
 	<!-- Replace style size limits with CSS -->
-	<p>
+
 	<ul>
 		<li><strong>Label Name: </strong>${wine.labelName}</li>
 		<li><strong>Vineyard: </strong>${wine.vineyard}</li>
@@ -81,12 +81,12 @@
 		<li><strong>Pairs with: </strong>${wine.pairs}</li>
 		<li><strong>Review: </strong>${review.review}</li>
 		</ul>
-		</form>
-		</p>
+
+
 
 		<hr>
 
-<form action = "addWineReview.do">
+<form action = "addWineReview.do" method="POST">
 	
 	<input type = "hidden" name = "custId" value = "${customerId}">
 	<input type = "hidden" name = "wineId" value = "${wineId}">

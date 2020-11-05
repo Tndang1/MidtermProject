@@ -65,7 +65,7 @@
 		<hr>
 <h1>Update Your Review:</h1>	
 
-<form action="getAllUpdatedReviews.do">
+<form action="getAllUpdatedReviews.do" method="POST">
 			<input type="hidden"name="wineId" value="${wineId}" /> 
 			<input type="hidden" name="custId" value="${custId}" />
 											

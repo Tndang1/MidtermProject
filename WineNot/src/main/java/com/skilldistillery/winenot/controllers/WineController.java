@@ -87,57 +87,24 @@ public class WineController {
 		model.addAttribute("wine", findWinesColor);
 		return "listOfWines";
 	}
-	//list of reviews
-	@RequestMapping(path = "reviewsList.do", method = RequestMethod.GET)
-	public String listedReviews (Integer id, Model model) {
-		List<Review> listOfReviews = wineDao.getCustomerReviews(id);
-		model.addAttribute("wine", listOfReviews);
-		return "";
-	}
-	//create wine 
-	@RequestMapping(path = "createWine.do", method = RequestMethod.POST)
-	public ModelAndView createWine(Wine wine, RedirectAttributes ra) {
-		Wine addWine = wineDao.createWine(wine);
-		
-		ModelAndView mv = new ModelAndView();
-		ra.addFlashAttribute("wine", addWine);
-		mv.setViewName("redirect:wineAdded.do");
-		return mv;
-	}
-	//newly created wine added 
-	@RequestMapping(path = "wineAdded.do", method = RequestMethod.GET)
-	public ModelAndView created() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("show");
-		return mv;
-	}
-	//update wine
-	@RequestMapping(path="updatedWine.do", method = RequestMethod.POST)
-	public ModelAndView createUpdatedWine(Integer id, Wine wine) {
-		ModelAndView mv = new ModelAndView();
-		Wine updatedWine = wineDao.findWineById(id);
-		mv.addObject("wine", updatedWine);
-		mv.setViewName("redirect:updateThisWineNow.do");
-		return mv;
-	}
-	//updated by redirect
-	@RequestMapping(path="updateThisWineNow.do", method = RequestMethod.POST) 
-	public ModelAndView update(Integer id) {
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("wine", wineDao.findWineById(id));
-		mv.setViewName("updateWine");
-		return mv;
-		
-	}
-	//display updated wine
-	@RequestMapping(path="Update.do", method = RequestMethod.POST) 
-	public ModelAndView updateConfirmation(Wine wine) {
-		ModelAndView mv = new ModelAndView();
-		wineDao.updateWine(wine);
-		mv.addObject("wine", wine);
-		mv.setViewName("updatedWinePage");
-		return mv;
-	}
+
+//	//create wine 
+//	@RequestMapping(path = "createWine.do", method = RequestMethod.POST)
+//	public ModelAndView createWine(Wine wine, RedirectAttributes ra) {
+//		Wine addWine = wineDao.createWine(wine);
+//		
+//		ModelAndView mv = new ModelAndView();
+//		ra.addFlashAttribute("wine", addWine);
+//		mv.setViewName("redirect:wineAdded.do");
+//		return mv;
+//	}
+//	//newly created wine added 
+//	@RequestMapping(path = "wineAdded.do", method = RequestMethod.GET)
+//	public ModelAndView created() {
+//		ModelAndView mv = new ModelAndView();
+//		mv.setViewName("show");
+//		return mv;
+//	}
 
 	//add review
 	@RequestMapping(path = "addAReview.do")
@@ -150,7 +117,7 @@ public class WineController {
 		return "addReview";
 	}
 	
-	@RequestMapping(path = "addWineReview.do")
+	@RequestMapping(path = "addWineReview.do", method = RequestMethod.POST)
 	public String submitWineReview(HttpSession session, Model model, Integer custId, Integer wineId, String review, Integer rating, String image) {
 		Customer customer = (Customer)session.getAttribute("customer");
 		ReviewId id = new ReviewId(customer.getId(), wineId);
@@ -162,6 +129,14 @@ public class WineController {
 		newReview.setRating(rating);
 		newReview.setImage(image);
 		reviewDao.createReview(newReview);
+		List<Review> reviews = customerDao.getCustomerReviews(customer.getId());
+		model.addAttribute("reviews", reviews);
+//		ra.addFlashAttribute("reviews", reviews);
+		return "redirect:reviewAdded.do";
+	}
+	@RequestMapping(path = "reviewAdded.do", method = RequestMethod.GET)
+	public String reviewAdded(HttpSession session, Model model) {
+		Customer customer = (Customer)session.getAttribute("customer");
 		List<Review> reviews = customerDao.getCustomerReviews(customer.getId());
 		model.addAttribute("reviews", reviews);
 		return "myReviews";
