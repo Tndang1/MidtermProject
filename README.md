@@ -1,4 +1,5 @@
 # WineNot
+(connect website once deployed to EC2)
 
 #### Midterm Group Project
 
@@ -50,11 +51,13 @@ Created a monthly wine subscription delivery service for "wine lovers" to try ra
 11. Amazon Web Services EC2 Instance and Tomcat 8
 12. JSP Standard Tag Library for HTML
 13. ORM (Object-Relational Mapping)
+14. ERDiagram
+15.
 
 #### User Stories
 __________________________________________________________
 #### User Story 1:
-As a user(non-user), I want to get a brief description (website) on the main page of what the monthly wine subscription is about, so I can determine whether I want to sign up for the subscription or not.
+As a user(non-user), I want to get a brief description (website) on the main page of what the monthly wine service is about, so I can determine whether I want to sign up for this or not.
 #### User Story 2:
 As a user(non-user), I want to be able to see the list of wines and select a wine to see with details of the wine including a user's review, so I can determine whether I want to sign up for the subscription or not.
 #### User Story 3:
