@@ -1,5 +1,6 @@
 # WineNot
-(connect website once deployed to EC2)
+
+[WineNot](http://18.220.240.247:8080/WineNot/homePage.do)
 
 #### Midterm Group Project
 
@@ -53,7 +54,6 @@ Created a monthly wine subscription delivery service for "wine lovers" to try ra
 12. JSP Standard Tag Library for HTML
 13. ORM (Object-Relational Mapping)
 14. ERDiagram
-15.
 
 #### User Stories
 __________________________________________________________
