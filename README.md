@@ -41,13 +41,15 @@ Created a monthly wine subscription delivery service for "wine lovers" to try ra
 2. MySQL Workbench
 3. JPA
 4. JUnit
-5. Spring MVC
+5. Spring MVC Dynamic Web Applications
 6. HTML/CSS/Boostrap library
 7. Trello Board for tracking
 8. Wireframes (Figma)
 9. Git and GitHub
 10. Zoom and Slack for communication remotely
-11. Amazon Web Services EC2
+11. Amazon Web Services EC2 Instance and Tomcat 8
+12. JSP Standard Tag Library for HTML
+13. ORM (Object-Relational Mapping)
 
 #### User Stories
 __________________________________________________________
