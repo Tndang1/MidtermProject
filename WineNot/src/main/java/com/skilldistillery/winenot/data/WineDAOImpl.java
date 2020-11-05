@@ -116,14 +116,16 @@ public List<Wine> findWineByWineColorId(int id) {
 		Wine wineToDisable = em.find(Wine.class, id);
 		wineToDisable.setEnabled(0);
 		boolean disabled = wineToDisable.getEnabled() < 1;
+		em.flush();
 		return disabled;
 	}
 	@Override
 	public boolean enableWine(int id) {
-		Wine wineToDisable = em.find(Wine.class, id);
-		wineToDisable.setEnabled(1);
-		boolean disabled = wineToDisable.getEnabled() > 0;
-		return disabled;
+		Wine wineToEnable = em.find(Wine.class, id);
+		wineToEnable.setEnabled(1);
+		boolean enabled = wineToEnable.getEnabled() > 0;
+		em.flush();
+		return enabled;
 	}
 
 

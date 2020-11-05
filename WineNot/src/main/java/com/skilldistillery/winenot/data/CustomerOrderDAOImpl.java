@@ -91,5 +91,18 @@ public class CustomerOrderDAOImpl implements CustomerOrderDAO {
 		boolean removed = wines.size() < 1;
 		return removed;
 	}
+	@Override
+	public boolean processOrder(int orderId) {
+		CustomerOrder dbOrder = em.find(CustomerOrder.class, orderId);
+		dbOrder.setProcessed(1);
+		return dbOrder.getProcessed() == 1;
+	}
+	
+	@Override
+	public boolean unprocessOrder(int orderId) {
+		CustomerOrder dbOrder = em.find(CustomerOrder.class, orderId);
+		dbOrder.setProcessed(0);
+		return dbOrder.getProcessed() == 0;
+	}
 
 }

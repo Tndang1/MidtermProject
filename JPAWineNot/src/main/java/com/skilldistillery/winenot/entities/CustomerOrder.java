@@ -38,6 +38,7 @@ public class CustomerOrder {
 	private double amount;
 	
 	private int size;
+	private int processed;
 	
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinTable(name="order_wine", joinColumns = @JoinColumn(name="order_id"), inverseJoinColumns = @JoinColumn(name="wine_id"))
@@ -150,6 +151,14 @@ public class CustomerOrder {
 			wines.remove(wine);
 			wine.removeCustomerOrder(this);
 		}
+	}
+
+	public int getProcessed() {
+		return processed;
+	}
+
+	public void setProcessed(int processed) {
+		this.processed = processed;
 	}
 	
 //	public void addFilm(Film film) {

@@ -177,6 +177,7 @@ CREATE TABLE IF NOT EXISTS `customer_order` (
   `size` INT NULL,
   `wine_type_id` INT NULL,
   `wine_color_id` INT NULL,
+  `processed` TINYINT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   INDEX `fk_subscription_customer1_idx` (`customer_id` ASC),
   INDEX `fk_order_wine_type1_idx` (`wine_type_id` ASC),
@@ -231,7 +232,7 @@ DROP TABLE IF EXISTS `payment` ;
 CREATE TABLE IF NOT EXISTS `payment` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `complete` TINYINT NULL,
-  `order_id` INT NOT NULL,
+  `order_id` INT NULL,
   `payment_date` DATETIME NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_payment_subscription1_idx` (`order_id` ASC),
@@ -469,9 +470,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `winenotdb`;
-INSERT INTO `customer_order` (`id`, `customer_id`, `order_date`, `amount`, `size`, `wine_type_id`, `wine_color_id`) VALUES (1, 1, '2020-01-01 11:11:11', 129.99, 6, NULL, NULL);
-INSERT INTO `customer_order` (`id`, `customer_id`, `order_date`, `amount`, `size`, `wine_type_id`, `wine_color_id`) VALUES (2, 2, '2020-02-02 22:22:22', 129.99, 6, NULL, 1);
-INSERT INTO `customer_order` (`id`, `customer_id`, `order_date`, `amount`, `size`, `wine_type_id`, `wine_color_id`) VALUES (3, 2, '2020-03-03 10:10:10', 220.99, 12, NULL, NULL);
+INSERT INTO `customer_order` (`id`, `customer_id`, `order_date`, `amount`, `size`, `wine_type_id`, `wine_color_id`, `processed`) VALUES (1, 1, '2020-01-01 11:11:11', 129.99, 6, NULL, NULL, 0);
+INSERT INTO `customer_order` (`id`, `customer_id`, `order_date`, `amount`, `size`, `wine_type_id`, `wine_color_id`, `processed`) VALUES (2, 2, '2020-02-02 22:22:22', 129.99, 6, NULL, 1, 1);
+INSERT INTO `customer_order` (`id`, `customer_id`, `order_date`, `amount`, `size`, `wine_type_id`, `wine_color_id`, `processed`) VALUES (3, 2, '2020-03-03 10:10:10', 220.99, 12, NULL, NULL, 0);
 
 COMMIT;
 
