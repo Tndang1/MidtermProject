@@ -71,7 +71,7 @@
 
 			<p>Please fill in your address information.</p>
 			<hr>
-			<form action="createAddress.do" method=POST>
+			<form action="createAddress.do" method="POST">
 
 			
 					<div>

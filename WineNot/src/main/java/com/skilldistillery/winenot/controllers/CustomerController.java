@@ -249,16 +249,18 @@ public class CustomerController {
 //		address.setCountry(country);
 		paymentInfo.setAddress(null);
 		PaymentInfo newInfo = payInfoDAO.create(paymentInfo);
-//		custDAO.setAddress(customer.getId(), newInfo.getAddress());
-//		custDAO.setPayment(customer.getId(), newInfo);
-		
-//		custDAO.setAddress(customer.getId(), newInfo.getAddress());
-		custDAO.setPayment(customer.getId(), newInfo);
 		model.addAttribute("payInfo", newInfo);
 		customer.setPaymentInfo(paymentInfo);
 		session.setAttribute("customer", customer);
+		return "redirect:paymentInfoCreated.do";
+	}
+	@RequestMapping(path="paymentInfoCreated.do", method= RequestMethod.GET)
+	public String payInfoCreated() {
 		return "userProfilePage";
 	}
+	
+	
+	
 	@RequestMapping(path = "updatePaymentInfoForm.do", method = RequestMethod.GET)
 	public String updatePaymentInfoForm(HttpSession session, Model model) {
 		Customer customer = (Customer) session.getAttribute("customer");
@@ -282,8 +284,11 @@ public class CustomerController {
 		customer.setPaymentInfo(paymentInfo);
 		session.setAttribute("customer", customer);
 		model.addAttribute("address", address);
+		return "redirect:paymentInfoUpdated.do";
+	}
+	@RequestMapping(path = "paymentInfoUpdated.do", method = RequestMethod.GET)
+	public String paymentInfoUpdated() {
 		return "userProfilePage";
-		
 	}
 
 	// REVIEW FORMS ====================================================================================
