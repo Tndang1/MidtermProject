@@ -77,7 +77,7 @@
 	</div>
 	<div>
 		<form:label path="exprDate">Expiration Date: </form:label>
-		<input type="text" class="form-control" required="required"
+		<input type="date" class="form-control" required="required"
 				name="exprDate" placeholder="YYYY-MM-DD" />
 	</div>
 	<!-- <div>
@@ -115,9 +115,6 @@
 		<br>
 			<button type="submit" class="btn btn-primary">Submit Update Card Information</button>
 	</form>
-	
-	
-	
 	
 	<hr>
 

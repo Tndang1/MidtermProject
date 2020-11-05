@@ -65,58 +65,25 @@
 		<hr>
 <h1>Update Your Review:</h1>	
 
-					<form action="getAllUpdatedReviews.do">
-					 <label for="reviews">  Update Review Content:</label>
-										<input type="hidden"
-											name="wineId" value="${wineId}" /> 
-											<input type="hidden"
-											name="custId" value="${custId}" />
+<form action="getAllUpdatedReviews.do">
+			<input type="hidden"name="wineId" value="${wineId}" /> 
+			<input type="hidden" name="custId" value="${custId}" />
 											
 										
-										<input	value="${review.review}" 
-											type="text" name="reviewUpdate"><br>
+		<label for="reviews">  Update Review Content:</label>
+			<input id="reviews" value="${review.review}" type="text" name="reviewUpdate"><br>
 										
-									<label for="rating">Update Review Rating:</label>
-										 <input
-											type="number" name="rating" value="${review.rating }"><br>
+		<label for="rating">Update Review Rating:</label>
+			<input id="rating" type="number" name="rating" max="5" value="${review.rating }"><br>
 										
-									<label for="image">Update Review Image:</label>
-										 <input
-											type="text" name="image" value="${review.image }"><br>
+		<label for="image">Update Review Image:</label>
+			<input id="image" type="text" name="image" value="${review.image }"><br>
 										
-										<button type="submit" >Submit</button><br>
+			<button type="submit" >Submit</button><br>
 										
-									</form>
-								<br>
-								 
-							<%-- 	<td>
-								<form action="removeReview.do">
-										<input type="hidden" name="custId"
-											value="${review.id.customerId}" /> <input type="hidden"
-											name="wineId" value="${review.id.wineId}" />
-										<button type="submit">Delete Review</button>
-									</form>
-									</td> --%>
-							<%-- 	<td><form action="getAllReviewsUpdated.do">
-										<input type="hidden" name="custId"
-											value="${review.id.customerId}" /> <input type="hidden"
-											<name="wineId" value="${review.id.wineId}" /> 
-									</form></td> 
-										 --%>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+</form>	
+</div>	
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
