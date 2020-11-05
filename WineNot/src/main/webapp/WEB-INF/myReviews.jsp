@@ -23,7 +23,7 @@
 	<!-- <h1>User Reviews</h1>
 	<hr> -->
 
-
+<hr>
     <div class ="container">
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -70,6 +70,7 @@
 			
 			</div>
 		</nav>
+		<hr>
 
 
 		<h1><center>User Reviews</center></h1>
