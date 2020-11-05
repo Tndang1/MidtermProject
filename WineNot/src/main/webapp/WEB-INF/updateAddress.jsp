@@ -65,15 +65,13 @@
 			</div>
 		</nav>
 		<hr>
-			
 
 <hr>
-
 <!-- FIX SUBMIT BUTTON FOR UPDATE ADDRESS. -->
 <h1>Update Address:</h1>
 <hr>
 	<form action="updateAddressInfo.do" method="POST">
-	<input type="hidden" value="${address.id}">
+	<input type="hidden" name="id" value="${address.id}">
 		<table>
 			
 			<tr>
@@ -146,7 +144,7 @@
 	<option value="WI">WI</option>	
 	<option value="WV">WV</option>
 	<option value="WY">WY</option>
-</select>	</td>
+</select></td>
 			</tr>
 			
 			<tr>
@@ -158,9 +156,11 @@
 			<td>Country: ${address.country}</td>
 			<td><input type= "text" name="country" value="${address.country }"/></td>
 			</tr>
-		</table> 
-			<button type= "submit">Update Address</button>
-			</form>
+			
+			</table> 
+			<button type="submit">Update Address</button>
+	</form>
+			
 
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
