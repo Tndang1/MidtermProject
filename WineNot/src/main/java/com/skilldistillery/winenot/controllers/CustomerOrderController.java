@@ -124,7 +124,7 @@ public class CustomerOrderController {
 		order.setCustomer(customer);
 		order.setWineColor(colorTypeDAO.findColorById(wineColorId));
 		List<Wine> wines = null;
-		if (wineColorId > 0 && wineColorId < 3) {
+		if (wineColorId != 4) {
 		wines = wineDAO.findWineByWineColorId(wineColorId);
 		} else {
 			wines = wineDAO.findAllEnabledWine();
