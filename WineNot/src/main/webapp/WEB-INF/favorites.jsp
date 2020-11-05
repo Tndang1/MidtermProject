@@ -82,7 +82,7 @@
 <td><form action="removeFromFavorites.do">
 			<input type="hidden"
 				name="wid" value="${w.id}" />
-						<button type="submit">Delete Wine</button>
+						<button type="submit" class="btn btn-danger">Remove Wine</button>
 						</form></td>
 	</c:forEach>
 	
