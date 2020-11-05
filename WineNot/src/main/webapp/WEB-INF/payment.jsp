@@ -67,16 +67,16 @@
 		<hr>
 		<h2>Current Payment Information</h2>
 
-<c:choose>
+<%-- <c:choose>
 		<c:when test="${! empty payInfo}">
 		<ul>
 				<li><strong>Card Number: </strong>${payInfo.cardNumber}</li>
 				<li><strong>Card Expiration: </strong>${customer.paymentInfo.exprDate.month} / ${customer.paymentInfo.exprDate.year}</li>
-				<%-- <li><strong>Street: </strong>${payInfo.address.street}</li>
+				<li><strong>Street: </strong>${payInfo.address.street}</li>
 				<li><strong>City: </strong>${payInfo.address.city}</li>
 				<li><strong>State: </strong>${payInfo.address.state}</li>
 				<li><strong>Zip: </strong>${payInfo.address.zip}</li>
-				<li><strong>Country: </strong>${payInfo.address.country}</li> --%>
+				<li><strong>Country: </strong>${payInfo.address.country}</li>
 		</ul>
 				
 				
@@ -85,10 +85,10 @@
 		<c:otherwise>
 		<p>No payment Info found.</p>
 		</c:otherwise>
-	</c:choose> 
+	</c:choose>  --%>
 	<br>
-			<form action="updatePaymentInfoForm.do">
-			<button type="submit" class="btn btn-primary">Update Card Information</button></form>
+		<!-- 	<form action="updatePaymentInfoForm.do">
+			<button type="submit" class="btn btn-primary">Update Card Information</button></form> -->
 <hr>
 
 	<h3>Click to add your payment Information</h3>
