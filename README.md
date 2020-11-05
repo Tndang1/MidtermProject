@@ -6,10 +6,10 @@
 __________________________________________________________
 
 #### Team: Celestial Slime
-* Thomas Dang
-* Justin Livingston
-* Tevon Patterson
-* Jourdan Rentschler
+* Thomas Dang(Developer, DBA)
+* Justin Livingston(Developer, SCRUM Master)
+* Tevon Patterson(Developer)
+* Jourdan Rentschler(Developer, Repo Owner)
 
 #### Overview
 Created a monthly wine subscription delivery service for "wine lovers" to try randomly hand picked wine (6 bottles or 12 bottles) based off the type and color of wine the customer would like. While creating a fun interactive experience for the customer to add the wines they have tried to their favorites list and also rate the wines they have tried.
