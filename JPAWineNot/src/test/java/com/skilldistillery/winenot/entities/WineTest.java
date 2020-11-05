@@ -84,6 +84,12 @@ class WineTest {
 		assertNotNull(wine);
 		assertEquals(1, wine.getReviews().size());
 	}
+	@Test
+	void test_wine_set_enabled() {
+		wine.setEnabled(0);
+		wine.setEnabled(1);
+		assertEquals(1, wine.getEnabled());
+	}
 	
 	
 }

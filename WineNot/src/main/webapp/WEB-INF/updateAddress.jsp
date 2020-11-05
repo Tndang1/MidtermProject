@@ -151,7 +151,7 @@
 			
 			<tr>
 			<td>Zip Code:</td>
-			<td><input type= "text" name="zip" value="${address.zip }"/><td>
+			<td><input type= "number" name="zip" value="${address.zip }"/><td>
 			</tr>
 			
 			<tr>

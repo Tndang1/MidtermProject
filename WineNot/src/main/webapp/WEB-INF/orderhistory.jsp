@@ -67,12 +67,21 @@
     <hr>
 		<ul>
 			<c:forEach items="${orders}" var="order">
-				<li>${order.orderDate.month} ${order.orderDate.dayOfMonth}, ${order.orderDate.year}
+				<li>${order.orderDate.month} ${order.orderDate.dayOfMonth}, ${order.orderDate.year}. Package of ${order.size}
+				<c:choose>
+				<c:when test ="${order.wineColor.id > 0 || order.wineColor.id < 4}"> ${order.wineColor.wineColor} wines.</c:when>
+				<c:otherwise> mixed color wines.</c:otherwise>
+				</c:choose>
+				<c:choose>
+				<c:when test="${order.processed == 1}">
 					<ul>
 						<c:forEach items="${order.wines}" var="wine">
 							<li>${wine.labelName} ${wine.vineyard} ${wine.vintageYear}</li>
 						</c:forEach>
 					</ul>
+				</c:when>
+				<c:otherwise>Too excited to wait for your package? Check back later to find out what you got!</c:otherwise>
+				</c:choose>
 				</li>
 			</c:forEach>
 		</ul>

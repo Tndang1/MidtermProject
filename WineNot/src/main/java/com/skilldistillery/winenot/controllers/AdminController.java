@@ -106,7 +106,7 @@ public class AdminController {
 	public String adminDeleteReview(Model model, int custId, int wineId) {
 		boolean deleted = rviewDAO.deleteReview(custId, wineId);
 		model.addAttribute("deleted", deleted);
-		return "adminFiles/admin";
+		return "redirect:adminReviewList.do";
 	}
 
 	@RequestMapping(path = "adminUpdateReview.do", method = RequestMethod.GET)
@@ -120,7 +120,7 @@ public class AdminController {
 		updateReview.setWine(wine);
 		updateReview.setCustomer(customer);
 		rviewDAO.updateReview(custId, wineId, updateReview);
-		return "adminFiles/admin";
+		return "redirect:adminReviewList.do";
 	}
 
 	// Admin wine controls++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -136,14 +136,14 @@ public class AdminController {
 	public String adminDisableWine(Model model, int wineId) {
 		boolean disabled = wDAO.disableWine(wineId);
 		model.addAttribute("disabled", disabled);
-		return "adminFiles/admin";
+		return "redirect:adminWineList.do";
 	}
 
 	@RequestMapping(path = "adminEnableWine.do", method = RequestMethod.GET)
 	public String adminEnableWine(Model model, int wineId) {
 		boolean enabled = wDAO.enableWine(wineId);
 		model.addAttribute("enabled", enabled);
-		return "adminFiles/admin";
+		return "redirect:adminWineList.do";
 	}
 
 	@RequestMapping(path = "adminUpdateWine.do", method = RequestMethod.GET)
@@ -151,7 +151,7 @@ public class AdminController {
 		wine.setWineColor(colorTypeDAO.findColorById(wineColorId));
 		wine.setWineType(colorTypeDAO.findTypeById(wineTypeId));
 		wDAO.updateWine(wine);
-		return "adminFiles/admin";
+		return "redirect:adminWineList.do";
 	}
 
 	@RequestMapping(path = "adminAddWine.do", method = RequestMethod.POST)
@@ -159,11 +159,7 @@ public class AdminController {
 		wine.setWineColor(colorTypeDAO.findColorById(wineColorId));
 		wine.setWineType(colorTypeDAO.findTypeById(wineTypeId));
 		wDAO.createWine(wine);
-		return "redirect:adminWineAdded.do";
-	}
-	@RequestMapping(path = "adminWineAdded.do", method = RequestMethod.GET)
-	public String adminWineAdded() {
-		return "adminFiles/admin";
+		return "redirect:adminWineList.do";
 	}
 
 	// Admin user controls+++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -179,14 +175,14 @@ public class AdminController {
 	public String adminDisableUser(Model model, int userId) {
 		boolean disabled = userDAO.disableUser(userId);
 		model.addAttribute("disabled", disabled);
-		return "adminFiles/admin";
+		return "redirect:adminUserList.do";
 	}
 
 	@RequestMapping(path = "adminEnableUser.do", method = RequestMethod.GET)
 	public String adminEnableUser(Model model, int userId) {
 		boolean enabled = userDAO.enableUser(userId);
 		model.addAttribute("enabled", enabled);
-		return "adminFiles/admin";
+		return "redirect:adminUserList.do";
 	}
 
 	@RequestMapping(path = "adminUpdateUser.do", method = RequestMethod.GET)
@@ -201,7 +197,7 @@ public class AdminController {
 		user.setRole(role);
 		User updated = userDAO.updateUser(userId, user);
 		model.addAttribute("user", updated);
-		return "adminFiles/admin";
+		return "redirect:adminUserList.do";
 	}
 
 	// Admin order controls******************************************************
@@ -213,7 +209,7 @@ public class AdminController {
 		return "adminFiles/admin";
 	}
 
-	@RequestMapping(path = "adminDeleteOrder.do", method = RequestMethod.GET)
+	@RequestMapping(path = "adminDeleteOrder.do", method = RequestMethod.POST)
 	public String adminDeleteOrder(Model model, int orderId) {
 		CustomerOrder custOrder = custOrdDAO.findById(orderId);
 		int custId = custOrder.getId();
@@ -223,14 +219,27 @@ public class AdminController {
 			try {
 				Payment payment = paidDAO.findPaymentByOrderId(orderId);
 				paidDAO.deletePayment(payment.getId());
-				return "adminFiles/admin";
+				custOrdDAO.deleteCustomerOrder(orderId);
+				return "redirect:adminOrderList.do";
 			} catch (Exception e) {
 				custOrdDAO.deleteCustomerOrder(orderId);
-				return "adminFiles/admin";
+				return "redirect:adminOrderList.do";
 			}
 
 		}
-		return "adminFiles/admin";
+		return "redirect:adminOrderList.do";
+	}
+	
+	@RequestMapping(path = "adminProcessOrder.do", method = RequestMethod.POST)
+	public String adminProcessOrder(int orderId) {
+		custOrdDAO.processOrder(orderId);
+		return "redirect:adminOrderList.do";
 	}
 
+	@RequestMapping(path = "adminUnprocessOrder.do", method = RequestMethod.POST)
+	public String adminUnprocessOrder(int orderId) {
+		custOrdDAO.unprocessOrder(orderId);
+		return "redirect:adminOrderList.do";
+	}
+	
 }
