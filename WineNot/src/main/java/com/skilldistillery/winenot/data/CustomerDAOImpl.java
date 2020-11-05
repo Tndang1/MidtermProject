@@ -129,5 +129,19 @@ public class CustomerDAOImpl implements CustomerDAO {
 		customer.setPaymentInfo(payInfo);
 		return customer;
 	}
+
+	@Override
+	public boolean removeWineFromFavorites(int id, int wid) {
+		Customer customer = em.find(Customer.class, id);
+		customer.removeWineToFavorites(em.find(Wine.class, wid));
+//		System.out.println(id);
+//		System.out.println(wid);
+//		String jpql = "SELECT f from Wine f where f.id.customerId = :id AND f.id.wid = :wid";
+//		Review favToDelete = em.createQuery(jpql, Review.class).setParameter("id", id).setParameter("wid", wid).getSingleResult();
+//		em.remove(favToDelete);
+//		boolean deleted = !em.contains(favToDelete);
+//		return deleted;
+		return customer.getWines().contains(em.find(Wine.class, wid));
+	}
 	
 }

@@ -371,7 +371,49 @@ public class CustomerController {
 		model.addAttribute("favList", cust);
 		return "favorites";
 	}
+	@RequestMapping(path = "removeFromFavorites.do", method = RequestMethod.GET)
+	public String removeFromFavorites(HttpSession session, Model model, int wid) {
+		Customer customer = (Customer) session.getAttribute("customer");
+		Boolean deleted = custDAO.removeWineFromFavorites(customer.getId(), wid);
+		List<Wine> wines = custDAO.getCustomerFavorites(customer.getId());
+		model.addAttribute("favList", wines);
+		model.addAttribute("deleted", deleted);
+		return "favorites";
+	}
+//	@RequestMapping(path = "removeReview.do", method = RequestMethod.GET)
+//	public String removeReview(HttpSession session, Model model, int wineId) {
+//		Customer customer = (Customer) session.getAttribute("customer");
+//		Boolean deleted = rviewDAO.deleteReview(customer.getId(), wineId);
+//		List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
+//		model.addAttribute("reviews", reviews);
+//		model.addAttribute("deleted", deleted);
+//		return "myReviews";
+//	}
 
+//	@RequestMapping(path = "getAllUpdatedFavorites.do", method = RequestMethod.GET)
+//	public String getAllUpdatedFavorites(HttpSession session, Model model, int wineId, String favUpdate, int rating, String image) {
+//		Customer customer = (Customer) session.getAttribute("customer");
+//		Review review = rviewDAO.getReviewByCustomerAndWineId(customer.getId(), wineId);
+//		review.setReview(reviewUpdate);
+//		review.setRating(rating);
+//		review.setImage(image);
+//		rviewDAO.updateReview(customer.getId(), wineId, review);
+//		List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
+//		model.addAttribute("reviews", reviews);
+//		return "myReviews";
+//	}
+//		@RequestMapping(path = "getAllUpdatedReviews.do", method = RequestMethod.GET)
+//		public String getAllUpdatedReviews(HttpSession session, Model model, int wineId, String reviewUpdate, int rating, String image) {
+//			Customer customer = (Customer) session.getAttribute("customer");
+//			Review review = rviewDAO.getReviewByCustomerAndWineId(customer.getId(), wineId);
+//			review.setReview(reviewUpdate);
+//			review.setRating(rating);
+//			review.setImage(image);
+//			rviewDAO.updateReview(customer.getId(), wineId, review);
+//			List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
+//			model.addAttribute("reviews", reviews);
+//			return "myReviews";
+//	}
 	
 	//ORDER FORMS =====================================================================
 	
