@@ -86,7 +86,7 @@
 		<c:otherwise>
 		<p>No payment Info found.</p>
 		</c:otherwise>
-<<<<<<< HEAD
+
 	</c:choose> 
  --%>		
 
@@ -133,6 +133,7 @@
 			</tr>
 			
 			<button type= "submit">Update Address</button>
+			
 			<!-- </tr><br><br>  -->
 			</table> 
 			</form>
@@ -140,7 +141,7 @@
 			    
 			<form>
 
-<<<<<<< HEAD
+
 
 							
 							 <%-- 	<td><form action="getUpdatedReviewOfWines.do">
@@ -170,14 +171,14 @@
 
 
 	<ul class="navbar-nav mr-auto">
-=======
+
 <!-- 	<ul class="navbar-nav mr-auto">
->>>>>>> 09225f0e132277414774c183c33b518b8bbaa487
+
 		<li class="nav-item">
 			<a class="nav-link" href="deleteAddressForm.do">Delete Address</a>
 		</li>
 	</ul>
-<<<<<<< HEAD
+
 </form>
 			<%--  <form action="deleteAddressForm.do">
 					<input type="hidden" name="custId"
@@ -186,24 +187,23 @@
 						   name="address" value="${address.address}" />
 					<button type="submit">Delete Address</button>
 				</form> --%>
-=======
+
 </form> -->
 			 
 			</table> 
->>>>>>> 09225f0e132277414774c183c33b518b8bbaa487
+
 
 	
 			<!-- <tr>
 			<td><button type= "submit">Update Address</button></td>
 			</tr> -->
 			 
-<<<<<<< HEAD
-=======
+
 		</table>
 	</form>
 <br>
 <br>
->>>>>>> 09225f0e132277414774c183c33b518b8bbaa487
+
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
