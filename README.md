@@ -27,7 +27,7 @@ Created a monthly wine subscription delivery service for "wine lovers" to try ra
 
 #### Lessons Learned
 * Jourdan's Lessons Learned:
-  I learned how important it was that we took the time to plan out how we wanted the website to look and function. I believe that played a big role too in our DB being exactly how we wanted and how we wanted it to operate. As a team we really worked together and saw the value of how important communication was. We did pair programming/swarm programming when one of us was stuck so we could conquer the next task at hand. This project ulitmately put all of what we learned in the last 10 weeks to test! It was a test of our knowledge and skill set and having to refer back to the material for review. Working with the multiple DAOs and Controllers I started to get lost in but saw how important it was to understand our your application and how you were connecting everything. Again, mapping the controllers was the bain of my existence but still was a challenge that I enjoyed. For some odd reason, I now enjoy looking at errors in the stack trace and figuring out where the bug is to correct it! I still feel a little shaky when it comes to some java language but I have to remember I have only been doing this for 10 weeks and will only keep getting better! 
+  I learned how important it was that we took the time to plan out how we wanted the website to look and function. I believe that played a big role too in our DB being exactly how we wanted and how we wanted it to operate. As a team we really worked together and saw the value of how important communication was. We did pair programming/swarm programming when one of us was stuck so we could conquer the next task at hand. This project ulitmately put all of what we learned in the last 10 weeks to test! It was a test of our knowledge and skill set and having to refer back to the material for review. Working with the multiple DAOs and Controllers I started to get lost in but saw how important it was to understand our your application and how you were connecting everything. Again, mapping the controllers was the bain of my existence but still was a challenge that I enjoyed. For some odd reason, I now enjoy looking at errors in the stack trace and figuring out where the bug is to correct it! I still feel a little shaky when it comes to some java language but I have to remember I have only been doing this for 10 weeks and will only keep getting better!
 
 * Thomas's Lessons Learned
 
@@ -47,6 +47,7 @@ Created a monthly wine subscription delivery service for "wine lovers" to try ra
 8. Wireframes (Figma)
 9. Git and GitHub
 10. Zoom and Slack for communication remotely
+11. Amazon Web Services EC2
 
 #### User Stories
 __________________________________________________________
