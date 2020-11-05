@@ -80,7 +80,7 @@
 	<div class="form-group">
 	<li><label for="year">Year</label>
 	<%-- <c:choose> --%>
-	<input type="number" placeholder="Enter 4 Digits" max="9999" min="1000" 
+	<input type="number" placeholder="Enter 4 Digits" max="2020" min="1000" 
  id="year" name="vintageYear" required>
 <%-- 	<c:otherwise>Invalid year size</c:otherwise></c:choose> --%>
 		
