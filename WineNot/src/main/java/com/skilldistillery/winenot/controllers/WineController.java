@@ -71,21 +71,21 @@ public class WineController {
 	public String findWineNames(String labelName, Model model) {
 		List <Wine> findWinesByName = wineDao.findWineByName(labelName);
 		model.addAttribute("wine", findWinesByName);
-		return "searchByWineName";
+		return "listOfWines";
 	}
 	//list of wine types 
 	@RequestMapping(path = "findWineType.do", method = RequestMethod.GET)
 	public String findWineTypes(Integer id, Model model) {
 		List<Wine> findWinesType = wineDao.findWineTypeId(id);
 		model.addAttribute("wine", findWinesType);
-		return "searchByWineType";
+		return "listOfWines";
 	}
 	//list of wine colors
 	@RequestMapping(path = "findWineColor.do", method = RequestMethod.GET)
 	public String findWineColors(Integer id, Model model) {
 		List<Wine> findWinesColor = wineDao.findWineByWineColorId(id);
 		model.addAttribute("wine", findWinesColor);
-		return "searchByWineColor";
+		return "listOfWines";
 	}
 	//list of reviews
 	@RequestMapping(path = "reviewsList.do", method = RequestMethod.GET)
