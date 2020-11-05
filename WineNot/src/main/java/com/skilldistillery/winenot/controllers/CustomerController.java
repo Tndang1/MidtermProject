@@ -140,9 +140,11 @@ public class CustomerController {
 		Customer customer = (Customer) session.getAttribute("customer");
 		if (custDAO.deleteCustomer(customer.getId())) {
 			model.addAttribute("deleteResult", "Customer Account deleted");
+			session.removeAttribute("customer");
 		}
 		else {
 			model.addAttribute("deleteResult", "Customer account not found");
+			session.removeAttribute("customer");
 		}
 		return "homePage";
 	}
@@ -190,24 +192,6 @@ public class CustomerController {
 		
 	}
 
-//	@RequestMapping(path = "deleteAddressForm.do", method = RequestMethod.GET)
-//	public String deleteAddress(HttpSession session, Integer id, Model model) {
-//		Customer customer = (Customer) session.getAttribute("customer");
-//		customer.setAddress(null);
-//		
-//		try {
-//			customer.getPaymentInfo().setAddress(null);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		Boolean deleted = addrDAO.deleteAddress(customer.getAddress().getId());
-//		
-////		Address address = addrDAO.getAddressById(customer.getId());
-////		model.addAttribute("address", address);
-//		model.addAttribute("deleted", deleted);
-//		return "updateAddress";
-//	}
-	
 	@RequestMapping(path = "deleteAddressForm.do", method = RequestMethod.GET)
 	public String deleteAddress(HttpSession session, Model model) {
 		Customer customer = (Customer) session.getAttribute("customer");
@@ -286,7 +270,6 @@ public class CustomerController {
 		Customer customer = (Customer) session.getAttribute("customer");
 		LocalDate date = LocalDate.parse(exprDate); 
 		LocalDateTime newDate = date.atStartOfDay();
-		
 		PaymentInfo paymentInfo = new PaymentInfo();
 		paymentInfo.setCardNumber(cardNumber);
 		paymentInfo.setAddress(address);
@@ -305,14 +288,12 @@ public class CustomerController {
 
 	@RequestMapping(path = "createReviewForm.do", method = RequestMethod.GET)
 	public String createReviewForm(HttpSession session, Review review) {
-
 		return "folder/reviewsForm";
 	}
 
 	@RequestMapping(path = "createReview.do", method = RequestMethod.POST)
 	public String createReview(HttpSession session, Review review, Model model) {
 		model.addAttribute("review", rviewDAO.createReview(review));
-
 		return "folder/userProfilePage";
 	}
 
@@ -406,7 +387,7 @@ public class CustomerController {
 			return "LogIn";
 		}
 		if (customer.getUser().getEnabled() == 0) {
-			String failure = "Invalid login credentials, try again or create and account.";
+			String failure = "Your account is inactive, please contact an administrator.";
 			model.addAttribute("failure", failure);
 			return "LogIn";
 		}
