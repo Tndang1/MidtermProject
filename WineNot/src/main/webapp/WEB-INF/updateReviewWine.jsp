@@ -74,7 +74,7 @@
 			<input id="reviews" value="${review.review}" type="text" name="reviewUpdate"><br>
 										
 		<label for="rating">Update Review Rating:</label>
-			<input id="rating" type="number" name="rating" max="5" value="${review.rating }"><br>
+			<input id="rating" type="number" name="rating" max="5" min="1" value="${review.rating }"><br>
 										
 		<label for="image">Update Review Image:</label>
 			<input id="image" type="text" name="image" value="${review.image }"><br>

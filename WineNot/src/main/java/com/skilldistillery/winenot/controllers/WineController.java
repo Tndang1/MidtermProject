@@ -59,6 +59,44 @@ public class WineController {
 		model.addAttribute("wine", wine);
 		return "show";
 	}
+	//Next/Previous Button to go through list of wines
+	@RequestMapping(path="getNextOrPreviousWine.do", method=RequestMethod.GET)
+	public String getNextOrPreviousWine(HttpSession session, Integer id, Model model) {
+//		Customer customer = (Customer) session.getAttribute("customer");
+//		Wine wine = wineDao.findWineById(id);
+//		int index = 1;
+//		if(wine != null) {
+//			wineDao.findWineById(wine.getId());
+//		}
+//			try {
+//				if()
+//			}
+//		
+//		model.addAttribute("wine", wine);
+		
+//		int index = 1; 
+//		Wine wine = null;
+//		for(int i = 0; i < wines.size(); i++) {
+//			Wine wine = wines.get(i);
+//			if(wine.getId()) {
+//				index = i;
+//			}
+//			
+//		}
+//		index++;
+//		if(index == wines.size()) {
+//			index = 0;
+//		}
+//		wine = wines.get(index);
+//		boolean wineNextPrevious = wineDao.findWineById(id);
+//		model.addAttribute("wineNextPrevious", wineNextPrevious);
+//		return "show";
+		 
+		
+		return "show";
+	}
+	
+	
 	//List of all wines
 	@RequestMapping(path = "wineList.do", method = RequestMethod.GET)
 	public String listedWines(Model model) {
