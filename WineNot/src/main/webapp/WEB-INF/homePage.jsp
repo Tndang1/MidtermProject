@@ -95,7 +95,7 @@
   <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
 </svg></h1>
   <p class="lead">Our website is catered to the wine lovers/enthusiasts and those who want to learn more about wine! 
-  				Here at WineNot, we provide a monthly subscription of 6 to 12 different style wines. 
+  				Here at WineNot, we provide a monthly service of 6 to 12 different style wines. 
   				You are able to choose the color of wine and we will randomly pick the perfect style of wines for your liking.
   				We have hand picked only the finest wines in the world for you to try! After you place your order, you will receive 
   				our selected wines for you at your doorstep! After you have tried our beautiful wines, don't forget to come back to the website
@@ -112,7 +112,7 @@
   				<p>
   				Here at WineNot we pride ourselves in the very best customization of wines for our customers to try. 
   				This also saves our customers time and money on the best product we can provide for them! 
-  				So don't wait! Go ahead and click on the "Sign Up" button above and start your next monthly wine subscription delivery! 
+  				So don't wait! Go ahead and click on the "Sign Up" button above and start your next monthly wine delivery! 
   				
   				We promise you, YOU WON'T REGRET IT!
   				
