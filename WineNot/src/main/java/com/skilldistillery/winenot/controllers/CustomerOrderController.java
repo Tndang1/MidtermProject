@@ -110,7 +110,8 @@ public class CustomerOrderController {
 	//CREATE ORDER CONTROLLERS ======================================================================================================================
 
 	@RequestMapping(path = "create.do", method = RequestMethod.POST)
-	public ModelAndView createCustomerOrder(HttpSession session, CustomerOrder order, Integer custId, Integer wineColor, RedirectAttributes ra) {
+	public ModelAndView createCustomerOrder(HttpSession session, CustomerOrder order, Integer custId, 
+			Integer wineColor, RedirectAttributes ra) {
 		Customer customer = (Customer)session.getAttribute("customer");
   	customer.getAddress();
 		customer.getPaymentInfo();
