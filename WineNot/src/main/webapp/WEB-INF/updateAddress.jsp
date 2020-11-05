@@ -71,6 +71,8 @@
 <h1>Update Address:</h1>
 <hr>
 	<form action="updateAddressInfo.do" method="POST">
+	<input type="hidden" value="${address.id}">
+	<form action="updateAddressInfo.do" method="POST">
 	<input type="hidden" name="id" value="${address.id}">
 		<table>
 			
@@ -161,6 +163,61 @@
 			<button type="submit" class="btn btn-primary">Update Address</button>
 	</form>
 			
+
+
+							
+							 <%-- 	<td><form action="getUpdatedReviewOfWines.do">
+						<input type="hidden" name="custId"
+								value="${review.id.customerId}" /> <input type="hidden"
+								name="wineId" value="${review.id.wineId}" />
+											
+					<button type="submit">Update Review of Wine</button>
+				</form></td>  --%>
+<%-- 
+			    <td><form action="removeReview.do">
+					<input type="hidden" name="custId"
+						   value="${review.id.customerId}" /> <input type="hidden"
+						   name="wineId" value="${review.id.wineId}" />
+					<button type="submit">Delete Review</button>
+				</form></td>
+							
+								<td><form action="getUpdatedReviewOfWines.do">
+						<input type="hidden" name="custId"
+								value="${review.id.customerId}" /> <input type="hidden"
+								name="wineId" value="${review.id.wineId}" />
+											
+					<button type="submit">Update Review of Wine</button>
+				</form></td> --%>
+
+
+
+
+	<ul class="navbar-nav mr-auto">
+<!-- 	<ul class="navbar-nav mr-auto">
+		<li class="nav-item">
+			<a class="nav-link" href="deleteAddressForm.do">Delete Address</a>
+		</li>
+	</ul>
+</form>
+			<%--  <form action="deleteAddressForm.do">
+					<input type="hidden" name="custId"
+						   value="${address.address}" />
+						   <input type="hidden"
+						   name="address" value="${address.address}" />
+					<button type="submit">Delete Address</button>
+				</form> --%>
+</form> -->
+			 
+			</table> 
+
+	
+			<!-- <tr>
+			<td><button type= "submit">Update Address</button></td>
+			</tr> -->
+			 
+		</table>
+	</form>
+<br>
 <br>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

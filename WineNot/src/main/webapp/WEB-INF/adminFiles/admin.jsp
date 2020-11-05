@@ -109,7 +109,7 @@
 	
 		<c:forEach items="${userResults}" var="user">
 		<tr>
-			<td>${user.id}</td><td>${user.email}</td><td>${user.password}</td><td><c:choose><c:when test="${user.enabled == 1}">Enabled</c:when><c:otherwise>Disabled</c:otherwise></c:choose></td>
+			<td>${user.id}</td><td>${user.email}</td><td>******</td><td><c:choose><c:when test="${user.enabled == 1}">Enabled</c:when><c:otherwise>Disabled</c:otherwise></c:choose></td>
 			<td><form action="adminUpdateUserForm.do"><input type ="hidden" name="userId" value="${user.id}"><button type="submit" class="btn btn-primary btn-sm">Update this User</button></form>
 			<td><c:choose><c:when test="${user.enabled == 1}">
 			<form action="adminDisableUser.do"><input type="hidden" name="userId" value="${user.id}"><button type="submit" class="btn btn-dark btn-sm">Disable this User</button></form>

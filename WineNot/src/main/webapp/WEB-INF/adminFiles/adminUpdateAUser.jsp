@@ -77,7 +77,7 @@
 	</div>
 	<div class="form-group">
 	<label for="password">Password</label>
-	<input type="text" id="password" name="password" value="${user.password}"required>
+	<input type="text" ide="password" name="password" value="${user.password}"required>
 	</div>
 	<div class="form-group">
 	<label for="role">Role</label>
