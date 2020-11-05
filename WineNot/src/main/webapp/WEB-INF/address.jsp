@@ -107,11 +107,12 @@
 							name="country" placeholder="country" />
 					</div>
 					</ul>
-							<button action="" type="submit">Submit</button>
+					 		<br>
+							<button action="" type="submit" class="btn btn-primary">Submit</button>
 
 			</form>
 		</div>
-
+<br>
 		<!-- <form>
  <div class="form-group">
     <label for="inputAddress">Address</label>

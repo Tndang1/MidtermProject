@@ -9,9 +9,10 @@ public interface PaymentInfoDAO {
 	
 	PaymentInfo findById(int id);
 
-	public PaymentInfo create(PaymentInfo payInfo, Address address);
+	public PaymentInfo create(PaymentInfo payInfo);
 	
 	public PaymentInfo update(int id, PaymentInfo payInfo);
+	public PaymentInfo setAddress(int id, Address address);
 	
 	public boolean deletePayInfo(int id);
 	

@@ -14,7 +14,7 @@
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-<title>Payment Menu</title>
+<title>Update Payment Menu</title>
 </head>
 <body>
 
@@ -66,35 +66,12 @@
 			</div>
 		</nav>
 		<hr>
-		<h2>Current Payment Information</h2>
 
-<c:choose>
-		<c:when test="${! empty payInfo}">
-		<ul>
-				<li><strong>Card Number: </strong>${payInfo.cardNumber}</li>
-				<li><strong>Card Expiration: </strong>${payInfo.exprDate}</li>
-				<%-- <li><strong>Street: </strong>${payInfo.address.street}</li>
-				<li><strong>City: </strong>${payInfo.address.city}</li>
-				<li><strong>State: </strong>${payInfo.address.state}</li>
-				<li><strong>Zip: </strong>${payInfo.address.zip}</li>
-				<li><strong>Country: </strong>${payInfo.address.country}</li> --%>
-		</ul>
-				
-				
-			
-		</c:when>
-		<c:otherwise>
-		<p>No payment Info found.</p>
-		</c:otherwise>
-	</c:choose> 
-	<br>
-			<form action="updatePaymentInfoForm.do">
-			<button type="submit" class="btn btn-primary">Update Card Information</button></form>
-<hr>
-
-	<h3>Click to add your payment Information</h3>
-	<form action="createPaymentInfo.do" method="POST">
+	<h3>Update your Payment Information</h3>
+	<form action="updatePaymentInfo.do" method="POST">
 	<div>
+		<input type="hidden" name="id" value="${payInfo.id}" >
+		<input type="hidden" name="address" value="${payInfo.address}" >
 		<form:label path="cardNumber">Card Number: </form:label>
 		<input type="text" class="form-control" required="required"
 				name="cardNumber" placeholder="XXXX-XXXX-XXXX-XXXX" />
@@ -137,7 +114,7 @@
 	
 
 		<br>
-			<button type="submit" class="btn btn-primary">Submit Card Information</button>
+			<button type="submit" class="btn btn-primary">Submit Update Card Information</button>
 	</form>
 	
 	
