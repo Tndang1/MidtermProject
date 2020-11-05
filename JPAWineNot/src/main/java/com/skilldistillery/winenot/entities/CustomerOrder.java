@@ -40,6 +40,14 @@ public class CustomerOrder {
 	private int size;
 	private int processed;
 	
+	@ManyToOne
+	@JoinColumn(name = "wine_type_id")
+	private WineType wineType;
+
+	@ManyToOne
+	@JoinColumn(name = "wine_color_id")
+	private WineColor wineColor;
+	
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinTable(name="order_wine", joinColumns = @JoinColumn(name="order_id"), inverseJoinColumns = @JoinColumn(name="wine_id"))
 	private List<Wine> wines;
@@ -159,6 +167,22 @@ public class CustomerOrder {
 
 	public void setProcessed(int processed) {
 		this.processed = processed;
+	}
+
+	public WineType getWineType() {
+		return wineType;
+	}
+
+	public void setWineType(WineType wineType) {
+		this.wineType = wineType;
+	}
+
+	public WineColor getWineColor() {
+		return wineColor;
+	}
+
+	public void setWineColor(WineColor wineColor) {
+		this.wineColor = wineColor;
 	}
 	
 //	public void addFilm(Film film) {
