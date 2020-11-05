@@ -23,10 +23,8 @@ import com.skilldistillery.winenot.entities.Customer;
 import com.skilldistillery.winenot.entities.CustomerOrder;
 import com.skilldistillery.winenot.entities.Payment;
 import com.skilldistillery.winenot.entities.Review;
-import com.skilldistillery.winenot.entities.ReviewId;
 import com.skilldistillery.winenot.entities.User;
 import com.skilldistillery.winenot.entities.Wine;
-import com.skilldistillery.winenot.entities.WineColor;
 
 @Controller
 public class AdminController {
