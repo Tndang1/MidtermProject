@@ -65,36 +65,10 @@
 			</div>
 		</nav>
 		<hr>
-		
-
-<%-- 		<c:choose>
-
-		<%-- <c:choose>
-
-		<c:when test="${! empty payInfo}">
-		<ul>
-				<li><strong>Street: </strong>${payInfo.address.street}</li>
-				<li><strong>City: </strong>${payInfo.address.city}</li>
-				<li><strong>State: </strong>${payInfo.address.state}</li>
-				<li><strong>Zip: </strong>${payInfo.address.zip}</li>
-				<li><strong>Country: </strong>${payInfo.address.country}</li>
-		</ul>
-				
-				
 			
-		</c:when>
-		<c:otherwise>
-		<p>No payment Info found.</p>
-		</c:otherwise>
 
-	</c:choose> 
- --%>		
+<hr>
 
-		
-
-
-	
-		<hr>
 <!-- FIX SUBMIT BUTTON FOR UPDATE ADDRESS. -->
 <h1>Update Address:</h1>
 <hr>
@@ -119,7 +93,60 @@
 			
 			 <tr>
 			 <td>State: ${address.state }</td>
-			<td><input type= "text" name="state" value="${address.state }"/></td>
+			<td><select class="browser-default custom-select" name="state" id="state">
+	<option value="${address.state}">${address.state}</option>
+	<option value="AL">AL</option>
+	<option value="AK">AK</option>
+	<option value="AR">AR</option>	
+	<option value="AZ">AZ</option>
+	<option value="CA">CA</option>
+	<option value="CO">CO</option>
+	<option value="CT">CT</option>
+	<option value="DC">DC</option>
+	<option value="DE">DE</option>
+	<option value="FL">FL</option>
+	<option value="GA">GA</option>
+	<option value="HI">HI</option>
+	<option value="IA">IA</option>	
+	<option value="ID">ID</option>
+	<option value="IL">IL</option>
+	<option value="IN">IN</option>
+	<option value="KS">KS</option>
+	<option value="KY">KY</option>
+	<option value="LA">LA</option>
+	<option value="MA">MA</option>
+	<option value="MD">MD</option>
+	<option value="ME">ME</option>
+	<option value="MI">MI</option>
+	<option value="MN">MN</option>
+	<option value="MO">MO</option>	
+	<option value="MS">MS</option>
+	<option value="MT">MT</option>
+	<option value="NC">NC</option>	
+	<option value="NE">NE</option>
+	<option value="NH">NH</option>
+	<option value="NJ">NJ</option>
+	<option value="NM">NM</option>			
+	<option value="NV">NV</option>
+	<option value="NY">NY</option>
+	<option value="ND">ND</option>
+	<option value="OH">OH</option>
+	<option value="OK">OK</option>
+	<option value="OR">OR</option>
+	<option value="PA">PA</option>
+	<option value="RI">RI</option>
+	<option value="SC">SC</option>
+	<option value="SD">SD</option>
+	<option value="TN">TN</option>
+	<option value="TX">TX</option>
+	<option value="UT">UT</option>
+	<option value="VT">VT</option>
+	<option value="VA">VA</option>
+	<option value="WA">WA</option>
+	<option value="WI">WI</option>	
+	<option value="WV">WV</option>
+	<option value="WY">WY</option>
+</select>	</td>
 			</tr>
 			
 			<tr>
@@ -131,78 +158,9 @@
 			<td>Country: ${address.country}</td>
 			<td><input type= "text" name="country" value="${address.country }"/></td>
 			</tr>
-			
+		</table> 
 			<button type= "submit">Update Address</button>
-			
-			<!-- </tr><br><br>  -->
-			</table> 
 			</form>
-			
-			    
-			<form>
-
-
-
-							
-							 <%-- 	<td><form action="getUpdatedReviewOfWines.do">
-						<input type="hidden" name="custId"
-								value="${review.id.customerId}" /> <input type="hidden"
-								name="wineId" value="${review.id.wineId}" />
-											
-					<button type="submit">Update Review of Wine</button>
-				</form></td>  --%>
-<%-- 
-			    <td><form action="removeReview.do">
-					<input type="hidden" name="custId"
-						   value="${review.id.customerId}" /> <input type="hidden"
-						   name="wineId" value="${review.id.wineId}" />
-					<button type="submit">Delete Review</button>
-				</form></td>
-							
-								<td><form action="getUpdatedReviewOfWines.do">
-						<input type="hidden" name="custId"
-								value="${review.id.customerId}" /> <input type="hidden"
-								name="wineId" value="${review.id.wineId}" />
-											
-					<button type="submit">Update Review of Wine</button>
-				</form></td> --%>
-
-
-
-
-	<ul class="navbar-nav mr-auto">
-
-<!-- 	<ul class="navbar-nav mr-auto">
-
-		<li class="nav-item">
-			<a class="nav-link" href="deleteAddressForm.do">Delete Address</a>
-		</li>
-	</ul>
-
-</form>
-			<%--  <form action="deleteAddressForm.do">
-					<input type="hidden" name="custId"
-						   value="${address.address}" />
-						   <input type="hidden"
-						   name="address" value="${address.address}" />
-					<button type="submit">Delete Address</button>
-				</form> --%>
-
-</form> -->
-			 
-			</table> 
-
-
-	
-			<!-- <tr>
-			<td><button type= "submit">Update Address</button></td>
-			</tr> -->
-			 
-
-		</table>
-	</form>
-<br>
-<br>
 
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
