@@ -75,22 +75,22 @@
 		<table>
 			
 			<tr>
-			<td>Street: ${address.street }</td>
+			<td>Street:</td>
 			<td><input type= "text" name="street" value="${address.street}"/></td>
 			</tr>
 			
 			<tr>
-			<td>Street2: ${address.street2 }</td>
+			<td>Street2:</td>
 			<td><input type= "text" name="street2" value="${address.street2 }"/></td>
 			</tr>
 			
 			<tr>
-			<td>City: ${address.city }</td> 
+			<td>City:</td> 
 		 	<td><input type= "text" name="city" value="${address.city }"/></td>
 			</tr>
 			
 			 <tr>
-			 <td>State: ${address.state }</td>
+			 <td>State:</td>
 			<td><select class="browser-default custom-select" name="state" id="state">
 	<option value="${address.state}">${address.state}</option>
 	<option value="AL">AL</option>
@@ -148,20 +148,20 @@
 			</tr>
 			
 			<tr>
-			<td>Zip Code: ${address.zip }</td>
+			<td>Zip Code:</td>
 			<td><input type= "text" name="zip" value="${address.zip }"/><td>
 			</tr>
 			
 			<tr>
-			<td>Country: ${address.country}</td>
+			<td>Country:</td>
 			<td><input type= "text" name="country" value="${address.country }"/></td>
 			</tr>
 			
 			</table> 
-			<button type="submit">Update Address</button>
+			<button type="submit" class="btn btn-primary">Update Address</button>
 	</form>
 			
-
+<br>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
