@@ -33,7 +33,8 @@ Created a monthly wine subscription delivery service for "wine lovers" to try ra
 
 * Tevon's Lessons Learned
 
-* Justin's Lessons Learned
+* Justin's Lessons Learned :
+  Like Jourdan said, I agree with her the importance of extensive planning. As a team we took the first couple of days to really map out our planning. We spent a good deal on Trello and deciding what kind of User stories we wanted, as well as using a wireframe to really map out how our program was to work. Visually mapping out how your programs work gives the programmers a much easier time to map controllers together. This project showed me my weaknesses as a programmer still, and I was thankful to have excellent teammates to guide me through roadblocks. But after 10 weeks of coding a new language with no previous experience, I am happy with what my team and I have put together and excited to continue learning programming. I will say it was very fun to work through issues peer programing or like Jourdan said Swarm programming only to realize that a reason why your program was getting a 500 error was a typo. Overall I learned many things in this midterm, from the importance of planning, to how organized you should be. Also how overwhelming controllers and jsps can get. Just take things one day at a time and always push forward!
 
 
 #### Technologies Used
