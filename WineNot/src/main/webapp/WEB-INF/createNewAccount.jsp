@@ -115,9 +115,11 @@
 	</div>
 	<div>
 		<form:label path="password">Password: </form:label>
-		<input type="text" class="form-control" required="required"
+		<input type="password" value="fakePW" id="myInput" class="form-control" required="required"
 				name="password" placeholder="Password" />
+				<input type="checkbox" onclick="myFunction()">Show Password
 	</div>
+	
 
 			 
   <div class="form-row">

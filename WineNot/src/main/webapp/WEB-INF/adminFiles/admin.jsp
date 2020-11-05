@@ -64,14 +64,16 @@
 		<hr>
 		<h6>Please selection an option:</h6>
 		<!-- <table> -->
+		<table>
 		<ul>
-		<li><form action="adminWineList.do"><button type="submit" class="btn btn-danger btn-lg">See all Wines <i class='fas fa-wine-glass' style='font-size:18px;'></i></button></form></li>
-		<li><form action="adminReviewList.do"><button type="submit" class="btn btn-danger btn-lg">See all Reviews <i class='fas fa-list-alt'></i></button></form></li>
-		<li><form action="adminUserList.do"><button type="submit" class="btn btn-danger btn-lg">See all Users <i class='fas fa-address-card'></i></button></form></li>
-		<li><form action="adminOrderList.do"><button type="submit" class="btn btn-danger btn-lg">See all Orders <i class='fas fa-address-card'></i></button></form></li>
-		<li><form action="adminWineForm.do"><button type="submit" class="btn btn-danger btn-lg">Add a wine <i class='fas fa-wine-glass' style='font-size:18px;'></i></button></form></li>
+		<li><form action="adminWineList.do"><button type="submit" class="btn btn-danger btn-lg">See all Wines <i class='fas fa-wine-glass' style='font-size:18px;'></i></button></form></li><br>
+		<li><form action="adminReviewList.do"><button type="submit" class="btn btn-danger btn-lg">See all Reviews <i class='fas fa-list-alt'></i></button></form></li><br>
+		<li><form action="adminUserList.do"><button type="submit" class="btn btn-danger btn-lg">See all Users <i class='fas fa-address-card'></i></button></form></li><br>
+		<li><form action="adminOrderList.do"><button type="submit" class="btn btn-danger btn-lg">See all Orders <i class='fas fa-address-card'></i></button></form></li><br>
+		<li><form action="adminWineForm.do"><button type="submit" class="btn btn-danger btn-lg">Add a wine <i class='fas fa-wine-glass' style='font-size:18px;'></i></button></form></li><br>
 		</ul>
 		<!-- </table> -->
+		</table>
 		<hr>
 		
 		
@@ -148,6 +150,16 @@
 </c:if>
 
 <c:if test="${orderResults != null}">
+	<tr>
+			<th>Order Id</th>
+			<th>Customer Id</th>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Order Month</th>
+			<th>Order Day</th>
+			<th>Order Year</th>
+			
+		</tr>
 	<c:forEach items="${orderResults}" var="order">
 	<tr><td>${order.id}</td><td>${order.customer.id}</td><td>${order.customer.fName}</td><td>${order.customer.lName}</td><td>${order.orderDate.month}</td><td>${order.orderDate.dayOfMonth}</td><td>${order.orderDate.year}</td></tr>
 					<tr>
