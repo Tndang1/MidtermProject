@@ -34,9 +34,9 @@
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active"><a class="nav-link"
+		<!-- 			<li class="nav-item active"><a class="nav-link"
 						href="homePage.do">Home <i class='fas fa-home'></i><span
-							class="sr-only">(current)</span></a></li>
+							class="sr-only">(current)</span></a></li> -->
 					<li class="nav-item"><a class="nav-link"
 						href="createUserForm.do">Log In <i class='fas fa-sign-in-alt'></i></a>
 					</li>
@@ -60,7 +60,11 @@
 			</div>
 		</nav>
 		
+<<<<<<< HEAD
 <%-- 		<c:choose>
+=======
+		<%-- <c:choose>
+>>>>>>> 09225f0e132277414774c183c33b518b8bbaa487
 		<c:when test="${! empty payInfo}">
 		<ul>
 				<li><strong>Street: </strong>${payInfo.address.street}</li>
@@ -76,8 +80,13 @@
 		<c:otherwise>
 		<p>No payment Info found.</p>
 		</c:otherwise>
+<<<<<<< HEAD
 	</c:choose> 
  --%>		
+=======
+	</c:choose>  --%>
+		
+>>>>>>> 09225f0e132277414774c183c33b518b8bbaa487
 
 	
 		<hr>
@@ -126,6 +135,7 @@
 			    
 			<form>
 
+<<<<<<< HEAD
 
 							
 							 <%-- 	<td><form action="getUpdatedReviewOfWines.do">
@@ -155,10 +165,14 @@
 
 
 	<ul class="navbar-nav mr-auto">
+=======
+<!-- 	<ul class="navbar-nav mr-auto">
+>>>>>>> 09225f0e132277414774c183c33b518b8bbaa487
 		<li class="nav-item">
 			<a class="nav-link" href="deleteAddressForm.do">Delete Address</a>
 		</li>
 	</ul>
+<<<<<<< HEAD
 </form>
 			<%--  <form action="deleteAddressForm.do">
 					<input type="hidden" name="custId"
@@ -167,12 +181,24 @@
 						   name="address" value="${address.address}" />
 					<button type="submit">Delete Address</button>
 				</form> --%>
+=======
+</form> -->
+			 
+			</table> 
+>>>>>>> 09225f0e132277414774c183c33b518b8bbaa487
 
 	
 			<!-- <tr>
 			<td><button type= "submit">Update Address</button></td>
 			</tr> -->
 			 
+<<<<<<< HEAD
+=======
+		</table>
+	</form>
+<br>
+<br>
+>>>>>>> 09225f0e132277414774c183c33b518b8bbaa487
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

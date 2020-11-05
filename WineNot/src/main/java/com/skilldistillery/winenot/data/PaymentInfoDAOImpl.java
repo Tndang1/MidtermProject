@@ -29,9 +29,9 @@ public class PaymentInfoDAOImpl implements PaymentInfoDAO {
 	}
 
 	@Override
-	public PaymentInfo create(PaymentInfo payInfo, Address address) {
+	public PaymentInfo create(PaymentInfo payInfo) {
 		
-		em.persist(address);
+//		em.persist(address);
 		em.persist(payInfo);
 		em.flush();
 		em.close();
@@ -74,5 +74,6 @@ public class PaymentInfoDAOImpl implements PaymentInfoDAO {
 		paymentInfo.setAddress(address);
 		return paymentInfo;
 	}
+
 
 }

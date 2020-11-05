@@ -121,19 +121,19 @@
 </form>
 
 <c:choose>
-<c:when test="${! empty address}">
+<c:when test="${! empty customer.address}">
 <%-- <c:when test="${! empty customer}"> --%>
 
 
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">Address Information</nav><br>
   <ul>
  <%--  <li><strong>${customer.fName } ${customer.lName }</strong></li> --%>
-  <li><strong>Street: </strong>${address.street }</li>
-  <li><strong>Street2: </strong>${address.street2 }</li>
-  <li><strong>City: </strong>${address.city }</li>
-  <li><strong>State: </strong>${address.state }</li>
-  <li><strong>Zip: </strong>${address.zip }</li>
-  <li><strong>Country: </strong>${address.country }</li>
+  <li><strong>Street: </strong>${customer.address.street }</li>
+  <li><strong>Street2: </strong>${customer.address.street2 }</li>
+  <li><strong>City: </strong>${customer.address.city }</li>
+  <li><strong>State: </strong>${customer.address.state }</li>
+  <li><strong>Zip: </strong>${customer.address.zip }</li>
+  <li><strong>Country: </strong>${customer.address.country }</li>
   </ul>
 </form>
 
