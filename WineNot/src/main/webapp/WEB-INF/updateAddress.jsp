@@ -70,7 +70,7 @@
 <!-- FIX SUBMIT BUTTON FOR UPDATE ADDRESS. -->
 <h1>Update Address:</h1>
 <hr>
-	<form action="updateAddressForm.do" method="POST">
+	<form action="updateAddressInfo.do" method="POST">
 	<input type="hidden" value="${address.id}">
 	<form action="updateAddressInfo.do" method="POST">
 	<input type="hidden" name="id" value="${address.id}">
