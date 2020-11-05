@@ -75,6 +75,8 @@
 <div class="container-fluid">
 <table class="table table-striped table-hover">
 
+<c:choose>
+<c:when test ="${! empty favList }">
 <c:forEach items="${favList }" var="w">
 <tr>
 		<td><a href="getWine.do?wid=${w.id }">${w.labelName}</a></td>
@@ -85,13 +87,21 @@
 						<button type="submit" class="btn btn-danger">Remove Wine</button>
 						</form></td>
 	</c:forEach>
-	
-		
+</c:when>	
+<c:otherwise>
+<strong>Head over to the Wine Cellar and add wines to your favorites list.</strong>
+</c:otherwise>
+		</c:choose>
 	</tr>
-
 </table>
 <br>
 <br>
+
+	<form action="wineList.do" method="GET">
+			<button name="Wine cellar" type="submit" class="btn btn-primary">Back To Wine Cellar </button>
+	</form>
+		
+		<br>
 
 </div>
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
