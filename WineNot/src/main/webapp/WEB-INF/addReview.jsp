@@ -92,7 +92,7 @@
 	<input type = "hidden" name = "wineId" value = "${wineId}">
 	Review: <input type ="text" name = "review"><br>
 	<br>
-	Rating: <input type = "number" name = "rating" max="5"><br>
+	Rating: <input type = "number" name = "rating" max="5" min="1"> <br>
 	<br>
 	Image URL Link: <input type = "text" name = "image"><br>
 	<br>
