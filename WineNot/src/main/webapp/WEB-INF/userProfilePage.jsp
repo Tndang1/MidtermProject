@@ -155,7 +155,7 @@
 		
 	</li>
 		<li class="nav-item">
-		<a class="nav-link" href="createPaymentInfoForm.do">Payment Info</a>
+		<a class="nav-link" href="updatePaymentInfoForm.do">Update Payment Info</a>
 	</li>
 
 </ul>

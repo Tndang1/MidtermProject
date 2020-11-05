@@ -246,6 +246,7 @@ public class CustomerController {
 	@RequestMapping(path = "updatePaymentInfo.do", method = RequestMethod.POST)
 	public String updatePaymentInfo(HttpSession session, Integer id, Model model, Address address, String cardNumber, String exprDate) {
 		Customer customer = (Customer) session.getAttribute("customer");
+		exprDate = exprDate.concat("-01");
 		LocalDate date = LocalDate.parse(exprDate); 
 		LocalDateTime newDate = date.atStartOfDay();
 		PaymentInfo paymentInfo = new PaymentInfo();

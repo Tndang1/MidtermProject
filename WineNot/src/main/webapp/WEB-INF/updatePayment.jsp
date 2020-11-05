@@ -67,56 +67,31 @@
 		<hr>
 
 	<h3>Update your Payment Information</h3>
-	<form action="updatePaymentInfo.do" method="POST">
-	<div>
-		<input type="hidden" name="id" value="${payInfo.id}" >
-		<input type="hidden" name="address" value="${payInfo.address}" >
-		<form:label path="cardNumber">Card Number: </form:label>
-		<input type="text" class="form-control" required="required"
-				name="cardNumber" placeholder="XXXX-XXXX-XXXX-XXXX" />
+<ul>
+<li>Card Number: ${payInfo.cardNumber}</li>
+<li>Expiration Date: ${payInfo.exprDate.month} / ${payInfo.exprDate.year}</li>
+</ul>
+<form action="updatePaymentInfo.do" method="POST">
+<input type="hidden" name="id" value="${payInfo.id}">
+<input type="hidden" name="address" value="${payInfo.address}">
+<input type="hidden" value="payInfo.id">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="cardNum">Card Number</label>
+      <input type="text" id="cardNum" class="form-control" required="required" name="cardNumber" placeholder="XXXX-XXXX-XXXX-XXXX" />
+    </div>
+    <div class="form-group col-md-6">
+      <label for="exprDate">Expiration Date</label>
+      <input type="month" id="exprDate" class="form-control" required="required" name="exprDate"/>
+    </div>
+	<br>
+	<div class="form-group col-md-6">
+	<button type="submit" class="btn btn-primary">Submit Update Card Information</button>
 	</div>
-	<div>
-		<form:label path="exprDate">Expiration Date: </form:label>
-		<input type="date" class="form-control" required="required"
-				name="exprDate" placeholder="YYYY-MM-DD" />
-	</div>
-	<!-- <div>
-		<form:label path="street">Street: </form:label>
-		<input type="text" class="form-control" required="required"
-				name="street" placeholder="Street" />
-	</div>
-	<div>
-		<form:label path="street2">Street 2: </form:label>
-		<input type="text" class="form-control"
-				name="street2" placeholder="Street 2" />
-	</div>
-	<div>
-		<form:label path="city">City: </form:label>
-		<input type="text" class="form-control" required="required"
-				name="city" placeholder="City" />
-	</div>
-	<div>
-		<form:label path="state">State: </form:label>
-		<input type="text" class="form-control" required="required"
-				name="state" placeholder="State" />
-	</div>
-	<div>
-		<form:label path="zip">Zip: </form:label>
-		<input type="text" class="form-control" required="required"
-				name="zip" placeholder="Zip" />
-	</div>
-	<div>
-		<form:label path="country">Country: </form:label>
-		<input type="text" class="form-control" required="required"
-				name="country" placeholder="Country" />
-	</div> -->
-	
+ </div>
+</form>
 
-		<br>
-			<button type="submit" class="btn btn-primary">Submit Update Card Information</button>
-	</form>
-	
-	<hr>
+<hr>
 
 <br>
 </div>

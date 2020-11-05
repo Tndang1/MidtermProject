@@ -63,21 +63,17 @@
 		<h2><center>Administrative Controls</center></h2>
 		<hr>
 		<h6>Please selection an option:</h6>
-		<!-- <table> -->
-		<table>
+
 		<ul>
-		<li><form action="adminWineList.do"><button type="submit" class="btn btn-danger btn-lg">See all Wines <i class='fas fa-wine-glass' style='font-size:18px;'></i></button></form></li><br>
-		<li><form action="adminReviewList.do"><button type="submit" class="btn btn-danger btn-lg">See all Reviews <i class='fas fa-list-alt'></i></button></form></li><br>
-		<li><form action="adminUserList.do"><button type="submit" class="btn btn-danger btn-lg">See all Users <i class='fas fa-address-card'></i></button></form></li><br>
-		<li><form action="adminOrderList.do"><button type="submit" class="btn btn-danger btn-lg">See all Orders <i class='fas fa-address-card'></i></button></form></li><br>
-		<li><form action="adminWineForm.do"><button type="submit" class="btn btn-danger btn-lg">Add a wine <i class='fas fa-wine-glass' style='font-size:18px;'></i></button></form></li><br>
+		<li><form action="adminWineList.do"><button type="submit" class="btn btn-danger btn-lg">See all Wines <i class='fas fa-wine-glass' style='font-size:18px;'></i></button></form></li>
+		<li><form action="adminReviewList.do"><button type="submit" class="btn btn-danger btn-lg">See all Reviews <i class='fas fa-list-alt'></i></button></form></li>
+		<li><form action="adminUserList.do"><button type="submit" class="btn btn-danger btn-lg">See all Users <i class='fas fa-address-card'></i></button></form></li>
+		<li><form action="adminOrderList.do"><button type="submit" class="btn btn-danger btn-lg">See all Orders <i class='fas fa-address-card'></i></button></form></li>
+		<li><form action="adminWineForm.do"><button type="submit" class="btn btn-danger btn-lg">Add a wine <i class='fas fa-wine-glass' style='font-size:18px;'></i></button></form></li>
 		</ul>
-		<!-- </table> -->
-		</table>
+
 		<hr>
 		
-		
-<%-- 		<h6><center>List of Wines:</center></h6> --%>
 <table class="table table-hover">
 <c:if test="${wineResults != null}">
 		<tr>
@@ -88,7 +84,6 @@
 			<th>Update Wine</th>
 			<th>Enabled/Disabled</th>
 		</tr>
-			
 		<c:forEach items="${wineResults}" var="wine">
 		<tr>
 			<td>${wine.id}</td><td>${wine.labelName}</td><td>${wine.vineyard}</td><td><c:choose><c:when test="${wine.enabled == 1}">Enabled</c:when><c:otherwise>Disabled</c:otherwise></c:choose></td>
@@ -150,7 +145,7 @@
 </c:if>
 
 <c:if test="${orderResults != null}">
-	<tr>
+		<tr>
 			<th>Order Id</th>
 			<th>Customer Id</th>
 			<th>First Name</th>
@@ -158,7 +153,6 @@
 			<th>Order Month</th>
 			<th>Order Day</th>
 			<th>Order Year</th>
-			
 		</tr>
 	<c:forEach items="${orderResults}" var="order">
 	<tr><td>${order.id}</td><td>${order.customer.id}</td><td>${order.customer.fName}</td><td>${order.customer.lName}</td><td>${order.orderDate.month}</td><td>${order.orderDate.dayOfMonth}</td><td>${order.orderDate.year}</td></tr>
@@ -177,9 +171,6 @@
 </c:if>
 </table>
 </div>		
-		
-		
-		
 		
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
