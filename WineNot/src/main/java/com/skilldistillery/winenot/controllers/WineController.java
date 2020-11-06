@@ -43,8 +43,7 @@ public class WineController {
 		Customer customer = (Customer) session.getAttribute("customer");
 		Wine wine = wineDao.findWineById(wid); 
 		boolean favorited = false;
-		boolean reviewed = false;
-		List<Review> custReviews = null; 
+
 		boolean reviewFound = false;
 		List<Review> reviews = wine.getReviews();
 		if(customer != null) {
@@ -53,32 +52,31 @@ public class WineController {
 				reviewFound = true;
 				model.addAttribute("review", reviewDao.getReviewByCustomerAndWineId(customer.getId(), wid));
 			} 
-			custReviews = customerDao.getCustomerReviews(customer.getId());
-			try {
-				reviewed = custReviews.contains(reviewDao.getReviewByCustomerAndWineId(customer.getId(), wid));
-			} catch (Exception e) {
-				reviewed = false;
-			}
-		}
-		if(reviews.size() > 0 && reviewFound == false) {
+		} else {
+		if(reviews.size() > 0) {
 				Collections.shuffle(reviews);
 				model.addAttribute("review", reviews.get(0));
 			}
+		}
+		
 		model.addAttribute("favorited", favorited);
-		model.addAttribute("reviewed", reviewed);
+		model.addAttribute("reviewed", reviewFound);
 		model.addAttribute("wine", wine);
 		return "show";
 	}
 	@RequestMapping(path = "getNextWine.do", method = RequestMethod.GET)
 	public String getNextWine(HttpSession session,Integer wid, Model model) {
 		Customer customer = (Customer) session.getAttribute("customer");
-		boolean reviewed = false;
 		boolean favorited = false;
-		List<Review> custReviews = null; 
-		if (wid == wineDao.findAllEnabledWine().size()) {
-			wid = 1;
-		} else {wid++;}
-		Wine wine = wineDao.findWineById(wid); 
+		Wine wine = null;
+		//Loops to beginning of list
+		List<Wine> wines = wineDao.findAllEnabledWine();
+		if (wid == wines.get(wines.size()-1).getId()) {
+			wine = wines.get(0);
+		}  else {
+			wid++;
+			wine = wineDao.findWineById(wid); 
+		}
 		while (wine.getEnabled() == 0) {
 			wid++;
 			wine = wineDao.findWineById(wid);
@@ -92,20 +90,15 @@ public class WineController {
 				reviewFound = true;
 				model.addAttribute("review", reviewDao.getReviewByCustomerAndWineId(customer.getId(), wid));
 			} 
-			custReviews = customerDao.getCustomerReviews(customer.getId());
-			try {
-				reviewed = custReviews.contains(reviewDao.getReviewByCustomerAndWineId(customer.getId(), wid));
-			} catch (Exception e) {
-				reviewed = false;
-			}
-		}
-		if(reviews.size() > 0 && reviewFound == false) {
+		} else {
+			if(reviews.size() > 0) {
 				Collections.shuffle(reviews);
 				model.addAttribute("review", reviews.get(0));
 			}
+		}
 		
 		model.addAttribute("favorited", favorited);
-		model.addAttribute("reviewed", reviewed);
+		model.addAttribute("reviewed", reviewFound);
 		model.addAttribute("wine", wine);
 		return "show";
 	}
@@ -113,13 +106,16 @@ public class WineController {
 	@RequestMapping(path = "getPreviousWine.do", method = RequestMethod.GET)
 	public String getPreviousWine(HttpSession session,Integer wid, Model model) {
 		Customer customer = (Customer) session.getAttribute("customer");
-		boolean reviewed = false;
 		boolean favorited = false;
-		List<Review> custReviews = null; 
-		if (wid == 1) {
-			wid = wineDao.findAllEnabledWine().size();
-		}  else {wid--;}
-		Wine wine = wineDao.findWineById(wid); 
+		//loops to end of list
+		Wine wine = null;
+		List<Wine> wines = wineDao.findAllEnabledWine();
+		if (wid == wines.get(0).getId()) {
+			wine = wines.get(wines.size()-1);
+		}  else {
+			wid--;
+			wine = wineDao.findWineById(wid); 
+		}
 		while (wine.getEnabled() == 0) {
 			wid--;
 			wine = wineDao.findWineById(wid);
@@ -133,23 +129,19 @@ public class WineController {
 				reviewFound = true;
 				model.addAttribute("review", reviewDao.getReviewByCustomerAndWineId(customer.getId(), wid));
 			} 
-			custReviews = customerDao.getCustomerReviews(customer.getId());
-			try {
-				reviewed = custReviews.contains(reviewDao.getReviewByCustomerAndWineId(customer.getId(), wid));
-			} catch (Exception e) {
-				reviewed = false;
-			}
-		}
-		if(reviews.size() > 0 && reviewFound == false) {
+		} else {
+			if(reviews.size() > 0) {
 				Collections.shuffle(reviews);
 				model.addAttribute("review", reviews.get(0));
 			}
+		}
 		
 		model.addAttribute("favorited", favorited);
-		model.addAttribute("reviewed", reviewed);
+		model.addAttribute("reviewed", reviewFound);
 		model.addAttribute("wine", wine);
 		return "show";
 	}
+	
 	
 	//List of all wines
 	@RequestMapping(path = "wineList.do", method = RequestMethod.GET)

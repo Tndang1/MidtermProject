@@ -129,7 +129,8 @@
 </c:choose>
 	</ul>
 	<br>
-	
+
+<c:if test="${wine.enabled == 1}">
 <ul class="pager">
     <li class="previous">
     <form action="getPreviousWine.do">
@@ -142,6 +143,7 @@
     </form>
     </li>
  </ul>
+</c:if>
 	
 	</div>
 	
