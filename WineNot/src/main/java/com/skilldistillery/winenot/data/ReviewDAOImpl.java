@@ -26,7 +26,12 @@ public class ReviewDAOImpl implements ReviewDAO {
 	@Override
 	public Review getReviewByCustomerAndWineId(int custId, int wineId) {
 		String jpql = "SELECT r from Review r where r.id.customerId = :custId AND r.id.wineId = :wineId";
-		Review review = em.createQuery(jpql, Review.class).setParameter("custId", custId).setParameter("wineId", wineId).getSingleResult();
+		Review review;
+		try {
+			review = em.createQuery(jpql, Review.class).setParameter("custId", custId).setParameter("wineId", wineId).getSingleResult();
+		} catch (Exception e) {
+			return null;
+		}
 		return review;
 	}
 

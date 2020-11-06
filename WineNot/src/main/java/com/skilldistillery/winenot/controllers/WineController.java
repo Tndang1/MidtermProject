@@ -1,5 +1,6 @@
 package com.skilldistillery.winenot.controllers;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -39,63 +40,116 @@ public class WineController {
 	//search by Wine ID
 	@RequestMapping(path = "getWine.do", method = RequestMethod.GET)
 	public String showWineId(HttpSession session,Integer wid, Model model) {
-		Wine wine = wineDao.findWineById(wid); 
 		Customer customer = (Customer) session.getAttribute("customer");
-		List<Review> reviews = wine.getReviews();
-		if(reviews.size() > 0) {
-		model.addAttribute("review", reviews.get((int)(Math.random() * (reviews.size()-1))));
-		}
-		List<Review> custReviews = null; 
-		if(customer != null) {
-		custReviews = customerDao.getCustomerReviews(customer.getId());
-		}
+		Wine wine = wineDao.findWineById(wid); 
+		boolean favorited = false;
 		boolean reviewed = false;
-		try {
-			reviewed = custReviews.contains(reviewDao.getReviewByCustomerAndWineId(customer.getId(), wid));
-		} catch (Exception e) {
-			
+		List<Review> custReviews = null; 
+		boolean reviewFound = false;
+		List<Review> reviews = wine.getReviews();
+		if(customer != null) {
+			favorited = customerDao.getCustomerFavorites(customer.getId()).contains(wine);
+			if(reviewDao.getReviewByCustomerAndWineId(customer.getId(), wid) != null) {
+				reviewFound = true;
+				model.addAttribute("review", reviewDao.getReviewByCustomerAndWineId(customer.getId(), wid));
+			} 
+			custReviews = customerDao.getCustomerReviews(customer.getId());
+			try {
+				reviewed = custReviews.contains(reviewDao.getReviewByCustomerAndWineId(customer.getId(), wid));
+			} catch (Exception e) {
+				reviewed = false;
+			}
 		}
+		if(reviews.size() > 0 && reviewFound == false) {
+				Collections.shuffle(reviews);
+				model.addAttribute("review", reviews.get(0));
+			}
+		model.addAttribute("favorited", favorited);
 		model.addAttribute("reviewed", reviewed);
 		model.addAttribute("wine", wine);
 		return "show";
 	}
-	//Next/Previous Button to go through list of wines
-	@RequestMapping(path="getNextOrPreviousWine.do", method=RequestMethod.GET)
-	public String getNextOrPreviousWine(HttpSession session, Integer id, Model model) {
-//		Customer customer = (Customer) session.getAttribute("customer");
-//		Wine wine = wineDao.findWineById(id);
-//		int index = 1;
-//		if(wine != null) {
-//			wineDao.findWineById(wine.getId());
-//		}
-//			try {
-//				if()
-//			}
-//		
-//		model.addAttribute("wine", wine);
+	@RequestMapping(path = "getNextWine.do", method = RequestMethod.GET)
+	public String getNextWine(HttpSession session,Integer wid, Model model) {
+		Customer customer = (Customer) session.getAttribute("customer");
+		boolean reviewed = false;
+		boolean favorited = false;
+		List<Review> custReviews = null; 
+		if (wid == wineDao.findAllEnabledWine().size()) {
+			wid = 1;
+		} else {wid++;}
+		Wine wine = wineDao.findWineById(wid); 
+		while (wine.getEnabled() == 0) {
+			wid++;
+			wine = wineDao.findWineById(wid);
+		}
 		
-//		int index = 1; 
-//		Wine wine = null;
-//		for(int i = 0; i < wines.size(); i++) {
-//			Wine wine = wines.get(i);
-//			if(wine.getId()) {
-//				index = i;
-//			}
-//			
-//		}
-//		index++;
-//		if(index == wines.size()) {
-//			index = 0;
-//		}
-//		wine = wines.get(index);
-//		boolean wineNextPrevious = wineDao.findWineById(id);
-//		model.addAttribute("wineNextPrevious", wineNextPrevious);
-//		return "show";
-		 
+		boolean reviewFound = false;
+		List<Review> reviews = wine.getReviews();
+		if(customer != null) {
+			favorited = customerDao.getCustomerFavorites(customer.getId()).contains(wine);
+			if(reviewDao.getReviewByCustomerAndWineId(customer.getId(), wid) != null) {
+				reviewFound = true;
+				model.addAttribute("review", reviewDao.getReviewByCustomerAndWineId(customer.getId(), wid));
+			} 
+			custReviews = customerDao.getCustomerReviews(customer.getId());
+			try {
+				reviewed = custReviews.contains(reviewDao.getReviewByCustomerAndWineId(customer.getId(), wid));
+			} catch (Exception e) {
+				reviewed = false;
+			}
+		}
+		if(reviews.size() > 0 && reviewFound == false) {
+				Collections.shuffle(reviews);
+				model.addAttribute("review", reviews.get(0));
+			}
 		
+		model.addAttribute("favorited", favorited);
+		model.addAttribute("reviewed", reviewed);
+		model.addAttribute("wine", wine);
 		return "show";
 	}
 	
+	@RequestMapping(path = "getPreviousWine.do", method = RequestMethod.GET)
+	public String getPreviousWine(HttpSession session,Integer wid, Model model) {
+		Customer customer = (Customer) session.getAttribute("customer");
+		boolean reviewed = false;
+		boolean favorited = false;
+		List<Review> custReviews = null; 
+		if (wid == 1) {
+			wid = wineDao.findAllEnabledWine().size();
+		}  else {wid--;}
+		Wine wine = wineDao.findWineById(wid); 
+		while (wine.getEnabled() == 0) {
+			wid--;
+			wine = wineDao.findWineById(wid);
+		}
+		
+		boolean reviewFound = false;
+		List<Review> reviews = wine.getReviews();
+		if(customer != null) {
+			favorited = customerDao.getCustomerFavorites(customer.getId()).contains(wine);
+			if(reviewDao.getReviewByCustomerAndWineId(customer.getId(), wid) != null) {
+				reviewFound = true;
+				model.addAttribute("review", reviewDao.getReviewByCustomerAndWineId(customer.getId(), wid));
+			} 
+			custReviews = customerDao.getCustomerReviews(customer.getId());
+			try {
+				reviewed = custReviews.contains(reviewDao.getReviewByCustomerAndWineId(customer.getId(), wid));
+			} catch (Exception e) {
+				reviewed = false;
+			}
+		}
+		if(reviews.size() > 0 && reviewFound == false) {
+				Collections.shuffle(reviews);
+				model.addAttribute("review", reviews.get(0));
+			}
+		
+		model.addAttribute("favorited", favorited);
+		model.addAttribute("reviewed", reviewed);
+		model.addAttribute("wine", wine);
+		return "show";
+	}
 	
 	//List of all wines
 	@RequestMapping(path = "wineList.do", method = RequestMethod.GET)
