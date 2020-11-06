@@ -13,13 +13,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.winenot.data.AddressDAO;
 import com.skilldistillery.winenot.data.CustomerDAO;
 import com.skilldistillery.winenot.data.PaymentInfoDAO;
 import com.skilldistillery.winenot.data.ReviewDAO;
 import com.skilldistillery.winenot.data.UserDAO;
+import com.skilldistillery.winenot.data.WineDAO;
 import com.skilldistillery.winenot.entities.Address;
 import com.skilldistillery.winenot.entities.Customer;
 import com.skilldistillery.winenot.entities.CustomerOrder;
@@ -43,6 +43,8 @@ public class CustomerController {
 	private PaymentInfoDAO payInfoDAO;
 	@Autowired
 	private ReviewDAO rviewDAO;
+	@Autowired
+	private WineDAO wineDao;
 	
 	//Guide for request mappings ========================================================================
 	
@@ -293,14 +295,20 @@ public class CustomerController {
 		Review review = rviewDAO.getReviewByCustomerAndWineId(customer.getId(), wineId);
 		review.setReview(reviewUpdate);
 		review.setRating(rating);
-		review.setImage(image);
+		if(image == null || image == "") {
+			review.setImage(wineDao.findWineById(wineId).getImage());
+		}else {
+			review.setImage(image);
+			
+		}
 		
-//		if(review.setImage(image) = null) {
-//			model.addAttribute("image", wine.image);
+//		if(review.setImage(image) == null) {
+//			model.addAttribute("image", review.wine.image);
 //		}
 		rviewDAO.updateReview(customer.getId(), wineId, review);
 		List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
 		model.addAttribute("reviews", reviews);
+		System.out.println(review.getImage()+ "******************");
 		return "redirect:reviewUpdated.do";
 	}
 	@RequestMapping(path = "reviewUpdated.do", method = RequestMethod.GET)
