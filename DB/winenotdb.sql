@@ -352,6 +352,7 @@ USE `winenotdb`;
 INSERT INTO `wine_color` (`id`, `wine_color`) VALUES (1, 'red');
 INSERT INTO `wine_color` (`id`, `wine_color`) VALUES (2, 'white');
 INSERT INTO `wine_color` (`id`, `wine_color`) VALUES (3, 'rose');
+INSERT INTO `wine_color` (`id`, `wine_color`) VALUES (4, 'mixed');
 
 COMMIT;
 
