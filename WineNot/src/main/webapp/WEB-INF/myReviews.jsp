@@ -92,23 +92,36 @@
 						</tr>
 						<c:forEach items="${reviews}" var="review">
 							<tr>
-								<c:choose>
+							
+								<%-- <c:choose>
 									<c:when test="${review.image != null}">
 										<td><img src="${review.image}"
 											alt="${review.wine.labelName}"
 											style="width: 50px; height: 50px;">
-											
 									</c:when>
+										<c:when test="${review.image == null || review.image == ''}">
+									<td><img src="${review.wine.image}" alt="${review.wine.labelName}" 
+											style="width:50px;height:50px;">
+											${review.wine.image} trying to display this image
+											</c:when>
+											
+											
 									<c:otherwise>
-										<%-- 	<td><img src="${wine.image}" alt="${wine.labelName} ${wine.vineyard} ${wine.vintageYear}" 
-											style="width:128px;height:256px;"></td> --%>
+											<td><img src="${wine.image}" alt="${wine.labelName} ${wine.vineyard} ${wine.vintageYear}" 
+											style="width:128px;height:256px;"></td>
 										 <td>No image uploaded! Link an image from imgur or
 											similar!</td> 
 									</c:otherwise>
-								</c:choose>
+											
+								</c:choose> --%>
+								<td><img src="${review.image}"
+											alt="${review.wine.labelName}"
+											style="width: 50px; height: 50px;"></td>
+											
 								<td><a href="getWine.do?wid=${review.wine.id}">${review.wine.labelName},
 										${review.wine.vineyard}, ${review.wine.vintageYear}</a></td>
 								
+							
 								<td>${review.rating}</td>
 								<td>${review.review}</td>
 
