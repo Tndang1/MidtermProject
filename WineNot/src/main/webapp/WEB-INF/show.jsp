@@ -70,7 +70,7 @@
 		<hr>
 	<!-- Replace style size limits with CSS -->
 	<p>
-    <img src="${wine.image}" alt="${wine.labelName} ${wine.vineyard} ${wine.vintageYear}" class="wine-img" style="width:200px;height:400px">
+    <img src="${wine.image}" alt="${wine.labelName} ${wine.vineyard} ${wine.vintageYear}" class="wine-img">
 	<ul>
 		<li><strong>Label Name: </strong>${wine.labelName}</li>
 		<li><strong>Vineyard: </strong>${wine.vineyard}</li>
@@ -81,56 +81,67 @@
 		<li><strong>Dietary: </strong>${wine.dietary}</li>
 		<li><strong>Description: </strong>${wine.description}</li>
 		<li><strong>Pairs with: </strong>${wine.pairs}</li>
+		<c:if test="${review.review != null}">
 		<li><strong>Review: </strong>${review.review}</li>
-		<hr>
-		<p>
+		</c:if>
+		</ul>
 		<%-- <form action="addWineToOrder.do" method="GET">
 			<input type="hidden" name="id" value="${custOrder.id}"/>
 			<input type="hidden" name="wine" value="${wine}"/>
 			<button type="submit">Add To Cart</button>
 		</form> --%>
-		<c:choose>
-		<c:when test = "${customer != null }">
-		<form action="addToFavoritesList.do" method="GET">
-			<input type="hidden" name="id" value="${customer.id}"/>
-			<input type="hidden" name="wid" value="${wine.id}"/>
-			<button type="submit" class="btn btn-primary">Add To Favorites</button>
-		</form><br>
-			
+<c:choose>
+	<c:when test = "${customer != null}">
 			<c:choose>
-			<c:when test = "${reviewed == false}">
-			<form action="addAReview.do" method="GET">
-				<input type="hidden" name="custId" value="${customer.id}"/>
-				<input type="hidden" name="wineId" value="${wine.id}"/>
-				<button type="submit" class="btn btn-dark">Review this wine</button>
-			</form>
-			</c:when>
-			<c:otherwise>
-			<form action="getUpdatedReviewOfWines.do" method="GET">
-				<input type="hidden" name="custId" value="${customer.id}"/>
-				<input type="hidden" name="wineId" value="${wine.id}"/>
-				<button type="submit" class="btn btn-success">Update your review?</button>
-			</form>			
-			</c:otherwise>
+				<c:when test = "${favorited}">
+					<strong>This wine is in your favorites list!</strong>
+				</c:when>
+				<c:otherwise>
+					<form action="addToFavoritesList.do" method="GET">
+					<input type="hidden" name="id" value="${customer.id}"/>
+					<input type="hidden" name="wid" value="${wine.id}"/>
+					<button type="submit" class="btn btn-primary">Add To Favorites</button>
+					</form><br>
+				</c:otherwise>
 			</c:choose>
-		</c:when>					 
-		<c:otherwise>
+			<c:choose>
+					<c:when test = "${reviewed == false}">
+					<form action="addAReview.do" method="GET">
+					<input type="hidden" name="custId" value="${customer.id}"/>
+					<input type="hidden" name="wineId" value="${wine.id}"/>
+					<button type="submit" class="btn btn-dark">Review this wine</button>
+					</form>
+					</c:when>
+					<c:otherwise>
+					<form action="getUpdatedReviewOfWines.do" method="GET">
+					<input type="hidden" name="custId" value="${customer.id}"/>
+					<input type="hidden" name="wineId" value="${wine.id}"/>
+					<button type="submit" class="btn btn-success">Update your review?</button>
+					</form>			
+					</c:otherwise>
+			</c:choose>	
+	</c:when>		 
+	<c:otherwise>
 		<form action="checkCredentials.do" method="GET">
-			<button name="logIn" type="submit" class="btn btn-danger">Please LogIn</button>
+		<button name="logIn" type="submit" class="btn btn-danger">Please LogIn</button>
 		</form>
-		</c:otherwise>
-			
-			
-		</c:choose>
-		
-		</p>
+	</c:otherwise>
+</c:choose>
 	</ul>
 	<br>
 	
-	 <ul class="pager">
-    <li class="previous"><a href="getWine.do?wid=${wine.id  -1}">Previous</a></li>
-    <li class="next"><a href="getWine.do?wid=${wine.id  +1 }">Next</a></li>
-  </ul>
+<ul class="pager">
+    <li class="previous">
+    <form action="getPreviousWine.do">
+    <button class="previous_button" type="submit" name="wid" value="${wine.id}"> Previous </button>
+    </form>
+    </li>
+    <li class="next">
+     <form action="getNextWine.do">
+    <button class="next_button" type="submit" name="wid" value="${wine.id}">  Next  </button>
+    </form>
+    </li>
+ </ul>
 	
 	</div>
 	
