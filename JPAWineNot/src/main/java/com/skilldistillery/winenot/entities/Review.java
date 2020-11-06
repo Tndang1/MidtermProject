@@ -23,8 +23,15 @@ public class Review {
 	private Wine wine;
 	
 	public String getImage() {
+		System.out.println(wine);
+		System.out.println(image);
+		if(image == null || image.trim().equals("")) {
+			return wine.getImage();
+		}
 		return image;
 	}
+			
+		
 	public void setImage(String image) {
 		this.image = image;
 	}
