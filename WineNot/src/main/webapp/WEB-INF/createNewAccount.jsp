@@ -118,11 +118,11 @@
 <input type="checkbox" onclick="myFunction()">Show the Password
 <script>
 function myFunction() {
-  var pw_ele = document.getElementById("myInput");
-  if (pw_ele.type === "password") {
-    pw_ele.type = "text";
+  var pass = document.getElementById("myInput");
+  if (pass.type === "password") {
+    pass.type = "text";
   } else {
-    pw_ele.type = "password";
+    pass.type = "password";
   }
 }
 </script>
