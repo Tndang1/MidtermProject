@@ -76,7 +76,7 @@
 				<c:when test="${order.processed == 1}">
 					<ul>
 						<c:forEach items="${order.wines}" var="wine">
-							<li>${wine.labelName} ${wine.vineyard} ${wine.vintageYear}</li>
+							<li><a href="getWine.do?wid=${wine.id }">${wine.labelName} ${wine.vineyard}, ${wine.vintageYear}</a></li>
 						</c:forEach>
 					</ul>
 				</c:when>

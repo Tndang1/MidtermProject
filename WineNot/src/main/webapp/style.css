@@ -1,0 +1,9 @@
+/* wine-img{
+	object-fit: scale-down;
+} */
+
+wine-img {
+object-fit: scale-down;
+max-width: 200px;
+max-height: 200px;
+}

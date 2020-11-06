@@ -7,8 +7,9 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <meta charset="UTF-8">
@@ -67,9 +68,9 @@
 			</div>
 		</nav>
 		<hr>
-    <img src="${wine.image}" alt="${wine.labelName} ${wine.vineyard} ${wine.vintageYear}" style="width:128px;height:256px;">
 	<!-- Replace style size limits with CSS -->
 	<p>
+    <img src="${wine.image}" alt="${wine.labelName} ${wine.vineyard} ${wine.vintageYear}" class="wine-img" style="width:200px;height:400px">
 	<ul>
 		<li><strong>Label Name: </strong>${wine.labelName}</li>
 		<li><strong>Vineyard: </strong>${wine.vineyard}</li>
