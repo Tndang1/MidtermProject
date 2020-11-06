@@ -114,7 +114,7 @@
 		<input type="email" placeholder="wineNot@winenot.com" class="form-control" name="email" placeholder="Email" max="45" required/>
 	</div>
 	
-	Password: <input type="password" placeholder="Password" class="form-control validate" id="myInput" max="100" required>
+	Password: <input name="password" type="password" placeholder="Password" class="form-control validate" id="myInput" max="100" required>
 <input type="checkbox" onclick="myFunction()">Show the Password
 <script>
 function myFunction() {
