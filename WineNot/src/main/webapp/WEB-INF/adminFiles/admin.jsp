@@ -62,15 +62,16 @@
 		<hr>
 		<h2><center>Administrative Controls</center></h2>
 		<hr>
-		<h6>Please selection an option:</h6>
-
+		<h6>Please select an option:</h6>
+		<table>
 		<ul>
-		<li><form action="adminWineList.do"><button type="submit" class="btn btn-danger btn-lg">See all Wines <i class='fas fa-wine-glass' style='font-size:18px;'></i></button></form></li>
-		<li><form action="adminReviewList.do"><button type="submit" class="btn btn-danger btn-lg">See all Reviews <i class='fas fa-list-alt'></i></button></form></li>
-		<li><form action="adminUserList.do"><button type="submit" class="btn btn-danger btn-lg">See all Users <i class='fas fa-address-card'></i></button></form></li>
-		<li><form action="adminOrderList.do"><button type="submit" class="btn btn-danger btn-lg">See all Orders <i class='fas fa-address-card'></i></button></form></li>
-		<li><form action="adminWineForm.do"><button type="submit" class="btn btn-danger btn-lg">Add a wine <i class='fas fa-wine-glass' style='font-size:18px;'></i></button></form></li>
+		<li><form action="adminWineList.do"><button type="submit" class="btn btn-danger btn-lg">See all Wines <i class='fas fa-wine-glass' style='font-size:18px;'></i></button></form></li><br>
+		<li><form action="adminReviewList.do"><button type="submit" class="btn btn-danger btn-lg">See all Reviews <i class='fas fa-list-alt'></i></button></form></li><br>
+		<li><form action="adminUserList.do"><button type="submit" class="btn btn-danger btn-lg">See all Users <i class='fas fa-address-card'></i></button></form></li><br>
+		<li><form action="adminOrderList.do"><button type="submit" class="btn btn-danger btn-lg">See all Orders <i class='fas fa-address-card'></i></button></form></li><br>
+		<li><form action="adminWineForm.do"><button type="submit" class="btn btn-danger btn-lg">Add a wine <i class='fas fa-wine-glass' style='font-size:18px;'></i></button></form></li><br>
 		</ul>
+		</table>
 
 		<hr>
 		

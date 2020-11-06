@@ -125,7 +125,7 @@
       <!-- <input type="password" class="form-control" name="password" placeholder="Password">
     </div>
      -->
-    <input type="password" placeholder="Password" class="form-control validate" id="myInput" max="100" required>
+    <input name="password" type="password" placeholder="Password" class="form-control validate" id="myInput" max="100" required>
 <input type="checkbox" onclick="myFunction()">Show the Password
 <script>
 function myFunction() {
