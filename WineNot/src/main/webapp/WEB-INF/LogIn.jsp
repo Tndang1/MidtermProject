@@ -122,7 +122,21 @@
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" name="password" placeholder="Password">
+      <!-- <input type="password" class="form-control" name="password" placeholder="Password">
+    </div>
+     -->
+    <input type="password" placeholder="Password" class="form-control validate" id="myInput" max="100" required>
+<input type="checkbox" onclick="myFunction()">Show the Password
+<script>
+function myFunction() {
+  var pw_ele = document.getElementById("myInput");
+  if (pw_ele.type === "password") {
+    pw_ele.type = "text";
+  } else {
+    pw_ele.type = "password";
+  }
+}
+</script>
     </div>
   </div>
   <button type="submit" class="btn btn-primary">Sign in</button>

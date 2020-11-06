@@ -113,11 +113,37 @@
 		<form:label path="email">Email: </form:label>
 		<input type="email" placeholder="wineNot@winenot.com" class="form-control" name="email" placeholder="Email" max="45" required/>
 	</div>
-	<div>
+	
+	Password: <input type="password" placeholder="Password" class="form-control validate" id="myInput" max="100" required>
+<input type="checkbox" onclick="myFunction()">Show the Password
+<script>
+function myFunction() {
+  var pass = document.getElementById("myInput");
+  if (pass.type === "password") {
+    pass.type = "text";
+  } else {
+    pass.type = "password";
+  }
+}
+</script>
+	
+	<!-- <div class="md-form md-outline">
+  <i class="fas fa-key prefix" aria-hidden="true"></i>
+  <input type="password" name="password" id="input-password" class="form-control validate" placeholder="Password" max="100"required>
+  <label data-error="wrong" data-success="right" for="input-password\">Password</label>
+  <span toggle="input-password" type="checkbox"></span>
+</div> -->
+	
+	<!-- <div>
 		<form:label path="password">Password: </form:label>
-		<input type="password" placeholder="**********" id="myInput" class="form-control" name="password" placeholder="Password" max="100" required/>
-		<input type="checkbox" onclick="myFunction()">Show Password
-	</div>
+		<i id="pass-status" class="fa fa-eye" aria-hidden="true"></i>
+		<input type="password" name="password"  id="inputPassword" class="form-control" placeholder="Password" max="100" required/>
+ 		<label data-error="wrong" data-success="right" for="inputPassword\">Password</label>
+ 		<input type="text" onclick="myFunction()">Show Password 
+ 		<span toggle="#inputPassword" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+		
+		
+	</div> -->
 	
 
 			 
