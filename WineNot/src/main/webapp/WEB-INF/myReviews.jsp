@@ -100,8 +100,10 @@
 											
 									</c:when>
 									<c:otherwise>
-										<td>No image uploaded! Link an image from imgur or
-											similar!</td>
+										<%-- 	<td><img src="${wine.image}" alt="${wine.labelName} ${wine.vineyard} ${wine.vintageYear}" 
+											style="width:128px;height:256px;"></td> --%>
+										 <td>No image uploaded! Link an image from imgur or
+											similar!</td> 
 									</c:otherwise>
 								</c:choose>
 								<td><a href="getWine.do?wid=${review.wine.id}">${review.wine.labelName},

@@ -294,6 +294,10 @@ public class CustomerController {
 		review.setReview(reviewUpdate);
 		review.setRating(rating);
 		review.setImage(image);
+		
+//		if(review.setImage(image) = null) {
+//			model.addAttribute("image", wine.image);
+//		}
 		rviewDAO.updateReview(customer.getId(), wineId, review);
 		List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
 		model.addAttribute("reviews", reviews);
