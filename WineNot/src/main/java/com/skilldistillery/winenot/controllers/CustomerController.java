@@ -308,7 +308,6 @@ public class CustomerController {
 		rviewDAO.updateReview(customer.getId(), wineId, review);
 		List<Review> reviews = custDAO.getCustomerReviews(customer.getId());
 		model.addAttribute("reviews", reviews);
-		System.out.println(review.getImage()+ "******************");
 		return "redirect:reviewUpdated.do";
 	}
 	@RequestMapping(path = "reviewUpdated.do", method = RequestMethod.GET)
